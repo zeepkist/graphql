@@ -21,10 +21,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'yarn'
 
       - name: Install Dependencies
-        run: yarn install
+        uses: ./packages/actions/src/yarnCache
 
       - name: Generate GraphQL Types
         run: yarn generate
