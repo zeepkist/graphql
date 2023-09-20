@@ -35,17 +35,19 @@ jobs:
       - name: Run Tests
         run: yarn coverage
 
-      - name: Commit new files
-        if: success() && github.ref == 'refs/heads/develop'
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email ${{ secrets.GH_EMAIL }}
-          git add .
-          git commit -m "chore: update generated files [skip ci]"
-          git push origin HEAD:develop
-
       - name: Create Release
         if: success() && github.ref == 'refs/heads/develop'
         run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Commit new files
+        if: success() && github.ref == 'refs/heads/develop'
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.name "GitHub Actions"
+            git config --global user.email ${{ secrets.GH_EMAIL }}
+            git add .
+            git commit -m "chore: update generated files [skip ci]"
+            git push origin HEAD:develop
+          fi
