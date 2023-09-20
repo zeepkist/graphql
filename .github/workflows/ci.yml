@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  FORCE_COLOR: true
+  NODE_VERSION: 18
+
+jobs:
+  setup:
+    name: Lint Bot
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Generate GraphQL Types
+        run: yarn generate
+
+      - name: Run Linter
+        run: yarn lint
+
+      - name: Run Tests
+        run: yarn coverage
+
+      - name: Commit new files
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email ""
+          git add .
+          git commit -m "chore: update generated files [skip ci]"
+          git push origin HEAD:develop
+
+      - name: Create Release
+        if: success() && github.ref == 'refs/heads/develop'
+        run: yarn semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

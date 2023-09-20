@@ -1,0 +1,404 @@
+"""The root query type which gives access points into the data universe."""
+type Query implements Node {
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+
+  """Fetches an object given its globally unique `ID`."""
+  node(
+    """The globally unique `ID`."""
+    nodeId: ID!
+  ): Node
+
+  """Reads and enables pagination through a set of `LevelsView`."""
+  allLevelsViews(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `LevelsView`."""
+    orderBy: [LevelsViewsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LevelsViewCondition
+  ): LevelsViewsConnection
+
+  """Reads and enables pagination through a set of `Level`."""
+  allLevels(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Level`."""
+    orderBy: [LevelsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LevelCondition
+  ): LevelsConnection
+  levelById(id: Int!): Level
+
+  """Reads a single `Level` using its globally unique `ID`."""
+  level(
+    """The globally unique `ID` to be used in selecting a single `Level`."""
+    nodeId: ID!
+  ): Level
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+"""A connection to a list of `LevelsView` values."""
+type LevelsViewsConnection {
+  """A list of `LevelsView` objects."""
+  nodes: [LevelsView]!
+
+  """
+  A list of edges which contains the `LevelsView` and cursor to aid in pagination.
+  """
+  edges: [LevelsViewsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `LevelsView` you could get from the connection."""
+  totalCount: Int!
+}
+
+type LevelsView {
+  id: Int
+  workshopId: BigFloat
+  authorId: BigFloat
+  name: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  imageUrl: String
+  fileUrl: String
+  fileUid: String
+  fileHash: String
+  fileAuthor: String
+  valid: Boolean
+  validation: Float
+  gold: Float
+  silver: Float
+  bronze: Float
+}
+
+"""
+A floating point number that requires more precision than IEEE 754 binary 64
+"""
+scalar BigFloat
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+"""A `LevelsView` edge in the connection."""
+type LevelsViewsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `LevelsView` at the end of the edge."""
+  node: LevelsView
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+}
+
+"""Methods to use when ordering `LevelsView`."""
+enum LevelsViewsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  WORKSHOP_ID_ASC
+  WORKSHOP_ID_DESC
+  AUTHOR_ID_ASC
+  AUTHOR_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  IMAGE_URL_ASC
+  IMAGE_URL_DESC
+  FILE_URL_ASC
+  FILE_URL_DESC
+  FILE_UID_ASC
+  FILE_UID_DESC
+  FILE_HASH_ASC
+  FILE_HASH_DESC
+  FILE_AUTHOR_ASC
+  FILE_AUTHOR_DESC
+  VALID_ASC
+  VALID_DESC
+  VALIDATION_ASC
+  VALIDATION_DESC
+  GOLD_ASC
+  GOLD_DESC
+  SILVER_ASC
+  SILVER_DESC
+  BRONZE_ASC
+  BRONZE_DESC
+}
+
+"""
+A condition to be used against `LevelsView` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input LevelsViewCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `workshopId` field."""
+  workshopId: BigFloat
+
+  """Checks for equality with the object’s `authorId` field."""
+  authorId: BigFloat
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `imageUrl` field."""
+  imageUrl: String
+
+  """Checks for equality with the object’s `fileUrl` field."""
+  fileUrl: String
+
+  """Checks for equality with the object’s `fileUid` field."""
+  fileUid: String
+
+  """Checks for equality with the object’s `fileHash` field."""
+  fileHash: String
+
+  """Checks for equality with the object’s `fileAuthor` field."""
+  fileAuthor: String
+
+  """Checks for equality with the object’s `valid` field."""
+  valid: Boolean
+
+  """Checks for equality with the object’s `validation` field."""
+  validation: Float
+
+  """Checks for equality with the object’s `gold` field."""
+  gold: Float
+
+  """Checks for equality with the object’s `silver` field."""
+  silver: Float
+
+  """Checks for equality with the object’s `bronze` field."""
+  bronze: Float
+}
+
+"""A connection to a list of `Level` values."""
+type LevelsConnection {
+  """A list of `Level` objects."""
+  nodes: [Level]!
+
+  """
+  A list of edges which contains the `Level` and cursor to aid in pagination.
+  """
+  edges: [LevelsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Level` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Level implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  name: String!
+  imageUrl: String!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+  workshopId: BigFloat!
+  valid: Boolean!
+  validation: Float!
+  gold: Float!
+  silver: Float!
+  bronze: Float!
+  authorId: BigFloat!
+  fileHash: String!
+  fileUrl: String!
+  fileAuthor: String!
+  fileUid: String!
+  replacedBy: Int
+}
+
+"""A `Level` edge in the connection."""
+type LevelsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Level` at the end of the edge."""
+  node: Level
+}
+
+"""Methods to use when ordering `Level`."""
+enum LevelsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  IMAGE_URL_ASC
+  IMAGE_URL_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  WORKSHOP_ID_ASC
+  WORKSHOP_ID_DESC
+  VALID_ASC
+  VALID_DESC
+  VALIDATION_ASC
+  VALIDATION_DESC
+  GOLD_ASC
+  GOLD_DESC
+  SILVER_ASC
+  SILVER_DESC
+  BRONZE_ASC
+  BRONZE_DESC
+  AUTHOR_ID_ASC
+  AUTHOR_ID_DESC
+  FILE_HASH_ASC
+  FILE_HASH_DESC
+  FILE_URL_ASC
+  FILE_URL_DESC
+  FILE_AUTHOR_ASC
+  FILE_AUTHOR_DESC
+  FILE_UID_ASC
+  FILE_UID_DESC
+  REPLACED_BY_ASC
+  REPLACED_BY_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Level` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input LevelCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `imageUrl` field."""
+  imageUrl: String
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `workshopId` field."""
+  workshopId: BigFloat
+
+  """Checks for equality with the object’s `valid` field."""
+  valid: Boolean
+
+  """Checks for equality with the object’s `validation` field."""
+  validation: Float
+
+  """Checks for equality with the object’s `gold` field."""
+  gold: Float
+
+  """Checks for equality with the object’s `silver` field."""
+  silver: Float
+
+  """Checks for equality with the object’s `bronze` field."""
+  bronze: Float
+
+  """Checks for equality with the object’s `authorId` field."""
+  authorId: BigFloat
+
+  """Checks for equality with the object’s `fileHash` field."""
+  fileHash: String
+
+  """Checks for equality with the object’s `fileUrl` field."""
+  fileUrl: String
+
+  """Checks for equality with the object’s `fileAuthor` field."""
+  fileAuthor: String
+
+  """Checks for equality with the object’s `fileUid` field."""
+  fileUid: String
+
+  """Checks for equality with the object’s `replacedBy` field."""
+  replacedBy: Int
+}
