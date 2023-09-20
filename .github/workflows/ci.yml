@@ -35,12 +35,6 @@ jobs:
       - name: Run Tests
         run: yarn coverage
 
-      - name: Create Release
-        if: success() && github.ref == 'refs/heads/develop'
-        run: yarn semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
       - name: Commit new files
         if: success() && github.ref == 'refs/heads/develop'
         run: |
@@ -51,3 +45,9 @@ jobs:
             git commit -m "chore: update generated files [skip ci]"
             git push origin HEAD:develop
           fi
+
+      - name: Create Release
+        if: success() && github.ref == 'refs/heads/develop'
+        run: yarn semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
