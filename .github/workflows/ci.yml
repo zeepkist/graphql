@@ -23,7 +23,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install Dependencies
-        uses: ./.github/composites/yarnCache
+        run: yarn install --immutable --inline-builds
+        env:
+          YARN_ENABLE_GLOBAL_CACHE: false
+          YARN_NM_MODE: hardlinks-local
+          YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz
 
       - name: Generate GraphQL Types
         run: yarn generate
