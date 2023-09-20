@@ -6,6 +6,7 @@ const apis = ['gtr', 'zworpshop']
 
 try {
     // Move runtime to top level
+    await rm(join('src', runtimePath), { recursive: true, force: true })
     await rename(join('src', apis[0], runtimePath), join('src', runtimePath))
 } catch (error) {
     console.error('Failed to move runtime to top level', error)

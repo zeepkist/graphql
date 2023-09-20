@@ -1,7 +1,7 @@
 // @ts-nocheck
 import type { LinkedField, LinkedType } from './types.js'
 
-export interface Arguments {
+export interface Args {
     [arg: string]: any | undefined
 }
 
@@ -34,43 +34,43 @@ export interface GraphqlOperation {
 
 const parseRequest = (
     request: Request | undefined,
-    context: Context,
+    ctx: Context,
     path: string[]
 ): string => {
     if (typeof request === 'object' && '__args' in request) {
-        const arguments_: any = request.__args
+        const args: any = request.__args
         const fields: Request | undefined = { ...request }
         delete fields.__args
-        const argumentNames = Object.keys(arguments_)
+        const argNames = Object.keys(args)
 
-        if (argumentNames.length === 0) {
-            return parseRequest(fields, context, path)
+        if (argNames.length === 0) {
+            return parseRequest(fields, ctx, path)
         }
 
-        const field = getFieldFromPath(context.root, path)
+        const field = getFieldFromPath(ctx.root, path)
 
-        const argumentStrings = argumentNames.map(argumentName => {
-            context.varCounter++
-            const variableName = `v${context.varCounter}`
+        const argStrings = argNames.map(argName => {
+            ctx.varCounter++
+            const varName = `v${ctx.varCounter}`
 
-            const typing = field.args && field.args[argumentName] // typeMap used here, .args
+            const typing = field.args && field.args[argName] // typeMap used here, .args
 
             if (!typing) {
                 throw new Error(
-                    `no typing defined for argument \`${argumentName}\` in path \`${path.join(
+                    `no typing defined for argument \`${argName}\` in path \`${path.join(
                         '.'
                     )}\``
                 )
             }
 
-            context.variables[variableName] = {
-                value: arguments_[argumentName],
+            ctx.variables[varName] = {
+                value: args[argName],
                 typing
             }
 
-            return `${argumentName}:$${variableName}`
+            return `${argName}:$${varName}`
         })
-        return `(${argumentStrings})${parseRequest(fields, context, path)}`
+        return `(${argStrings})${parseRequest(fields, ctx, path)}`
     } else if (typeof request === 'object' && Object.keys(request).length > 0) {
         const fields = request
         const fieldNames = Object.keys(fields).filter(k => Boolean(fields[k]))
@@ -82,9 +82,7 @@ const parseRequest = (
         }
 
         const type =
-            path.length > 0
-                ? getFieldFromPath(context.root, path).type
-                : context.root
+            path.length > 0 ? getFieldFromPath(ctx.root, path).type : ctx.root
         const scalarFields = type.scalar
 
         let scalarFieldsFragment: string | undefined
@@ -94,10 +92,10 @@ const parseRequest = (
                 Object.keys(fields).filter(k => !fields[k])
             )
             if (scalarFields?.length) {
-                context.fragmentCounter++
-                scalarFieldsFragment = `f${context.fragmentCounter}`
+                ctx.fragmentCounter++
+                scalarFieldsFragment = `f${ctx.fragmentCounter}`
 
-                context.fragments.push(
+                ctx.fragments.push(
                     `fragment ${scalarFieldsFragment} on ${
                         type.name
                     }{${scalarFields
@@ -110,18 +108,18 @@ const parseRequest = (
         const fieldsSelection = fieldNames
             .filter(f => !['__scalar', '__name'].includes(f))
             .map(f => {
-                const parsed = parseRequest(fields[f], context, [...path, f])
+                const parsed = parseRequest(fields[f], ctx, [...path, f])
 
                 if (f.startsWith('on_')) {
-                    context.fragmentCounter++
-                    const implementationFragment = `f${context.fragmentCounter}`
+                    ctx.fragmentCounter++
+                    const implementationFragment = `f${ctx.fragmentCounter}`
 
                     const typeMatch = f.match(/^on_(.+)/)
 
                     if (!typeMatch || !typeMatch[1])
                         throw new Error('match failed')
 
-                    context.fragments.push(
+                    ctx.fragments.push(
                         `fragment ${implementationFragment} on ${typeMatch[1]}${parsed}`
                     )
 
@@ -144,21 +142,21 @@ export const generateGraphqlOperation = (
     root: LinkedType,
     fields?: Fields
 ): GraphqlOperation => {
-    const context: Context = {
+    const ctx: Context = {
         root: root,
         varCounter: 0,
         variables: {},
         fragmentCounter: 0,
         fragments: []
     }
-    const result = parseRequest(fields, context, [])
+    const result = parseRequest(fields, ctx, [])
 
-    const variableNames = Object.keys(context.variables)
+    const varNames = Object.keys(ctx.variables)
 
-    const variablesString =
-        variableNames.length > 0
-            ? `(${variableNames.map(v => {
-                  const variableType = context.variables[v].typing[1]
+    const varsString =
+        varNames.length > 0
+            ? `(${varNames.map(v => {
+                  const variableType = ctx.variables[v].typing[1]
                   return `$${v}:${variableType}`
               })})`
             : ''
@@ -167,15 +165,16 @@ export const generateGraphqlOperation = (
 
     return {
         query: [
-            `${operation} ${operationName}${variablesString}${result}`,
-            ...context.fragments
+            `${operation} ${operationName}${varsString}${result}`,
+            ...ctx.fragments
         ].join(','),
-        variables: Object.keys(context.variables).reduce<{
-            [name: string]: any
-        }>((r, v) => {
-            r[v] = context.variables[v].value
-            return r
-        }, {}),
+        variables: Object.keys(ctx.variables).reduce<{ [name: string]: any }>(
+            (r, v) => {
+                r[v] = ctx.variables[v].value
+                return r
+            },
+            {}
+        ),
         ...(operationName ? { operationName: operationName.toString() } : {})
     }
 }
@@ -197,7 +196,7 @@ export const getFieldFromPath = (
             throw new Error(`type \`${type.name}\` does not have fields`)
 
         const possibleTypes = Object.keys(type.fields)
-            .filter(index => index.startsWith('on_'))
+            .filter(i => i.startsWith('on_'))
             .reduce(
                 (types, fieldName) => {
                     const field = type.fields && type.fields[fieldName]

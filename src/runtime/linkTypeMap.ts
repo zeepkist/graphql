@@ -2,7 +2,7 @@
 import type {
     CompressedType,
     CompressedTypeMap,
-    LinkedArgMap as LinkedArgumentMap,
+    LinkedArgMap,
     LinkedField,
     LinkedType,
     LinkedTypeMap
@@ -11,7 +11,7 @@ import type {
 export interface PartialLinkedFieldMap {
     [field: string]: {
         type: string
-        args?: LinkedArgumentMap
+        args?: LinkedArgMap
     }
 }
 
@@ -20,7 +20,7 @@ export const linkTypeMap = (
 ): LinkedTypeMap => {
     const indexToName: Record<number, string> = Object.assign(
         {},
-        ...Object.keys(typeMap.types).map((k, index) => ({ [index]: k }))
+        ...Object.keys(typeMap.types).map((k, i) => ({ [i]: k }))
     )
 
     const intermediaryTypeMap = Object.assign(
@@ -42,9 +42,8 @@ export const linkTypeMap = (
                             {},
                             ...Object.keys(fields).map(
                                 (f): PartialLinkedFieldMap => {
-                                    const [typeIndex, arguments_] =
-                                        fields[f] || []
-                                    if (typeIndex == undefined) {
+                                    const [typeIndex, args] = fields[f] || []
+                                    if (typeIndex == null) {
                                         return {}
                                     }
                                     return {
@@ -53,32 +52,29 @@ export const linkTypeMap = (
                                             type: indexToName[typeIndex],
                                             args: Object.assign(
                                                 {},
-                                                ...Object.keys(
-                                                    arguments_ || {}
-                                                ).map(k => {
-                                                    // if argTypeString == argTypeName, argTypeString is missing, need to readd it
-                                                    if (
-                                                        !arguments_ ||
-                                                        !arguments_[k]
-                                                    ) {
-                                                        return
-                                                    }
-                                                    const [
-                                                        argumentTypeName,
-                                                        argumentTypeString
-                                                    ] = arguments_[k] as any
-                                                    return {
-                                                        [k]: [
-                                                            indexToName[
-                                                                argumentTypeName
-                                                            ],
-                                                            argumentTypeString ||
+                                                ...Object.keys(args || {}).map(
+                                                    k => {
+                                                        // if argTypeString == argTypeName, argTypeString is missing, need to readd it
+                                                        if (!args || !args[k]) {
+                                                            return
+                                                        }
+                                                        const [
+                                                            argTypeName,
+                                                            argTypeString
+                                                        ] = args[k] as any
+                                                        return {
+                                                            [k]: [
                                                                 indexToName[
-                                                                    argumentTypeName
-                                                                ]
-                                                        ]
+                                                                    argTypeName
+                                                                ],
+                                                                argTypeString ||
+                                                                    indexToName[
+                                                                        argTypeName
+                                                                    ]
+                                                            ]
+                                                        }
                                                     }
-                                                })
+                                                )
                                             )
                                         }
                                     }
@@ -109,19 +105,19 @@ export const resolveConcreteTypes = (linkedTypeMap: LinkedTypeMap) => {
             const field: LinkedField = fields[f]!
 
             if (field.args) {
-                const arguments_ = field.args
-                for (const key of Object.keys(arguments_)) {
-                    const argument = arguments_[key]
+                const args = field.args
+                for (const key of Object.keys(args)) {
+                    const arg = args[key]
 
-                    if (argument) {
-                        const [typeName] = argument
+                    if (arg) {
+                        const [typeName] = arg
 
                         if (typeof typeName === 'string') {
                             if (!linkedTypeMap[typeName]) {
                                 linkedTypeMap[typeName] = { name: typeName }
                             }
 
-                            argument[0] = linkedTypeMap[typeName]!
+                            arg[0] = linkedTypeMap[typeName]!
                         }
                     }
                 }

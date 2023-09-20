@@ -8,31 +8,34 @@ on:
 
 env:
   FORCE_COLOR: true
-  NODE_VERSION: 18
+  NODE_VERSION: 20
 
 jobs:
   setup:
-    name: Lint Bot
+    name: Test & Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
 
       - uses: actions/setup-node@v3
         with:
+          cache: pnpm
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install
 
       - name: Generate GraphQL Types
-        run: yarn generate
+        run: pnpm generate
 
       - name: Run Linter
-        run: yarn lint
+        run: pnpm lint
 
       - name: Run Tests
-        run: yarn coverage
+        run: pnpm coverage
 
       - name: Commit new files
         if: success() && github.ref == 'refs/heads/develop'
@@ -47,7 +50,7 @@ jobs:
 
       - name: Create Release
         if: success() && github.ref == 'refs/heads/develop'
-        run: yarn semantic-release
+        run: pnpm semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

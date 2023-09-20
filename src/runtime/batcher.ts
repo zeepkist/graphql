@@ -29,8 +29,8 @@ type Options = {
 }
 type Queue = Array<{
     request: GraphqlOperation
-    resolve: (...arguments_: Array<any>) => any
-    reject: (...arguments_: Array<any>) => any
+    resolve: (...args: Array<any>) => any
+    reject: (...args: Array<any>) => any
 }>
 
 /**
@@ -62,16 +62,13 @@ function dispatchQueueBatch(client: QueryBatcher, queue: Queue): void {
             throw new Error('response length did not match query length')
         }
 
-        for (const [index, element] of queue.entries()) {
-            if (responses[index].errors && responses[index].errors.length > 0) {
+        for (const [i, element] of queue.entries()) {
+            if (responses[i].errors && responses[i].errors.length > 0) {
                 element.reject(
-                    new GenqlError(
-                        responses[index].errors,
-                        responses[index].data
-                    )
+                    new GenqlError(responses[i].errors, responses[i].data)
                 )
             } else {
-                element.resolve(responses[index])
+                element.resolve(responses[i])
             }
         }
     })
@@ -89,10 +86,10 @@ function dispatchQueue(client: QueryBatcher, options: Options): void {
     client._queue = []
 
     if (maxBatchSize > 0 && maxBatchSize < queue.length) {
-        for (let index = 0; index < queue.length / maxBatchSize; index++) {
+        for (let i = 0; i < queue.length / maxBatchSize; i++) {
             dispatchQueueBatch(
                 client,
-                queue.slice(index * maxBatchSize, (index + 1) * maxBatchSize)
+                queue.slice(i * maxBatchSize, (i + 1) * maxBatchSize)
             )
         }
     } else {

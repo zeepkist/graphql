@@ -5,13 +5,13 @@ export interface ExecutionResult<TData = { [key: string]: any }> {
     data?: TData | null
 }
 
-export interface ArgumentMap<keyType = number> {
+export interface ArgMap<keyType = number> {
     [arg: string]: [keyType, string] | [keyType] | undefined
 }
 
 export type CompressedField<keyType = number> = [
     type: keyType,
-    args?: ArgumentMap<keyType>
+    args?: ArgMap<keyType>
 ]
 
 export interface CompressedFieldMap<keyType = number> {
@@ -30,7 +30,7 @@ export interface CompressedTypeMap<keyType = number> {
 // normal types
 export type Field<keyType = number> = {
     type: keyType
-    args?: ArgumentMap<keyType>
+    args?: ArgMap<keyType>
 }
 
 export interface FieldMap<keyType = number> {
@@ -46,12 +46,12 @@ export interface TypeMap<keyType = number> {
     }
 }
 
-export interface LinkedArgumentMap {
+export interface LinkedArgMap {
     [arg: string]: [LinkedType, string] | undefined
 }
 export interface LinkedField {
     type: LinkedType
-    args?: LinkedArgumentMap
+    args?: LinkedArgMap
 }
 
 export interface LinkedFieldMap {
