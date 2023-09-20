@@ -22,7 +22,11 @@ export interface Client {
 
 export const createClient = function (options?: ClientOptions): Client {
     return createClientOriginal({
-        url: 'https://graphql.zworpshop.com',
+        url:
+            window?.location?.hostname === 'localhost' ||
+            window?.location?.hostname === '127.0.0.1'
+                ? '/graphql/zworpshop'
+                : 'https://graphql.zworpshop.com',
 
         ...options,
         queryRoot: typeMap.Query!,

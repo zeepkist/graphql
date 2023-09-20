@@ -32,12 +32,12 @@ for (const api of apis) {
         content = content.replaceAll("'./schema'", "'./schema.js'")
 
         content = content.replaceAll(
-            'https://graphql.zeepkist-gtr.com',
+            "'https://graphql.zeepkist-gtr.com'",
             "window?.location?.hostname === 'localhost' || window?.location?.hostname === '127.0.0.1' ? '/graphql/gtr' : 'https://graphql.zeepkist-gtr.com'"
         )
 
         content = content.replaceAll(
-            'https://graphql.zworpshop.com',
+            "'https://graphql.zworpshop.com'",
             "window?.location?.hostname === 'localhost' || window?.location?.hostname === '127.0.0.1' ? '/graphql/zworpshop' : 'https://graphql.zworpshop.com'"
         )
 

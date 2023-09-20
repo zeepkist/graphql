@@ -31,7 +31,11 @@ export interface Client {
 
 export const createClient = function (options?: ClientOptions): Client {
     return createClientOriginal({
-        url: 'https://graphql.zeepkist-gtr.com',
+        url:
+            window?.location?.hostname === 'localhost' ||
+            window?.location?.hostname === '127.0.0.1'
+                ? '/graphql/gtr'
+                : 'https://graphql.zeepkist-gtr.com',
 
         ...options,
         queryRoot: typeMap.Query!,
