@@ -3,6 +3,8 @@ name: CI
 on:
   push:
   workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * * # every day at midnight
 
 env:
   FORCE_COLOR: true
@@ -34,9 +36,10 @@ jobs:
         run: yarn coverage
 
       - name: Commit new files
+        if: success() && github.ref == 'refs/heads/develop'
         run: |
           git config --global user.name "GitHub Actions"
-          git config --global user.email ""
+          git config --global user.email ${{ secrets.GH_EMAIL }}
           git add .
           git commit -m "chore: update generated files [skip ci]"
           git push origin HEAD:develop
