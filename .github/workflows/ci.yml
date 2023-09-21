@@ -44,7 +44,7 @@ jobs:
             git config --global user.name "GitHub Actions"
             git config --global user.email ${{ secrets.GH_EMAIL }}
             git add .
-            git commit -m "chore: update generated files [skip ci]"
+            git commit -m "feat: update graphql types [skip ci]"
             git push origin HEAD:develop
           fi
 
