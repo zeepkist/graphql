@@ -6,11 +6,12 @@ module.exports = {
     env: {
         node: true
     },
-    plugins: ['@typescript-eslint', 'simple-import-sort', 'import'],
+    plugins: ['@typescript-eslint', 'simple-import-sort', 'import', 'regexp'],
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:unicorn/recommended',
+        'plugin:regexp/recommended',
         'plugin:prettier/recommended'
     ],
     parserOptions: {
