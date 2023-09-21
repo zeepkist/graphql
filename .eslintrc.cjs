@@ -55,7 +55,7 @@ module.exports = {
             'error',
             {
                 'ts-ignore': 'allow-with-description',
-                'ts-nocheck': 'off'
+                'ts-nocheck': false
             }
         ]
     },
