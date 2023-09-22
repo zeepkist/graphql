@@ -1,2 +1,14 @@
+.github
+.vscode
+coverage
+scripts
+src
+
+.eslintrc.cjs
+.gitattributes
+.prettierignore
+.prettierrc.json
+.releaserc
+tsconfig.json
 *.tsbuildinfo
 dist/**/*.spec.js
