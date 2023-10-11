@@ -1,5 +1,7 @@
 export default {
-    scalars: [2, 5, 6, 8, 9, 10, 14, 16, 21, 26, 28, 33, 38, 43, 48],
+    scalars: [
+        2, 5, 6, 8, 9, 10, 14, 16, 23, 28, 33, 36, 41, 43, 48, 53, 58, 63
+    ],
     types: {
         Query: {
             query: [0],
@@ -18,8 +20,8 @@ export default {
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [28, '[FavoritesOrderBy!]'],
-                    condition: [29]
+                    orderBy: [43, '[FavoritesOrderBy!]'],
+                    condition: [44]
                 }
             ],
             allLevels: [
@@ -34,6 +36,30 @@ export default {
                     condition: [17]
                 }
             ],
+            allMedia: [
+                30,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [33, '[MediaOrderBy!]'],
+                    condition: [34]
+                }
+            ],
+            allPersonalBests: [
+                20,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [23, '[PersonalBestsOrderBy!]'],
+                    condition: [24]
+                }
+            ],
             allRecords: [
                 18,
                 {
@@ -42,47 +68,23 @@ export default {
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [21, '[RecordsOrderBy!]'],
-                    condition: [22]
+                    orderBy: [36, '[RecordsOrderBy!]'],
+                    condition: [37]
                 }
             ],
             allStats: [
-                35,
+                50,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [38, '[StatsOrderBy!]'],
-                    condition: [39]
+                    orderBy: [53, '[StatsOrderBy!]'],
+                    condition: [54]
                 }
             ],
             allUpvotes: [
-                30,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [33, '[UpvotesOrderBy!]'],
-                    condition: [34]
-                }
-            ],
-            allUsers: [
-                41,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [43, '[UsersOrderBy!]'],
-                    condition: [44]
-                }
-            ],
-            allVersions: [
                 45,
                 {
                     first: [5],
@@ -90,20 +92,56 @@ export default {
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [48, '[VersionsOrderBy!]'],
+                    orderBy: [48, '[UpvotesOrderBy!]'],
                     condition: [49]
                 }
             ],
-            allVotes: [
-                23,
+            allUsers: [
+                56,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [26, '[VotesOrderBy!]'],
-                    condition: [27]
+                    orderBy: [58, '[UsersOrderBy!]'],
+                    condition: [59]
+                }
+            ],
+            allVersions: [
+                60,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [63, '[VersionsOrderBy!]'],
+                    condition: [64]
+                }
+            ],
+            allVotes: [
+                38,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [41, '[VotesOrderBy!]'],
+                    condition: [42]
+                }
+            ],
+            allWorldRecords: [
+                25,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [28, '[WorldRecordsOrderBy!]'],
+                    condition: [29]
                 }
             ],
             favoriteById: [
@@ -118,6 +156,18 @@ export default {
                     id: [5, 'Int!']
                 }
             ],
+            mediaById: [
+                31,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
+            personalBestById: [
+                21,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
             recordById: [
                 19,
                 {
@@ -125,13 +175,13 @@ export default {
                 }
             ],
             statById: [
-                36,
+                51,
                 {
                     id: [5, 'Int!']
                 }
             ],
             upvoteById: [
-                31,
+                46,
                 {
                     id: [5, 'Int!']
                 }
@@ -143,13 +193,19 @@ export default {
                 }
             ],
             versionById: [
-                46,
+                61,
                 {
                     id: [5, 'Int!']
                 }
             ],
             voteById: [
-                24,
+                39,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
+            worldRecordById: [
+                26,
                 {
                     id: [5, 'Int!']
                 }
@@ -166,6 +222,18 @@ export default {
                     nodeId: [2, 'ID!']
                 }
             ],
+            media: [
+                31,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
+            personalBest: [
+                21,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
             record: [
                 19,
                 {
@@ -173,13 +241,13 @@ export default {
                 }
             ],
             stat: [
-                36,
+                51,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             upvote: [
-                31,
+                46,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -191,13 +259,19 @@ export default {
                 }
             ],
             version: [
-                46,
+                61,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             vote: [
-                24,
+                39,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
+            worldRecord: [
+                26,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -211,16 +285,19 @@ export default {
             on_Level: [7],
             on_User: [11],
             on_Record: [19],
-            on_Vote: [24],
-            on_Upvote: [31],
-            on_Stat: [36],
-            on_Version: [46],
+            on_PersonalBest: [21],
+            on_WorldRecord: [26],
+            on_Media: [31],
+            on_Vote: [39],
+            on_Upvote: [46],
+            on_Stat: [51],
+            on_Version: [61],
             __typename: [8]
         },
         ID: {},
         FavoritesConnection: {
             nodes: [4],
-            edges: [40],
+            edges: [55],
             pageInfo: [15],
             totalCount: [5],
             __typename: [8]
@@ -266,20 +343,20 @@ export default {
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [21, '[RecordsOrderBy!]'],
-                    condition: [22]
+                    orderBy: [36, '[RecordsOrderBy!]'],
+                    condition: [37]
                 }
             ],
             votesByLevel: [
-                23,
+                38,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [26, '[VotesOrderBy!]'],
-                    condition: [27]
+                    orderBy: [41, '[VotesOrderBy!]'],
+                    condition: [42]
                 }
             ],
             favoritesByLevel: [
@@ -290,20 +367,44 @@ export default {
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [28, '[FavoritesOrderBy!]'],
-                    condition: [29]
+                    orderBy: [43, '[FavoritesOrderBy!]'],
+                    condition: [44]
                 }
             ],
             upvotesByLevel: [
-                30,
+                45,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [33, '[UpvotesOrderBy!]'],
-                    condition: [34]
+                    orderBy: [48, '[UpvotesOrderBy!]'],
+                    condition: [49]
+                }
+            ],
+            personalBestsByLevel: [
+                20,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [23, '[PersonalBestsOrderBy!]'],
+                    condition: [24]
+                }
+            ],
+            worldRecordsByLevel: [
+                25,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [28, '[WorldRecordsOrderBy!]'],
+                    condition: [29]
                 }
             ],
             __typename: [8]
@@ -343,20 +444,20 @@ export default {
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [21, '[RecordsOrderBy!]'],
-                    condition: [22]
+                    orderBy: [36, '[RecordsOrderBy!]'],
+                    condition: [37]
                 }
             ],
             votesByUser: [
-                23,
+                38,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [26, '[VotesOrderBy!]'],
-                    condition: [27]
+                    orderBy: [41, '[VotesOrderBy!]'],
+                    condition: [42]
                 }
             ],
             favoritesByUser: [
@@ -367,32 +468,56 @@ export default {
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [28, '[FavoritesOrderBy!]'],
-                    condition: [29]
+                    orderBy: [43, '[FavoritesOrderBy!]'],
+                    condition: [44]
                 }
             ],
             upvotesByUser: [
-                30,
+                45,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [33, '[UpvotesOrderBy!]'],
-                    condition: [34]
+                    orderBy: [48, '[UpvotesOrderBy!]'],
+                    condition: [49]
                 }
             ],
             statsByUser: [
-                35,
+                50,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [14],
                     after: [14],
-                    orderBy: [38, '[StatsOrderBy!]'],
-                    condition: [39]
+                    orderBy: [53, '[StatsOrderBy!]'],
+                    condition: [54]
+                }
+            ],
+            personalBestsByUser: [
+                20,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [23, '[PersonalBestsOrderBy!]'],
+                    condition: [24]
+                }
+            ],
+            worldRecordsByUser: [
+                25,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [28, '[WorldRecordsOrderBy!]'],
+                    condition: [29]
                 }
             ],
             __typename: [8]
@@ -440,7 +565,7 @@ export default {
         },
         RecordsConnection: {
             nodes: [19],
-            edges: [20],
+            edges: [35],
             pageInfo: [15],
             totalCount: [5],
             __typename: [8]
@@ -461,8 +586,156 @@ export default {
             isValid: [10],
             isWr: [10],
             levelHash: [8],
+            modVersion: [8],
             levelByLevel: [7],
             userByUser: [11],
+            personalBestsByRecord: [
+                20,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [23, '[PersonalBestsOrderBy!]'],
+                    condition: [24]
+                }
+            ],
+            worldRecordsByRecord: [
+                25,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [28, '[WorldRecordsOrderBy!]'],
+                    condition: [29]
+                }
+            ],
+            mediaByRecord: [
+                30,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [14],
+                    after: [14],
+                    orderBy: [33, '[MediaOrderBy!]'],
+                    condition: [34]
+                }
+            ],
+            __typename: [8]
+        },
+        PersonalBestsConnection: {
+            nodes: [21],
+            edges: [22],
+            pageInfo: [15],
+            totalCount: [5],
+            __typename: [8]
+        },
+        PersonalBest: {
+            nodeId: [2],
+            id: [5],
+            record: [5],
+            user: [5],
+            level: [5],
+            periodStart: [6],
+            periodEnd: [6],
+            dateCreated: [6],
+            dateUpdated: [6],
+            recordByRecord: [19],
+            userByUser: [11],
+            levelByLevel: [7],
+            __typename: [8]
+        },
+        PersonalBestsEdge: {
+            cursor: [14],
+            node: [21],
+            __typename: [8]
+        },
+        PersonalBestsOrderBy: {},
+        PersonalBestCondition: {
+            id: [5],
+            record: [5],
+            user: [5],
+            level: [5],
+            periodStart: [6],
+            periodEnd: [6],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        WorldRecordsConnection: {
+            nodes: [26],
+            edges: [27],
+            pageInfo: [15],
+            totalCount: [5],
+            __typename: [8]
+        },
+        WorldRecord: {
+            nodeId: [2],
+            id: [5],
+            record: [5],
+            user: [5],
+            level: [5],
+            periodStart: [6],
+            periodEnd: [6],
+            dateCreated: [6],
+            dateUpdated: [6],
+            recordByRecord: [19],
+            userByUser: [11],
+            levelByLevel: [7],
+            __typename: [8]
+        },
+        WorldRecordsEdge: {
+            cursor: [14],
+            node: [26],
+            __typename: [8]
+        },
+        WorldRecordsOrderBy: {},
+        WorldRecordCondition: {
+            id: [5],
+            record: [5],
+            user: [5],
+            level: [5],
+            periodStart: [6],
+            periodEnd: [6],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        MediaConnection: {
+            nodes: [31],
+            edges: [32],
+            pageInfo: [15],
+            totalCount: [5],
+            __typename: [8]
+        },
+        Media: {
+            nodeId: [2],
+            id: [5],
+            record: [5],
+            ghostUrl: [8],
+            screenshotUrl: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            recordByRecord: [19],
+            __typename: [8]
+        },
+        MediaEdge: {
+            cursor: [14],
+            node: [31],
+            __typename: [8]
+        },
+        MediaOrderBy: {},
+        MediaCondition: {
+            id: [5],
+            record: [5],
+            ghostUrl: [8],
+            screenshotUrl: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
             __typename: [8]
         },
         RecordsEdge: {
@@ -486,11 +759,12 @@ export default {
             isValid: [10],
             isWr: [10],
             levelHash: [8],
+            modVersion: [8],
             __typename: [8]
         },
         VotesConnection: {
-            nodes: [24],
-            edges: [25],
+            nodes: [39],
+            edges: [40],
             pageInfo: [15],
             totalCount: [5],
             __typename: [8]
@@ -510,7 +784,7 @@ export default {
         },
         VotesEdge: {
             cursor: [14],
-            node: [24],
+            node: [39],
             __typename: [8]
         },
         VotesOrderBy: {},
@@ -534,8 +808,8 @@ export default {
             __typename: [8]
         },
         UpvotesConnection: {
-            nodes: [31],
-            edges: [32],
+            nodes: [46],
+            edges: [47],
             pageInfo: [15],
             totalCount: [5],
             __typename: [8]
@@ -553,7 +827,7 @@ export default {
         },
         UpvotesEdge: {
             cursor: [14],
-            node: [31],
+            node: [46],
             __typename: [8]
         },
         UpvotesOrderBy: {},
@@ -566,8 +840,8 @@ export default {
             __typename: [8]
         },
         StatsConnection: {
-            nodes: [36],
-            edges: [37],
+            nodes: [51],
+            edges: [52],
             pageInfo: [15],
             totalCount: [5],
             __typename: [8]
@@ -630,7 +904,7 @@ export default {
         },
         StatsEdge: {
             cursor: [14],
-            node: [36],
+            node: [51],
             __typename: [8]
         },
         StatsOrderBy: {},
@@ -695,7 +969,7 @@ export default {
         },
         UsersConnection: {
             nodes: [11],
-            edges: [42],
+            edges: [57],
             pageInfo: [15],
             totalCount: [5],
             __typename: [8]
@@ -720,8 +994,8 @@ export default {
             __typename: [8]
         },
         VersionsConnection: {
-            nodes: [46],
-            edges: [47],
+            nodes: [61],
+            edges: [62],
             pageInfo: [15],
             totalCount: [5],
             __typename: [8]
@@ -735,7 +1009,7 @@ export default {
         },
         VersionsEdge: {
             cursor: [14],
-            node: [46],
+            node: [61],
             __typename: [8]
         },
         VersionsOrderBy: {},
@@ -747,21 +1021,21 @@ export default {
         },
         Mutation: {
             fixWr: [
-                51,
+                66,
                 {
-                    input: [52, 'FixWrInput!']
+                    input: [67, 'FixWrInput!']
                 }
             ],
             updatePb: [
-                53,
+                68,
                 {
-                    input: [54, 'UpdatePbInput!']
+                    input: [69, 'UpdatePbInput!']
                 }
             ],
             updateWr: [
-                55,
+                70,
                 {
-                    input: [56, 'UpdateWrInput!']
+                    input: [71, 'UpdateWrInput!']
                 }
             ],
             __typename: [8]

@@ -29,6 +29,10 @@ export interface Query {
     allFavorites: (FavoritesConnection | null)
     /** Reads and enables pagination through a set of `Level`. */
     allLevels: (LevelsConnection | null)
+    /** Reads and enables pagination through a set of `Media`. */
+    allMedia: (MediaConnection | null)
+    /** Reads and enables pagination through a set of `PersonalBest`. */
+    allPersonalBests: (PersonalBestsConnection | null)
     /** Reads and enables pagination through a set of `Record`. */
     allRecords: (RecordsConnection | null)
     /** Reads and enables pagination through a set of `Stat`. */
@@ -41,18 +45,27 @@ export interface Query {
     allVersions: (VersionsConnection | null)
     /** Reads and enables pagination through a set of `Vote`. */
     allVotes: (VotesConnection | null)
+    /** Reads and enables pagination through a set of `WorldRecord`. */
+    allWorldRecords: (WorldRecordsConnection | null)
     favoriteById: (Favorite | null)
     levelById: (Level | null)
+    mediaById: (Media | null)
+    personalBestById: (PersonalBest | null)
     recordById: (Record | null)
     statById: (Stat | null)
     upvoteById: (Upvote | null)
     userById: (User | null)
     versionById: (Version | null)
     voteById: (Vote | null)
+    worldRecordById: (WorldRecord | null)
     /** Reads a single `Favorite` using its globally unique `ID`. */
     favorite: (Favorite | null)
     /** Reads a single `Level` using its globally unique `ID`. */
     level: (Level | null)
+    /** Reads a single `Media` using its globally unique `ID`. */
+    media: (Media | null)
+    /** Reads a single `PersonalBest` using its globally unique `ID`. */
+    personalBest: (PersonalBest | null)
     /** Reads a single `Record` using its globally unique `ID`. */
     record: (Record | null)
     /** Reads a single `Stat` using its globally unique `ID`. */
@@ -65,12 +78,14 @@ export interface Query {
     version: (Version | null)
     /** Reads a single `Vote` using its globally unique `ID`. */
     vote: (Vote | null)
+    /** Reads a single `WorldRecord` using its globally unique `ID`. */
+    worldRecord: (WorldRecord | null)
     __typename: 'Query'
 }
 
 
 /** An object with a globally unique `ID`. */
-export type Node = (Query | Favorite | Level | User | Record | Vote | Upvote | Stat | Version) & { __isUnion?: true }
+export type Node = (Query | Favorite | Level | User | Record | PersonalBest | WorldRecord | Media | Vote | Upvote | Stat | Version) & { __isUnion?: true }
 
 
 /** A connection to a list of `Favorite` values. */
@@ -131,6 +146,10 @@ export interface Level {
     favoritesByLevel: FavoritesConnection
     /** Reads and enables pagination through a set of `Upvote`. */
     upvotesByLevel: UpvotesConnection
+    /** Reads and enables pagination through a set of `PersonalBest`. */
+    personalBestsByLevel: PersonalBestsConnection
+    /** Reads and enables pagination through a set of `WorldRecord`. */
+    worldRecordsByLevel: WorldRecordsConnection
     __typename: 'Level'
 }
 
@@ -159,6 +178,10 @@ export interface User {
     upvotesByUser: UpvotesConnection
     /** Reads and enables pagination through a set of `Stat`. */
     statsByUser: StatsConnection
+    /** Reads and enables pagination through a set of `PersonalBest`. */
+    personalBestsByUser: PersonalBestsConnection
+    /** Reads and enables pagination through a set of `WorldRecord`. */
+    worldRecordsByUser: WorldRecordsConnection
     __typename: 'User'
 }
 
@@ -235,12 +258,157 @@ export interface Record {
     isValid: Scalars['Boolean']
     isWr: Scalars['Boolean']
     levelHash: (Scalars['String'] | null)
+    modVersion: (Scalars['String'] | null)
     /** Reads a single `Level` that is related to this `Record`. */
     levelByLevel: (Level | null)
     /** Reads a single `User` that is related to this `Record`. */
     userByUser: (User | null)
+    /** Reads and enables pagination through a set of `PersonalBest`. */
+    personalBestsByRecord: PersonalBestsConnection
+    /** Reads and enables pagination through a set of `WorldRecord`. */
+    worldRecordsByRecord: WorldRecordsConnection
+    /** Reads and enables pagination through a set of `Media`. */
+    mediaByRecord: MediaConnection
     __typename: 'Record'
 }
+
+
+/** A connection to a list of `PersonalBest` values. */
+export interface PersonalBestsConnection {
+    /** A list of `PersonalBest` objects. */
+    nodes: (PersonalBest | null)[]
+    /** A list of edges which contains the `PersonalBest` and cursor to aid in pagination. */
+    edges: PersonalBestsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `PersonalBest` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'PersonalBestsConnection'
+}
+
+export interface PersonalBest {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    record: Scalars['Int']
+    user: Scalars['Int']
+    level: Scalars['Int']
+    periodStart: (Scalars['Datetime'] | null)
+    periodEnd: (Scalars['Datetime'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    /** Reads a single `Record` that is related to this `PersonalBest`. */
+    recordByRecord: (Record | null)
+    /** Reads a single `User` that is related to this `PersonalBest`. */
+    userByUser: (User | null)
+    /** Reads a single `Level` that is related to this `PersonalBest`. */
+    levelByLevel: (Level | null)
+    __typename: 'PersonalBest'
+}
+
+
+/** A `PersonalBest` edge in the connection. */
+export interface PersonalBestsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `PersonalBest` at the end of the edge. */
+    node: (PersonalBest | null)
+    __typename: 'PersonalBestsEdge'
+}
+
+
+/** Methods to use when ordering `PersonalBest`. */
+export type PersonalBestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+
+
+/** A connection to a list of `WorldRecord` values. */
+export interface WorldRecordsConnection {
+    /** A list of `WorldRecord` objects. */
+    nodes: (WorldRecord | null)[]
+    /** A list of edges which contains the `WorldRecord` and cursor to aid in pagination. */
+    edges: WorldRecordsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `WorldRecord` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'WorldRecordsConnection'
+}
+
+export interface WorldRecord {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    record: Scalars['Int']
+    user: Scalars['Int']
+    level: Scalars['Int']
+    periodStart: (Scalars['Datetime'] | null)
+    periodEnd: (Scalars['Datetime'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    /** Reads a single `Record` that is related to this `WorldRecord`. */
+    recordByRecord: (Record | null)
+    /** Reads a single `User` that is related to this `WorldRecord`. */
+    userByUser: (User | null)
+    /** Reads a single `Level` that is related to this `WorldRecord`. */
+    levelByLevel: (Level | null)
+    __typename: 'WorldRecord'
+}
+
+
+/** A `WorldRecord` edge in the connection. */
+export interface WorldRecordsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `WorldRecord` at the end of the edge. */
+    node: (WorldRecord | null)
+    __typename: 'WorldRecordsEdge'
+}
+
+
+/** Methods to use when ordering `WorldRecord`. */
+export type WorldRecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+
+
+/** A connection to a list of `Media` values. */
+export interface MediaConnection {
+    /** A list of `Media` objects. */
+    nodes: (Media | null)[]
+    /** A list of edges which contains the `Media` and cursor to aid in pagination. */
+    edges: MediaEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `Media` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'MediaConnection'
+}
+
+export interface Media {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    record: Scalars['Int']
+    ghostUrl: Scalars['String']
+    screenshotUrl: Scalars['String']
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    /** Reads a single `Record` that is related to this `Media`. */
+    recordByRecord: (Record | null)
+    __typename: 'Media'
+}
+
+
+/** A `Media` edge in the connection. */
+export interface MediaEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `Media` at the end of the edge. */
+    node: (Media | null)
+    __typename: 'MediaEdge'
+}
+
+
+/** Methods to use when ordering `Media`. */
+export type MediaOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'GHOST_URL_ASC' | 'GHOST_URL_DESC' | 'SCREENSHOT_URL_ASC' | 'SCREENSHOT_URL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A `Record` edge in the connection. */
@@ -254,7 +422,7 @@ export interface RecordsEdge {
 
 
 /** Methods to use when ordering `Record`. */
-export type RecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'USER_ASC' | 'USER_DESC' | 'TIME_ASC' | 'TIME_DESC' | 'IS_BEST_ASC' | 'IS_BEST_DESC' | 'SPLITS_ASC' | 'SPLITS_DESC' | 'GHOST_URL_ASC' | 'GHOST_URL_DESC' | 'SCREENSHOT_URL_ASC' | 'SCREENSHOT_URL_DESC' | 'GAME_VERSION_ASC' | 'GAME_VERSION_DESC' | 'IS_VALID_ASC' | 'IS_VALID_DESC' | 'IS_WR_ASC' | 'IS_WR_DESC' | 'LEVEL_HASH_ASC' | 'LEVEL_HASH_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type RecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'USER_ASC' | 'USER_DESC' | 'TIME_ASC' | 'TIME_DESC' | 'IS_BEST_ASC' | 'IS_BEST_DESC' | 'SPLITS_ASC' | 'SPLITS_DESC' | 'GHOST_URL_ASC' | 'GHOST_URL_DESC' | 'SCREENSHOT_URL_ASC' | 'SCREENSHOT_URL_DESC' | 'GAME_VERSION_ASC' | 'GAME_VERSION_DESC' | 'IS_VALID_ASC' | 'IS_VALID_DESC' | 'IS_WR_ASC' | 'IS_WR_DESC' | 'LEVEL_HASH_ASC' | 'LEVEL_HASH_DESC' | 'MOD_VERSION_ASC' | 'MOD_VERSION_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `Vote` values. */
@@ -610,6 +778,44 @@ export interface QueryGenqlSelection{
     orderBy?: (LevelsOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (LevelCondition | null)} })
+    /** Reads and enables pagination through a set of `Media`. */
+    allMedia?: (MediaConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Media`. */
+    orderBy?: (MediaOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (MediaCondition | null)} })
+    /** Reads and enables pagination through a set of `PersonalBest`. */
+    allPersonalBests?: (PersonalBestsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `PersonalBest`. */
+    orderBy?: (PersonalBestsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (PersonalBestCondition | null)} })
     /** Reads and enables pagination through a set of `Record`. */
     allRecords?: (RecordsConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -724,14 +930,36 @@ export interface QueryGenqlSelection{
     orderBy?: (VotesOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (VoteCondition | null)} })
+    /** Reads and enables pagination through a set of `WorldRecord`. */
+    allWorldRecords?: (WorldRecordsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `WorldRecord`. */
+    orderBy?: (WorldRecordsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (WorldRecordCondition | null)} })
     favoriteById?: (FavoriteGenqlSelection & { __args: {id: Scalars['Int']} })
     levelById?: (LevelGenqlSelection & { __args: {id: Scalars['Int']} })
+    mediaById?: (MediaGenqlSelection & { __args: {id: Scalars['Int']} })
+    personalBestById?: (PersonalBestGenqlSelection & { __args: {id: Scalars['Int']} })
     recordById?: (RecordGenqlSelection & { __args: {id: Scalars['Int']} })
     statById?: (StatGenqlSelection & { __args: {id: Scalars['Int']} })
     upvoteById?: (UpvoteGenqlSelection & { __args: {id: Scalars['Int']} })
     userById?: (UserGenqlSelection & { __args: {id: Scalars['Int']} })
     versionById?: (VersionGenqlSelection & { __args: {id: Scalars['Int']} })
     voteById?: (VoteGenqlSelection & { __args: {id: Scalars['Int']} })
+    worldRecordById?: (WorldRecordGenqlSelection & { __args: {id: Scalars['Int']} })
     /** Reads a single `Favorite` using its globally unique `ID`. */
     favorite?: (FavoriteGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Favorite`. */
@@ -739,6 +967,14 @@ export interface QueryGenqlSelection{
     /** Reads a single `Level` using its globally unique `ID`. */
     level?: (LevelGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Level`. */
+    nodeId: Scalars['ID']} })
+    /** Reads a single `Media` using its globally unique `ID`. */
+    media?: (MediaGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `Media`. */
+    nodeId: Scalars['ID']} })
+    /** Reads a single `PersonalBest` using its globally unique `ID`. */
+    personalBest?: (PersonalBestGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `PersonalBest`. */
     nodeId: Scalars['ID']} })
     /** Reads a single `Record` using its globally unique `ID`. */
     record?: (RecordGenqlSelection & { __args: {
@@ -764,6 +1000,10 @@ export interface QueryGenqlSelection{
     vote?: (VoteGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Vote`. */
     nodeId: Scalars['ID']} })
+    /** Reads a single `WorldRecord` using its globally unique `ID`. */
+    worldRecord?: (WorldRecordGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `WorldRecord`. */
+    nodeId: Scalars['ID']} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -778,6 +1018,9 @@ export interface NodeGenqlSelection{
     on_Level?: LevelGenqlSelection
     on_User?: UserGenqlSelection
     on_Record?: RecordGenqlSelection
+    on_PersonalBest?: PersonalBestGenqlSelection
+    on_WorldRecord?: WorldRecordGenqlSelection
+    on_Media?: MediaGenqlSelection
     on_Vote?: VoteGenqlSelection
     on_Upvote?: UpvoteGenqlSelection
     on_Stat?: StatGenqlSelection
@@ -915,6 +1158,44 @@ export interface LevelGenqlSelection{
     orderBy?: (UpvotesOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (UpvoteCondition | null)} })
+    /** Reads and enables pagination through a set of `PersonalBest`. */
+    personalBestsByLevel?: (PersonalBestsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `PersonalBest`. */
+    orderBy?: (PersonalBestsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (PersonalBestCondition | null)} })
+    /** Reads and enables pagination through a set of `WorldRecord`. */
+    worldRecordsByLevel?: (WorldRecordsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `WorldRecord`. */
+    orderBy?: (WorldRecordsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (WorldRecordCondition | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1046,6 +1327,44 @@ export interface UserGenqlSelection{
     orderBy?: (StatsOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (StatCondition | null)} })
+    /** Reads and enables pagination through a set of `PersonalBest`. */
+    personalBestsByUser?: (PersonalBestsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `PersonalBest`. */
+    orderBy?: (PersonalBestsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (PersonalBestCondition | null)} })
+    /** Reads and enables pagination through a set of `WorldRecord`. */
+    worldRecordsByUser?: (WorldRecordsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `WorldRecord`. */
+    orderBy?: (WorldRecordsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (WorldRecordCondition | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1161,13 +1480,268 @@ export interface RecordGenqlSelection{
     isValid?: boolean | number
     isWr?: boolean | number
     levelHash?: boolean | number
+    modVersion?: boolean | number
     /** Reads a single `Level` that is related to this `Record`. */
     levelByLevel?: LevelGenqlSelection
     /** Reads a single `User` that is related to this `Record`. */
     userByUser?: UserGenqlSelection
+    /** Reads and enables pagination through a set of `PersonalBest`. */
+    personalBestsByRecord?: (PersonalBestsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `PersonalBest`. */
+    orderBy?: (PersonalBestsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (PersonalBestCondition | null)} })
+    /** Reads and enables pagination through a set of `WorldRecord`. */
+    worldRecordsByRecord?: (WorldRecordsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `WorldRecord`. */
+    orderBy?: (WorldRecordsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (WorldRecordCondition | null)} })
+    /** Reads and enables pagination through a set of `Media`. */
+    mediaByRecord?: (MediaConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Media`. */
+    orderBy?: (MediaOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (MediaCondition | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
+
+
+/** A connection to a list of `PersonalBest` values. */
+export interface PersonalBestsConnectionGenqlSelection{
+    /** A list of `PersonalBest` objects. */
+    nodes?: PersonalBestGenqlSelection
+    /** A list of edges which contains the `PersonalBest` and cursor to aid in pagination. */
+    edges?: PersonalBestsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `PersonalBest` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface PersonalBestGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    record?: boolean | number
+    user?: boolean | number
+    level?: boolean | number
+    periodStart?: boolean | number
+    periodEnd?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `Record` that is related to this `PersonalBest`. */
+    recordByRecord?: RecordGenqlSelection
+    /** Reads a single `User` that is related to this `PersonalBest`. */
+    userByUser?: UserGenqlSelection
+    /** Reads a single `Level` that is related to this `PersonalBest`. */
+    levelByLevel?: LevelGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `PersonalBest` edge in the connection. */
+export interface PersonalBestsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `PersonalBest` at the end of the edge. */
+    node?: PersonalBestGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `PersonalBest` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface PersonalBestCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `record` field. */
+record?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `user` field. */
+user?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `periodStart` field. */
+periodStart?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `periodEnd` field. */
+periodEnd?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A connection to a list of `WorldRecord` values. */
+export interface WorldRecordsConnectionGenqlSelection{
+    /** A list of `WorldRecord` objects. */
+    nodes?: WorldRecordGenqlSelection
+    /** A list of edges which contains the `WorldRecord` and cursor to aid in pagination. */
+    edges?: WorldRecordsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `WorldRecord` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface WorldRecordGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    record?: boolean | number
+    user?: boolean | number
+    level?: boolean | number
+    periodStart?: boolean | number
+    periodEnd?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `Record` that is related to this `WorldRecord`. */
+    recordByRecord?: RecordGenqlSelection
+    /** Reads a single `User` that is related to this `WorldRecord`. */
+    userByUser?: UserGenqlSelection
+    /** Reads a single `Level` that is related to this `WorldRecord`. */
+    levelByLevel?: LevelGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `WorldRecord` edge in the connection. */
+export interface WorldRecordsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `WorldRecord` at the end of the edge. */
+    node?: WorldRecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `WorldRecord` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export interface WorldRecordCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `record` field. */
+record?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `user` field. */
+user?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `periodStart` field. */
+periodStart?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `periodEnd` field. */
+periodEnd?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A connection to a list of `Media` values. */
+export interface MediaConnectionGenqlSelection{
+    /** A list of `Media` objects. */
+    nodes?: MediaGenqlSelection
+    /** A list of edges which contains the `Media` and cursor to aid in pagination. */
+    edges?: MediaEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `Media` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface MediaGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    record?: boolean | number
+    ghostUrl?: boolean | number
+    screenshotUrl?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `Record` that is related to this `Media`. */
+    recordByRecord?: RecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `Media` edge in the connection. */
+export interface MediaEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `Media` at the end of the edge. */
+    node?: MediaGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A condition to be used against `Media` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export interface MediaCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `record` field. */
+record?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `ghostUrl` field. */
+ghostUrl?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `screenshotUrl` field. */
+screenshotUrl?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
 
 
 /** A `Record` edge in the connection. */
@@ -1210,7 +1784,9 @@ isValid?: (Scalars['Boolean'] | null),
 /** Checks for equality with the object’s `isWr` field. */
 isWr?: (Scalars['Boolean'] | null),
 /** Checks for equality with the object’s `levelHash` field. */
-levelHash?: (Scalars['String'] | null)}
+levelHash?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `modVersion` field. */
+modVersion?: (Scalars['String'] | null)}
 
 
 /** A connection to a list of `Vote` values. */
@@ -1740,7 +2316,7 @@ clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
     
 
 
-    const Node_possibleTypes: string[] = ['Query','Favorite','Level','User','Record','Vote','Upvote','Stat','Version']
+    const Node_possibleTypes: string[] = ['Query','Favorite','Level','User','Record','PersonalBest','WorldRecord','Media','Vote','Upvote','Stat','Version']
     export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isNode"')
       return Node_possibleTypes.includes(obj.__typename)
@@ -1816,6 +2392,78 @@ clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
     export const isRecord = (obj?: { __typename?: any } | null): obj is Record => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecord"')
       return Record_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const PersonalBestsConnection_possibleTypes: string[] = ['PersonalBestsConnection']
+    export const isPersonalBestsConnection = (obj?: { __typename?: any } | null): obj is PersonalBestsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPersonalBestsConnection"')
+      return PersonalBestsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const PersonalBest_possibleTypes: string[] = ['PersonalBest']
+    export const isPersonalBest = (obj?: { __typename?: any } | null): obj is PersonalBest => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPersonalBest"')
+      return PersonalBest_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const PersonalBestsEdge_possibleTypes: string[] = ['PersonalBestsEdge']
+    export const isPersonalBestsEdge = (obj?: { __typename?: any } | null): obj is PersonalBestsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPersonalBestsEdge"')
+      return PersonalBestsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const WorldRecordsConnection_possibleTypes: string[] = ['WorldRecordsConnection']
+    export const isWorldRecordsConnection = (obj?: { __typename?: any } | null): obj is WorldRecordsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isWorldRecordsConnection"')
+      return WorldRecordsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const WorldRecord_possibleTypes: string[] = ['WorldRecord']
+    export const isWorldRecord = (obj?: { __typename?: any } | null): obj is WorldRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isWorldRecord"')
+      return WorldRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const WorldRecordsEdge_possibleTypes: string[] = ['WorldRecordsEdge']
+    export const isWorldRecordsEdge = (obj?: { __typename?: any } | null): obj is WorldRecordsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isWorldRecordsEdge"')
+      return WorldRecordsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const MediaConnection_possibleTypes: string[] = ['MediaConnection']
+    export const isMediaConnection = (obj?: { __typename?: any } | null): obj is MediaConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isMediaConnection"')
+      return MediaConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const Media_possibleTypes: string[] = ['Media']
+    export const isMedia = (obj?: { __typename?: any } | null): obj is Media => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isMedia"')
+      return Media_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const MediaEdge_possibleTypes: string[] = ['MediaEdge']
+    export const isMediaEdge = (obj?: { __typename?: any } | null): obj is MediaEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isMediaEdge"')
+      return MediaEdge_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -2019,6 +2667,68 @@ export const enumLevelsOrderBy = {
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
 
+export const enumPersonalBestsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   RECORD_ASC: 'RECORD_ASC' as const,
+   RECORD_DESC: 'RECORD_DESC' as const,
+   USER_ASC: 'USER_ASC' as const,
+   USER_DESC: 'USER_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
+   PERIOD_START_ASC: 'PERIOD_START_ASC' as const,
+   PERIOD_START_DESC: 'PERIOD_START_DESC' as const,
+   PERIOD_END_ASC: 'PERIOD_END_ASC' as const,
+   PERIOD_END_DESC: 'PERIOD_END_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumWorldRecordsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   RECORD_ASC: 'RECORD_ASC' as const,
+   RECORD_DESC: 'RECORD_DESC' as const,
+   USER_ASC: 'USER_ASC' as const,
+   USER_DESC: 'USER_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
+   PERIOD_START_ASC: 'PERIOD_START_ASC' as const,
+   PERIOD_START_DESC: 'PERIOD_START_DESC' as const,
+   PERIOD_END_ASC: 'PERIOD_END_ASC' as const,
+   PERIOD_END_DESC: 'PERIOD_END_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumMediaOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   RECORD_ASC: 'RECORD_ASC' as const,
+   RECORD_DESC: 'RECORD_DESC' as const,
+   GHOST_URL_ASC: 'GHOST_URL_ASC' as const,
+   GHOST_URL_DESC: 'GHOST_URL_DESC' as const,
+   SCREENSHOT_URL_ASC: 'SCREENSHOT_URL_ASC' as const,
+   SCREENSHOT_URL_DESC: 'SCREENSHOT_URL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
 export const enumRecordsOrderBy = {
    NATURAL: 'NATURAL' as const,
    ID_ASC: 'ID_ASC' as const,
@@ -2049,6 +2759,8 @@ export const enumRecordsOrderBy = {
    IS_WR_DESC: 'IS_WR_DESC' as const,
    LEVEL_HASH_ASC: 'LEVEL_HASH_ASC' as const,
    LEVEL_HASH_DESC: 'LEVEL_HASH_DESC' as const,
+   MOD_VERSION_ASC: 'MOD_VERSION_ASC' as const,
+   MOD_VERSION_DESC: 'MOD_VERSION_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
