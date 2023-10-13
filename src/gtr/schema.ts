@@ -146,10 +146,6 @@ export interface Level {
     favoritesByLevel: FavoritesConnection
     /** Reads and enables pagination through a set of `Upvote`. */
     upvotesByLevel: UpvotesConnection
-    /** Reads and enables pagination through a set of `PersonalBest`. */
-    personalBestsByLevel: PersonalBestsConnection
-    /** Reads and enables pagination through a set of `WorldRecord`. */
-    worldRecordsByLevel: WorldRecordsConnection
     __typename: 'Level'
 }
 
@@ -292,17 +288,15 @@ export interface PersonalBest {
     id: Scalars['Int']
     record: Scalars['Int']
     user: Scalars['Int']
-    level: Scalars['Int']
     periodStart: (Scalars['Datetime'] | null)
     periodEnd: (Scalars['Datetime'] | null)
     dateCreated: (Scalars['Datetime'] | null)
     dateUpdated: (Scalars['Datetime'] | null)
+    level: Scalars['String']
     /** Reads a single `Record` that is related to this `PersonalBest`. */
     recordByRecord: (Record | null)
     /** Reads a single `User` that is related to this `PersonalBest`. */
     userByUser: (User | null)
-    /** Reads a single `Level` that is related to this `PersonalBest`. */
-    levelByLevel: (Level | null)
     __typename: 'PersonalBest'
 }
 
@@ -318,7 +312,7 @@ export interface PersonalBestsEdge {
 
 
 /** Methods to use when ordering `PersonalBest`. */
-export type PersonalBestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type PersonalBestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `WorldRecord` values. */
@@ -340,17 +334,15 @@ export interface WorldRecord {
     id: Scalars['Int']
     record: Scalars['Int']
     user: Scalars['Int']
-    level: Scalars['Int']
     periodStart: (Scalars['Datetime'] | null)
     periodEnd: (Scalars['Datetime'] | null)
     dateCreated: (Scalars['Datetime'] | null)
     dateUpdated: (Scalars['Datetime'] | null)
+    level: Scalars['String']
     /** Reads a single `Record` that is related to this `WorldRecord`. */
     recordByRecord: (Record | null)
     /** Reads a single `User` that is related to this `WorldRecord`. */
     userByUser: (User | null)
-    /** Reads a single `Level` that is related to this `WorldRecord`. */
-    levelByLevel: (Level | null)
     __typename: 'WorldRecord'
 }
 
@@ -366,7 +358,7 @@ export interface WorldRecordsEdge {
 
 
 /** Methods to use when ordering `WorldRecord`. */
-export type WorldRecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type WorldRecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `Media` values. */
@@ -1158,44 +1150,6 @@ export interface LevelGenqlSelection{
     orderBy?: (UpvotesOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (UpvoteCondition | null)} })
-    /** Reads and enables pagination through a set of `PersonalBest`. */
-    personalBestsByLevel?: (PersonalBestsConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `PersonalBest`. */
-    orderBy?: (PersonalBestsOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (PersonalBestCondition | null)} })
-    /** Reads and enables pagination through a set of `WorldRecord`. */
-    worldRecordsByLevel?: (WorldRecordsConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `WorldRecord`. */
-    orderBy?: (WorldRecordsOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (WorldRecordCondition | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1567,17 +1521,15 @@ export interface PersonalBestGenqlSelection{
     id?: boolean | number
     record?: boolean | number
     user?: boolean | number
-    level?: boolean | number
     periodStart?: boolean | number
     periodEnd?: boolean | number
     dateCreated?: boolean | number
     dateUpdated?: boolean | number
+    level?: boolean | number
     /** Reads a single `Record` that is related to this `PersonalBest`. */
     recordByRecord?: RecordGenqlSelection
     /** Reads a single `User` that is related to this `PersonalBest`. */
     userByUser?: UserGenqlSelection
-    /** Reads a single `Level` that is related to this `PersonalBest`. */
-    levelByLevel?: LevelGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1605,8 +1557,6 @@ id?: (Scalars['Int'] | null),
 record?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `user` field. */
 user?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `level` field. */
-level?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `periodStart` field. */
 periodStart?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `periodEnd` field. */
@@ -1614,7 +1564,9 @@ periodEnd?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `dateCreated` field. */
 dateCreated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null)}
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null)}
 
 
 /** A connection to a list of `WorldRecord` values. */
@@ -1637,17 +1589,15 @@ export interface WorldRecordGenqlSelection{
     id?: boolean | number
     record?: boolean | number
     user?: boolean | number
-    level?: boolean | number
     periodStart?: boolean | number
     periodEnd?: boolean | number
     dateCreated?: boolean | number
     dateUpdated?: boolean | number
+    level?: boolean | number
     /** Reads a single `Record` that is related to this `WorldRecord`. */
     recordByRecord?: RecordGenqlSelection
     /** Reads a single `User` that is related to this `WorldRecord`. */
     userByUser?: UserGenqlSelection
-    /** Reads a single `Level` that is related to this `WorldRecord`. */
-    levelByLevel?: LevelGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1675,8 +1625,6 @@ id?: (Scalars['Int'] | null),
 record?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `user` field. */
 user?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `level` field. */
-level?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `periodStart` field. */
 periodStart?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `periodEnd` field. */
@@ -1684,7 +1632,9 @@ periodEnd?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `dateCreated` field. */
 dateCreated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null)}
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null)}
 
 
 /** A connection to a list of `Media` values. */
@@ -2675,8 +2625,6 @@ export const enumPersonalBestsOrderBy = {
    RECORD_DESC: 'RECORD_DESC' as const,
    USER_ASC: 'USER_ASC' as const,
    USER_DESC: 'USER_DESC' as const,
-   LEVEL_ASC: 'LEVEL_ASC' as const,
-   LEVEL_DESC: 'LEVEL_DESC' as const,
    PERIOD_START_ASC: 'PERIOD_START_ASC' as const,
    PERIOD_START_DESC: 'PERIOD_START_DESC' as const,
    PERIOD_END_ASC: 'PERIOD_END_ASC' as const,
@@ -2685,6 +2633,8 @@ export const enumPersonalBestsOrderBy = {
    DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
    DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
    DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
@@ -2697,8 +2647,6 @@ export const enumWorldRecordsOrderBy = {
    RECORD_DESC: 'RECORD_DESC' as const,
    USER_ASC: 'USER_ASC' as const,
    USER_DESC: 'USER_DESC' as const,
-   LEVEL_ASC: 'LEVEL_ASC' as const,
-   LEVEL_DESC: 'LEVEL_DESC' as const,
    PERIOD_START_ASC: 'PERIOD_START_ASC' as const,
    PERIOD_START_DESC: 'PERIOD_START_DESC' as const,
    PERIOD_END_ASC: 'PERIOD_END_ASC' as const,
@@ -2707,6 +2655,8 @@ export const enumWorldRecordsOrderBy = {
    DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
    DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
    DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }

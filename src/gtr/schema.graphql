@@ -608,64 +608,6 @@ type Level implements Node {
     """
     condition: UpvoteCondition
   ): UpvotesConnection!
-
-  """Reads and enables pagination through a set of `PersonalBest`."""
-  personalBestsByLevel(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `PersonalBest`."""
-    orderBy: [PersonalBestsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: PersonalBestCondition
-  ): PersonalBestsConnection!
-
-  """Reads and enables pagination through a set of `WorldRecord`."""
-  worldRecordsByLevel(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `WorldRecord`."""
-    orderBy: [WorldRecordsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: WorldRecordCondition
-  ): WorldRecordsConnection!
 }
 
 type User implements Node {
@@ -1215,20 +1157,17 @@ type PersonalBest implements Node {
   id: Int!
   record: Int!
   user: Int!
-  level: Int!
   periodStart: Datetime
   periodEnd: Datetime
   dateCreated: Datetime
   dateUpdated: Datetime
+  level: String!
 
   """Reads a single `Record` that is related to this `PersonalBest`."""
   recordByRecord: Record
 
   """Reads a single `User` that is related to this `PersonalBest`."""
   userByUser: User
-
-  """Reads a single `Level` that is related to this `PersonalBest`."""
-  levelByLevel: Level
 }
 
 """A `PersonalBest` edge in the connection."""
@@ -1249,8 +1188,6 @@ enum PersonalBestsOrderBy {
   RECORD_DESC
   USER_ASC
   USER_DESC
-  LEVEL_ASC
-  LEVEL_DESC
   PERIOD_START_ASC
   PERIOD_START_DESC
   PERIOD_END_ASC
@@ -1259,6 +1196,8 @@ enum PersonalBestsOrderBy {
   DATE_CREATED_DESC
   DATE_UPDATED_ASC
   DATE_UPDATED_DESC
+  LEVEL_ASC
+  LEVEL_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1277,9 +1216,6 @@ input PersonalBestCondition {
   """Checks for equality with the object’s `user` field."""
   user: Int
 
-  """Checks for equality with the object’s `level` field."""
-  level: Int
-
   """Checks for equality with the object’s `periodStart` field."""
   periodStart: Datetime
 
@@ -1291,6 +1227,9 @@ input PersonalBestCondition {
 
   """Checks for equality with the object’s `dateUpdated` field."""
   dateUpdated: Datetime
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
 }
 
 """A connection to a list of `WorldRecord` values."""
@@ -1318,20 +1257,17 @@ type WorldRecord implements Node {
   id: Int!
   record: Int!
   user: Int!
-  level: Int!
   periodStart: Datetime
   periodEnd: Datetime
   dateCreated: Datetime
   dateUpdated: Datetime
+  level: String!
 
   """Reads a single `Record` that is related to this `WorldRecord`."""
   recordByRecord: Record
 
   """Reads a single `User` that is related to this `WorldRecord`."""
   userByUser: User
-
-  """Reads a single `Level` that is related to this `WorldRecord`."""
-  levelByLevel: Level
 }
 
 """A `WorldRecord` edge in the connection."""
@@ -1352,8 +1288,6 @@ enum WorldRecordsOrderBy {
   RECORD_DESC
   USER_ASC
   USER_DESC
-  LEVEL_ASC
-  LEVEL_DESC
   PERIOD_START_ASC
   PERIOD_START_DESC
   PERIOD_END_ASC
@@ -1362,6 +1296,8 @@ enum WorldRecordsOrderBy {
   DATE_CREATED_DESC
   DATE_UPDATED_ASC
   DATE_UPDATED_DESC
+  LEVEL_ASC
+  LEVEL_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1380,9 +1316,6 @@ input WorldRecordCondition {
   """Checks for equality with the object’s `user` field."""
   user: Int
 
-  """Checks for equality with the object’s `level` field."""
-  level: Int
-
   """Checks for equality with the object’s `periodStart` field."""
   periodStart: Datetime
 
@@ -1394,6 +1327,9 @@ input WorldRecordCondition {
 
   """Checks for equality with the object’s `dateUpdated` field."""
   dateUpdated: Datetime
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
 }
 
 """A connection to a list of `Media` values."""

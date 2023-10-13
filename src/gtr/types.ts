@@ -383,30 +383,6 @@ export default {
                     condition: [49]
                 }
             ],
-            personalBestsByLevel: [
-                20,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [23, '[PersonalBestsOrderBy!]'],
-                    condition: [24]
-                }
-            ],
-            worldRecordsByLevel: [
-                25,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [28, '[WorldRecordsOrderBy!]'],
-                    condition: [29]
-                }
-            ],
             __typename: [8]
         },
         String: {},
@@ -639,14 +615,13 @@ export default {
             id: [5],
             record: [5],
             user: [5],
-            level: [5],
             periodStart: [6],
             periodEnd: [6],
             dateCreated: [6],
             dateUpdated: [6],
+            level: [8],
             recordByRecord: [19],
             userByUser: [11],
-            levelByLevel: [7],
             __typename: [8]
         },
         PersonalBestsEdge: {
@@ -659,11 +634,11 @@ export default {
             id: [5],
             record: [5],
             user: [5],
-            level: [5],
             periodStart: [6],
             periodEnd: [6],
             dateCreated: [6],
             dateUpdated: [6],
+            level: [8],
             __typename: [8]
         },
         WorldRecordsConnection: {
@@ -678,14 +653,13 @@ export default {
             id: [5],
             record: [5],
             user: [5],
-            level: [5],
             periodStart: [6],
             periodEnd: [6],
             dateCreated: [6],
             dateUpdated: [6],
+            level: [8],
             recordByRecord: [19],
             userByUser: [11],
-            levelByLevel: [7],
             __typename: [8]
         },
         WorldRecordsEdge: {
@@ -698,11 +672,11 @@ export default {
             id: [5],
             record: [5],
             user: [5],
-            level: [5],
             periodStart: [6],
             periodEnd: [6],
             dateCreated: [6],
             dateUpdated: [6],
+            level: [8],
             __typename: [8]
         },
         MediaConnection: {
