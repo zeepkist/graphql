@@ -46,8 +46,8 @@ type Query implements Node {
     condition: FavoriteCondition
   ): FavoritesConnection
 
-  """Reads and enables pagination through a set of `Level`."""
-  allLevels(
+  """Reads and enables pagination through a set of `LevelPoint`."""
+  allLevelPoints(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -66,14 +66,14 @@ type Query implements Node {
     """Read all values in the set after (below) this cursor."""
     after: Cursor
 
-    """The method to use when ordering `Level`."""
-    orderBy: [LevelsOrderBy!] = [PRIMARY_KEY_ASC]
+    """The method to use when ordering `LevelPoint`."""
+    orderBy: [LevelPointsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: LevelCondition
-  ): LevelsConnection
+    condition: LevelPointCondition
+  ): LevelPointsConnection
 
   """Reads and enables pagination through a set of `Media`."""
   allMedia(
@@ -132,6 +132,35 @@ type Query implements Node {
     """
     condition: PersonalBestCondition
   ): PersonalBestsConnection
+
+  """Reads and enables pagination through a set of `PlayerPoint`."""
+  allPlayerPoints(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `PlayerPoint`."""
+    orderBy: [PlayerPointsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: PlayerPointCondition
+  ): PlayerPointsConnection
 
   """Reads and enables pagination through a set of `Record`."""
   allRecords(
@@ -336,9 +365,10 @@ type Query implements Node {
     condition: WorldRecordCondition
   ): WorldRecordsConnection
   favoriteById(id: Int!): Favorite
-  levelById(id: Int!): Level
+  levelPointById(id: Int!): LevelPoint
   mediaById(id: Int!): Media
   personalBestById(id: Int!): PersonalBest
+  playerPointById(id: Int!): PlayerPoint
   recordById(id: Int!): Record
   statById(id: Int!): Stat
   upvoteById(id: Int!): Upvote
@@ -353,11 +383,13 @@ type Query implements Node {
     nodeId: ID!
   ): Favorite
 
-  """Reads a single `Level` using its globally unique `ID`."""
-  level(
-    """The globally unique `ID` to be used in selecting a single `Level`."""
+  """Reads a single `LevelPoint` using its globally unique `ID`."""
+  levelPoint(
+    """
+    The globally unique `ID` to be used in selecting a single `LevelPoint`.
+    """
     nodeId: ID!
-  ): Level
+  ): LevelPoint
 
   """Reads a single `Media` using its globally unique `ID`."""
   media(
@@ -372,6 +404,14 @@ type Query implements Node {
     """
     nodeId: ID!
   ): PersonalBest
+
+  """Reads a single `PlayerPoint` using its globally unique `ID`."""
+  playerPoint(
+    """
+    The globally unique `ID` to be used in selecting a single `PlayerPoint`.
+    """
+    nodeId: ID!
+  ): PlayerPoint
 
   """Reads a single `Record` using its globally unique `ID`."""
   record(
@@ -449,13 +489,10 @@ type Favorite implements Node {
   """
   nodeId: ID!
   id: Int!
-  dateCreated: Datetime
-  dateUpdated: Datetime
-  level: Int
-  user: Int
-
-  """Reads a single `Level` that is related to this `Favorite`."""
-  levelByLevel: Level
+  user: Int!
+  level: String!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
 
   """Reads a single `User` that is related to this `Favorite`."""
   userByUser: User
@@ -467,251 +504,18 @@ A point in time as described by the [ISO
 """
 scalar Datetime
 
-type Level implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-  id: Int!
-  dateCreated: Datetime
-  dateUpdated: Datetime
-  uid: String
-  name: String
-  author: String
-  timeAuthor: Float
-  timeGold: Float!
-  timeSilver: Float
-  timeBronze: Float
-  createdBy: Int!
-  wid: String
-  isValid: Boolean
-  thumbnailUrl: String
-  rank: Int
-  points: Int!
-  blocked: Boolean
-
-  """Reads a single `User` that is related to this `Level`."""
-  userByCreatedBy: User
-
-  """Reads and enables pagination through a set of `Record`."""
-  recordsByLevel(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Record`."""
-    orderBy: [RecordsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: RecordCondition
-  ): RecordsConnection!
-
-  """Reads and enables pagination through a set of `Vote`."""
-  votesByLevel(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Vote`."""
-    orderBy: [VotesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: VoteCondition
-  ): VotesConnection!
-
-  """Reads and enables pagination through a set of `Favorite`."""
-  favoritesByLevel(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Favorite`."""
-    orderBy: [FavoritesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: FavoriteCondition
-  ): FavoritesConnection!
-
-  """Reads and enables pagination through a set of `Upvote`."""
-  upvotesByLevel(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Upvote`."""
-    orderBy: [UpvotesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: UpvoteCondition
-  ): UpvotesConnection!
-}
-
 type User implements Node {
   """
   A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   """
   nodeId: ID!
   id: Int!
-  dateCreated: Datetime
-  dateUpdated: Datetime
   steamId: String
   steamName: String
-  position: Int
-  score: Float
-  worldRecords: Int
   discordId: String
-  banned: Boolean
-
-  """Reads and enables pagination through a set of `Level`."""
-  levelsByCreatedBy(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Level`."""
-    orderBy: [LevelsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: LevelCondition
-  ): LevelsConnection!
-
-  """Reads and enables pagination through a set of `Record`."""
-  recordsByUser(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Record`."""
-    orderBy: [RecordsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: RecordCondition
-  ): RecordsConnection!
-
-  """Reads and enables pagination through a set of `Vote`."""
-  votesByUser(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Vote`."""
-    orderBy: [VotesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: VoteCondition
-  ): VotesConnection!
+  banned: Boolean!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
 
   """Reads and enables pagination through a set of `Favorite`."""
   favoritesByUser(
@@ -742,8 +546,8 @@ type User implements Node {
     condition: FavoriteCondition
   ): FavoritesConnection!
 
-  """Reads and enables pagination through a set of `Upvote`."""
-  upvotesByUser(
+  """Reads and enables pagination through a set of `Record`."""
+  recordsByUser(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -762,14 +566,14 @@ type User implements Node {
     """Read all values in the set after (below) this cursor."""
     after: Cursor
 
-    """The method to use when ordering `Upvote`."""
-    orderBy: [UpvotesOrderBy!] = [PRIMARY_KEY_ASC]
+    """The method to use when ordering `Record`."""
+    orderBy: [RecordsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: UpvoteCondition
-  ): UpvotesConnection!
+    condition: RecordCondition
+  ): RecordsConnection!
 
   """Reads and enables pagination through a set of `Stat`."""
   statsByUser(
@@ -799,6 +603,64 @@ type User implements Node {
     """
     condition: StatCondition
   ): StatsConnection!
+
+  """Reads and enables pagination through a set of `Upvote`."""
+  upvotesByUser(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Upvote`."""
+    orderBy: [UpvotesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UpvoteCondition
+  ): UpvotesConnection!
+
+  """Reads and enables pagination through a set of `Vote`."""
+  votesByUser(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Vote`."""
+    orderBy: [VotesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: VoteCondition
+  ): VotesConnection!
 
   """Reads and enables pagination through a set of `PersonalBest`."""
   personalBestsByUser(
@@ -857,147 +719,76 @@ type User implements Node {
     """
     condition: WorldRecordCondition
   ): WorldRecordsConnection!
-}
 
-"""A connection to a list of `Level` values."""
-type LevelsConnection {
-  """A list of `Level` objects."""
-  nodes: [Level]!
+  """Reads and enables pagination through a set of `PlayerPoint`."""
+  playerPointsByUser(
+    """Only read the first `n` values of the set."""
+    first: Int
 
-  """
-  A list of edges which contains the `Level` and cursor to aid in pagination.
-  """
-  edges: [LevelsEdge!]!
+    """Only read the last `n` values of the set."""
+    last: Int
 
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
 
-  """The count of *all* `Level` you could get from the connection."""
-  totalCount: Int!
-}
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
 
-"""A `Level` edge in the connection."""
-type LevelsEdge {
-  """A cursor for use in pagination."""
-  cursor: Cursor
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
 
-  """The `Level` at the end of the edge."""
-  node: Level
+    """The method to use when ordering `PlayerPoint`."""
+    orderBy: [PlayerPointsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: PlayerPointCondition
+  ): PlayerPointsConnection!
 }
 
 """A location in a connection that can be used for resuming pagination."""
 scalar Cursor
 
-"""Information about pagination in a connection."""
-type PageInfo {
-  """When paginating forwards, are there more items?"""
-  hasNextPage: Boolean!
-
-  """When paginating backwards, are there more items?"""
-  hasPreviousPage: Boolean!
-
-  """When paginating backwards, the cursor to continue."""
-  startCursor: Cursor
-
-  """When paginating forwards, the cursor to continue."""
-  endCursor: Cursor
-}
-
-"""Methods to use when ordering `Level`."""
-enum LevelsOrderBy {
+"""Methods to use when ordering `Favorite`."""
+enum FavoritesOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  USER_ASC
+  USER_DESC
+  LEVEL_ASC
+  LEVEL_DESC
   DATE_CREATED_ASC
   DATE_CREATED_DESC
   DATE_UPDATED_ASC
   DATE_UPDATED_DESC
-  UID_ASC
-  UID_DESC
-  NAME_ASC
-  NAME_DESC
-  AUTHOR_ASC
-  AUTHOR_DESC
-  TIME_AUTHOR_ASC
-  TIME_AUTHOR_DESC
-  TIME_GOLD_ASC
-  TIME_GOLD_DESC
-  TIME_SILVER_ASC
-  TIME_SILVER_DESC
-  TIME_BRONZE_ASC
-  TIME_BRONZE_DESC
-  CREATED_BY_ASC
-  CREATED_BY_DESC
-  WID_ASC
-  WID_DESC
-  IS_VALID_ASC
-  IS_VALID_DESC
-  THUMBNAIL_URL_ASC
-  THUMBNAIL_URL_DESC
-  RANK_ASC
-  RANK_DESC
-  POINTS_ASC
-  POINTS_DESC
-  BLOCKED_ASC
-  BLOCKED_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
 
 """
-A condition to be used against `Level` object types. All fields are tested for equality and combined with a logical ‘and.’
+A condition to be used against `Favorite` object types. All fields are tested
+for equality and combined with a logical ‘and.’
 """
-input LevelCondition {
+input FavoriteCondition {
   """Checks for equality with the object’s `id` field."""
   id: Int
+
+  """Checks for equality with the object’s `user` field."""
+  user: Int
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
 
   """Checks for equality with the object’s `dateCreated` field."""
   dateCreated: Datetime
 
   """Checks for equality with the object’s `dateUpdated` field."""
   dateUpdated: Datetime
-
-  """Checks for equality with the object’s `uid` field."""
-  uid: String
-
-  """Checks for equality with the object’s `name` field."""
-  name: String
-
-  """Checks for equality with the object’s `author` field."""
-  author: String
-
-  """Checks for equality with the object’s `timeAuthor` field."""
-  timeAuthor: Float
-
-  """Checks for equality with the object’s `timeGold` field."""
-  timeGold: Float
-
-  """Checks for equality with the object’s `timeSilver` field."""
-  timeSilver: Float
-
-  """Checks for equality with the object’s `timeBronze` field."""
-  timeBronze: Float
-
-  """Checks for equality with the object’s `createdBy` field."""
-  createdBy: Int
-
-  """Checks for equality with the object’s `wid` field."""
-  wid: String
-
-  """Checks for equality with the object’s `isValid` field."""
-  isValid: Boolean
-
-  """Checks for equality with the object’s `thumbnailUrl` field."""
-  thumbnailUrl: String
-
-  """Checks for equality with the object’s `rank` field."""
-  rank: Int
-
-  """Checks for equality with the object’s `points` field."""
-  points: Int
-
-  """Checks for equality with the object’s `blocked` field."""
-  blocked: Boolean
 }
 
 """A connection to a list of `Record` values."""
@@ -1023,26 +814,47 @@ type Record implements Node {
   """
   nodeId: ID!
   id: Int!
-  dateCreated: Datetime
-  dateUpdated: Datetime
-  level: Int
-  user: Int
-  time: Float
-  isBest: Boolean!
+  user: Int!
+  time: Float!
   splits: String
-  ghostUrl: String
-  screenshotUrl: String
-  gameVersion: String
+  gameVersion: String!
   isValid: Boolean!
-  isWr: Boolean!
-  levelHash: String
-  modVersion: String
-
-  """Reads a single `Level` that is related to this `Record`."""
-  levelByLevel: Level
+  level: String!
+  modVersion: String!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
 
   """Reads a single `User` that is related to this `Record`."""
   userByUser: User
+
+  """Reads and enables pagination through a set of `Media`."""
+  mediaByRecord(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Media`."""
+    orderBy: [MediaOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MediaCondition
+  ): MediaConnection!
 
   """Reads and enables pagination through a set of `PersonalBest`."""
   personalBestsByRecord(
@@ -1101,235 +913,6 @@ type Record implements Node {
     """
     condition: WorldRecordCondition
   ): WorldRecordsConnection!
-
-  """Reads and enables pagination through a set of `Media`."""
-  mediaByRecord(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Media`."""
-    orderBy: [MediaOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: MediaCondition
-  ): MediaConnection!
-}
-
-"""A connection to a list of `PersonalBest` values."""
-type PersonalBestsConnection {
-  """A list of `PersonalBest` objects."""
-  nodes: [PersonalBest]!
-
-  """
-  A list of edges which contains the `PersonalBest` and cursor to aid in pagination.
-  """
-  edges: [PersonalBestsEdge!]!
-
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """The count of *all* `PersonalBest` you could get from the connection."""
-  totalCount: Int!
-}
-
-type PersonalBest implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-  id: Int!
-  record: Int!
-  user: Int!
-  periodStart: Datetime
-  periodEnd: Datetime
-  dateCreated: Datetime
-  dateUpdated: Datetime
-  level: String!
-
-  """Reads a single `Record` that is related to this `PersonalBest`."""
-  recordByRecord: Record
-
-  """Reads a single `User` that is related to this `PersonalBest`."""
-  userByUser: User
-}
-
-"""A `PersonalBest` edge in the connection."""
-type PersonalBestsEdge {
-  """A cursor for use in pagination."""
-  cursor: Cursor
-
-  """The `PersonalBest` at the end of the edge."""
-  node: PersonalBest
-}
-
-"""Methods to use when ordering `PersonalBest`."""
-enum PersonalBestsOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  RECORD_ASC
-  RECORD_DESC
-  USER_ASC
-  USER_DESC
-  PERIOD_START_ASC
-  PERIOD_START_DESC
-  PERIOD_END_ASC
-  PERIOD_END_DESC
-  DATE_CREATED_ASC
-  DATE_CREATED_DESC
-  DATE_UPDATED_ASC
-  DATE_UPDATED_DESC
-  LEVEL_ASC
-  LEVEL_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `PersonalBest` object types. All fields are
-tested for equality and combined with a logical ‘and.’
-"""
-input PersonalBestCondition {
-  """Checks for equality with the object’s `id` field."""
-  id: Int
-
-  """Checks for equality with the object’s `record` field."""
-  record: Int
-
-  """Checks for equality with the object’s `user` field."""
-  user: Int
-
-  """Checks for equality with the object’s `periodStart` field."""
-  periodStart: Datetime
-
-  """Checks for equality with the object’s `periodEnd` field."""
-  periodEnd: Datetime
-
-  """Checks for equality with the object’s `dateCreated` field."""
-  dateCreated: Datetime
-
-  """Checks for equality with the object’s `dateUpdated` field."""
-  dateUpdated: Datetime
-
-  """Checks for equality with the object’s `level` field."""
-  level: String
-}
-
-"""A connection to a list of `WorldRecord` values."""
-type WorldRecordsConnection {
-  """A list of `WorldRecord` objects."""
-  nodes: [WorldRecord]!
-
-  """
-  A list of edges which contains the `WorldRecord` and cursor to aid in pagination.
-  """
-  edges: [WorldRecordsEdge!]!
-
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """The count of *all* `WorldRecord` you could get from the connection."""
-  totalCount: Int!
-}
-
-type WorldRecord implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-  id: Int!
-  record: Int!
-  user: Int!
-  periodStart: Datetime
-  periodEnd: Datetime
-  dateCreated: Datetime
-  dateUpdated: Datetime
-  level: String!
-
-  """Reads a single `Record` that is related to this `WorldRecord`."""
-  recordByRecord: Record
-
-  """Reads a single `User` that is related to this `WorldRecord`."""
-  userByUser: User
-}
-
-"""A `WorldRecord` edge in the connection."""
-type WorldRecordsEdge {
-  """A cursor for use in pagination."""
-  cursor: Cursor
-
-  """The `WorldRecord` at the end of the edge."""
-  node: WorldRecord
-}
-
-"""Methods to use when ordering `WorldRecord`."""
-enum WorldRecordsOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  RECORD_ASC
-  RECORD_DESC
-  USER_ASC
-  USER_DESC
-  PERIOD_START_ASC
-  PERIOD_START_DESC
-  PERIOD_END_ASC
-  PERIOD_END_DESC
-  DATE_CREATED_ASC
-  DATE_CREATED_DESC
-  DATE_UPDATED_ASC
-  DATE_UPDATED_DESC
-  LEVEL_ASC
-  LEVEL_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `WorldRecord` object types. All fields are tested
-for equality and combined with a logical ‘and.’
-"""
-input WorldRecordCondition {
-  """Checks for equality with the object’s `id` field."""
-  id: Int
-
-  """Checks for equality with the object’s `record` field."""
-  record: Int
-
-  """Checks for equality with the object’s `user` field."""
-  user: Int
-
-  """Checks for equality with the object’s `periodStart` field."""
-  periodStart: Datetime
-
-  """Checks for equality with the object’s `periodEnd` field."""
-  periodEnd: Datetime
-
-  """Checks for equality with the object’s `dateCreated` field."""
-  dateCreated: Datetime
-
-  """Checks for equality with the object’s `dateUpdated` field."""
-  dateUpdated: Datetime
-
-  """Checks for equality with the object’s `level` field."""
-  level: String
 }
 
 """A connection to a list of `Media` values."""
@@ -1358,8 +941,8 @@ type Media implements Node {
   record: Int!
   ghostUrl: String!
   screenshotUrl: String!
-  dateCreated: Datetime
-  dateUpdated: Datetime
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
 
   """Reads a single `Record` that is related to this `Media`."""
   recordByRecord: Record
@@ -1372,6 +955,21 @@ type MediaEdge {
 
   """The `Media` at the end of the edge."""
   node: Media
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
 }
 
 """Methods to use when ordering `Media`."""
@@ -1416,6 +1014,206 @@ input MediaCondition {
   dateUpdated: Datetime
 }
 
+"""A connection to a list of `PersonalBest` values."""
+type PersonalBestsConnection {
+  """A list of `PersonalBest` objects."""
+  nodes: [PersonalBest]!
+
+  """
+  A list of edges which contains the `PersonalBest` and cursor to aid in pagination.
+  """
+  edges: [PersonalBestsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `PersonalBest` you could get from the connection."""
+  totalCount: Int!
+}
+
+type PersonalBest implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  record: Int!
+  user: Int!
+  periodStart: Datetime
+  periodEnd: Datetime
+  level: String!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
+
+  """Reads a single `Record` that is related to this `PersonalBest`."""
+  recordByRecord: Record
+
+  """Reads a single `User` that is related to this `PersonalBest`."""
+  userByUser: User
+}
+
+"""A `PersonalBest` edge in the connection."""
+type PersonalBestsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `PersonalBest` at the end of the edge."""
+  node: PersonalBest
+}
+
+"""Methods to use when ordering `PersonalBest`."""
+enum PersonalBestsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  RECORD_ASC
+  RECORD_DESC
+  USER_ASC
+  USER_DESC
+  PERIOD_START_ASC
+  PERIOD_START_DESC
+  PERIOD_END_ASC
+  PERIOD_END_DESC
+  LEVEL_ASC
+  LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `PersonalBest` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input PersonalBestCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `record` field."""
+  record: Int
+
+  """Checks for equality with the object’s `user` field."""
+  user: Int
+
+  """Checks for equality with the object’s `periodStart` field."""
+  periodStart: Datetime
+
+  """Checks for equality with the object’s `periodEnd` field."""
+  periodEnd: Datetime
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""A connection to a list of `WorldRecord` values."""
+type WorldRecordsConnection {
+  """A list of `WorldRecord` objects."""
+  nodes: [WorldRecord]!
+
+  """
+  A list of edges which contains the `WorldRecord` and cursor to aid in pagination.
+  """
+  edges: [WorldRecordsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `WorldRecord` you could get from the connection."""
+  totalCount: Int!
+}
+
+type WorldRecord implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  record: Int!
+  user: Int!
+  periodStart: Datetime
+  periodEnd: Datetime
+  level: String!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
+
+  """Reads a single `Record` that is related to this `WorldRecord`."""
+  recordByRecord: Record
+
+  """Reads a single `User` that is related to this `WorldRecord`."""
+  userByUser: User
+}
+
+"""A `WorldRecord` edge in the connection."""
+type WorldRecordsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `WorldRecord` at the end of the edge."""
+  node: WorldRecord
+}
+
+"""Methods to use when ordering `WorldRecord`."""
+enum WorldRecordsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  RECORD_ASC
+  RECORD_DESC
+  USER_ASC
+  USER_DESC
+  PERIOD_START_ASC
+  PERIOD_START_DESC
+  PERIOD_END_ASC
+  PERIOD_END_DESC
+  LEVEL_ASC
+  LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `WorldRecord` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input WorldRecordCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `record` field."""
+  record: Int
+
+  """Checks for equality with the object’s `user` field."""
+  user: Int
+
+  """Checks for equality with the object’s `periodStart` field."""
+  periodStart: Datetime
+
+  """Checks for equality with the object’s `periodEnd` field."""
+  periodEnd: Datetime
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
 """A `Record` edge in the connection."""
 type RecordsEdge {
   """A cursor for use in pagination."""
@@ -1430,34 +1228,24 @@ enum RecordsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
-  DATE_CREATED_ASC
-  DATE_CREATED_DESC
-  DATE_UPDATED_ASC
-  DATE_UPDATED_DESC
-  LEVEL_ASC
-  LEVEL_DESC
   USER_ASC
   USER_DESC
   TIME_ASC
   TIME_DESC
-  IS_BEST_ASC
-  IS_BEST_DESC
   SPLITS_ASC
   SPLITS_DESC
-  GHOST_URL_ASC
-  GHOST_URL_DESC
-  SCREENSHOT_URL_ASC
-  SCREENSHOT_URL_DESC
   GAME_VERSION_ASC
   GAME_VERSION_DESC
   IS_VALID_ASC
   IS_VALID_DESC
-  IS_WR_ASC
-  IS_WR_DESC
-  LEVEL_HASH_ASC
-  LEVEL_HASH_DESC
+  LEVEL_ASC
+  LEVEL_DESC
   MOD_VERSION_ASC
   MOD_VERSION_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1469,32 +1257,14 @@ input RecordCondition {
   """Checks for equality with the object’s `id` field."""
   id: Int
 
-  """Checks for equality with the object’s `dateCreated` field."""
-  dateCreated: Datetime
-
-  """Checks for equality with the object’s `dateUpdated` field."""
-  dateUpdated: Datetime
-
-  """Checks for equality with the object’s `level` field."""
-  level: Int
-
   """Checks for equality with the object’s `user` field."""
   user: Int
 
   """Checks for equality with the object’s `time` field."""
   time: Float
 
-  """Checks for equality with the object’s `isBest` field."""
-  isBest: Boolean
-
   """Checks for equality with the object’s `splits` field."""
   splits: String
-
-  """Checks for equality with the object’s `ghostUrl` field."""
-  ghostUrl: String
-
-  """Checks for equality with the object’s `screenshotUrl` field."""
-  screenshotUrl: String
 
   """Checks for equality with the object’s `gameVersion` field."""
   gameVersion: String
@@ -1502,226 +1272,17 @@ input RecordCondition {
   """Checks for equality with the object’s `isValid` field."""
   isValid: Boolean
 
-  """Checks for equality with the object’s `isWr` field."""
-  isWr: Boolean
-
-  """Checks for equality with the object’s `levelHash` field."""
-  levelHash: String
+  """Checks for equality with the object’s `level` field."""
+  level: String
 
   """Checks for equality with the object’s `modVersion` field."""
   modVersion: String
-}
-
-"""A connection to a list of `Vote` values."""
-type VotesConnection {
-  """A list of `Vote` objects."""
-  nodes: [Vote]!
-
-  """
-  A list of edges which contains the `Vote` and cursor to aid in pagination.
-  """
-  edges: [VotesEdge!]!
-
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """The count of *all* `Vote` you could get from the connection."""
-  totalCount: Int!
-}
-
-type Vote implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-  id: Int!
-  dateCreated: Datetime
-  dateUpdated: Datetime
-  level: Int
-  user: Int
-  score: Int
-  category: Int
-
-  """Reads a single `Level` that is related to this `Vote`."""
-  levelByLevel: Level
-
-  """Reads a single `User` that is related to this `Vote`."""
-  userByUser: User
-}
-
-"""A `Vote` edge in the connection."""
-type VotesEdge {
-  """A cursor for use in pagination."""
-  cursor: Cursor
-
-  """The `Vote` at the end of the edge."""
-  node: Vote
-}
-
-"""Methods to use when ordering `Vote`."""
-enum VotesOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  DATE_CREATED_ASC
-  DATE_CREATED_DESC
-  DATE_UPDATED_ASC
-  DATE_UPDATED_DESC
-  LEVEL_ASC
-  LEVEL_DESC
-  USER_ASC
-  USER_DESC
-  SCORE_ASC
-  SCORE_DESC
-  CATEGORY_ASC
-  CATEGORY_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’
-"""
-input VoteCondition {
-  """Checks for equality with the object’s `id` field."""
-  id: Int
 
   """Checks for equality with the object’s `dateCreated` field."""
   dateCreated: Datetime
 
   """Checks for equality with the object’s `dateUpdated` field."""
   dateUpdated: Datetime
-
-  """Checks for equality with the object’s `level` field."""
-  level: Int
-
-  """Checks for equality with the object’s `user` field."""
-  user: Int
-
-  """Checks for equality with the object’s `score` field."""
-  score: Int
-
-  """Checks for equality with the object’s `category` field."""
-  category: Int
-}
-
-"""Methods to use when ordering `Favorite`."""
-enum FavoritesOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  DATE_CREATED_ASC
-  DATE_CREATED_DESC
-  DATE_UPDATED_ASC
-  DATE_UPDATED_DESC
-  LEVEL_ASC
-  LEVEL_DESC
-  USER_ASC
-  USER_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `Favorite` object types. All fields are tested
-for equality and combined with a logical ‘and.’
-"""
-input FavoriteCondition {
-  """Checks for equality with the object’s `id` field."""
-  id: Int
-
-  """Checks for equality with the object’s `dateCreated` field."""
-  dateCreated: Datetime
-
-  """Checks for equality with the object’s `dateUpdated` field."""
-  dateUpdated: Datetime
-
-  """Checks for equality with the object’s `level` field."""
-  level: Int
-
-  """Checks for equality with the object’s `user` field."""
-  user: Int
-}
-
-"""A connection to a list of `Upvote` values."""
-type UpvotesConnection {
-  """A list of `Upvote` objects."""
-  nodes: [Upvote]!
-
-  """
-  A list of edges which contains the `Upvote` and cursor to aid in pagination.
-  """
-  edges: [UpvotesEdge!]!
-
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """The count of *all* `Upvote` you could get from the connection."""
-  totalCount: Int!
-}
-
-type Upvote implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-  id: Int!
-  dateCreated: Datetime
-  dateUpdated: Datetime
-  level: Int
-  user: Int
-
-  """Reads a single `Level` that is related to this `Upvote`."""
-  levelByLevel: Level
-
-  """Reads a single `User` that is related to this `Upvote`."""
-  userByUser: User
-}
-
-"""A `Upvote` edge in the connection."""
-type UpvotesEdge {
-  """A cursor for use in pagination."""
-  cursor: Cursor
-
-  """The `Upvote` at the end of the edge."""
-  node: Upvote
-}
-
-"""Methods to use when ordering `Upvote`."""
-enum UpvotesOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  DATE_CREATED_ASC
-  DATE_CREATED_DESC
-  DATE_UPDATED_ASC
-  DATE_UPDATED_DESC
-  LEVEL_ASC
-  LEVEL_DESC
-  USER_ASC
-  USER_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `Upvote` object types. All fields are tested for equality and combined with a logical ‘and.’
-"""
-input UpvoteCondition {
-  """Checks for equality with the object’s `id` field."""
-  id: Int
-
-  """Checks for equality with the object’s `dateCreated` field."""
-  dateCreated: Datetime
-
-  """Checks for equality with the object’s `dateUpdated` field."""
-  dateUpdated: Datetime
-
-  """Checks for equality with the object’s `level` field."""
-  level: Int
-
-  """Checks for equality with the object’s `user` field."""
-  user: Int
 }
 
 """A connection to a list of `Stat` values."""
@@ -1788,8 +1349,6 @@ type Stat implements Node {
   timeOnRegular: Float!
   timeOnGrass: Float!
   timeOnIce: Float!
-  dateCreated: Datetime
-  dateUpdated: Datetime
   timesStarted: Int!
   timesFinished: Int!
   wheelsBroken: Int!
@@ -1797,6 +1356,8 @@ type Stat implements Node {
   user: Int!
   month: Int!
   year: Int!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
 
   """Reads a single `User` that is related to this `Stat`."""
   userByUser: User
@@ -1898,10 +1459,6 @@ enum StatsOrderBy {
   TIME_ON_GRASS_DESC
   TIME_ON_ICE_ASC
   TIME_ON_ICE_DESC
-  DATE_CREATED_ASC
-  DATE_CREATED_DESC
-  DATE_UPDATED_ASC
-  DATE_UPDATED_DESC
   TIMES_STARTED_ASC
   TIMES_STARTED_DESC
   TIMES_FINISHED_ASC
@@ -1916,6 +1473,10 @@ enum StatsOrderBy {
   MONTH_DESC
   YEAR_ASC
   YEAR_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -2050,12 +1611,6 @@ input StatCondition {
   """Checks for equality with the object’s `timeOnIce` field."""
   timeOnIce: Float
 
-  """Checks for equality with the object’s `dateCreated` field."""
-  dateCreated: Datetime
-
-  """Checks for equality with the object’s `dateUpdated` field."""
-  dateUpdated: Datetime
-
   """Checks for equality with the object’s `timesStarted` field."""
   timesStarted: Int
 
@@ -2076,6 +1631,253 @@ input StatCondition {
 
   """Checks for equality with the object’s `year` field."""
   year: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""A connection to a list of `Upvote` values."""
+type UpvotesConnection {
+  """A list of `Upvote` objects."""
+  nodes: [Upvote]!
+
+  """
+  A list of edges which contains the `Upvote` and cursor to aid in pagination.
+  """
+  edges: [UpvotesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Upvote` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Upvote implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  user: Int!
+  level: String!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
+
+  """Reads a single `User` that is related to this `Upvote`."""
+  userByUser: User
+}
+
+"""A `Upvote` edge in the connection."""
+type UpvotesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Upvote` at the end of the edge."""
+  node: Upvote
+}
+
+"""Methods to use when ordering `Upvote`."""
+enum UpvotesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  USER_ASC
+  USER_DESC
+  LEVEL_ASC
+  LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Upvote` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input UpvoteCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `user` field."""
+  user: Int
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""A connection to a list of `Vote` values."""
+type VotesConnection {
+  """A list of `Vote` objects."""
+  nodes: [Vote]!
+
+  """
+  A list of edges which contains the `Vote` and cursor to aid in pagination.
+  """
+  edges: [VotesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Vote` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Vote implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  user: Int!
+  score: Int!
+  level: String!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
+
+  """Reads a single `User` that is related to this `Vote`."""
+  userByUser: User
+}
+
+"""A `Vote` edge in the connection."""
+type VotesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Vote` at the end of the edge."""
+  node: Vote
+}
+
+"""Methods to use when ordering `Vote`."""
+enum VotesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  USER_ASC
+  USER_DESC
+  SCORE_ASC
+  SCORE_DESC
+  LEVEL_ASC
+  LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input VoteCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `user` field."""
+  user: Int
+
+  """Checks for equality with the object’s `score` field."""
+  score: Int
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""A connection to a list of `PlayerPoint` values."""
+type PlayerPointsConnection {
+  """A list of `PlayerPoint` objects."""
+  nodes: [PlayerPoint]!
+
+  """
+  A list of edges which contains the `PlayerPoint` and cursor to aid in pagination.
+  """
+  edges: [PlayerPointsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `PlayerPoint` you could get from the connection."""
+  totalCount: Int!
+}
+
+type PlayerPoint implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  user: Int!
+  points: Int!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
+
+  """Reads a single `User` that is related to this `PlayerPoint`."""
+  userByUser: User
+}
+
+"""A `PlayerPoint` edge in the connection."""
+type PlayerPointsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `PlayerPoint` at the end of the edge."""
+  node: PlayerPoint
+}
+
+"""Methods to use when ordering `PlayerPoint`."""
+enum PlayerPointsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  USER_ASC
+  USER_DESC
+  POINTS_ASC
+  POINTS_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `PlayerPoint` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input PlayerPointCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `user` field."""
+  user: Int
+
+  """Checks for equality with the object’s `points` field."""
+  points: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
 }
 
 """A `Favorite` edge in the connection."""
@@ -2085,6 +1887,82 @@ type FavoritesEdge {
 
   """The `Favorite` at the end of the edge."""
   node: Favorite
+}
+
+"""A connection to a list of `LevelPoint` values."""
+type LevelPointsConnection {
+  """A list of `LevelPoint` objects."""
+  nodes: [LevelPoint]!
+
+  """
+  A list of edges which contains the `LevelPoint` and cursor to aid in pagination.
+  """
+  edges: [LevelPointsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `LevelPoint` you could get from the connection."""
+  totalCount: Int!
+}
+
+type LevelPoint implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  level: String!
+  points: Int!
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
+}
+
+"""A `LevelPoint` edge in the connection."""
+type LevelPointsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `LevelPoint` at the end of the edge."""
+  node: LevelPoint
+}
+
+"""Methods to use when ordering `LevelPoint`."""
+enum LevelPointsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  LEVEL_ASC
+  LEVEL_DESC
+  POINTS_ASC
+  POINTS_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `LevelPoint` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input LevelPointCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
+
+  """Checks for equality with the object’s `points` field."""
+  points: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
 }
 
 """A connection to a list of `User` values."""
@@ -2118,24 +1996,18 @@ enum UsersOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
-  DATE_CREATED_ASC
-  DATE_CREATED_DESC
-  DATE_UPDATED_ASC
-  DATE_UPDATED_DESC
   STEAM_ID_ASC
   STEAM_ID_DESC
   STEAM_NAME_ASC
   STEAM_NAME_DESC
-  POSITION_ASC
-  POSITION_DESC
-  SCORE_ASC
-  SCORE_DESC
-  WORLD_RECORDS_ASC
-  WORLD_RECORDS_DESC
   DISCORD_ID_ASC
   DISCORD_ID_DESC
   BANNED_ASC
   BANNED_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -2147,32 +2019,23 @@ input UserCondition {
   """Checks for equality with the object’s `id` field."""
   id: Int
 
-  """Checks for equality with the object’s `dateCreated` field."""
-  dateCreated: Datetime
-
-  """Checks for equality with the object’s `dateUpdated` field."""
-  dateUpdated: Datetime
-
   """Checks for equality with the object’s `steamId` field."""
   steamId: String
 
   """Checks for equality with the object’s `steamName` field."""
   steamName: String
 
-  """Checks for equality with the object’s `position` field."""
-  position: Int
-
-  """Checks for equality with the object’s `score` field."""
-  score: Float
-
-  """Checks for equality with the object’s `worldRecords` field."""
-  worldRecords: Int
-
   """Checks for equality with the object’s `discordId` field."""
   discordId: String
 
   """Checks for equality with the object’s `banned` field."""
   banned: Boolean
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
 }
 
 """A connection to a list of `Version` values."""
@@ -2200,6 +2063,8 @@ type Version implements Node {
   id: Int!
   minimum: String
   latest: String
+  dateCreated: Datetime!
+  dateUpdated: Datetime!
 }
 
 """A `Version` edge in the connection."""
@@ -2220,6 +2085,10 @@ enum VersionsOrderBy {
   MINIMUM_DESC
   LATEST_ASC
   LATEST_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -2236,100 +2105,10 @@ input VersionCondition {
 
   """Checks for equality with the object’s `latest` field."""
   latest: String
-}
 
-"""
-The root mutation type which contains root level fields which mutate data.
-"""
-type Mutation {
-  fixWr(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: FixWrInput!
-  ): FixWrPayload
-  updatePb(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdatePbInput!
-  ): UpdatePbPayload
-  updateWr(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateWrInput!
-  ): UpdateWrPayload
-}
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
 
-"""The output of our `fixWr` mutation."""
-type FixWrPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-}
-
-"""All input for the `fixWr` mutation."""
-input FixWrInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-}
-
-"""The output of our `updatePb` mutation."""
-type UpdatePbPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-}
-
-"""All input for the `updatePb` mutation."""
-input UpdatePbInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-  pUser: Int
-  pLevel: Int
-}
-
-"""The output of our `updateWr` mutation."""
-type UpdateWrPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-}
-
-"""All input for the `updateWr` mutation."""
-input UpdateWrInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-  pLevel: Int
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
 }

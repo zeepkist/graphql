@@ -6,11 +6,11 @@
 export type Scalars = {
     ID: string,
     Int: number,
-    Datetime: any,
     String: string,
-    Float: number,
+    Datetime: any,
     Boolean: boolean,
     Cursor: any,
+    Float: number,
 }
 
 
@@ -27,12 +27,14 @@ export interface Query {
     node: (Node | null)
     /** Reads and enables pagination through a set of `Favorite`. */
     allFavorites: (FavoritesConnection | null)
-    /** Reads and enables pagination through a set of `Level`. */
-    allLevels: (LevelsConnection | null)
+    /** Reads and enables pagination through a set of `LevelPoint`. */
+    allLevelPoints: (LevelPointsConnection | null)
     /** Reads and enables pagination through a set of `Media`. */
     allMedia: (MediaConnection | null)
     /** Reads and enables pagination through a set of `PersonalBest`. */
     allPersonalBests: (PersonalBestsConnection | null)
+    /** Reads and enables pagination through a set of `PlayerPoint`. */
+    allPlayerPoints: (PlayerPointsConnection | null)
     /** Reads and enables pagination through a set of `Record`. */
     allRecords: (RecordsConnection | null)
     /** Reads and enables pagination through a set of `Stat`. */
@@ -48,9 +50,10 @@ export interface Query {
     /** Reads and enables pagination through a set of `WorldRecord`. */
     allWorldRecords: (WorldRecordsConnection | null)
     favoriteById: (Favorite | null)
-    levelById: (Level | null)
+    levelPointById: (LevelPoint | null)
     mediaById: (Media | null)
     personalBestById: (PersonalBest | null)
+    playerPointById: (PlayerPoint | null)
     recordById: (Record | null)
     statById: (Stat | null)
     upvoteById: (Upvote | null)
@@ -60,12 +63,14 @@ export interface Query {
     worldRecordById: (WorldRecord | null)
     /** Reads a single `Favorite` using its globally unique `ID`. */
     favorite: (Favorite | null)
-    /** Reads a single `Level` using its globally unique `ID`. */
-    level: (Level | null)
+    /** Reads a single `LevelPoint` using its globally unique `ID`. */
+    levelPoint: (LevelPoint | null)
     /** Reads a single `Media` using its globally unique `ID`. */
     media: (Media | null)
     /** Reads a single `PersonalBest` using its globally unique `ID`. */
     personalBest: (PersonalBest | null)
+    /** Reads a single `PlayerPoint` using its globally unique `ID`. */
+    playerPoint: (PlayerPoint | null)
     /** Reads a single `Record` using its globally unique `ID`. */
     record: (Record | null)
     /** Reads a single `Stat` using its globally unique `ID`. */
@@ -85,7 +90,7 @@ export interface Query {
 
 
 /** An object with a globally unique `ID`. */
-export type Node = (Query | Favorite | Level | User | Record | PersonalBest | WorldRecord | Media | Vote | Upvote | Stat | Version) & { __isUnion?: true }
+export type Node = (Query | Favorite | User | Record | Media | PersonalBest | WorldRecord | Stat | Upvote | Vote | PlayerPoint | LevelPoint | Version) & { __isUnion?: true }
 
 
 /** A connection to a list of `Favorite` values. */
@@ -105,123 +110,47 @@ export interface Favorite {
     /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
     nodeId: Scalars['ID']
     id: Scalars['Int']
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
-    level: (Scalars['Int'] | null)
-    user: (Scalars['Int'] | null)
-    /** Reads a single `Level` that is related to this `Favorite`. */
-    levelByLevel: (Level | null)
+    user: Scalars['Int']
+    level: Scalars['String']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
     /** Reads a single `User` that is related to this `Favorite`. */
     userByUser: (User | null)
     __typename: 'Favorite'
-}
-
-export interface Level {
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId: Scalars['ID']
-    id: Scalars['Int']
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
-    uid: (Scalars['String'] | null)
-    name: (Scalars['String'] | null)
-    author: (Scalars['String'] | null)
-    timeAuthor: (Scalars['Float'] | null)
-    timeGold: Scalars['Float']
-    timeSilver: (Scalars['Float'] | null)
-    timeBronze: (Scalars['Float'] | null)
-    createdBy: Scalars['Int']
-    wid: (Scalars['String'] | null)
-    isValid: (Scalars['Boolean'] | null)
-    thumbnailUrl: (Scalars['String'] | null)
-    rank: (Scalars['Int'] | null)
-    points: Scalars['Int']
-    blocked: (Scalars['Boolean'] | null)
-    /** Reads a single `User` that is related to this `Level`. */
-    userByCreatedBy: (User | null)
-    /** Reads and enables pagination through a set of `Record`. */
-    recordsByLevel: RecordsConnection
-    /** Reads and enables pagination through a set of `Vote`. */
-    votesByLevel: VotesConnection
-    /** Reads and enables pagination through a set of `Favorite`. */
-    favoritesByLevel: FavoritesConnection
-    /** Reads and enables pagination through a set of `Upvote`. */
-    upvotesByLevel: UpvotesConnection
-    __typename: 'Level'
 }
 
 export interface User {
     /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
     nodeId: Scalars['ID']
     id: Scalars['Int']
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
     steamId: (Scalars['String'] | null)
     steamName: (Scalars['String'] | null)
-    position: (Scalars['Int'] | null)
-    score: (Scalars['Float'] | null)
-    worldRecords: (Scalars['Int'] | null)
     discordId: (Scalars['String'] | null)
-    banned: (Scalars['Boolean'] | null)
-    /** Reads and enables pagination through a set of `Level`. */
-    levelsByCreatedBy: LevelsConnection
-    /** Reads and enables pagination through a set of `Record`. */
-    recordsByUser: RecordsConnection
-    /** Reads and enables pagination through a set of `Vote`. */
-    votesByUser: VotesConnection
+    banned: Scalars['Boolean']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
     /** Reads and enables pagination through a set of `Favorite`. */
     favoritesByUser: FavoritesConnection
-    /** Reads and enables pagination through a set of `Upvote`. */
-    upvotesByUser: UpvotesConnection
+    /** Reads and enables pagination through a set of `Record`. */
+    recordsByUser: RecordsConnection
     /** Reads and enables pagination through a set of `Stat`. */
     statsByUser: StatsConnection
+    /** Reads and enables pagination through a set of `Upvote`. */
+    upvotesByUser: UpvotesConnection
+    /** Reads and enables pagination through a set of `Vote`. */
+    votesByUser: VotesConnection
     /** Reads and enables pagination through a set of `PersonalBest`. */
     personalBestsByUser: PersonalBestsConnection
     /** Reads and enables pagination through a set of `WorldRecord`. */
     worldRecordsByUser: WorldRecordsConnection
+    /** Reads and enables pagination through a set of `PlayerPoint`. */
+    playerPointsByUser: PlayerPointsConnection
     __typename: 'User'
 }
 
 
-/** A connection to a list of `Level` values. */
-export interface LevelsConnection {
-    /** A list of `Level` objects. */
-    nodes: (Level | null)[]
-    /** A list of edges which contains the `Level` and cursor to aid in pagination. */
-    edges: LevelsEdge[]
-    /** Information to aid in pagination. */
-    pageInfo: PageInfo
-    /** The count of *all* `Level` you could get from the connection. */
-    totalCount: Scalars['Int']
-    __typename: 'LevelsConnection'
-}
-
-
-/** A `Level` edge in the connection. */
-export interface LevelsEdge {
-    /** A cursor for use in pagination. */
-    cursor: (Scalars['Cursor'] | null)
-    /** The `Level` at the end of the edge. */
-    node: (Level | null)
-    __typename: 'LevelsEdge'
-}
-
-
-/** Information about pagination in a connection. */
-export interface PageInfo {
-    /** When paginating forwards, are there more items? */
-    hasNextPage: Scalars['Boolean']
-    /** When paginating backwards, are there more items? */
-    hasPreviousPage: Scalars['Boolean']
-    /** When paginating backwards, the cursor to continue. */
-    startCursor: (Scalars['Cursor'] | null)
-    /** When paginating forwards, the cursor to continue. */
-    endCursor: (Scalars['Cursor'] | null)
-    __typename: 'PageInfo'
-}
-
-
-/** Methods to use when ordering `Level`. */
-export type LevelsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'UID_ASC' | 'UID_DESC' | 'NAME_ASC' | 'NAME_DESC' | 'AUTHOR_ASC' | 'AUTHOR_DESC' | 'TIME_AUTHOR_ASC' | 'TIME_AUTHOR_DESC' | 'TIME_GOLD_ASC' | 'TIME_GOLD_DESC' | 'TIME_SILVER_ASC' | 'TIME_SILVER_DESC' | 'TIME_BRONZE_ASC' | 'TIME_BRONZE_DESC' | 'CREATED_BY_ASC' | 'CREATED_BY_DESC' | 'WID_ASC' | 'WID_DESC' | 'IS_VALID_ASC' | 'IS_VALID_DESC' | 'THUMBNAIL_URL_ASC' | 'THUMBNAIL_URL_DESC' | 'RANK_ASC' | 'RANK_DESC' | 'POINTS_ASC' | 'POINTS_DESC' | 'BLOCKED_ASC' | 'BLOCKED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+/** Methods to use when ordering `Favorite`. */
+export type FavoritesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'USER_ASC' | 'USER_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `Record` values. */
@@ -241,32 +170,81 @@ export interface Record {
     /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
     nodeId: Scalars['ID']
     id: Scalars['Int']
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
-    level: (Scalars['Int'] | null)
-    user: (Scalars['Int'] | null)
-    time: (Scalars['Float'] | null)
-    isBest: Scalars['Boolean']
+    user: Scalars['Int']
+    time: Scalars['Float']
     splits: (Scalars['String'] | null)
-    ghostUrl: (Scalars['String'] | null)
-    screenshotUrl: (Scalars['String'] | null)
-    gameVersion: (Scalars['String'] | null)
+    gameVersion: Scalars['String']
     isValid: Scalars['Boolean']
-    isWr: Scalars['Boolean']
-    levelHash: (Scalars['String'] | null)
-    modVersion: (Scalars['String'] | null)
-    /** Reads a single `Level` that is related to this `Record`. */
-    levelByLevel: (Level | null)
+    level: Scalars['String']
+    modVersion: Scalars['String']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
     /** Reads a single `User` that is related to this `Record`. */
     userByUser: (User | null)
+    /** Reads and enables pagination through a set of `Media`. */
+    mediaByRecord: MediaConnection
     /** Reads and enables pagination through a set of `PersonalBest`. */
     personalBestsByRecord: PersonalBestsConnection
     /** Reads and enables pagination through a set of `WorldRecord`. */
     worldRecordsByRecord: WorldRecordsConnection
-    /** Reads and enables pagination through a set of `Media`. */
-    mediaByRecord: MediaConnection
     __typename: 'Record'
 }
+
+
+/** A connection to a list of `Media` values. */
+export interface MediaConnection {
+    /** A list of `Media` objects. */
+    nodes: (Media | null)[]
+    /** A list of edges which contains the `Media` and cursor to aid in pagination. */
+    edges: MediaEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `Media` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'MediaConnection'
+}
+
+export interface Media {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    record: Scalars['Int']
+    ghostUrl: Scalars['String']
+    screenshotUrl: Scalars['String']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
+    /** Reads a single `Record` that is related to this `Media`. */
+    recordByRecord: (Record | null)
+    __typename: 'Media'
+}
+
+
+/** A `Media` edge in the connection. */
+export interface MediaEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `Media` at the end of the edge. */
+    node: (Media | null)
+    __typename: 'MediaEdge'
+}
+
+
+/** Information about pagination in a connection. */
+export interface PageInfo {
+    /** When paginating forwards, are there more items? */
+    hasNextPage: Scalars['Boolean']
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage: Scalars['Boolean']
+    /** When paginating backwards, the cursor to continue. */
+    startCursor: (Scalars['Cursor'] | null)
+    /** When paginating forwards, the cursor to continue. */
+    endCursor: (Scalars['Cursor'] | null)
+    __typename: 'PageInfo'
+}
+
+
+/** Methods to use when ordering `Media`. */
+export type MediaOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'GHOST_URL_ASC' | 'GHOST_URL_DESC' | 'SCREENSHOT_URL_ASC' | 'SCREENSHOT_URL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `PersonalBest` values. */
@@ -290,9 +268,9 @@ export interface PersonalBest {
     user: Scalars['Int']
     periodStart: (Scalars['Datetime'] | null)
     periodEnd: (Scalars['Datetime'] | null)
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
     level: Scalars['String']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
     /** Reads a single `Record` that is related to this `PersonalBest`. */
     recordByRecord: (Record | null)
     /** Reads a single `User` that is related to this `PersonalBest`. */
@@ -312,7 +290,7 @@ export interface PersonalBestsEdge {
 
 
 /** Methods to use when ordering `PersonalBest`. */
-export type PersonalBestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type PersonalBestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `WorldRecord` values. */
@@ -336,9 +314,9 @@ export interface WorldRecord {
     user: Scalars['Int']
     periodStart: (Scalars['Datetime'] | null)
     periodEnd: (Scalars['Datetime'] | null)
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
     level: Scalars['String']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
     /** Reads a single `Record` that is related to this `WorldRecord`. */
     recordByRecord: (Record | null)
     /** Reads a single `User` that is related to this `WorldRecord`. */
@@ -358,49 +336,7 @@ export interface WorldRecordsEdge {
 
 
 /** Methods to use when ordering `WorldRecord`. */
-export type WorldRecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
-
-
-/** A connection to a list of `Media` values. */
-export interface MediaConnection {
-    /** A list of `Media` objects. */
-    nodes: (Media | null)[]
-    /** A list of edges which contains the `Media` and cursor to aid in pagination. */
-    edges: MediaEdge[]
-    /** Information to aid in pagination. */
-    pageInfo: PageInfo
-    /** The count of *all* `Media` you could get from the connection. */
-    totalCount: Scalars['Int']
-    __typename: 'MediaConnection'
-}
-
-export interface Media {
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId: Scalars['ID']
-    id: Scalars['Int']
-    record: Scalars['Int']
-    ghostUrl: Scalars['String']
-    screenshotUrl: Scalars['String']
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
-    /** Reads a single `Record` that is related to this `Media`. */
-    recordByRecord: (Record | null)
-    __typename: 'Media'
-}
-
-
-/** A `Media` edge in the connection. */
-export interface MediaEdge {
-    /** A cursor for use in pagination. */
-    cursor: (Scalars['Cursor'] | null)
-    /** The `Media` at the end of the edge. */
-    node: (Media | null)
-    __typename: 'MediaEdge'
-}
-
-
-/** Methods to use when ordering `Media`. */
-export type MediaOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'GHOST_URL_ASC' | 'GHOST_URL_DESC' | 'SCREENSHOT_URL_ASC' | 'SCREENSHOT_URL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type WorldRecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'RECORD_ASC' | 'RECORD_DESC' | 'USER_ASC' | 'USER_DESC' | 'PERIOD_START_ASC' | 'PERIOD_START_DESC' | 'PERIOD_END_ASC' | 'PERIOD_END_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A `Record` edge in the connection. */
@@ -414,99 +350,7 @@ export interface RecordsEdge {
 
 
 /** Methods to use when ordering `Record`. */
-export type RecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'USER_ASC' | 'USER_DESC' | 'TIME_ASC' | 'TIME_DESC' | 'IS_BEST_ASC' | 'IS_BEST_DESC' | 'SPLITS_ASC' | 'SPLITS_DESC' | 'GHOST_URL_ASC' | 'GHOST_URL_DESC' | 'SCREENSHOT_URL_ASC' | 'SCREENSHOT_URL_DESC' | 'GAME_VERSION_ASC' | 'GAME_VERSION_DESC' | 'IS_VALID_ASC' | 'IS_VALID_DESC' | 'IS_WR_ASC' | 'IS_WR_DESC' | 'LEVEL_HASH_ASC' | 'LEVEL_HASH_DESC' | 'MOD_VERSION_ASC' | 'MOD_VERSION_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
-
-
-/** A connection to a list of `Vote` values. */
-export interface VotesConnection {
-    /** A list of `Vote` objects. */
-    nodes: (Vote | null)[]
-    /** A list of edges which contains the `Vote` and cursor to aid in pagination. */
-    edges: VotesEdge[]
-    /** Information to aid in pagination. */
-    pageInfo: PageInfo
-    /** The count of *all* `Vote` you could get from the connection. */
-    totalCount: Scalars['Int']
-    __typename: 'VotesConnection'
-}
-
-export interface Vote {
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId: Scalars['ID']
-    id: Scalars['Int']
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
-    level: (Scalars['Int'] | null)
-    user: (Scalars['Int'] | null)
-    score: (Scalars['Int'] | null)
-    category: (Scalars['Int'] | null)
-    /** Reads a single `Level` that is related to this `Vote`. */
-    levelByLevel: (Level | null)
-    /** Reads a single `User` that is related to this `Vote`. */
-    userByUser: (User | null)
-    __typename: 'Vote'
-}
-
-
-/** A `Vote` edge in the connection. */
-export interface VotesEdge {
-    /** A cursor for use in pagination. */
-    cursor: (Scalars['Cursor'] | null)
-    /** The `Vote` at the end of the edge. */
-    node: (Vote | null)
-    __typename: 'VotesEdge'
-}
-
-
-/** Methods to use when ordering `Vote`. */
-export type VotesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'USER_ASC' | 'USER_DESC' | 'SCORE_ASC' | 'SCORE_DESC' | 'CATEGORY_ASC' | 'CATEGORY_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
-
-
-/** Methods to use when ordering `Favorite`. */
-export type FavoritesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'USER_ASC' | 'USER_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
-
-
-/** A connection to a list of `Upvote` values. */
-export interface UpvotesConnection {
-    /** A list of `Upvote` objects. */
-    nodes: (Upvote | null)[]
-    /** A list of edges which contains the `Upvote` and cursor to aid in pagination. */
-    edges: UpvotesEdge[]
-    /** Information to aid in pagination. */
-    pageInfo: PageInfo
-    /** The count of *all* `Upvote` you could get from the connection. */
-    totalCount: Scalars['Int']
-    __typename: 'UpvotesConnection'
-}
-
-export interface Upvote {
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId: Scalars['ID']
-    id: Scalars['Int']
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
-    level: (Scalars['Int'] | null)
-    user: (Scalars['Int'] | null)
-    /** Reads a single `Level` that is related to this `Upvote`. */
-    levelByLevel: (Level | null)
-    /** Reads a single `User` that is related to this `Upvote`. */
-    userByUser: (User | null)
-    __typename: 'Upvote'
-}
-
-
-/** A `Upvote` edge in the connection. */
-export interface UpvotesEdge {
-    /** A cursor for use in pagination. */
-    cursor: (Scalars['Cursor'] | null)
-    /** The `Upvote` at the end of the edge. */
-    node: (Upvote | null)
-    __typename: 'UpvotesEdge'
-}
-
-
-/** Methods to use when ordering `Upvote`. */
-export type UpvotesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'USER_ASC' | 'USER_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type RecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'USER_ASC' | 'USER_DESC' | 'TIME_ASC' | 'TIME_DESC' | 'SPLITS_ASC' | 'SPLITS_DESC' | 'GAME_VERSION_ASC' | 'GAME_VERSION_DESC' | 'IS_VALID_ASC' | 'IS_VALID_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'MOD_VERSION_ASC' | 'MOD_VERSION_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `Stat` values. */
@@ -567,8 +411,6 @@ export interface Stat {
     timeOnRegular: Scalars['Float']
     timeOnGrass: Scalars['Float']
     timeOnIce: Scalars['Float']
-    dateCreated: (Scalars['Datetime'] | null)
-    dateUpdated: (Scalars['Datetime'] | null)
     timesStarted: Scalars['Int']
     timesFinished: Scalars['Int']
     wheelsBroken: Scalars['Int']
@@ -576,6 +418,8 @@ export interface Stat {
     user: Scalars['Int']
     month: Scalars['Int']
     year: Scalars['Int']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
     /** Reads a single `User` that is related to this `Stat`. */
     userByUser: (User | null)
     __typename: 'Stat'
@@ -593,7 +437,131 @@ export interface StatsEdge {
 
 
 /** Methods to use when ordering `Stat`. */
-export type StatsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'CRASH_TOTAL_ASC' | 'CRASH_TOTAL_DESC' | 'CRASH_REGULAR_ASC' | 'CRASH_REGULAR_DESC' | 'CRASH_EYE_ASC' | 'CRASH_EYE_DESC' | 'CRASH_GHOST_ASC' | 'CRASH_GHOST_DESC' | 'CRASH_STICKY_ASC' | 'CRASH_STICKY_DESC' | 'DISTANCE_ARMS_UP_ASC' | 'DISTANCE_ARMS_UP_DESC' | 'DISTANCE_BRAKING_ASC' | 'DISTANCE_BRAKING_DESC' | 'DISTANCE_GROUNDED_ASC' | 'DISTANCE_GROUNDED_DESC' | 'DISTANCE_IN_AIR_ASC' | 'DISTANCE_IN_AIR_DESC' | 'DISTANCE_ON_NO_WHEELS_ASC' | 'DISTANCE_ON_NO_WHEELS_DESC' | 'DISTANCE_ON_ONE_WHEEL_ASC' | 'DISTANCE_ON_ONE_WHEEL_DESC' | 'DISTANCE_ON_TWO_WHEELS_ASC' | 'DISTANCE_ON_TWO_WHEELS_DESC' | 'DISTANCE_ON_THREE_WHEELS_ASC' | 'DISTANCE_ON_THREE_WHEELS_DESC' | 'DISTANCE_ON_FOUR_WHEELS_ASC' | 'DISTANCE_ON_FOUR_WHEELS_DESC' | 'DISTANCE_RAGDOLL_ASC' | 'DISTANCE_RAGDOLL_DESC' | 'DISTANCE_WITH_NO_WHEELS_ASC' | 'DISTANCE_WITH_NO_WHEELS_DESC' | 'DISTANCE_WITH_ONE_WHEEL_ASC' | 'DISTANCE_WITH_ONE_WHEEL_DESC' | 'DISTANCE_WITH_TWO_WHEELS_ASC' | 'DISTANCE_WITH_TWO_WHEELS_DESC' | 'DISTANCE_WITH_THREE_WHEELS_ASC' | 'DISTANCE_WITH_THREE_WHEELS_DESC' | 'DISTANCE_WITH_FOUR_WHEELS_ASC' | 'DISTANCE_WITH_FOUR_WHEELS_DESC' | 'DISTANCE_ON_REGULAR_ASC' | 'DISTANCE_ON_REGULAR_DESC' | 'DISTANCE_ON_GRASS_ASC' | 'DISTANCE_ON_GRASS_DESC' | 'DISTANCE_ON_ICE_ASC' | 'DISTANCE_ON_ICE_DESC' | 'TIME_ARMS_UP_ASC' | 'TIME_ARMS_UP_DESC' | 'TIME_BRAKING_ASC' | 'TIME_BRAKING_DESC' | 'TIME_GROUNDED_ASC' | 'TIME_GROUNDED_DESC' | 'TIME_IN_AIR_ASC' | 'TIME_IN_AIR_DESC' | 'TIME_ON_NO_WHEELS_ASC' | 'TIME_ON_NO_WHEELS_DESC' | 'TIME_ON_ONE_WHEEL_ASC' | 'TIME_ON_ONE_WHEEL_DESC' | 'TIME_ON_TWO_WHEELS_ASC' | 'TIME_ON_TWO_WHEELS_DESC' | 'TIME_ON_THREE_WHEELS_ASC' | 'TIME_ON_THREE_WHEELS_DESC' | 'TIME_ON_FOUR_WHEELS_ASC' | 'TIME_ON_FOUR_WHEELS_DESC' | 'TIME_RAGDOLL_ASC' | 'TIME_RAGDOLL_DESC' | 'TIME_WITH_NO_WHEELS_ASC' | 'TIME_WITH_NO_WHEELS_DESC' | 'TIME_WITH_ONE_WHEEL_ASC' | 'TIME_WITH_ONE_WHEEL_DESC' | 'TIME_WITH_TWO_WHEELS_ASC' | 'TIME_WITH_TWO_WHEELS_DESC' | 'TIME_WITH_THREE_WHEELS_ASC' | 'TIME_WITH_THREE_WHEELS_DESC' | 'TIME_WITH_FOUR_WHEELS_ASC' | 'TIME_WITH_FOUR_WHEELS_DESC' | 'TIME_ON_REGULAR_ASC' | 'TIME_ON_REGULAR_DESC' | 'TIME_ON_GRASS_ASC' | 'TIME_ON_GRASS_DESC' | 'TIME_ON_ICE_ASC' | 'TIME_ON_ICE_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'TIMES_STARTED_ASC' | 'TIMES_STARTED_DESC' | 'TIMES_FINISHED_ASC' | 'TIMES_FINISHED_DESC' | 'WHEELS_BROKEN_ASC' | 'WHEELS_BROKEN_DESC' | 'CHECKPOINTS_CROSSED_ASC' | 'CHECKPOINTS_CROSSED_DESC' | 'USER_ASC' | 'USER_DESC' | 'MONTH_ASC' | 'MONTH_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type StatsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'CRASH_TOTAL_ASC' | 'CRASH_TOTAL_DESC' | 'CRASH_REGULAR_ASC' | 'CRASH_REGULAR_DESC' | 'CRASH_EYE_ASC' | 'CRASH_EYE_DESC' | 'CRASH_GHOST_ASC' | 'CRASH_GHOST_DESC' | 'CRASH_STICKY_ASC' | 'CRASH_STICKY_DESC' | 'DISTANCE_ARMS_UP_ASC' | 'DISTANCE_ARMS_UP_DESC' | 'DISTANCE_BRAKING_ASC' | 'DISTANCE_BRAKING_DESC' | 'DISTANCE_GROUNDED_ASC' | 'DISTANCE_GROUNDED_DESC' | 'DISTANCE_IN_AIR_ASC' | 'DISTANCE_IN_AIR_DESC' | 'DISTANCE_ON_NO_WHEELS_ASC' | 'DISTANCE_ON_NO_WHEELS_DESC' | 'DISTANCE_ON_ONE_WHEEL_ASC' | 'DISTANCE_ON_ONE_WHEEL_DESC' | 'DISTANCE_ON_TWO_WHEELS_ASC' | 'DISTANCE_ON_TWO_WHEELS_DESC' | 'DISTANCE_ON_THREE_WHEELS_ASC' | 'DISTANCE_ON_THREE_WHEELS_DESC' | 'DISTANCE_ON_FOUR_WHEELS_ASC' | 'DISTANCE_ON_FOUR_WHEELS_DESC' | 'DISTANCE_RAGDOLL_ASC' | 'DISTANCE_RAGDOLL_DESC' | 'DISTANCE_WITH_NO_WHEELS_ASC' | 'DISTANCE_WITH_NO_WHEELS_DESC' | 'DISTANCE_WITH_ONE_WHEEL_ASC' | 'DISTANCE_WITH_ONE_WHEEL_DESC' | 'DISTANCE_WITH_TWO_WHEELS_ASC' | 'DISTANCE_WITH_TWO_WHEELS_DESC' | 'DISTANCE_WITH_THREE_WHEELS_ASC' | 'DISTANCE_WITH_THREE_WHEELS_DESC' | 'DISTANCE_WITH_FOUR_WHEELS_ASC' | 'DISTANCE_WITH_FOUR_WHEELS_DESC' | 'DISTANCE_ON_REGULAR_ASC' | 'DISTANCE_ON_REGULAR_DESC' | 'DISTANCE_ON_GRASS_ASC' | 'DISTANCE_ON_GRASS_DESC' | 'DISTANCE_ON_ICE_ASC' | 'DISTANCE_ON_ICE_DESC' | 'TIME_ARMS_UP_ASC' | 'TIME_ARMS_UP_DESC' | 'TIME_BRAKING_ASC' | 'TIME_BRAKING_DESC' | 'TIME_GROUNDED_ASC' | 'TIME_GROUNDED_DESC' | 'TIME_IN_AIR_ASC' | 'TIME_IN_AIR_DESC' | 'TIME_ON_NO_WHEELS_ASC' | 'TIME_ON_NO_WHEELS_DESC' | 'TIME_ON_ONE_WHEEL_ASC' | 'TIME_ON_ONE_WHEEL_DESC' | 'TIME_ON_TWO_WHEELS_ASC' | 'TIME_ON_TWO_WHEELS_DESC' | 'TIME_ON_THREE_WHEELS_ASC' | 'TIME_ON_THREE_WHEELS_DESC' | 'TIME_ON_FOUR_WHEELS_ASC' | 'TIME_ON_FOUR_WHEELS_DESC' | 'TIME_RAGDOLL_ASC' | 'TIME_RAGDOLL_DESC' | 'TIME_WITH_NO_WHEELS_ASC' | 'TIME_WITH_NO_WHEELS_DESC' | 'TIME_WITH_ONE_WHEEL_ASC' | 'TIME_WITH_ONE_WHEEL_DESC' | 'TIME_WITH_TWO_WHEELS_ASC' | 'TIME_WITH_TWO_WHEELS_DESC' | 'TIME_WITH_THREE_WHEELS_ASC' | 'TIME_WITH_THREE_WHEELS_DESC' | 'TIME_WITH_FOUR_WHEELS_ASC' | 'TIME_WITH_FOUR_WHEELS_DESC' | 'TIME_ON_REGULAR_ASC' | 'TIME_ON_REGULAR_DESC' | 'TIME_ON_GRASS_ASC' | 'TIME_ON_GRASS_DESC' | 'TIME_ON_ICE_ASC' | 'TIME_ON_ICE_DESC' | 'TIMES_STARTED_ASC' | 'TIMES_STARTED_DESC' | 'TIMES_FINISHED_ASC' | 'TIMES_FINISHED_DESC' | 'WHEELS_BROKEN_ASC' | 'WHEELS_BROKEN_DESC' | 'CHECKPOINTS_CROSSED_ASC' | 'CHECKPOINTS_CROSSED_DESC' | 'USER_ASC' | 'USER_DESC' | 'MONTH_ASC' | 'MONTH_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+
+
+/** A connection to a list of `Upvote` values. */
+export interface UpvotesConnection {
+    /** A list of `Upvote` objects. */
+    nodes: (Upvote | null)[]
+    /** A list of edges which contains the `Upvote` and cursor to aid in pagination. */
+    edges: UpvotesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `Upvote` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'UpvotesConnection'
+}
+
+export interface Upvote {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    user: Scalars['Int']
+    level: Scalars['String']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
+    /** Reads a single `User` that is related to this `Upvote`. */
+    userByUser: (User | null)
+    __typename: 'Upvote'
+}
+
+
+/** A `Upvote` edge in the connection. */
+export interface UpvotesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `Upvote` at the end of the edge. */
+    node: (Upvote | null)
+    __typename: 'UpvotesEdge'
+}
+
+
+/** Methods to use when ordering `Upvote`. */
+export type UpvotesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'USER_ASC' | 'USER_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+
+
+/** A connection to a list of `Vote` values. */
+export interface VotesConnection {
+    /** A list of `Vote` objects. */
+    nodes: (Vote | null)[]
+    /** A list of edges which contains the `Vote` and cursor to aid in pagination. */
+    edges: VotesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `Vote` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'VotesConnection'
+}
+
+export interface Vote {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    user: Scalars['Int']
+    score: Scalars['Int']
+    level: Scalars['String']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
+    /** Reads a single `User` that is related to this `Vote`. */
+    userByUser: (User | null)
+    __typename: 'Vote'
+}
+
+
+/** A `Vote` edge in the connection. */
+export interface VotesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `Vote` at the end of the edge. */
+    node: (Vote | null)
+    __typename: 'VotesEdge'
+}
+
+
+/** Methods to use when ordering `Vote`. */
+export type VotesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'USER_ASC' | 'USER_DESC' | 'SCORE_ASC' | 'SCORE_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+
+
+/** A connection to a list of `PlayerPoint` values. */
+export interface PlayerPointsConnection {
+    /** A list of `PlayerPoint` objects. */
+    nodes: (PlayerPoint | null)[]
+    /** A list of edges which contains the `PlayerPoint` and cursor to aid in pagination. */
+    edges: PlayerPointsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `PlayerPoint` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'PlayerPointsConnection'
+}
+
+export interface PlayerPoint {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    user: Scalars['Int']
+    points: Scalars['Int']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
+    /** Reads a single `User` that is related to this `PlayerPoint`. */
+    userByUser: (User | null)
+    __typename: 'PlayerPoint'
+}
+
+
+/** A `PlayerPoint` edge in the connection. */
+export interface PlayerPointsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `PlayerPoint` at the end of the edge. */
+    node: (PlayerPoint | null)
+    __typename: 'PlayerPointsEdge'
+}
+
+
+/** Methods to use when ordering `PlayerPoint`. */
+export type PlayerPointsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'USER_ASC' | 'USER_DESC' | 'POINTS_ASC' | 'POINTS_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A `Favorite` edge in the connection. */
@@ -604,6 +572,45 @@ export interface FavoritesEdge {
     node: (Favorite | null)
     __typename: 'FavoritesEdge'
 }
+
+
+/** A connection to a list of `LevelPoint` values. */
+export interface LevelPointsConnection {
+    /** A list of `LevelPoint` objects. */
+    nodes: (LevelPoint | null)[]
+    /** A list of edges which contains the `LevelPoint` and cursor to aid in pagination. */
+    edges: LevelPointsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `LevelPoint` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'LevelPointsConnection'
+}
+
+export interface LevelPoint {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    level: Scalars['String']
+    points: Scalars['Int']
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
+    __typename: 'LevelPoint'
+}
+
+
+/** A `LevelPoint` edge in the connection. */
+export interface LevelPointsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `LevelPoint` at the end of the edge. */
+    node: (LevelPoint | null)
+    __typename: 'LevelPointsEdge'
+}
+
+
+/** Methods to use when ordering `LevelPoint`. */
+export type LevelPointsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'LEVEL_ASC' | 'LEVEL_DESC' | 'POINTS_ASC' | 'POINTS_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `User` values. */
@@ -631,7 +638,7 @@ export interface UsersEdge {
 
 
 /** Methods to use when ordering `User`. */
-export type UsersOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'STEAM_ID_ASC' | 'STEAM_ID_DESC' | 'STEAM_NAME_ASC' | 'STEAM_NAME_DESC' | 'POSITION_ASC' | 'POSITION_DESC' | 'SCORE_ASC' | 'SCORE_DESC' | 'WORLD_RECORDS_ASC' | 'WORLD_RECORDS_DESC' | 'DISCORD_ID_ASC' | 'DISCORD_ID_DESC' | 'BANNED_ASC' | 'BANNED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type UsersOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'STEAM_ID_ASC' | 'STEAM_ID_DESC' | 'STEAM_NAME_ASC' | 'STEAM_NAME_DESC' | 'DISCORD_ID_ASC' | 'DISCORD_ID_DESC' | 'BANNED_ASC' | 'BANNED_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `Version` values. */
@@ -653,6 +660,8 @@ export interface Version {
     id: Scalars['Int']
     minimum: (Scalars['String'] | null)
     latest: (Scalars['String'] | null)
+    dateCreated: Scalars['Datetime']
+    dateUpdated: Scalars['Datetime']
     __typename: 'Version'
 }
 
@@ -668,55 +677,7 @@ export interface VersionsEdge {
 
 
 /** Methods to use when ordering `Version`. */
-export type VersionsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'MINIMUM_ASC' | 'MINIMUM_DESC' | 'LATEST_ASC' | 'LATEST_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export interface Mutation {
-    fixWr: (FixWrPayload | null)
-    updatePb: (UpdatePbPayload | null)
-    updateWr: (UpdateWrPayload | null)
-    __typename: 'Mutation'
-}
-
-
-/** The output of our `fixWr` mutation. */
-export interface FixWrPayload {
-    /**
-     * The exact same `clientMutationId` that was provided in the mutation input,
-     * unchanged and unused. May be used by a client to track mutations.
-     */
-    clientMutationId: (Scalars['String'] | null)
-    /** Our root query field type. Allows us to run any query from our mutation payload. */
-    query: (Query | null)
-    __typename: 'FixWrPayload'
-}
-
-
-/** The output of our `updatePb` mutation. */
-export interface UpdatePbPayload {
-    /**
-     * The exact same `clientMutationId` that was provided in the mutation input,
-     * unchanged and unused. May be used by a client to track mutations.
-     */
-    clientMutationId: (Scalars['String'] | null)
-    /** Our root query field type. Allows us to run any query from our mutation payload. */
-    query: (Query | null)
-    __typename: 'UpdatePbPayload'
-}
-
-
-/** The output of our `updateWr` mutation. */
-export interface UpdateWrPayload {
-    /**
-     * The exact same `clientMutationId` that was provided in the mutation input,
-     * unchanged and unused. May be used by a client to track mutations.
-     */
-    clientMutationId: (Scalars['String'] | null)
-    /** Our root query field type. Allows us to run any query from our mutation payload. */
-    query: (Query | null)
-    __typename: 'UpdateWrPayload'
-}
+export type VersionsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'MINIMUM_ASC' | 'MINIMUM_DESC' | 'LATEST_ASC' | 'LATEST_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** The root query type which gives access points into the data universe. */
@@ -751,8 +712,8 @@ export interface QueryGenqlSelection{
     orderBy?: (FavoritesOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (FavoriteCondition | null)} })
-    /** Reads and enables pagination through a set of `Level`. */
-    allLevels?: (LevelsConnectionGenqlSelection & { __args?: {
+    /** Reads and enables pagination through a set of `LevelPoint`. */
+    allLevelPoints?: (LevelPointsConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
     first?: (Scalars['Int'] | null), 
     /** Only read the last `n` values of the set. */
@@ -766,10 +727,10 @@ export interface QueryGenqlSelection{
     before?: (Scalars['Cursor'] | null), 
     /** Read all values in the set after (below) this cursor. */
     after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Level`. */
-    orderBy?: (LevelsOrderBy[] | null), 
+    /** The method to use when ordering `LevelPoint`. */
+    orderBy?: (LevelPointsOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (LevelCondition | null)} })
+    condition?: (LevelPointCondition | null)} })
     /** Reads and enables pagination through a set of `Media`. */
     allMedia?: (MediaConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -808,6 +769,25 @@ export interface QueryGenqlSelection{
     orderBy?: (PersonalBestsOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (PersonalBestCondition | null)} })
+    /** Reads and enables pagination through a set of `PlayerPoint`. */
+    allPlayerPoints?: (PlayerPointsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `PlayerPoint`. */
+    orderBy?: (PlayerPointsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (PlayerPointCondition | null)} })
     /** Reads and enables pagination through a set of `Record`. */
     allRecords?: (RecordsConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -942,9 +922,10 @@ export interface QueryGenqlSelection{
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (WorldRecordCondition | null)} })
     favoriteById?: (FavoriteGenqlSelection & { __args: {id: Scalars['Int']} })
-    levelById?: (LevelGenqlSelection & { __args: {id: Scalars['Int']} })
+    levelPointById?: (LevelPointGenqlSelection & { __args: {id: Scalars['Int']} })
     mediaById?: (MediaGenqlSelection & { __args: {id: Scalars['Int']} })
     personalBestById?: (PersonalBestGenqlSelection & { __args: {id: Scalars['Int']} })
+    playerPointById?: (PlayerPointGenqlSelection & { __args: {id: Scalars['Int']} })
     recordById?: (RecordGenqlSelection & { __args: {id: Scalars['Int']} })
     statById?: (StatGenqlSelection & { __args: {id: Scalars['Int']} })
     upvoteById?: (UpvoteGenqlSelection & { __args: {id: Scalars['Int']} })
@@ -956,9 +937,9 @@ export interface QueryGenqlSelection{
     favorite?: (FavoriteGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Favorite`. */
     nodeId: Scalars['ID']} })
-    /** Reads a single `Level` using its globally unique `ID`. */
-    level?: (LevelGenqlSelection & { __args: {
-    /** The globally unique `ID` to be used in selecting a single `Level`. */
+    /** Reads a single `LevelPoint` using its globally unique `ID`. */
+    levelPoint?: (LevelPointGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `LevelPoint`. */
     nodeId: Scalars['ID']} })
     /** Reads a single `Media` using its globally unique `ID`. */
     media?: (MediaGenqlSelection & { __args: {
@@ -967,6 +948,10 @@ export interface QueryGenqlSelection{
     /** Reads a single `PersonalBest` using its globally unique `ID`. */
     personalBest?: (PersonalBestGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `PersonalBest`. */
+    nodeId: Scalars['ID']} })
+    /** Reads a single `PlayerPoint` using its globally unique `ID`. */
+    playerPoint?: (PlayerPointGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `PlayerPoint`. */
     nodeId: Scalars['ID']} })
     /** Reads a single `Record` using its globally unique `ID`. */
     record?: (RecordGenqlSelection & { __args: {
@@ -1007,15 +992,16 @@ export interface NodeGenqlSelection{
     nodeId?: boolean | number
     on_Query?: QueryGenqlSelection
     on_Favorite?: FavoriteGenqlSelection
-    on_Level?: LevelGenqlSelection
     on_User?: UserGenqlSelection
     on_Record?: RecordGenqlSelection
+    on_Media?: MediaGenqlSelection
     on_PersonalBest?: PersonalBestGenqlSelection
     on_WorldRecord?: WorldRecordGenqlSelection
-    on_Media?: MediaGenqlSelection
-    on_Vote?: VoteGenqlSelection
-    on_Upvote?: UpvoteGenqlSelection
     on_Stat?: StatGenqlSelection
+    on_Upvote?: UpvoteGenqlSelection
+    on_Vote?: VoteGenqlSelection
+    on_PlayerPoint?: PlayerPointGenqlSelection
+    on_LevelPoint?: LevelPointGenqlSelection
     on_Version?: VersionGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -1040,116 +1026,12 @@ export interface FavoriteGenqlSelection{
     /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
     nodeId?: boolean | number
     id?: boolean | number
+    user?: boolean | number
+    level?: boolean | number
     dateCreated?: boolean | number
     dateUpdated?: boolean | number
-    level?: boolean | number
-    user?: boolean | number
-    /** Reads a single `Level` that is related to this `Favorite`. */
-    levelByLevel?: LevelGenqlSelection
     /** Reads a single `User` that is related to this `Favorite`. */
     userByUser?: UserGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-export interface LevelGenqlSelection{
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId?: boolean | number
-    id?: boolean | number
-    dateCreated?: boolean | number
-    dateUpdated?: boolean | number
-    uid?: boolean | number
-    name?: boolean | number
-    author?: boolean | number
-    timeAuthor?: boolean | number
-    timeGold?: boolean | number
-    timeSilver?: boolean | number
-    timeBronze?: boolean | number
-    createdBy?: boolean | number
-    wid?: boolean | number
-    isValid?: boolean | number
-    thumbnailUrl?: boolean | number
-    rank?: boolean | number
-    points?: boolean | number
-    blocked?: boolean | number
-    /** Reads a single `User` that is related to this `Level`. */
-    userByCreatedBy?: UserGenqlSelection
-    /** Reads and enables pagination through a set of `Record`. */
-    recordsByLevel?: (RecordsConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Record`. */
-    orderBy?: (RecordsOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (RecordCondition | null)} })
-    /** Reads and enables pagination through a set of `Vote`. */
-    votesByLevel?: (VotesConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Vote`. */
-    orderBy?: (VotesOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (VoteCondition | null)} })
-    /** Reads and enables pagination through a set of `Favorite`. */
-    favoritesByLevel?: (FavoritesConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Favorite`. */
-    orderBy?: (FavoritesOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (FavoriteCondition | null)} })
-    /** Reads and enables pagination through a set of `Upvote`. */
-    upvotesByLevel?: (UpvotesConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Upvote`. */
-    orderBy?: (UpvotesOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (UpvoteCondition | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1158,72 +1040,12 @@ export interface UserGenqlSelection{
     /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
     nodeId?: boolean | number
     id?: boolean | number
-    dateCreated?: boolean | number
-    dateUpdated?: boolean | number
     steamId?: boolean | number
     steamName?: boolean | number
-    position?: boolean | number
-    score?: boolean | number
-    worldRecords?: boolean | number
     discordId?: boolean | number
     banned?: boolean | number
-    /** Reads and enables pagination through a set of `Level`. */
-    levelsByCreatedBy?: (LevelsConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Level`. */
-    orderBy?: (LevelsOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (LevelCondition | null)} })
-    /** Reads and enables pagination through a set of `Record`. */
-    recordsByUser?: (RecordsConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Record`. */
-    orderBy?: (RecordsOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (RecordCondition | null)} })
-    /** Reads and enables pagination through a set of `Vote`. */
-    votesByUser?: (VotesConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Vote`. */
-    orderBy?: (VotesOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (VoteCondition | null)} })
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
     /** Reads and enables pagination through a set of `Favorite`. */
     favoritesByUser?: (FavoritesConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -1243,8 +1065,8 @@ export interface UserGenqlSelection{
     orderBy?: (FavoritesOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (FavoriteCondition | null)} })
-    /** Reads and enables pagination through a set of `Upvote`. */
-    upvotesByUser?: (UpvotesConnectionGenqlSelection & { __args?: {
+    /** Reads and enables pagination through a set of `Record`. */
+    recordsByUser?: (RecordsConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
     first?: (Scalars['Int'] | null), 
     /** Only read the last `n` values of the set. */
@@ -1258,10 +1080,10 @@ export interface UserGenqlSelection{
     before?: (Scalars['Cursor'] | null), 
     /** Read all values in the set after (below) this cursor. */
     after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Upvote`. */
-    orderBy?: (UpvotesOrderBy[] | null), 
+    /** The method to use when ordering `Record`. */
+    orderBy?: (RecordsOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (UpvoteCondition | null)} })
+    condition?: (RecordCondition | null)} })
     /** Reads and enables pagination through a set of `Stat`. */
     statsByUser?: (StatsConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -1281,6 +1103,44 @@ export interface UserGenqlSelection{
     orderBy?: (StatsOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (StatCondition | null)} })
+    /** Reads and enables pagination through a set of `Upvote`. */
+    upvotesByUser?: (UpvotesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Upvote`. */
+    orderBy?: (UpvotesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (UpvoteCondition | null)} })
+    /** Reads and enables pagination through a set of `Vote`. */
+    votesByUser?: (VotesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Vote`. */
+    orderBy?: (VotesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (VoteCondition | null)} })
     /** Reads and enables pagination through a set of `PersonalBest`. */
     personalBestsByUser?: (PersonalBestsConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -1319,88 +1179,45 @@ export interface UserGenqlSelection{
     orderBy?: (WorldRecordsOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (WorldRecordCondition | null)} })
+    /** Reads and enables pagination through a set of `PlayerPoint`. */
+    playerPointsByUser?: (PlayerPointsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `PlayerPoint`. */
+    orderBy?: (PlayerPointsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (PlayerPointCondition | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
 
-/** A connection to a list of `Level` values. */
-export interface LevelsConnectionGenqlSelection{
-    /** A list of `Level` objects. */
-    nodes?: LevelGenqlSelection
-    /** A list of edges which contains the `Level` and cursor to aid in pagination. */
-    edges?: LevelsEdgeGenqlSelection
-    /** Information to aid in pagination. */
-    pageInfo?: PageInfoGenqlSelection
-    /** The count of *all* `Level` you could get from the connection. */
-    totalCount?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A `Level` edge in the connection. */
-export interface LevelsEdgeGenqlSelection{
-    /** A cursor for use in pagination. */
-    cursor?: boolean | number
-    /** The `Level` at the end of the edge. */
-    node?: LevelGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** Information about pagination in a connection. */
-export interface PageInfoGenqlSelection{
-    /** When paginating forwards, are there more items? */
-    hasNextPage?: boolean | number
-    /** When paginating backwards, are there more items? */
-    hasPreviousPage?: boolean | number
-    /** When paginating backwards, the cursor to continue. */
-    startCursor?: boolean | number
-    /** When paginating forwards, the cursor to continue. */
-    endCursor?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A condition to be used against `Level` object types. All fields are tested for equality and combined with a logical ‘and.’ */
-export interface LevelCondition {
+/**
+ * A condition to be used against `Favorite` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export interface FavoriteCondition {
 /** Checks for equality with the object’s `id` field. */
 id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `user` field. */
+user?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `dateCreated` field. */
 dateCreated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `uid` field. */
-uid?: (Scalars['String'] | null),
-/** Checks for equality with the object’s `name` field. */
-name?: (Scalars['String'] | null),
-/** Checks for equality with the object’s `author` field. */
-author?: (Scalars['String'] | null),
-/** Checks for equality with the object’s `timeAuthor` field. */
-timeAuthor?: (Scalars['Float'] | null),
-/** Checks for equality with the object’s `timeGold` field. */
-timeGold?: (Scalars['Float'] | null),
-/** Checks for equality with the object’s `timeSilver` field. */
-timeSilver?: (Scalars['Float'] | null),
-/** Checks for equality with the object’s `timeBronze` field. */
-timeBronze?: (Scalars['Float'] | null),
-/** Checks for equality with the object’s `createdBy` field. */
-createdBy?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `wid` field. */
-wid?: (Scalars['String'] | null),
-/** Checks for equality with the object’s `isValid` field. */
-isValid?: (Scalars['Boolean'] | null),
-/** Checks for equality with the object’s `thumbnailUrl` field. */
-thumbnailUrl?: (Scalars['String'] | null),
-/** Checks for equality with the object’s `rank` field. */
-rank?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `points` field. */
-points?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `blocked` field. */
-blocked?: (Scalars['Boolean'] | null)}
+dateUpdated?: (Scalars['Datetime'] | null)}
 
 
 /** A connection to a list of `Record` values. */
@@ -1421,24 +1238,36 @@ export interface RecordGenqlSelection{
     /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
     nodeId?: boolean | number
     id?: boolean | number
-    dateCreated?: boolean | number
-    dateUpdated?: boolean | number
-    level?: boolean | number
     user?: boolean | number
     time?: boolean | number
-    isBest?: boolean | number
     splits?: boolean | number
-    ghostUrl?: boolean | number
-    screenshotUrl?: boolean | number
     gameVersion?: boolean | number
     isValid?: boolean | number
-    isWr?: boolean | number
-    levelHash?: boolean | number
+    level?: boolean | number
     modVersion?: boolean | number
-    /** Reads a single `Level` that is related to this `Record`. */
-    levelByLevel?: LevelGenqlSelection
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
     /** Reads a single `User` that is related to this `Record`. */
     userByUser?: UserGenqlSelection
+    /** Reads and enables pagination through a set of `Media`. */
+    mediaByRecord?: (MediaConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Media`. */
+    orderBy?: (MediaOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (MediaCondition | null)} })
     /** Reads and enables pagination through a set of `PersonalBest`. */
     personalBestsByRecord?: (PersonalBestsConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -1477,164 +1306,9 @@ export interface RecordGenqlSelection{
     orderBy?: (WorldRecordsOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (WorldRecordCondition | null)} })
-    /** Reads and enables pagination through a set of `Media`. */
-    mediaByRecord?: (MediaConnectionGenqlSelection & { __args?: {
-    /** Only read the first `n` values of the set. */
-    first?: (Scalars['Int'] | null), 
-    /** Only read the last `n` values of the set. */
-    last?: (Scalars['Int'] | null), 
-    /**
-     * Skip the first `n` values from our `after` cursor, an alternative to cursor
-     * based pagination. May not be used with `last`.
-     */
-    offset?: (Scalars['Int'] | null), 
-    /** Read all values in the set before (above) this cursor. */
-    before?: (Scalars['Cursor'] | null), 
-    /** Read all values in the set after (below) this cursor. */
-    after?: (Scalars['Cursor'] | null), 
-    /** The method to use when ordering `Media`. */
-    orderBy?: (MediaOrderBy[] | null), 
-    /** A condition to be used in determining which values should be returned by the collection. */
-    condition?: (MediaCondition | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
-
-
-/** A connection to a list of `PersonalBest` values. */
-export interface PersonalBestsConnectionGenqlSelection{
-    /** A list of `PersonalBest` objects. */
-    nodes?: PersonalBestGenqlSelection
-    /** A list of edges which contains the `PersonalBest` and cursor to aid in pagination. */
-    edges?: PersonalBestsEdgeGenqlSelection
-    /** Information to aid in pagination. */
-    pageInfo?: PageInfoGenqlSelection
-    /** The count of *all* `PersonalBest` you could get from the connection. */
-    totalCount?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-export interface PersonalBestGenqlSelection{
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId?: boolean | number
-    id?: boolean | number
-    record?: boolean | number
-    user?: boolean | number
-    periodStart?: boolean | number
-    periodEnd?: boolean | number
-    dateCreated?: boolean | number
-    dateUpdated?: boolean | number
-    level?: boolean | number
-    /** Reads a single `Record` that is related to this `PersonalBest`. */
-    recordByRecord?: RecordGenqlSelection
-    /** Reads a single `User` that is related to this `PersonalBest`. */
-    userByUser?: UserGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A `PersonalBest` edge in the connection. */
-export interface PersonalBestsEdgeGenqlSelection{
-    /** A cursor for use in pagination. */
-    cursor?: boolean | number
-    /** The `PersonalBest` at the end of the edge. */
-    node?: PersonalBestGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/**
- * A condition to be used against `PersonalBest` object types. All fields are
- * tested for equality and combined with a logical ‘and.’
- */
-export interface PersonalBestCondition {
-/** Checks for equality with the object’s `id` field. */
-id?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `record` field. */
-record?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `user` field. */
-user?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `periodStart` field. */
-periodStart?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `periodEnd` field. */
-periodEnd?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateCreated` field. */
-dateCreated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `level` field. */
-level?: (Scalars['String'] | null)}
-
-
-/** A connection to a list of `WorldRecord` values. */
-export interface WorldRecordsConnectionGenqlSelection{
-    /** A list of `WorldRecord` objects. */
-    nodes?: WorldRecordGenqlSelection
-    /** A list of edges which contains the `WorldRecord` and cursor to aid in pagination. */
-    edges?: WorldRecordsEdgeGenqlSelection
-    /** Information to aid in pagination. */
-    pageInfo?: PageInfoGenqlSelection
-    /** The count of *all* `WorldRecord` you could get from the connection. */
-    totalCount?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-export interface WorldRecordGenqlSelection{
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId?: boolean | number
-    id?: boolean | number
-    record?: boolean | number
-    user?: boolean | number
-    periodStart?: boolean | number
-    periodEnd?: boolean | number
-    dateCreated?: boolean | number
-    dateUpdated?: boolean | number
-    level?: boolean | number
-    /** Reads a single `Record` that is related to this `WorldRecord`. */
-    recordByRecord?: RecordGenqlSelection
-    /** Reads a single `User` that is related to this `WorldRecord`. */
-    userByUser?: UserGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A `WorldRecord` edge in the connection. */
-export interface WorldRecordsEdgeGenqlSelection{
-    /** A cursor for use in pagination. */
-    cursor?: boolean | number
-    /** The `WorldRecord` at the end of the edge. */
-    node?: WorldRecordGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/**
- * A condition to be used against `WorldRecord` object types. All fields are tested
- * for equality and combined with a logical ‘and.’
- */
-export interface WorldRecordCondition {
-/** Checks for equality with the object’s `id` field. */
-id?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `record` field. */
-record?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `user` field. */
-user?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `periodStart` field. */
-periodStart?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `periodEnd` field. */
-periodEnd?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateCreated` field. */
-dateCreated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `level` field. */
-level?: (Scalars['String'] | null)}
 
 
 /** A connection to a list of `Media` values. */
@@ -1678,6 +1352,21 @@ export interface MediaEdgeGenqlSelection{
 }
 
 
+/** Information about pagination in a connection. */
+export interface PageInfoGenqlSelection{
+    /** When paginating forwards, are there more items? */
+    hasNextPage?: boolean | number
+    /** When paginating backwards, are there more items? */
+    hasPreviousPage?: boolean | number
+    /** When paginating backwards, the cursor to continue. */
+    startCursor?: boolean | number
+    /** When paginating forwards, the cursor to continue. */
+    endCursor?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** A condition to be used against `Media` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export interface MediaCondition {
 /** Checks for equality with the object’s `id` field. */
@@ -1688,6 +1377,142 @@ record?: (Scalars['Int'] | null),
 ghostUrl?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `screenshotUrl` field. */
 screenshotUrl?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A connection to a list of `PersonalBest` values. */
+export interface PersonalBestsConnectionGenqlSelection{
+    /** A list of `PersonalBest` objects. */
+    nodes?: PersonalBestGenqlSelection
+    /** A list of edges which contains the `PersonalBest` and cursor to aid in pagination. */
+    edges?: PersonalBestsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `PersonalBest` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface PersonalBestGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    record?: boolean | number
+    user?: boolean | number
+    periodStart?: boolean | number
+    periodEnd?: boolean | number
+    level?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `Record` that is related to this `PersonalBest`. */
+    recordByRecord?: RecordGenqlSelection
+    /** Reads a single `User` that is related to this `PersonalBest`. */
+    userByUser?: UserGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `PersonalBest` edge in the connection. */
+export interface PersonalBestsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `PersonalBest` at the end of the edge. */
+    node?: PersonalBestGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `PersonalBest` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface PersonalBestCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `record` field. */
+record?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `user` field. */
+user?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `periodStart` field. */
+periodStart?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `periodEnd` field. */
+periodEnd?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A connection to a list of `WorldRecord` values. */
+export interface WorldRecordsConnectionGenqlSelection{
+    /** A list of `WorldRecord` objects. */
+    nodes?: WorldRecordGenqlSelection
+    /** A list of edges which contains the `WorldRecord` and cursor to aid in pagination. */
+    edges?: WorldRecordsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `WorldRecord` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface WorldRecordGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    record?: boolean | number
+    user?: boolean | number
+    periodStart?: boolean | number
+    periodEnd?: boolean | number
+    level?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `Record` that is related to this `WorldRecord`. */
+    recordByRecord?: RecordGenqlSelection
+    /** Reads a single `User` that is related to this `WorldRecord`. */
+    userByUser?: UserGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `WorldRecord` edge in the connection. */
+export interface WorldRecordsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `WorldRecord` at the end of the edge. */
+    node?: WorldRecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `WorldRecord` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export interface WorldRecordCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `record` field. */
+record?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `user` field. */
+user?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `periodStart` field. */
+periodStart?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `periodEnd` field. */
+periodEnd?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `dateCreated` field. */
 dateCreated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `dateUpdated` field. */
@@ -1709,169 +1534,24 @@ export interface RecordsEdgeGenqlSelection{
 export interface RecordCondition {
 /** Checks for equality with the object’s `id` field. */
 id?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `dateCreated` field. */
-dateCreated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `level` field. */
-level?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `user` field. */
 user?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `time` field. */
 time?: (Scalars['Float'] | null),
-/** Checks for equality with the object’s `isBest` field. */
-isBest?: (Scalars['Boolean'] | null),
 /** Checks for equality with the object’s `splits` field. */
 splits?: (Scalars['String'] | null),
-/** Checks for equality with the object’s `ghostUrl` field. */
-ghostUrl?: (Scalars['String'] | null),
-/** Checks for equality with the object’s `screenshotUrl` field. */
-screenshotUrl?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `gameVersion` field. */
 gameVersion?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `isValid` field. */
 isValid?: (Scalars['Boolean'] | null),
-/** Checks for equality with the object’s `isWr` field. */
-isWr?: (Scalars['Boolean'] | null),
-/** Checks for equality with the object’s `levelHash` field. */
-levelHash?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `modVersion` field. */
-modVersion?: (Scalars['String'] | null)}
-
-
-/** A connection to a list of `Vote` values. */
-export interface VotesConnectionGenqlSelection{
-    /** A list of `Vote` objects. */
-    nodes?: VoteGenqlSelection
-    /** A list of edges which contains the `Vote` and cursor to aid in pagination. */
-    edges?: VotesEdgeGenqlSelection
-    /** Information to aid in pagination. */
-    pageInfo?: PageInfoGenqlSelection
-    /** The count of *all* `Vote` you could get from the connection. */
-    totalCount?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-export interface VoteGenqlSelection{
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId?: boolean | number
-    id?: boolean | number
-    dateCreated?: boolean | number
-    dateUpdated?: boolean | number
-    level?: boolean | number
-    user?: boolean | number
-    score?: boolean | number
-    category?: boolean | number
-    /** Reads a single `Level` that is related to this `Vote`. */
-    levelByLevel?: LevelGenqlSelection
-    /** Reads a single `User` that is related to this `Vote`. */
-    userByUser?: UserGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A `Vote` edge in the connection. */
-export interface VotesEdgeGenqlSelection{
-    /** A cursor for use in pagination. */
-    cursor?: boolean | number
-    /** The `Vote` at the end of the edge. */
-    node?: VoteGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’ */
-export interface VoteCondition {
-/** Checks for equality with the object’s `id` field. */
-id?: (Scalars['Int'] | null),
+modVersion?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `dateCreated` field. */
 dateCreated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `level` field. */
-level?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `user` field. */
-user?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `score` field. */
-score?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `category` field. */
-category?: (Scalars['Int'] | null)}
-
-
-/**
- * A condition to be used against `Favorite` object types. All fields are tested
- * for equality and combined with a logical ‘and.’
- */
-export interface FavoriteCondition {
-/** Checks for equality with the object’s `id` field. */
-id?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `dateCreated` field. */
-dateCreated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `level` field. */
-level?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `user` field. */
-user?: (Scalars['Int'] | null)}
-
-
-/** A connection to a list of `Upvote` values. */
-export interface UpvotesConnectionGenqlSelection{
-    /** A list of `Upvote` objects. */
-    nodes?: UpvoteGenqlSelection
-    /** A list of edges which contains the `Upvote` and cursor to aid in pagination. */
-    edges?: UpvotesEdgeGenqlSelection
-    /** Information to aid in pagination. */
-    pageInfo?: PageInfoGenqlSelection
-    /** The count of *all* `Upvote` you could get from the connection. */
-    totalCount?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-export interface UpvoteGenqlSelection{
-    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-    nodeId?: boolean | number
-    id?: boolean | number
-    dateCreated?: boolean | number
-    dateUpdated?: boolean | number
-    level?: boolean | number
-    user?: boolean | number
-    /** Reads a single `Level` that is related to this `Upvote`. */
-    levelByLevel?: LevelGenqlSelection
-    /** Reads a single `User` that is related to this `Upvote`. */
-    userByUser?: UserGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A `Upvote` edge in the connection. */
-export interface UpvotesEdgeGenqlSelection{
-    /** A cursor for use in pagination. */
-    cursor?: boolean | number
-    /** The `Upvote` at the end of the edge. */
-    node?: UpvoteGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** A condition to be used against `Upvote` object types. All fields are tested for equality and combined with a logical ‘and.’ */
-export interface UpvoteCondition {
-/** Checks for equality with the object’s `id` field. */
-id?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `dateCreated` field. */
-dateCreated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `level` field. */
-level?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `user` field. */
-user?: (Scalars['Int'] | null)}
+dateUpdated?: (Scalars['Datetime'] | null)}
 
 
 /** A connection to a list of `Stat` values. */
@@ -1933,8 +1613,6 @@ export interface StatGenqlSelection{
     timeOnRegular?: boolean | number
     timeOnGrass?: boolean | number
     timeOnIce?: boolean | number
-    dateCreated?: boolean | number
-    dateUpdated?: boolean | number
     timesStarted?: boolean | number
     timesFinished?: boolean | number
     wheelsBroken?: boolean | number
@@ -1942,6 +1620,8 @@ export interface StatGenqlSelection{
     user?: boolean | number
     month?: boolean | number
     year?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
     /** Reads a single `User` that is related to this `Stat`. */
     userByUser?: UserGenqlSelection
     __typename?: boolean | number
@@ -2046,10 +1726,6 @@ timeOnRegular?: (Scalars['Float'] | null),
 timeOnGrass?: (Scalars['Float'] | null),
 /** Checks for equality with the object’s `timeOnIce` field. */
 timeOnIce?: (Scalars['Float'] | null),
-/** Checks for equality with the object’s `dateCreated` field. */
-dateCreated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `timesStarted` field. */
 timesStarted?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `timesFinished` field. */
@@ -2063,7 +1739,179 @@ user?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `month` field. */
 month?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `year` field. */
-year?: (Scalars['Int'] | null)}
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A connection to a list of `Upvote` values. */
+export interface UpvotesConnectionGenqlSelection{
+    /** A list of `Upvote` objects. */
+    nodes?: UpvoteGenqlSelection
+    /** A list of edges which contains the `Upvote` and cursor to aid in pagination. */
+    edges?: UpvotesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `Upvote` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface UpvoteGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    user?: boolean | number
+    level?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `User` that is related to this `Upvote`. */
+    userByUser?: UserGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `Upvote` edge in the connection. */
+export interface UpvotesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `Upvote` at the end of the edge. */
+    node?: UpvoteGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A condition to be used against `Upvote` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export interface UpvoteCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `user` field. */
+user?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A connection to a list of `Vote` values. */
+export interface VotesConnectionGenqlSelection{
+    /** A list of `Vote` objects. */
+    nodes?: VoteGenqlSelection
+    /** A list of edges which contains the `Vote` and cursor to aid in pagination. */
+    edges?: VotesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `Vote` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface VoteGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    user?: boolean | number
+    score?: boolean | number
+    level?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `User` that is related to this `Vote`. */
+    userByUser?: UserGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `Vote` edge in the connection. */
+export interface VotesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `Vote` at the end of the edge. */
+    node?: VoteGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A condition to be used against `Vote` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export interface VoteCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `user` field. */
+user?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `score` field. */
+score?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A connection to a list of `PlayerPoint` values. */
+export interface PlayerPointsConnectionGenqlSelection{
+    /** A list of `PlayerPoint` objects. */
+    nodes?: PlayerPointGenqlSelection
+    /** A list of edges which contains the `PlayerPoint` and cursor to aid in pagination. */
+    edges?: PlayerPointsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `PlayerPoint` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface PlayerPointGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    user?: boolean | number
+    points?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    /** Reads a single `User` that is related to this `PlayerPoint`. */
+    userByUser?: UserGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `PlayerPoint` edge in the connection. */
+export interface PlayerPointsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `PlayerPoint` at the end of the edge. */
+    node?: PlayerPointGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `PlayerPoint` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export interface PlayerPointCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `user` field. */
+user?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `points` field. */
+points?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
 
 
 /** A `Favorite` edge in the connection. */
@@ -2075,6 +1923,61 @@ export interface FavoritesEdgeGenqlSelection{
     __typename?: boolean | number
     __scalar?: boolean | number
 }
+
+
+/** A connection to a list of `LevelPoint` values. */
+export interface LevelPointsConnectionGenqlSelection{
+    /** A list of `LevelPoint` objects. */
+    nodes?: LevelPointGenqlSelection
+    /** A list of edges which contains the `LevelPoint` and cursor to aid in pagination. */
+    edges?: LevelPointsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `LevelPoint` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface LevelPointGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    level?: boolean | number
+    points?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `LevelPoint` edge in the connection. */
+export interface LevelPointsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `LevelPoint` at the end of the edge. */
+    node?: LevelPointGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `LevelPoint` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export interface LevelPointCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `level` field. */
+level?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `points` field. */
+points?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
 
 
 /** A connection to a list of `User` values. */
@@ -2107,24 +2010,18 @@ export interface UsersEdgeGenqlSelection{
 export interface UserCondition {
 /** Checks for equality with the object’s `id` field. */
 id?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `dateCreated` field. */
-dateCreated?: (Scalars['Datetime'] | null),
-/** Checks for equality with the object’s `dateUpdated` field. */
-dateUpdated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `steamId` field. */
 steamId?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `steamName` field. */
 steamName?: (Scalars['String'] | null),
-/** Checks for equality with the object’s `position` field. */
-position?: (Scalars['Int'] | null),
-/** Checks for equality with the object’s `score` field. */
-score?: (Scalars['Float'] | null),
-/** Checks for equality with the object’s `worldRecords` field. */
-worldRecords?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `discordId` field. */
 discordId?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `banned` field. */
-banned?: (Scalars['Boolean'] | null)}
+banned?: (Scalars['Boolean'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
 
 
 /** A connection to a list of `Version` values. */
@@ -2147,6 +2044,8 @@ export interface VersionGenqlSelection{
     id?: boolean | number
     minimum?: boolean | number
     latest?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2170,92 +2069,11 @@ id?: (Scalars['Int'] | null),
 /** Checks for equality with the object’s `minimum` field. */
 minimum?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `latest` field. */
-latest?: (Scalars['String'] | null)}
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export interface MutationGenqlSelection{
-    fixWr?: (FixWrPayloadGenqlSelection & { __args: {
-    /** The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields. */
-    input: FixWrInput} })
-    updatePb?: (UpdatePbPayloadGenqlSelection & { __args: {
-    /** The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields. */
-    input: UpdatePbInput} })
-    updateWr?: (UpdateWrPayloadGenqlSelection & { __args: {
-    /** The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields. */
-    input: UpdateWrInput} })
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** The output of our `fixWr` mutation. */
-export interface FixWrPayloadGenqlSelection{
-    /**
-     * The exact same `clientMutationId` that was provided in the mutation input,
-     * unchanged and unused. May be used by a client to track mutations.
-     */
-    clientMutationId?: boolean | number
-    /** Our root query field type. Allows us to run any query from our mutation payload. */
-    query?: QueryGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** All input for the `fixWr` mutation. */
-export interface FixWrInput {
-/**
- * An arbitrary string value with no semantic meaning. Will be included in the
- * payload verbatim. May be used to track mutations by the client.
- */
-clientMutationId?: (Scalars['String'] | null)}
-
-
-/** The output of our `updatePb` mutation. */
-export interface UpdatePbPayloadGenqlSelection{
-    /**
-     * The exact same `clientMutationId` that was provided in the mutation input,
-     * unchanged and unused. May be used by a client to track mutations.
-     */
-    clientMutationId?: boolean | number
-    /** Our root query field type. Allows us to run any query from our mutation payload. */
-    query?: QueryGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** All input for the `updatePb` mutation. */
-export interface UpdatePbInput {
-/**
- * An arbitrary string value with no semantic meaning. Will be included in the
- * payload verbatim. May be used to track mutations by the client.
- */
-clientMutationId?: (Scalars['String'] | null),pUser?: (Scalars['Int'] | null),pLevel?: (Scalars['Int'] | null)}
-
-
-/** The output of our `updateWr` mutation. */
-export interface UpdateWrPayloadGenqlSelection{
-    /**
-     * The exact same `clientMutationId` that was provided in the mutation input,
-     * unchanged and unused. May be used by a client to track mutations.
-     */
-    clientMutationId?: boolean | number
-    /** Our root query field type. Allows us to run any query from our mutation payload. */
-    query?: QueryGenqlSelection
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** All input for the `updateWr` mutation. */
-export interface UpdateWrInput {
-/**
- * An arbitrary string value with no semantic meaning. Will be included in the
- * payload verbatim. May be used to track mutations by the client.
- */
-clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
+latest?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
 
 
     const Query_possibleTypes: string[] = ['Query']
@@ -2266,7 +2084,7 @@ clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
     
 
 
-    const Node_possibleTypes: string[] = ['Query','Favorite','Level','User','Record','PersonalBest','WorldRecord','Media','Vote','Upvote','Stat','Version']
+    const Node_possibleTypes: string[] = ['Query','Favorite','User','Record','Media','PersonalBest','WorldRecord','Stat','Upvote','Vote','PlayerPoint','LevelPoint','Version']
     export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isNode"')
       return Node_possibleTypes.includes(obj.__typename)
@@ -2290,42 +2108,10 @@ clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
     
 
 
-    const Level_possibleTypes: string[] = ['Level']
-    export const isLevel = (obj?: { __typename?: any } | null): obj is Level => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isLevel"')
-      return Level_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
     const User_possibleTypes: string[] = ['User']
     export const isUser = (obj?: { __typename?: any } | null): obj is User => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isUser"')
       return User_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const LevelsConnection_possibleTypes: string[] = ['LevelsConnection']
-    export const isLevelsConnection = (obj?: { __typename?: any } | null): obj is LevelsConnection => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isLevelsConnection"')
-      return LevelsConnection_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const LevelsEdge_possibleTypes: string[] = ['LevelsEdge']
-    export const isLevelsEdge = (obj?: { __typename?: any } | null): obj is LevelsEdge => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isLevelsEdge"')
-      return LevelsEdge_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const PageInfo_possibleTypes: string[] = ['PageInfo']
-    export const isPageInfo = (obj?: { __typename?: any } | null): obj is PageInfo => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isPageInfo"')
-      return PageInfo_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -2342,6 +2128,38 @@ clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
     export const isRecord = (obj?: { __typename?: any } | null): obj is Record => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecord"')
       return Record_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const MediaConnection_possibleTypes: string[] = ['MediaConnection']
+    export const isMediaConnection = (obj?: { __typename?: any } | null): obj is MediaConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isMediaConnection"')
+      return MediaConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const Media_possibleTypes: string[] = ['Media']
+    export const isMedia = (obj?: { __typename?: any } | null): obj is Media => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isMedia"')
+      return Media_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const MediaEdge_possibleTypes: string[] = ['MediaEdge']
+    export const isMediaEdge = (obj?: { __typename?: any } | null): obj is MediaEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isMediaEdge"')
+      return MediaEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const PageInfo_possibleTypes: string[] = ['PageInfo']
+    export const isPageInfo = (obj?: { __typename?: any } | null): obj is PageInfo => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPageInfo"')
+      return PageInfo_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -2394,82 +2212,10 @@ clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
     
 
 
-    const MediaConnection_possibleTypes: string[] = ['MediaConnection']
-    export const isMediaConnection = (obj?: { __typename?: any } | null): obj is MediaConnection => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isMediaConnection"')
-      return MediaConnection_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const Media_possibleTypes: string[] = ['Media']
-    export const isMedia = (obj?: { __typename?: any } | null): obj is Media => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isMedia"')
-      return Media_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const MediaEdge_possibleTypes: string[] = ['MediaEdge']
-    export const isMediaEdge = (obj?: { __typename?: any } | null): obj is MediaEdge => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isMediaEdge"')
-      return MediaEdge_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
     const RecordsEdge_possibleTypes: string[] = ['RecordsEdge']
     export const isRecordsEdge = (obj?: { __typename?: any } | null): obj is RecordsEdge => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isRecordsEdge"')
       return RecordsEdge_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const VotesConnection_possibleTypes: string[] = ['VotesConnection']
-    export const isVotesConnection = (obj?: { __typename?: any } | null): obj is VotesConnection => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isVotesConnection"')
-      return VotesConnection_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const Vote_possibleTypes: string[] = ['Vote']
-    export const isVote = (obj?: { __typename?: any } | null): obj is Vote => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isVote"')
-      return Vote_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const VotesEdge_possibleTypes: string[] = ['VotesEdge']
-    export const isVotesEdge = (obj?: { __typename?: any } | null): obj is VotesEdge => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isVotesEdge"')
-      return VotesEdge_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const UpvotesConnection_possibleTypes: string[] = ['UpvotesConnection']
-    export const isUpvotesConnection = (obj?: { __typename?: any } | null): obj is UpvotesConnection => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isUpvotesConnection"')
-      return UpvotesConnection_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const Upvote_possibleTypes: string[] = ['Upvote']
-    export const isUpvote = (obj?: { __typename?: any } | null): obj is Upvote => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isUpvote"')
-      return Upvote_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const UpvotesEdge_possibleTypes: string[] = ['UpvotesEdge']
-    export const isUpvotesEdge = (obj?: { __typename?: any } | null): obj is UpvotesEdge => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isUpvotesEdge"')
-      return UpvotesEdge_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -2498,10 +2244,106 @@ clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
     
 
 
+    const UpvotesConnection_possibleTypes: string[] = ['UpvotesConnection']
+    export const isUpvotesConnection = (obj?: { __typename?: any } | null): obj is UpvotesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isUpvotesConnection"')
+      return UpvotesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const Upvote_possibleTypes: string[] = ['Upvote']
+    export const isUpvote = (obj?: { __typename?: any } | null): obj is Upvote => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isUpvote"')
+      return Upvote_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const UpvotesEdge_possibleTypes: string[] = ['UpvotesEdge']
+    export const isUpvotesEdge = (obj?: { __typename?: any } | null): obj is UpvotesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isUpvotesEdge"')
+      return UpvotesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VotesConnection_possibleTypes: string[] = ['VotesConnection']
+    export const isVotesConnection = (obj?: { __typename?: any } | null): obj is VotesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVotesConnection"')
+      return VotesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const Vote_possibleTypes: string[] = ['Vote']
+    export const isVote = (obj?: { __typename?: any } | null): obj is Vote => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVote"')
+      return Vote_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const VotesEdge_possibleTypes: string[] = ['VotesEdge']
+    export const isVotesEdge = (obj?: { __typename?: any } | null): obj is VotesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isVotesEdge"')
+      return VotesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const PlayerPointsConnection_possibleTypes: string[] = ['PlayerPointsConnection']
+    export const isPlayerPointsConnection = (obj?: { __typename?: any } | null): obj is PlayerPointsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPlayerPointsConnection"')
+      return PlayerPointsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const PlayerPoint_possibleTypes: string[] = ['PlayerPoint']
+    export const isPlayerPoint = (obj?: { __typename?: any } | null): obj is PlayerPoint => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPlayerPoint"')
+      return PlayerPoint_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const PlayerPointsEdge_possibleTypes: string[] = ['PlayerPointsEdge']
+    export const isPlayerPointsEdge = (obj?: { __typename?: any } | null): obj is PlayerPointsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isPlayerPointsEdge"')
+      return PlayerPointsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const FavoritesEdge_possibleTypes: string[] = ['FavoritesEdge']
     export const isFavoritesEdge = (obj?: { __typename?: any } | null): obj is FavoritesEdge => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isFavoritesEdge"')
       return FavoritesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const LevelPointsConnection_possibleTypes: string[] = ['LevelPointsConnection']
+    export const isLevelPointsConnection = (obj?: { __typename?: any } | null): obj is LevelPointsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isLevelPointsConnection"')
+      return LevelPointsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const LevelPoint_possibleTypes: string[] = ['LevelPoint']
+    export const isLevelPoint = (obj?: { __typename?: any } | null): obj is LevelPoint => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isLevelPoint"')
+      return LevelPoint_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const LevelPointsEdge_possibleTypes: string[] = ['LevelPointsEdge']
+    export const isLevelPointsEdge = (obj?: { __typename?: any } | null): obj is LevelPointsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isLevelPointsEdge"')
+      return LevelPointsEdge_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -2545,118 +2387,18 @@ clientMutationId?: (Scalars['String'] | null),pLevel?: (Scalars['Int'] | null)}
     }
     
 
-
-    const Mutation_possibleTypes: string[] = ['Mutation']
-    export const isMutation = (obj?: { __typename?: any } | null): obj is Mutation => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isMutation"')
-      return Mutation_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const FixWrPayload_possibleTypes: string[] = ['FixWrPayload']
-    export const isFixWrPayload = (obj?: { __typename?: any } | null): obj is FixWrPayload => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isFixWrPayload"')
-      return FixWrPayload_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const UpdatePbPayload_possibleTypes: string[] = ['UpdatePbPayload']
-    export const isUpdatePbPayload = (obj?: { __typename?: any } | null): obj is UpdatePbPayload => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isUpdatePbPayload"')
-      return UpdatePbPayload_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const UpdateWrPayload_possibleTypes: string[] = ['UpdateWrPayload']
-    export const isUpdateWrPayload = (obj?: { __typename?: any } | null): obj is UpdateWrPayload => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateWrPayload"')
-      return UpdateWrPayload_possibleTypes.includes(obj.__typename)
-    }
-    
-
-export const enumLevelsOrderBy = {
+export const enumFavoritesOrderBy = {
    NATURAL: 'NATURAL' as const,
    ID_ASC: 'ID_ASC' as const,
    ID_DESC: 'ID_DESC' as const,
-   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-   UID_ASC: 'UID_ASC' as const,
-   UID_DESC: 'UID_DESC' as const,
-   NAME_ASC: 'NAME_ASC' as const,
-   NAME_DESC: 'NAME_DESC' as const,
-   AUTHOR_ASC: 'AUTHOR_ASC' as const,
-   AUTHOR_DESC: 'AUTHOR_DESC' as const,
-   TIME_AUTHOR_ASC: 'TIME_AUTHOR_ASC' as const,
-   TIME_AUTHOR_DESC: 'TIME_AUTHOR_DESC' as const,
-   TIME_GOLD_ASC: 'TIME_GOLD_ASC' as const,
-   TIME_GOLD_DESC: 'TIME_GOLD_DESC' as const,
-   TIME_SILVER_ASC: 'TIME_SILVER_ASC' as const,
-   TIME_SILVER_DESC: 'TIME_SILVER_DESC' as const,
-   TIME_BRONZE_ASC: 'TIME_BRONZE_ASC' as const,
-   TIME_BRONZE_DESC: 'TIME_BRONZE_DESC' as const,
-   CREATED_BY_ASC: 'CREATED_BY_ASC' as const,
-   CREATED_BY_DESC: 'CREATED_BY_DESC' as const,
-   WID_ASC: 'WID_ASC' as const,
-   WID_DESC: 'WID_DESC' as const,
-   IS_VALID_ASC: 'IS_VALID_ASC' as const,
-   IS_VALID_DESC: 'IS_VALID_DESC' as const,
-   THUMBNAIL_URL_ASC: 'THUMBNAIL_URL_ASC' as const,
-   THUMBNAIL_URL_DESC: 'THUMBNAIL_URL_DESC' as const,
-   RANK_ASC: 'RANK_ASC' as const,
-   RANK_DESC: 'RANK_DESC' as const,
-   POINTS_ASC: 'POINTS_ASC' as const,
-   POINTS_DESC: 'POINTS_DESC' as const,
-   BLOCKED_ASC: 'BLOCKED_ASC' as const,
-   BLOCKED_DESC: 'BLOCKED_DESC' as const,
-   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
-   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
-}
-
-export const enumPersonalBestsOrderBy = {
-   NATURAL: 'NATURAL' as const,
-   ID_ASC: 'ID_ASC' as const,
-   ID_DESC: 'ID_DESC' as const,
-   RECORD_ASC: 'RECORD_ASC' as const,
-   RECORD_DESC: 'RECORD_DESC' as const,
    USER_ASC: 'USER_ASC' as const,
    USER_DESC: 'USER_DESC' as const,
-   PERIOD_START_ASC: 'PERIOD_START_ASC' as const,
-   PERIOD_START_DESC: 'PERIOD_START_DESC' as const,
-   PERIOD_END_ASC: 'PERIOD_END_ASC' as const,
-   PERIOD_END_DESC: 'PERIOD_END_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
    DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
    DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
    DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
    DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-   LEVEL_ASC: 'LEVEL_ASC' as const,
-   LEVEL_DESC: 'LEVEL_DESC' as const,
-   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
-   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
-}
-
-export const enumWorldRecordsOrderBy = {
-   NATURAL: 'NATURAL' as const,
-   ID_ASC: 'ID_ASC' as const,
-   ID_DESC: 'ID_DESC' as const,
-   RECORD_ASC: 'RECORD_ASC' as const,
-   RECORD_DESC: 'RECORD_DESC' as const,
-   USER_ASC: 'USER_ASC' as const,
-   USER_DESC: 'USER_DESC' as const,
-   PERIOD_START_ASC: 'PERIOD_START_ASC' as const,
-   PERIOD_START_DESC: 'PERIOD_START_DESC' as const,
-   PERIOD_END_ASC: 'PERIOD_END_ASC' as const,
-   PERIOD_END_DESC: 'PERIOD_END_DESC' as const,
-   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-   LEVEL_ASC: 'LEVEL_ASC' as const,
-   LEVEL_DESC: 'LEVEL_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
@@ -2679,90 +2421,72 @@ export const enumMediaOrderBy = {
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
 
+export const enumPersonalBestsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   RECORD_ASC: 'RECORD_ASC' as const,
+   RECORD_DESC: 'RECORD_DESC' as const,
+   USER_ASC: 'USER_ASC' as const,
+   USER_DESC: 'USER_DESC' as const,
+   PERIOD_START_ASC: 'PERIOD_START_ASC' as const,
+   PERIOD_START_DESC: 'PERIOD_START_DESC' as const,
+   PERIOD_END_ASC: 'PERIOD_END_ASC' as const,
+   PERIOD_END_DESC: 'PERIOD_END_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumWorldRecordsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   RECORD_ASC: 'RECORD_ASC' as const,
+   RECORD_DESC: 'RECORD_DESC' as const,
+   USER_ASC: 'USER_ASC' as const,
+   USER_DESC: 'USER_DESC' as const,
+   PERIOD_START_ASC: 'PERIOD_START_ASC' as const,
+   PERIOD_START_DESC: 'PERIOD_START_DESC' as const,
+   PERIOD_END_ASC: 'PERIOD_END_ASC' as const,
+   PERIOD_END_DESC: 'PERIOD_END_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
 export const enumRecordsOrderBy = {
    NATURAL: 'NATURAL' as const,
    ID_ASC: 'ID_ASC' as const,
    ID_DESC: 'ID_DESC' as const,
-   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-   LEVEL_ASC: 'LEVEL_ASC' as const,
-   LEVEL_DESC: 'LEVEL_DESC' as const,
    USER_ASC: 'USER_ASC' as const,
    USER_DESC: 'USER_DESC' as const,
    TIME_ASC: 'TIME_ASC' as const,
    TIME_DESC: 'TIME_DESC' as const,
-   IS_BEST_ASC: 'IS_BEST_ASC' as const,
-   IS_BEST_DESC: 'IS_BEST_DESC' as const,
    SPLITS_ASC: 'SPLITS_ASC' as const,
    SPLITS_DESC: 'SPLITS_DESC' as const,
-   GHOST_URL_ASC: 'GHOST_URL_ASC' as const,
-   GHOST_URL_DESC: 'GHOST_URL_DESC' as const,
-   SCREENSHOT_URL_ASC: 'SCREENSHOT_URL_ASC' as const,
-   SCREENSHOT_URL_DESC: 'SCREENSHOT_URL_DESC' as const,
    GAME_VERSION_ASC: 'GAME_VERSION_ASC' as const,
    GAME_VERSION_DESC: 'GAME_VERSION_DESC' as const,
    IS_VALID_ASC: 'IS_VALID_ASC' as const,
    IS_VALID_DESC: 'IS_VALID_DESC' as const,
-   IS_WR_ASC: 'IS_WR_ASC' as const,
-   IS_WR_DESC: 'IS_WR_DESC' as const,
-   LEVEL_HASH_ASC: 'LEVEL_HASH_ASC' as const,
-   LEVEL_HASH_DESC: 'LEVEL_HASH_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
    MOD_VERSION_ASC: 'MOD_VERSION_ASC' as const,
    MOD_VERSION_DESC: 'MOD_VERSION_DESC' as const,
-   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
-   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
-}
-
-export const enumVotesOrderBy = {
-   NATURAL: 'NATURAL' as const,
-   ID_ASC: 'ID_ASC' as const,
-   ID_DESC: 'ID_DESC' as const,
    DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
    DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
    DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
    DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-   LEVEL_ASC: 'LEVEL_ASC' as const,
-   LEVEL_DESC: 'LEVEL_DESC' as const,
-   USER_ASC: 'USER_ASC' as const,
-   USER_DESC: 'USER_DESC' as const,
-   SCORE_ASC: 'SCORE_ASC' as const,
-   SCORE_DESC: 'SCORE_DESC' as const,
-   CATEGORY_ASC: 'CATEGORY_ASC' as const,
-   CATEGORY_DESC: 'CATEGORY_DESC' as const,
-   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
-   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
-}
-
-export const enumFavoritesOrderBy = {
-   NATURAL: 'NATURAL' as const,
-   ID_ASC: 'ID_ASC' as const,
-   ID_DESC: 'ID_DESC' as const,
-   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-   LEVEL_ASC: 'LEVEL_ASC' as const,
-   LEVEL_DESC: 'LEVEL_DESC' as const,
-   USER_ASC: 'USER_ASC' as const,
-   USER_DESC: 'USER_DESC' as const,
-   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
-   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
-}
-
-export const enumUpvotesOrderBy = {
-   NATURAL: 'NATURAL' as const,
-   ID_ASC: 'ID_ASC' as const,
-   ID_DESC: 'ID_DESC' as const,
-   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
-   LEVEL_ASC: 'LEVEL_ASC' as const,
-   LEVEL_DESC: 'LEVEL_DESC' as const,
-   USER_ASC: 'USER_ASC' as const,
-   USER_DESC: 'USER_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
@@ -2853,10 +2577,6 @@ export const enumStatsOrderBy = {
    TIME_ON_GRASS_DESC: 'TIME_ON_GRASS_DESC' as const,
    TIME_ON_ICE_ASC: 'TIME_ON_ICE_ASC' as const,
    TIME_ON_ICE_DESC: 'TIME_ON_ICE_DESC' as const,
-   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
    TIMES_STARTED_ASC: 'TIMES_STARTED_ASC' as const,
    TIMES_STARTED_DESC: 'TIMES_STARTED_DESC' as const,
    TIMES_FINISHED_ASC: 'TIMES_FINISHED_ASC' as const,
@@ -2871,6 +2591,76 @@ export const enumStatsOrderBy = {
    MONTH_DESC: 'MONTH_DESC' as const,
    YEAR_ASC: 'YEAR_ASC' as const,
    YEAR_DESC: 'YEAR_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumUpvotesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   USER_ASC: 'USER_ASC' as const,
+   USER_DESC: 'USER_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumVotesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   USER_ASC: 'USER_ASC' as const,
+   USER_DESC: 'USER_DESC' as const,
+   SCORE_ASC: 'SCORE_ASC' as const,
+   SCORE_DESC: 'SCORE_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumPlayerPointsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   USER_ASC: 'USER_ASC' as const,
+   USER_DESC: 'USER_DESC' as const,
+   POINTS_ASC: 'POINTS_ASC' as const,
+   POINTS_DESC: 'POINTS_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumLevelPointsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   LEVEL_ASC: 'LEVEL_ASC' as const,
+   LEVEL_DESC: 'LEVEL_DESC' as const,
+   POINTS_ASC: 'POINTS_ASC' as const,
+   POINTS_DESC: 'POINTS_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
@@ -2879,24 +2669,18 @@ export const enumUsersOrderBy = {
    NATURAL: 'NATURAL' as const,
    ID_ASC: 'ID_ASC' as const,
    ID_DESC: 'ID_DESC' as const,
-   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
-   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
-   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
    STEAM_ID_ASC: 'STEAM_ID_ASC' as const,
    STEAM_ID_DESC: 'STEAM_ID_DESC' as const,
    STEAM_NAME_ASC: 'STEAM_NAME_ASC' as const,
    STEAM_NAME_DESC: 'STEAM_NAME_DESC' as const,
-   POSITION_ASC: 'POSITION_ASC' as const,
-   POSITION_DESC: 'POSITION_DESC' as const,
-   SCORE_ASC: 'SCORE_ASC' as const,
-   SCORE_DESC: 'SCORE_DESC' as const,
-   WORLD_RECORDS_ASC: 'WORLD_RECORDS_ASC' as const,
-   WORLD_RECORDS_DESC: 'WORLD_RECORDS_DESC' as const,
    DISCORD_ID_ASC: 'DISCORD_ID_ASC' as const,
    DISCORD_ID_DESC: 'DISCORD_ID_DESC' as const,
    BANNED_ASC: 'BANNED_ASC' as const,
    BANNED_DESC: 'BANNED_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
@@ -2909,6 +2693,10 @@ export const enumVersionsOrderBy = {
    MINIMUM_DESC: 'MINIMUM_DESC' as const,
    LATEST_ASC: 'LATEST_ASC' as const,
    LATEST_DESC: 'LATEST_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }

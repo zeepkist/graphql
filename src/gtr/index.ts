@@ -7,12 +7,7 @@ import {
     type GraphqlOperation,
     linkTypeMap
 } from '../runtime/index.js'
-import type {
-    Mutation,
-    MutationGenqlSelection,
-    Query,
-    QueryGenqlSelection
-} from './schema.js'
+import type { Query, QueryGenqlSelection } from './schema.js'
 import types from './types.js'
 
 export type { FieldsSelection } from '../runtime/index.js'
@@ -23,10 +18,6 @@ export interface Client {
     query<R extends QueryGenqlSelection>(
         request: R & { __name?: string }
     ): Promise<FieldsSelection<Query, R>>
-
-    mutation<R extends MutationGenqlSelection>(
-        request: R & { __name?: string }
-    ): Promise<FieldsSelection<Mutation, R>>
 }
 
 export const createClient = function (options?: ClientOptions): Client {
@@ -56,18 +47,6 @@ export const generateQueryOp: (
     fields: QueryGenqlSelection & { __name?: string }
 ) => GraphqlOperation = function (fields) {
     return generateGraphqlOperation('query', typeMap.Query!, fields as any)
-}
-
-export type MutationResult<fields extends MutationGenqlSelection> =
-    FieldsSelection<Mutation, fields>
-export const generateMutationOp: (
-    fields: MutationGenqlSelection & { __name?: string }
-) => GraphqlOperation = function (fields) {
-    return generateGraphqlOperation(
-        'mutation',
-        typeMap.Mutation!,
-        fields as any
-    )
 }
 
 export { GenqlError } from '../runtime/index.js'

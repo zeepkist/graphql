@@ -1,6 +1,6 @@
 export default {
     scalars: [
-        2, 5, 6, 8, 9, 10, 14, 16, 23, 28, 33, 36, 41, 43, 48, 53, 58, 63
+        2, 5, 6, 7, 9, 10, 11, 15, 20, 25, 30, 33, 38, 43, 48, 53, 59, 63, 68
     ],
     types: {
         Query: {
@@ -18,130 +18,142 @@ export default {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [43, '[FavoritesOrderBy!]'],
-                    condition: [44]
+                    before: [10],
+                    after: [10],
+                    orderBy: [11, '[FavoritesOrderBy!]'],
+                    condition: [12]
                 }
             ],
-            allLevels: [
-                12,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [16, '[LevelsOrderBy!]'],
-                    condition: [17]
-                }
-            ],
-            allMedia: [
-                30,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [33, '[MediaOrderBy!]'],
-                    condition: [34]
-                }
-            ],
-            allPersonalBests: [
-                20,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [23, '[PersonalBestsOrderBy!]'],
-                    condition: [24]
-                }
-            ],
-            allRecords: [
-                18,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [36, '[RecordsOrderBy!]'],
-                    condition: [37]
-                }
-            ],
-            allStats: [
-                50,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [53, '[StatsOrderBy!]'],
-                    condition: [54]
-                }
-            ],
-            allUpvotes: [
-                45,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [48, '[UpvotesOrderBy!]'],
-                    condition: [49]
-                }
-            ],
-            allUsers: [
+            allLevelPoints: [
                 56,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [58, '[UsersOrderBy!]'],
-                    condition: [59]
+                    before: [10],
+                    after: [10],
+                    orderBy: [59, '[LevelPointsOrderBy!]'],
+                    condition: [60]
                 }
             ],
-            allVersions: [
-                60,
+            allMedia: [
+                16,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [63, '[VersionsOrderBy!]'],
+                    before: [10],
+                    after: [10],
+                    orderBy: [20, '[MediaOrderBy!]'],
+                    condition: [21]
+                }
+            ],
+            allPersonalBests: [
+                22,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [25, '[PersonalBestsOrderBy!]'],
+                    condition: [26]
+                }
+            ],
+            allPlayerPoints: [
+                50,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [53, '[PlayerPointsOrderBy!]'],
+                    condition: [54]
+                }
+            ],
+            allRecords: [
+                13,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [33, '[RecordsOrderBy!]'],
+                    condition: [34]
+                }
+            ],
+            allStats: [
+                35,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [38, '[StatsOrderBy!]'],
+                    condition: [39]
+                }
+            ],
+            allUpvotes: [
+                40,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [43, '[UpvotesOrderBy!]'],
+                    condition: [44]
+                }
+            ],
+            allUsers: [
+                61,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [63, '[UsersOrderBy!]'],
                     condition: [64]
                 }
             ],
-            allVotes: [
-                38,
+            allVersions: [
+                65,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [41, '[VotesOrderBy!]'],
-                    condition: [42]
+                    before: [10],
+                    after: [10],
+                    orderBy: [68, '[VersionsOrderBy!]'],
+                    condition: [69]
+                }
+            ],
+            allVotes: [
+                45,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [48, '[VotesOrderBy!]'],
+                    condition: [49]
                 }
             ],
             allWorldRecords: [
-                25,
+                27,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [28, '[WorldRecordsOrderBy!]'],
-                    condition: [29]
+                    before: [10],
+                    after: [10],
+                    orderBy: [30, '[WorldRecordsOrderBy!]'],
+                    condition: [31]
                 }
             ],
             favoriteById: [
@@ -150,62 +162,68 @@ export default {
                     id: [5, 'Int!']
                 }
             ],
-            levelById: [
-                7,
+            levelPointById: [
+                57,
                 {
                     id: [5, 'Int!']
                 }
             ],
             mediaById: [
-                31,
+                17,
                 {
                     id: [5, 'Int!']
                 }
             ],
             personalBestById: [
-                21,
+                23,
                 {
                     id: [5, 'Int!']
                 }
             ],
-            recordById: [
-                19,
-                {
-                    id: [5, 'Int!']
-                }
-            ],
-            statById: [
+            playerPointById: [
                 51,
                 {
                     id: [5, 'Int!']
                 }
             ],
+            recordById: [
+                14,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
+            statById: [
+                36,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
             upvoteById: [
-                46,
+                41,
                 {
                     id: [5, 'Int!']
                 }
             ],
             userById: [
-                11,
+                8,
                 {
                     id: [5, 'Int!']
                 }
             ],
             versionById: [
-                61,
+                66,
                 {
                     id: [5, 'Int!']
                 }
             ],
             voteById: [
-                39,
+                46,
                 {
                     id: [5, 'Int!']
                 }
             ],
             worldRecordById: [
-                26,
+                28,
                 {
                     id: [5, 'Int!']
                 }
@@ -216,609 +234,430 @@ export default {
                     nodeId: [2, 'ID!']
                 }
             ],
-            level: [
-                7,
+            levelPoint: [
+                57,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             media: [
-                31,
+                17,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             personalBest: [
-                21,
+                23,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
-            record: [
-                19,
-                {
-                    nodeId: [2, 'ID!']
-                }
-            ],
-            stat: [
+            playerPoint: [
                 51,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
+            record: [
+                14,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
+            stat: [
+                36,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
             upvote: [
-                46,
+                41,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             user: [
-                11,
+                8,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             version: [
-                61,
+                66,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             vote: [
-                39,
+                46,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
             worldRecord: [
-                26,
+                28,
                 {
                     nodeId: [2, 'ID!']
                 }
             ],
-            __typename: [8]
+            __typename: [6]
         },
         Node: {
             nodeId: [2],
             on_Query: [0],
             on_Favorite: [4],
-            on_Level: [7],
-            on_User: [11],
-            on_Record: [19],
-            on_PersonalBest: [21],
-            on_WorldRecord: [26],
-            on_Media: [31],
-            on_Vote: [39],
-            on_Upvote: [46],
-            on_Stat: [51],
-            on_Version: [61],
-            __typename: [8]
+            on_User: [8],
+            on_Record: [14],
+            on_Media: [17],
+            on_PersonalBest: [23],
+            on_WorldRecord: [28],
+            on_Stat: [36],
+            on_Upvote: [41],
+            on_Vote: [46],
+            on_PlayerPoint: [51],
+            on_LevelPoint: [57],
+            on_Version: [66],
+            __typename: [6]
         },
         ID: {},
         FavoritesConnection: {
             nodes: [4],
             edges: [55],
-            pageInfo: [15],
+            pageInfo: [19],
             totalCount: [5],
-            __typename: [8]
+            __typename: [6]
         },
         Favorite: {
             nodeId: [2],
             id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [5],
             user: [5],
-            levelByLevel: [7],
-            userByUser: [11],
-            __typename: [8]
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            userByUser: [8],
+            __typename: [6]
         },
         Int: {},
-        Datetime: {},
-        Level: {
-            nodeId: [2],
-            id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            uid: [8],
-            name: [8],
-            author: [8],
-            timeAuthor: [9],
-            timeGold: [9],
-            timeSilver: [9],
-            timeBronze: [9],
-            createdBy: [5],
-            wid: [8],
-            isValid: [10],
-            thumbnailUrl: [8],
-            rank: [5],
-            points: [5],
-            blocked: [10],
-            userByCreatedBy: [11],
-            recordsByLevel: [
-                18,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [36, '[RecordsOrderBy!]'],
-                    condition: [37]
-                }
-            ],
-            votesByLevel: [
-                38,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [41, '[VotesOrderBy!]'],
-                    condition: [42]
-                }
-            ],
-            favoritesByLevel: [
-                3,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [43, '[FavoritesOrderBy!]'],
-                    condition: [44]
-                }
-            ],
-            upvotesByLevel: [
-                45,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [48, '[UpvotesOrderBy!]'],
-                    condition: [49]
-                }
-            ],
-            __typename: [8]
-        },
         String: {},
-        Float: {},
-        Boolean: {},
+        Datetime: {},
         User: {
             nodeId: [2],
             id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            steamId: [8],
-            steamName: [8],
-            position: [5],
-            score: [9],
-            worldRecords: [5],
-            discordId: [8],
-            banned: [10],
-            levelsByCreatedBy: [
-                12,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [16, '[LevelsOrderBy!]'],
-                    condition: [17]
-                }
-            ],
-            recordsByUser: [
-                18,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [36, '[RecordsOrderBy!]'],
-                    condition: [37]
-                }
-            ],
-            votesByUser: [
-                38,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [41, '[VotesOrderBy!]'],
-                    condition: [42]
-                }
-            ],
+            steamId: [6],
+            steamName: [6],
+            discordId: [6],
+            banned: [9],
+            dateCreated: [7],
+            dateUpdated: [7],
             favoritesByUser: [
                 3,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [43, '[FavoritesOrderBy!]'],
-                    condition: [44]
+                    before: [10],
+                    after: [10],
+                    orderBy: [11, '[FavoritesOrderBy!]'],
+                    condition: [12]
+                }
+            ],
+            recordsByUser: [
+                13,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [33, '[RecordsOrderBy!]'],
+                    condition: [34]
+                }
+            ],
+            statsByUser: [
+                35,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [38, '[StatsOrderBy!]'],
+                    condition: [39]
                 }
             ],
             upvotesByUser: [
+                40,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [43, '[UpvotesOrderBy!]'],
+                    condition: [44]
+                }
+            ],
+            votesByUser: [
                 45,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [48, '[UpvotesOrderBy!]'],
+                    before: [10],
+                    after: [10],
+                    orderBy: [48, '[VotesOrderBy!]'],
                     condition: [49]
                 }
             ],
-            statsByUser: [
+            personalBestsByUser: [
+                22,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [25, '[PersonalBestsOrderBy!]'],
+                    condition: [26]
+                }
+            ],
+            worldRecordsByUser: [
+                27,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [30, '[WorldRecordsOrderBy!]'],
+                    condition: [31]
+                }
+            ],
+            playerPointsByUser: [
                 50,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [53, '[StatsOrderBy!]'],
+                    before: [10],
+                    after: [10],
+                    orderBy: [53, '[PlayerPointsOrderBy!]'],
                     condition: [54]
                 }
             ],
-            personalBestsByUser: [
-                20,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [23, '[PersonalBestsOrderBy!]'],
-                    condition: [24]
-                }
-            ],
-            worldRecordsByUser: [
-                25,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [28, '[WorldRecordsOrderBy!]'],
-                    condition: [29]
-                }
-            ],
-            __typename: [8]
+            __typename: [6]
         },
-        LevelsConnection: {
-            nodes: [7],
-            edges: [13],
-            pageInfo: [15],
-            totalCount: [5],
-            __typename: [8]
-        },
-        LevelsEdge: {
-            cursor: [14],
-            node: [7],
-            __typename: [8]
-        },
+        Boolean: {},
         Cursor: {},
-        PageInfo: {
-            hasNextPage: [10],
-            hasPreviousPage: [10],
-            startCursor: [14],
-            endCursor: [14],
-            __typename: [8]
-        },
-        LevelsOrderBy: {},
-        LevelCondition: {
+        FavoritesOrderBy: {},
+        FavoriteCondition: {
             id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            uid: [8],
-            name: [8],
-            author: [8],
-            timeAuthor: [9],
-            timeGold: [9],
-            timeSilver: [9],
-            timeBronze: [9],
-            createdBy: [5],
-            wid: [8],
-            isValid: [10],
-            thumbnailUrl: [8],
-            rank: [5],
-            points: [5],
-            blocked: [10],
-            __typename: [8]
+            user: [5],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         RecordsConnection: {
-            nodes: [19],
-            edges: [35],
-            pageInfo: [15],
+            nodes: [14],
+            edges: [32],
+            pageInfo: [19],
             totalCount: [5],
-            __typename: [8]
+            __typename: [6]
         },
         Record: {
             nodeId: [2],
             id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [5],
             user: [5],
-            time: [9],
-            isBest: [10],
-            splits: [8],
-            ghostUrl: [8],
-            screenshotUrl: [8],
-            gameVersion: [8],
-            isValid: [10],
-            isWr: [10],
-            levelHash: [8],
-            modVersion: [8],
-            levelByLevel: [7],
-            userByUser: [11],
-            personalBestsByRecord: [
-                20,
+            time: [15],
+            splits: [6],
+            gameVersion: [6],
+            isValid: [9],
+            level: [6],
+            modVersion: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            userByUser: [8],
+            mediaByRecord: [
+                16,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [23, '[PersonalBestsOrderBy!]'],
-                    condition: [24]
+                    before: [10],
+                    after: [10],
+                    orderBy: [20, '[MediaOrderBy!]'],
+                    condition: [21]
+                }
+            ],
+            personalBestsByRecord: [
+                22,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [25, '[PersonalBestsOrderBy!]'],
+                    condition: [26]
                 }
             ],
             worldRecordsByRecord: [
-                25,
+                27,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [28, '[WorldRecordsOrderBy!]'],
-                    condition: [29]
+                    before: [10],
+                    after: [10],
+                    orderBy: [30, '[WorldRecordsOrderBy!]'],
+                    condition: [31]
                 }
             ],
-            mediaByRecord: [
-                30,
-                {
-                    first: [5],
-                    last: [5],
-                    offset: [5],
-                    before: [14],
-                    after: [14],
-                    orderBy: [33, '[MediaOrderBy!]'],
-                    condition: [34]
-                }
-            ],
-            __typename: [8]
+            __typename: [6]
+        },
+        Float: {},
+        MediaConnection: {
+            nodes: [17],
+            edges: [18],
+            pageInfo: [19],
+            totalCount: [5],
+            __typename: [6]
+        },
+        Media: {
+            nodeId: [2],
+            id: [5],
+            record: [5],
+            ghostUrl: [6],
+            screenshotUrl: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            recordByRecord: [14],
+            __typename: [6]
+        },
+        MediaEdge: {
+            cursor: [10],
+            node: [17],
+            __typename: [6]
+        },
+        PageInfo: {
+            hasNextPage: [9],
+            hasPreviousPage: [9],
+            startCursor: [10],
+            endCursor: [10],
+            __typename: [6]
+        },
+        MediaOrderBy: {},
+        MediaCondition: {
+            id: [5],
+            record: [5],
+            ghostUrl: [6],
+            screenshotUrl: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         PersonalBestsConnection: {
-            nodes: [21],
-            edges: [22],
-            pageInfo: [15],
+            nodes: [23],
+            edges: [24],
+            pageInfo: [19],
             totalCount: [5],
-            __typename: [8]
+            __typename: [6]
         },
         PersonalBest: {
             nodeId: [2],
             id: [5],
             record: [5],
             user: [5],
-            periodStart: [6],
-            periodEnd: [6],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [8],
-            recordByRecord: [19],
-            userByUser: [11],
-            __typename: [8]
+            periodStart: [7],
+            periodEnd: [7],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            recordByRecord: [14],
+            userByUser: [8],
+            __typename: [6]
         },
         PersonalBestsEdge: {
-            cursor: [14],
-            node: [21],
-            __typename: [8]
+            cursor: [10],
+            node: [23],
+            __typename: [6]
         },
         PersonalBestsOrderBy: {},
         PersonalBestCondition: {
             id: [5],
             record: [5],
             user: [5],
-            periodStart: [6],
-            periodEnd: [6],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [8],
-            __typename: [8]
+            periodStart: [7],
+            periodEnd: [7],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         WorldRecordsConnection: {
-            nodes: [26],
-            edges: [27],
-            pageInfo: [15],
+            nodes: [28],
+            edges: [29],
+            pageInfo: [19],
             totalCount: [5],
-            __typename: [8]
+            __typename: [6]
         },
         WorldRecord: {
             nodeId: [2],
             id: [5],
             record: [5],
             user: [5],
-            periodStart: [6],
-            periodEnd: [6],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [8],
-            recordByRecord: [19],
-            userByUser: [11],
-            __typename: [8]
+            periodStart: [7],
+            periodEnd: [7],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            recordByRecord: [14],
+            userByUser: [8],
+            __typename: [6]
         },
         WorldRecordsEdge: {
-            cursor: [14],
-            node: [26],
-            __typename: [8]
+            cursor: [10],
+            node: [28],
+            __typename: [6]
         },
         WorldRecordsOrderBy: {},
         WorldRecordCondition: {
             id: [5],
             record: [5],
             user: [5],
-            periodStart: [6],
-            periodEnd: [6],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [8],
-            __typename: [8]
-        },
-        MediaConnection: {
-            nodes: [31],
-            edges: [32],
-            pageInfo: [15],
-            totalCount: [5],
-            __typename: [8]
-        },
-        Media: {
-            nodeId: [2],
-            id: [5],
-            record: [5],
-            ghostUrl: [8],
-            screenshotUrl: [8],
-            dateCreated: [6],
-            dateUpdated: [6],
-            recordByRecord: [19],
-            __typename: [8]
-        },
-        MediaEdge: {
-            cursor: [14],
-            node: [31],
-            __typename: [8]
-        },
-        MediaOrderBy: {},
-        MediaCondition: {
-            id: [5],
-            record: [5],
-            ghostUrl: [8],
-            screenshotUrl: [8],
-            dateCreated: [6],
-            dateUpdated: [6],
-            __typename: [8]
+            periodStart: [7],
+            periodEnd: [7],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         RecordsEdge: {
-            cursor: [14],
-            node: [19],
-            __typename: [8]
+            cursor: [10],
+            node: [14],
+            __typename: [6]
         },
         RecordsOrderBy: {},
         RecordCondition: {
             id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [5],
             user: [5],
-            time: [9],
-            isBest: [10],
-            splits: [8],
-            ghostUrl: [8],
-            screenshotUrl: [8],
-            gameVersion: [8],
-            isValid: [10],
-            isWr: [10],
-            levelHash: [8],
-            modVersion: [8],
-            __typename: [8]
-        },
-        VotesConnection: {
-            nodes: [39],
-            edges: [40],
-            pageInfo: [15],
-            totalCount: [5],
-            __typename: [8]
-        },
-        Vote: {
-            nodeId: [2],
-            id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [5],
-            user: [5],
-            score: [5],
-            category: [5],
-            levelByLevel: [7],
-            userByUser: [11],
-            __typename: [8]
-        },
-        VotesEdge: {
-            cursor: [14],
-            node: [39],
-            __typename: [8]
-        },
-        VotesOrderBy: {},
-        VoteCondition: {
-            id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [5],
-            user: [5],
-            score: [5],
-            category: [5],
-            __typename: [8]
-        },
-        FavoritesOrderBy: {},
-        FavoriteCondition: {
-            id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [5],
-            user: [5],
-            __typename: [8]
-        },
-        UpvotesConnection: {
-            nodes: [46],
-            edges: [47],
-            pageInfo: [15],
-            totalCount: [5],
-            __typename: [8]
-        },
-        Upvote: {
-            nodeId: [2],
-            id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [5],
-            user: [5],
-            levelByLevel: [7],
-            userByUser: [11],
-            __typename: [8]
-        },
-        UpvotesEdge: {
-            cursor: [14],
-            node: [46],
-            __typename: [8]
-        },
-        UpvotesOrderBy: {},
-        UpvoteCondition: {
-            id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            level: [5],
-            user: [5],
-            __typename: [8]
+            time: [15],
+            splits: [6],
+            gameVersion: [6],
+            isValid: [9],
+            level: [6],
+            modVersion: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         StatsConnection: {
-            nodes: [51],
-            edges: [52],
-            pageInfo: [15],
+            nodes: [36],
+            edges: [37],
+            pageInfo: [19],
             totalCount: [5],
-            __typename: [8]
+            __typename: [6]
         },
         Stat: {
             nodeId: [2],
@@ -828,44 +667,42 @@ export default {
             crashEye: [5],
             crashGhost: [5],
             crashSticky: [5],
-            distanceArmsUp: [9],
-            distanceBraking: [9],
-            distanceGrounded: [9],
-            distanceInAir: [9],
-            distanceOnNoWheels: [9],
-            distanceOnOneWheel: [9],
-            distanceOnTwoWheels: [9],
-            distanceOnThreeWheels: [9],
-            distanceOnFourWheels: [9],
-            distanceRagdoll: [9],
-            distanceWithNoWheels: [9],
-            distanceWithOneWheel: [9],
-            distanceWithTwoWheels: [9],
-            distanceWithThreeWheels: [9],
-            distanceWithFourWheels: [9],
-            distanceOnRegular: [9],
-            distanceOnGrass: [9],
-            distanceOnIce: [9],
-            timeArmsUp: [9],
-            timeBraking: [9],
-            timeGrounded: [9],
-            timeInAir: [9],
-            timeOnNoWheels: [9],
-            timeOnOneWheel: [9],
-            timeOnTwoWheels: [9],
-            timeOnThreeWheels: [9],
-            timeOnFourWheels: [9],
-            timeRagdoll: [9],
-            timeWithNoWheels: [9],
-            timeWithOneWheel: [9],
-            timeWithTwoWheels: [9],
-            timeWithThreeWheels: [9],
-            timeWithFourWheels: [9],
-            timeOnRegular: [9],
-            timeOnGrass: [9],
-            timeOnIce: [9],
-            dateCreated: [6],
-            dateUpdated: [6],
+            distanceArmsUp: [15],
+            distanceBraking: [15],
+            distanceGrounded: [15],
+            distanceInAir: [15],
+            distanceOnNoWheels: [15],
+            distanceOnOneWheel: [15],
+            distanceOnTwoWheels: [15],
+            distanceOnThreeWheels: [15],
+            distanceOnFourWheels: [15],
+            distanceRagdoll: [15],
+            distanceWithNoWheels: [15],
+            distanceWithOneWheel: [15],
+            distanceWithTwoWheels: [15],
+            distanceWithThreeWheels: [15],
+            distanceWithFourWheels: [15],
+            distanceOnRegular: [15],
+            distanceOnGrass: [15],
+            distanceOnIce: [15],
+            timeArmsUp: [15],
+            timeBraking: [15],
+            timeGrounded: [15],
+            timeInAir: [15],
+            timeOnNoWheels: [15],
+            timeOnOneWheel: [15],
+            timeOnTwoWheels: [15],
+            timeOnThreeWheels: [15],
+            timeOnFourWheels: [15],
+            timeRagdoll: [15],
+            timeWithNoWheels: [15],
+            timeWithOneWheel: [15],
+            timeWithTwoWheels: [15],
+            timeWithThreeWheels: [15],
+            timeWithFourWheels: [15],
+            timeOnRegular: [15],
+            timeOnGrass: [15],
+            timeOnIce: [15],
             timesStarted: [5],
             timesFinished: [5],
             wheelsBroken: [5],
@@ -873,13 +710,15 @@ export default {
             user: [5],
             month: [5],
             year: [5],
-            userByUser: [11],
-            __typename: [8]
+            dateCreated: [7],
+            dateUpdated: [7],
+            userByUser: [8],
+            __typename: [6]
         },
         StatsEdge: {
-            cursor: [14],
-            node: [51],
-            __typename: [8]
+            cursor: [10],
+            node: [36],
+            __typename: [6]
         },
         StatsOrderBy: {},
         StatCondition: {
@@ -889,44 +728,42 @@ export default {
             crashEye: [5],
             crashGhost: [5],
             crashSticky: [5],
-            distanceArmsUp: [9],
-            distanceBraking: [9],
-            distanceGrounded: [9],
-            distanceInAir: [9],
-            distanceOnNoWheels: [9],
-            distanceOnOneWheel: [9],
-            distanceOnTwoWheels: [9],
-            distanceOnThreeWheels: [9],
-            distanceOnFourWheels: [9],
-            distanceRagdoll: [9],
-            distanceWithNoWheels: [9],
-            distanceWithOneWheel: [9],
-            distanceWithTwoWheels: [9],
-            distanceWithThreeWheels: [9],
-            distanceWithFourWheels: [9],
-            distanceOnRegular: [9],
-            distanceOnGrass: [9],
-            distanceOnIce: [9],
-            timeArmsUp: [9],
-            timeBraking: [9],
-            timeGrounded: [9],
-            timeInAir: [9],
-            timeOnNoWheels: [9],
-            timeOnOneWheel: [9],
-            timeOnTwoWheels: [9],
-            timeOnThreeWheels: [9],
-            timeOnFourWheels: [9],
-            timeRagdoll: [9],
-            timeWithNoWheels: [9],
-            timeWithOneWheel: [9],
-            timeWithTwoWheels: [9],
-            timeWithThreeWheels: [9],
-            timeWithFourWheels: [9],
-            timeOnRegular: [9],
-            timeOnGrass: [9],
-            timeOnIce: [9],
-            dateCreated: [6],
-            dateUpdated: [6],
+            distanceArmsUp: [15],
+            distanceBraking: [15],
+            distanceGrounded: [15],
+            distanceInAir: [15],
+            distanceOnNoWheels: [15],
+            distanceOnOneWheel: [15],
+            distanceOnTwoWheels: [15],
+            distanceOnThreeWheels: [15],
+            distanceOnFourWheels: [15],
+            distanceRagdoll: [15],
+            distanceWithNoWheels: [15],
+            distanceWithOneWheel: [15],
+            distanceWithTwoWheels: [15],
+            distanceWithThreeWheels: [15],
+            distanceWithFourWheels: [15],
+            distanceOnRegular: [15],
+            distanceOnGrass: [15],
+            distanceOnIce: [15],
+            timeArmsUp: [15],
+            timeBraking: [15],
+            timeGrounded: [15],
+            timeInAir: [15],
+            timeOnNoWheels: [15],
+            timeOnOneWheel: [15],
+            timeOnTwoWheels: [15],
+            timeOnThreeWheels: [15],
+            timeOnFourWheels: [15],
+            timeRagdoll: [15],
+            timeWithNoWheels: [15],
+            timeWithOneWheel: [15],
+            timeWithTwoWheels: [15],
+            timeWithThreeWheels: [15],
+            timeWithFourWheels: [15],
+            timeOnRegular: [15],
+            timeOnGrass: [15],
+            timeOnIce: [15],
             timesStarted: [5],
             timesFinished: [5],
             wheelsBroken: [5],
@@ -934,115 +771,192 @@ export default {
             user: [5],
             month: [5],
             year: [5],
-            __typename: [8]
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
+        },
+        UpvotesConnection: {
+            nodes: [41],
+            edges: [42],
+            pageInfo: [19],
+            totalCount: [5],
+            __typename: [6]
+        },
+        Upvote: {
+            nodeId: [2],
+            id: [5],
+            user: [5],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            userByUser: [8],
+            __typename: [6]
+        },
+        UpvotesEdge: {
+            cursor: [10],
+            node: [41],
+            __typename: [6]
+        },
+        UpvotesOrderBy: {},
+        UpvoteCondition: {
+            id: [5],
+            user: [5],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
+        },
+        VotesConnection: {
+            nodes: [46],
+            edges: [47],
+            pageInfo: [19],
+            totalCount: [5],
+            __typename: [6]
+        },
+        Vote: {
+            nodeId: [2],
+            id: [5],
+            user: [5],
+            score: [5],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            userByUser: [8],
+            __typename: [6]
+        },
+        VotesEdge: {
+            cursor: [10],
+            node: [46],
+            __typename: [6]
+        },
+        VotesOrderBy: {},
+        VoteCondition: {
+            id: [5],
+            user: [5],
+            score: [5],
+            level: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
+        },
+        PlayerPointsConnection: {
+            nodes: [51],
+            edges: [52],
+            pageInfo: [19],
+            totalCount: [5],
+            __typename: [6]
+        },
+        PlayerPoint: {
+            nodeId: [2],
+            id: [5],
+            user: [5],
+            points: [5],
+            dateCreated: [7],
+            dateUpdated: [7],
+            userByUser: [8],
+            __typename: [6]
+        },
+        PlayerPointsEdge: {
+            cursor: [10],
+            node: [51],
+            __typename: [6]
+        },
+        PlayerPointsOrderBy: {},
+        PlayerPointCondition: {
+            id: [5],
+            user: [5],
+            points: [5],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         FavoritesEdge: {
-            cursor: [14],
+            cursor: [10],
             node: [4],
-            __typename: [8]
+            __typename: [6]
+        },
+        LevelPointsConnection: {
+            nodes: [57],
+            edges: [58],
+            pageInfo: [19],
+            totalCount: [5],
+            __typename: [6]
+        },
+        LevelPoint: {
+            nodeId: [2],
+            id: [5],
+            level: [6],
+            points: [5],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
+        },
+        LevelPointsEdge: {
+            cursor: [10],
+            node: [57],
+            __typename: [6]
+        },
+        LevelPointsOrderBy: {},
+        LevelPointCondition: {
+            id: [5],
+            level: [6],
+            points: [5],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         UsersConnection: {
-            nodes: [11],
-            edges: [57],
-            pageInfo: [15],
+            nodes: [8],
+            edges: [62],
+            pageInfo: [19],
             totalCount: [5],
-            __typename: [8]
+            __typename: [6]
         },
         UsersEdge: {
-            cursor: [14],
-            node: [11],
-            __typename: [8]
+            cursor: [10],
+            node: [8],
+            __typename: [6]
         },
         UsersOrderBy: {},
         UserCondition: {
             id: [5],
-            dateCreated: [6],
-            dateUpdated: [6],
-            steamId: [8],
-            steamName: [8],
-            position: [5],
-            score: [9],
-            worldRecords: [5],
-            discordId: [8],
-            banned: [10],
-            __typename: [8]
+            steamId: [6],
+            steamName: [6],
+            discordId: [6],
+            banned: [9],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         VersionsConnection: {
-            nodes: [61],
-            edges: [62],
-            pageInfo: [15],
+            nodes: [66],
+            edges: [67],
+            pageInfo: [19],
             totalCount: [5],
-            __typename: [8]
+            __typename: [6]
         },
         Version: {
             nodeId: [2],
             id: [5],
-            minimum: [8],
-            latest: [8],
-            __typename: [8]
+            minimum: [6],
+            latest: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         },
         VersionsEdge: {
-            cursor: [14],
-            node: [61],
-            __typename: [8]
+            cursor: [10],
+            node: [66],
+            __typename: [6]
         },
         VersionsOrderBy: {},
         VersionCondition: {
             id: [5],
-            minimum: [8],
-            latest: [8],
-            __typename: [8]
-        },
-        Mutation: {
-            fixWr: [
-                66,
-                {
-                    input: [67, 'FixWrInput!']
-                }
-            ],
-            updatePb: [
-                68,
-                {
-                    input: [69, 'UpdatePbInput!']
-                }
-            ],
-            updateWr: [
-                70,
-                {
-                    input: [71, 'UpdateWrInput!']
-                }
-            ],
-            __typename: [8]
-        },
-        FixWrPayload: {
-            clientMutationId: [8],
-            query: [0],
-            __typename: [8]
-        },
-        FixWrInput: {
-            clientMutationId: [8],
-            __typename: [8]
-        },
-        UpdatePbPayload: {
-            clientMutationId: [8],
-            query: [0],
-            __typename: [8]
-        },
-        UpdatePbInput: {
-            clientMutationId: [8],
-            pUser: [5],
-            pLevel: [5],
-            __typename: [8]
-        },
-        UpdateWrPayload: {
-            clientMutationId: [8],
-            query: [0],
-            __typename: [8]
-        },
-        UpdateWrInput: {
-            clientMutationId: [8],
-            pLevel: [5],
-            __typename: [8]
+            minimum: [6],
+            latest: [6],
+            dateCreated: [7],
+            dateUpdated: [7],
+            __typename: [6]
         }
     }
 }
