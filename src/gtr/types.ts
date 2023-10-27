@@ -853,6 +853,7 @@ export default {
             points: [5],
             dateCreated: [7],
             dateUpdated: [7],
+            rank: [5],
             userByUser: [8],
             __typename: [6]
         },
@@ -868,6 +869,7 @@ export default {
             points: [5],
             dateCreated: [7],
             dateUpdated: [7],
+            rank: [5],
             __typename: [6]
         },
         FavoritesEdge: {
