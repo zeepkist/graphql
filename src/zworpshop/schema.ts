@@ -136,6 +136,7 @@ export interface Level {
     fileAuthor: Scalars['String']
     fileUid: Scalars['String']
     replacedBy: (Scalars['Int'] | null)
+    deleted: Scalars['Boolean']
     __typename: 'Level'
 }
 
@@ -151,7 +152,7 @@ export interface LevelsEdge {
 
 
 /** Methods to use when ordering `Level`. */
-export type LevelsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'NAME_ASC' | 'NAME_DESC' | 'IMAGE_URL_ASC' | 'IMAGE_URL_DESC' | 'CREATED_AT_ASC' | 'CREATED_AT_DESC' | 'UPDATED_AT_ASC' | 'UPDATED_AT_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'VALID_ASC' | 'VALID_DESC' | 'VALIDATION_ASC' | 'VALIDATION_DESC' | 'GOLD_ASC' | 'GOLD_DESC' | 'SILVER_ASC' | 'SILVER_DESC' | 'BRONZE_ASC' | 'BRONZE_DESC' | 'AUTHOR_ID_ASC' | 'AUTHOR_ID_DESC' | 'FILE_HASH_ASC' | 'FILE_HASH_DESC' | 'FILE_URL_ASC' | 'FILE_URL_DESC' | 'FILE_AUTHOR_ASC' | 'FILE_AUTHOR_DESC' | 'FILE_UID_ASC' | 'FILE_UID_DESC' | 'REPLACED_BY_ASC' | 'REPLACED_BY_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type LevelsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'NAME_ASC' | 'NAME_DESC' | 'IMAGE_URL_ASC' | 'IMAGE_URL_DESC' | 'CREATED_AT_ASC' | 'CREATED_AT_DESC' | 'UPDATED_AT_ASC' | 'UPDATED_AT_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'VALID_ASC' | 'VALID_DESC' | 'VALIDATION_ASC' | 'VALIDATION_DESC' | 'GOLD_ASC' | 'GOLD_DESC' | 'SILVER_ASC' | 'SILVER_DESC' | 'BRONZE_ASC' | 'BRONZE_DESC' | 'AUTHOR_ID_ASC' | 'AUTHOR_ID_DESC' | 'FILE_HASH_ASC' | 'FILE_HASH_DESC' | 'FILE_URL_ASC' | 'FILE_URL_DESC' | 'FILE_AUTHOR_ASC' | 'FILE_AUTHOR_DESC' | 'FILE_UID_ASC' | 'FILE_UID_DESC' | 'REPLACED_BY_ASC' | 'REPLACED_BY_DESC' | 'DELETED_ASC' | 'DELETED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** The root query type which gives access points into the data universe. */
@@ -361,6 +362,7 @@ export interface LevelGenqlSelection{
     fileAuthor?: boolean | number
     fileUid?: boolean | number
     replacedBy?: boolean | number
+    deleted?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -412,7 +414,9 @@ fileAuthor?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `fileUid` field. */
 fileUid?: (Scalars['String'] | null),
 /** Checks for equality with the object’s `replacedBy` field. */
-replacedBy?: (Scalars['Int'] | null)}
+replacedBy?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `deleted` field. */
+deleted?: (Scalars['Boolean'] | null)}
 
 
     const Query_possibleTypes: string[] = ['Query']
@@ -558,6 +562,8 @@ export const enumLevelsOrderBy = {
    FILE_UID_DESC: 'FILE_UID_DESC' as const,
    REPLACED_BY_ASC: 'REPLACED_BY_ASC' as const,
    REPLACED_BY_DESC: 'REPLACED_BY_DESC' as const,
+   DELETED_ASC: 'DELETED_ASC' as const,
+   DELETED_DESC: 'DELETED_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }

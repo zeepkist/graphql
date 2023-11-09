@@ -146,6 +146,7 @@ export default {
             fileAuthor: [7],
             fileUid: [7],
             replacedBy: [5],
+            deleted: [9],
             __typename: [7]
         },
         LevelsEdge: {
@@ -172,6 +173,7 @@ export default {
             fileAuthor: [7],
             fileUid: [7],
             replacedBy: [5],
+            deleted: [9],
             __typename: [7]
         }
     }

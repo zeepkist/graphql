@@ -295,6 +295,7 @@ type Level implements Node {
   fileAuthor: String!
   fileUid: String!
   replacedBy: Int
+  deleted: Boolean!
 }
 
 """A `Level` edge in the connection."""
@@ -343,6 +344,8 @@ enum LevelsOrderBy {
   FILE_UID_DESC
   REPLACED_BY_ASC
   REPLACED_BY_DESC
+  DELETED_ASC
+  DELETED_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -401,4 +404,7 @@ input LevelCondition {
 
   """Checks for equality with the object’s `replacedBy` field."""
   replacedBy: Int
+
+  """Checks for equality with the object’s `deleted` field."""
+  deleted: Boolean
 }
