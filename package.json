@@ -14,12 +14,27 @@
     "type": "module",
     "main": "dist/index.js",
     "packageManager": "pnpm@8.12.0",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.js"
+        },
+        "./gtr": {
+            "import": "./dist/gtr/index.js",
+            "require": "./dist/gtr/index.js"
+        },
+        "./zworpshop": {
+            "import": "./dist/zworpshop/index.js",
+            "require": "./dist/zworpshop/index.js"
+        }
+    },
     "scripts": {
         "build": "tsc",
-        "lint": "eslint . --ext .js,.cjs,.mjs,.ts,.cts,.mts --fix --ignore-path .gitignore",
-        "lint:ci": "eslint . --ext .js,.cjs,.mjs,.ts,.cts,.mts --ignore-path .gitignore",
+        "lint": "eslint . --ext .js,.cjs,.mjs,.ts,.cts,.mts --fix",
+        "lint:ci": "eslint . --ext .js,.cjs,.mjs,.ts,.cts,.mts",
         "test": "ava",
         "coverage": "c8 --all --src=dist --skip-full ava",
+        "document": "typedoc",
         "generate:gtr": "genql --endpoint https://graphql.zeepkist-gtr.com --language typescript --output src/gtr --clientName gtr",
         "generate:zworpshop": "genql --endpoint https://graphql.zworpshop.com --language typescript --output src/zworpshop --clientName zworpshop",
         "move": "tsx scripts/moveRuntime.ts",
@@ -49,6 +64,7 @@
         "prettier": "~3.1.0",
         "semantic-release": "~22.0.0",
         "tsx": "~4.6.0",
+        "typedoc": "~0.25.0",
         "typescript": "~5.3.0"
     },
     "ava": {
