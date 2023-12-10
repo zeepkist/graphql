@@ -31,6 +31,9 @@ jobs:
       - name: Generate GraphQL Types
         run: pnpm generate
 
+      - name: Generate Documentation
+        run: pnpm document
+
       - name: Run Linter
         run: pnpm lint
 

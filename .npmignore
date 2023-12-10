@@ -2,6 +2,7 @@
 .vscode
 coverage
 scripts
+docs
 src
 
 .eslintrc.cjs
