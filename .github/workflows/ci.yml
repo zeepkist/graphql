@@ -31,9 +31,6 @@ jobs:
       - name: Generate GraphQL Types
         run: pnpm generate
 
-      - name: Generate Documentation
-        run: pnpm document
-
       - name: Run Linter
         run: pnpm lint
 
@@ -44,6 +41,7 @@ jobs:
         if: success() && github.ref == 'refs/heads/develop'
         run: |
           if [ -n "$(git status --porcelain)" ]; then
+            pnpm document
             git config --global user.name "GitHub Actions"
             git config --global user.email ${{ secrets.GH_EMAIL }}
             git add .
