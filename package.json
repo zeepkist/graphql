@@ -34,7 +34,7 @@
         "lint:ci": "eslint . --ext .js,.cjs,.mjs,.ts,.cts,.mts",
         "test": "ava",
         "coverage": "c8 --all --src=dist --skip-full ava",
-        "document": "typedoc",
+        "document": "typedoc && prettier --write docs/",
         "generate:gtr": "genql --endpoint https://graphql.zeepkist-gtr.com --language typescript --output src/gtr --clientName gtr",
         "generate:zworpshop": "genql --endpoint https://graphql.zworpshop.com --language typescript --output src/zworpshop --clientName zworpshop",
         "move": "tsx scripts/moveRuntime.ts",
