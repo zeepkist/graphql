@@ -1358,6 +1358,7 @@ type Stat implements Node {
   year: Int!
   dateCreated: Datetime!
   dateUpdated: Datetime!
+  level: String
 
   """Reads a single `User` that is related to this `Stat`."""
   userByUser: User
@@ -1477,6 +1478,8 @@ enum StatsOrderBy {
   DATE_CREATED_DESC
   DATE_UPDATED_ASC
   DATE_UPDATED_DESC
+  LEVEL_ASC
+  LEVEL_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1637,6 +1640,9 @@ input StatCondition {
 
   """Checks for equality with the object’s `dateUpdated` field."""
   dateUpdated: Datetime
+
+  """Checks for equality with the object’s `level` field."""
+  level: String
 }
 
 """A connection to a list of `Upvote` values."""

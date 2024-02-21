@@ -712,6 +712,7 @@ export default {
             year: [5],
             dateCreated: [7],
             dateUpdated: [7],
+            level: [6],
             userByUser: [8],
             __typename: [6]
         },
@@ -773,6 +774,7 @@ export default {
             year: [5],
             dateCreated: [7],
             dateUpdated: [7],
+            level: [6],
             __typename: [6]
         },
         UpvotesConnection: {
