@@ -856,6 +856,7 @@ export default {
             dateCreated: [7],
             dateUpdated: [7],
             rank: [5],
+            worldRecords: [5],
             userByUser: [8],
             __typename: [6]
         },
@@ -872,6 +873,7 @@ export default {
             dateCreated: [7],
             dateUpdated: [7],
             rank: [5],
+            worldRecords: [5],
             __typename: [6]
         },
         FavoritesEdge: {

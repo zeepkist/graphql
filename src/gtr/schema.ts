@@ -546,6 +546,7 @@ export interface PlayerPoint {
     dateCreated: Scalars['Datetime']
     dateUpdated: Scalars['Datetime']
     rank: Scalars['Int']
+    worldRecords: (Scalars['Int'] | null)
     /** Reads a single `User` that is related to this `PlayerPoint`. */
     userByUser: (User | null)
     __typename: 'PlayerPoint'
@@ -563,7 +564,7 @@ export interface PlayerPointsEdge {
 
 
 /** Methods to use when ordering `PlayerPoint`. */
-export type PlayerPointsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'USER_ASC' | 'USER_DESC' | 'POINTS_ASC' | 'POINTS_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'RANK_ASC' | 'RANK_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+export type PlayerPointsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'USER_ASC' | 'USER_DESC' | 'POINTS_ASC' | 'POINTS_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'RANK_ASC' | 'RANK_DESC' | 'WORLD_RECORDS_ASC' | 'WORLD_RECORDS_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A `Favorite` edge in the connection. */
@@ -1885,6 +1886,7 @@ export interface PlayerPointGenqlSelection{
     dateCreated?: boolean | number
     dateUpdated?: boolean | number
     rank?: boolean | number
+    worldRecords?: boolean | number
     /** Reads a single `User` that is related to this `PlayerPoint`. */
     userByUser?: UserGenqlSelection
     __typename?: boolean | number
@@ -1919,7 +1921,9 @@ dateCreated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `dateUpdated` field. */
 dateUpdated?: (Scalars['Datetime'] | null),
 /** Checks for equality with the object’s `rank` field. */
-rank?: (Scalars['Int'] | null)}
+rank?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `worldRecords` field. */
+worldRecords?: (Scalars['Int'] | null)}
 
 
 /** A `Favorite` edge in the connection. */
@@ -2657,6 +2661,8 @@ export const enumPlayerPointsOrderBy = {
    DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
    RANK_ASC: 'RANK_ASC' as const,
    RANK_DESC: 'RANK_DESC' as const,
+   WORLD_RECORDS_ASC: 'WORLD_RECORDS_ASC' as const,
+   WORLD_RECORDS_DESC: 'WORLD_RECORDS_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }

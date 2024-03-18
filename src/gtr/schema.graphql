@@ -1835,6 +1835,7 @@ type PlayerPoint implements Node {
   dateCreated: Datetime!
   dateUpdated: Datetime!
   rank: Int!
+  worldRecords: Int
 
   """Reads a single `User` that is related to this `PlayerPoint`."""
   userByUser: User
@@ -1864,6 +1865,8 @@ enum PlayerPointsOrderBy {
   DATE_UPDATED_DESC
   RANK_ASC
   RANK_DESC
+  WORLD_RECORDS_ASC
+  WORLD_RECORDS_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1890,6 +1893,9 @@ input PlayerPointCondition {
 
   """Checks for equality with the object’s `rank` field."""
   rank: Int
+
+  """Checks for equality with the object’s `worldRecords` field."""
+  worldRecords: Int
 }
 
 """A `Favorite` edge in the connection."""
