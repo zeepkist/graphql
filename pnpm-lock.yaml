@@ -9,8 +9,8 @@ devDependencies:
     specifier: ~4.1.0
     version: 4.1.0
   '@genql/cli':
-    specifier: ~6.2.1
-    version: 6.2.1
+    specifier: ~6.3.0
+    version: 6.3.2
   '@rushstack/eslint-patch':
     specifier: ~1.6.0
     version: 1.6.1
@@ -378,8 +378,8 @@ packages:
     engines: {node: '>=14'}
     dev: true
 
-  /@genql/cli@6.2.1:
-    resolution: {integrity: sha512-BXCs7cOzhy6u4TFfD7NSe2IHHdfUfA69i2c0HbXBlnpWJIEVE5OUb0MN5gm7VQAiCdI0al8q+yyb9FSsgnrrkQ==}
+  /@genql/cli@6.3.2:
+    resolution: {integrity: sha512-ZvsrKVwxg3Cfmvf4eLcrz431yLCx1f2eB+/f3i860en0z0hWeiBoChcsEjm74j0q+j/ctBpXf1QP2fsGAHgj6w==}
     hasBin: true
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.8.1)
