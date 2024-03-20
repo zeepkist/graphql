@@ -20,7 +20,7 @@ export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
     object: HandleObject<SRC, DST>
     array: SRC extends Nil
         ? never
-        : SRC extends (infer T)[]
+        : SRC extends Array<infer T | null>
           ? Array<FieldsSelection<T, DST>>
           : never
     __scalar: Handle__scalar<SRC, DST>
@@ -41,21 +41,23 @@ export type FieldsSelection<SRC extends Anify<DST> | undefined, DST> = {
                 ? 'object'
                 : 'never']
 
-type HandleObject<SRC extends Anify<DST>, DST> = SRC extends Nil
-    ? never
-    : Pick<
-          {
-              // using keyof SRC to maintain ?: relations of SRC type
-              [Key in keyof SRC]: Key extends keyof DST
-                  ? FieldsSelection<SRC[Key], NonNullable<DST[Key]>>
-                  : SRC[Key]
-          },
-          Exclude<keyof DST, FieldsToRemove>
-          //   {
-          //       // remove falsy values
-          //       [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
-          //   }[keyof DST]
-      >
+type HandleObject<SRC extends Anify<DST>, DST> = DST extends boolean
+    ? SRC
+    : SRC extends Nil
+      ? never
+      : Pick<
+            {
+                // using keyof SRC to maintain ?: relations of SRC type
+                [Key in keyof SRC]: Key extends keyof DST
+                    ? FieldsSelection<SRC[Key], NonNullable<DST[Key]>>
+                    : SRC[Key]
+            },
+            Exclude<keyof DST, FieldsToRemove>
+            //   {
+            //       // remove falsy values
+            //       [Key in keyof DST]: DST[Key] extends false | 0 ? never : Key
+            //   }[keyof DST]
+        >
 
 type Handle__scalar<SRC extends Anify<DST>, DST> = SRC extends Nil
     ? never
