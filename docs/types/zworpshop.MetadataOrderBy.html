@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="IE=edge" />
-        <title>isQuery | @zeepkist/graphql</title>
+        <title>MetadataOrderBy | @zeepkist/graphql</title>
         <meta
             name="description"
             content="Documentation for @zeepkist/graphql" />
@@ -81,97 +81,103 @@
                 <div class="tsd-page-title">
                     <ul class="tsd-breadcrumb">
                         <li><a href="../index.html">@zeepkist/graphql</a></li>
-                        <li><a href="../modules/gtr.html">gtr</a></li>
-                        <li><a href="gtr.isQuery.html">isQuery</a></li>
+                        <li>
+                            <a href="../modules/zworpshop.html">zworpshop</a>
+                        </li>
+                        <li>
+                            <a href="zworpshop.MetadataOrderBy.html"
+                                >MetadataOrderBy</a
+                            >
+                        </li>
                     </ul>
-                    <h1>Function isQuery</h1>
+                    <h1>Type alias MetadataOrderBy</h1>
                 </div>
-                <section class="tsd-panel">
-                    <ul class="tsd-signatures">
-                        <li class="tsd-signature tsd-anchor-link">
-                            <a id="isQuery" class="tsd-anchor"></a
-                            ><span class="tsd-kind-call-signature"
-                                >is<wbr />Query</span
-                            ><span class="tsd-signature-symbol">(</span
-                            ><span class="tsd-kind-parameter">obj</span
-                            ><span class="tsd-signature-symbol">?</span
-                            ><span class="tsd-signature-symbol">)</span
-                            ><span class="tsd-signature-symbol">: </span
-                            ><span class="tsd-kind-parameter">obj</span
-                            ><span class="tsd-signature-keyword"> is </span
-                            ><a
-                                href="../interfaces/gtr.Query.html"
-                                class="tsd-signature-type tsd-kind-interface"
-                                >Query</a
-                            ><a
-                                href="#isQuery"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </li>
-                        <li class="tsd-description">
-                            <div class="tsd-parameters">
-                                <h4 class="tsd-parameters-title">Parameters</h4>
-                                <ul class="tsd-parameter-list">
-                                    <li>
-                                        <span
-                                            ><code
-                                                class="tsd-tag ts-flagOptional"
-                                                >Optional</code
-                                            >
-                                            <span class="tsd-kind-parameter"
-                                                >obj</span
-                                            >:
-                                            <span class="tsd-signature-type"
-                                                >null</span
-                                            ><span class="tsd-signature-symbol">
-                                                | </span
-                                            ><span class="tsd-signature-symbol"
-                                                >{ </span
-                                            ><br /><span>    </span
-                                            ><span class="tsd-kind-property"
-                                                >__typename</span
-                                            ><span class="tsd-signature-symbol"
-                                                >?: </span
-                                            ><span class="tsd-signature-type"
-                                                >any</span
-                                            ><span class="tsd-signature-symbol"
-                                                >; </span
-                                            ><br /><span
-                                                class="tsd-signature-symbol"
-                                                >}</span
-                                            ></span
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4 class="tsd-returns-title">
-                                Returns
-                                <span class="tsd-kind-parameter">obj</span
-                                ><span class="tsd-signature-keyword"> is </span
-                                ><a
-                                    href="../interfaces/gtr.Query.html"
-                                    class="tsd-signature-type tsd-kind-interface"
-                                    >Query</a
-                                >
-                            </h4>
-                            <aside class="tsd-sources">
-                                <ul>
-                                    <li>
-                                        Defined in
-                                        <a
-                                            href="https://github.com/zeepkist/graphql/blob/db58f5d/src/gtr/schema.ts#L2092"
-                                            >src/gtr/schema.ts:2092</a
-                                        >
-                                    </li>
-                                </ul>
-                            </aside>
+                <div class="tsd-signature">
+                    <span class="tsd-kind-type-alias"
+                        >Metadata<wbr />Order<wbr />By</span
+                    ><span class="tsd-signature-symbol">:</span>
+                    <span class="tsd-signature-type">&quot;NATURAL&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type">&quot;HASH_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;HASH_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;VALID_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;VALID_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;CHECKPOINTS_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;CHECKPOINTS_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;BLOCKS_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;BLOCKS_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;VALIDATION_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;VALIDATION_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type">&quot;GOLD_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;GOLD_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;SILVER_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;SILVER_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;BRONZE_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;BRONZE_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;GROUND_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;GROUND_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;SKYBOX_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;SKYBOX_DESC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;PRIMARY_KEY_ASC&quot;</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><span class="tsd-signature-type"
+                        >&quot;PRIMARY_KEY_DESC&quot;</span
+                    >
+                </div>
+                <div class="tsd-comment tsd-typography">
+                    <p>Methods to use when ordering <code>Metadatum</code>.</p>
+                </div>
+                <div class="tsd-comment tsd-typography"></div>
+                <aside class="tsd-sources">
+                    <ul>
+                        <li>
+                            Defined in
+                            <a
+                                href="https://github.com/zeepkist/graphql/blob/db58f5d/src/zworpshop/schema.ts#L149"
+                                >src/zworpshop/schema.ts:149</a
+                            >
                         </li>
                     </ul>
-                </section>
+                </aside>
             </div>
             <div class="col-sidebar">
                 <div class="page-menu">
