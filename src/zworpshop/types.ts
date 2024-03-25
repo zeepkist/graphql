@@ -1,5 +1,5 @@
 export default {
-    scalars: [2, 5, 6, 7, 8, 9, 11, 13, 17, 19],
+    scalars: [2, 5, 6, 7, 8, 9, 11, 12, 13, 19],
     types: {
         Query: {
             query: [0],
@@ -16,20 +16,20 @@ export default {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [11],
-                    after: [11],
+                    before: [12],
+                    after: [12],
                     orderBy: [13, '[LevelsOrderBy!]'],
                     condition: [14]
                 }
             ],
             allMetadata: [
-                15,
+                17,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
-                    before: [11],
-                    after: [11],
+                    before: [12],
+                    after: [12],
                     orderBy: [19, '[MetadataOrderBy!]'],
                     condition: [20]
                 }
@@ -40,10 +40,10 @@ export default {
                     id: [5, 'Int!']
                 }
             ],
-            metadatumByHash: [
-                16,
+            metadatumById: [
+                10,
                 {
-                    hash: [6, 'String!']
+                    id: [5, 'Int!']
                 }
             ],
             level: [
@@ -53,7 +53,7 @@ export default {
                 }
             ],
             metadatum: [
-                16,
+                10,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -64,14 +64,14 @@ export default {
             nodeId: [2],
             on_Query: [0],
             on_Level: [4],
-            on_Metadatum: [16],
+            on_Metadatum: [10],
             __typename: [6]
         },
         ID: {},
         LevelsConnection: {
             nodes: [4],
-            edges: [10],
-            pageInfo: [12],
+            edges: [15],
+            pageInfo: [16],
             totalCount: [5],
             __typename: [6]
         },
@@ -90,6 +90,8 @@ export default {
             fileUid: [6],
             replacedBy: [5],
             deleted: [9],
+            metadataId: [5],
+            metadatumByMetadataId: [10],
             __typename: [6]
         },
         Int: {},
@@ -97,19 +99,35 @@ export default {
         Datetime: {},
         BigFloat: {},
         Boolean: {},
-        LevelsEdge: {
-            cursor: [11],
-            node: [4],
+        Metadatum: {
+            nodeId: [2],
+            hash: [6],
+            valid: [9],
+            checkpoints: [5],
+            blocks: [6],
+            validation: [11],
+            gold: [11],
+            silver: [11],
+            bronze: [11],
+            ground: [5],
+            skybox: [5],
+            id: [5],
+            levelsByMetadataId: [
+                3,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [12],
+                    after: [12],
+                    orderBy: [13, '[LevelsOrderBy!]'],
+                    condition: [14]
+                }
+            ],
             __typename: [6]
         },
+        Float: {},
         Cursor: {},
-        PageInfo: {
-            hasNextPage: [9],
-            hasPreviousPage: [9],
-            startCursor: [11],
-            endCursor: [11],
-            __typename: [6]
-        },
         LevelsOrderBy: {},
         LevelCondition: {
             id: [5],
@@ -125,33 +143,31 @@ export default {
             fileUid: [6],
             replacedBy: [5],
             deleted: [9],
+            metadataId: [5],
+            __typename: [6]
+        },
+        LevelsEdge: {
+            cursor: [12],
+            node: [4],
+            __typename: [6]
+        },
+        PageInfo: {
+            hasNextPage: [9],
+            hasPreviousPage: [9],
+            startCursor: [12],
+            endCursor: [12],
             __typename: [6]
         },
         MetadataConnection: {
-            nodes: [16],
+            nodes: [10],
             edges: [18],
-            pageInfo: [12],
+            pageInfo: [16],
             totalCount: [5],
             __typename: [6]
         },
-        Metadatum: {
-            nodeId: [2],
-            hash: [6],
-            valid: [9],
-            checkpoints: [5],
-            blocks: [6],
-            validation: [17],
-            gold: [17],
-            silver: [17],
-            bronze: [17],
-            ground: [5],
-            skybox: [5],
-            __typename: [6]
-        },
-        Float: {},
         MetadataEdge: {
-            cursor: [11],
-            node: [16],
+            cursor: [12],
+            node: [10],
             __typename: [6]
         },
         MetadataOrderBy: {},
@@ -160,12 +176,13 @@ export default {
             valid: [9],
             checkpoints: [5],
             blocks: [6],
-            validation: [17],
-            gold: [17],
-            silver: [17],
-            bronze: [17],
+            validation: [11],
+            gold: [11],
+            silver: [11],
+            bronze: [11],
             ground: [5],
             skybox: [5],
+            id: [5],
             __typename: [6]
         }
     }
