@@ -46,32 +46,43 @@ function dispatchQueueBatch(client: QueryBatcher, queue: Queue): void {
     if (batchedQuery.length === 1) {
         batchedQuery = batchedQuery[0]
     }
+    ;(() => {
+        try {
+            return client.fetcher(batchedQuery)
+        } catch (error) {
+            return Promise.reject(error)
+        }
+    })()
+        .then((responses: any) => {
+            if (queue.length === 1 && !Array.isArray(responses)) {
+                if (responses.errors && responses.errors.length > 0) {
+                    queue[0].reject(
+                        new GenqlError(responses.errors, responses.data)
+                    )
+                    return
+                }
 
-    client.fetcher(batchedQuery).then((responses: any) => {
-        if (queue.length === 1 && !Array.isArray(responses)) {
-            if (responses.errors && responses.errors.length > 0) {
-                queue[0].reject(
-                    new GenqlError(responses.errors, responses.data)
-                )
+                queue[0].resolve(responses)
                 return
+            } else if (responses.length !== queue.length) {
+                throw new Error('response length did not match query length')
             }
 
-            queue[0].resolve(responses)
-            return
-        } else if (responses.length !== queue.length) {
-            throw new Error('response length did not match query length')
-        }
-
-        for (const [i, element] of queue.entries()) {
-            if (responses[i].errors && responses[i].errors.length > 0) {
-                element.reject(
-                    new GenqlError(responses[i].errors, responses[i].data)
-                )
-            } else {
-                element.resolve(responses[i])
+            for (const [i, element] of queue.entries()) {
+                if (responses[i].errors && responses[i].errors.length > 0) {
+                    element.reject(
+                        new GenqlError(responses[i].errors, responses[i].data)
+                    )
+                } else {
+                    element.resolve(responses[i])
+                }
             }
-        }
-    })
+        })
+        .catch(error => {
+            for (const element of queue) {
+                element.reject(error)
+            }
+        })
 }
 
 /**
