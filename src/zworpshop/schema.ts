@@ -30,18 +30,23 @@ export interface Query {
     allLevels: (LevelsConnection | null)
     /** Reads and enables pagination through a set of `Metadatum`. */
     allMetadata: (MetadataConnection | null)
+    /** Reads and enables pagination through a set of `Request`. */
+    allRequests: (RequestsConnection | null)
     levelById: (Level | null)
     metadatumById: (Metadatum | null)
+    requestById: (Request | null)
     /** Reads a single `Level` using its globally unique `ID`. */
     level: (Level | null)
     /** Reads a single `Metadatum` using its globally unique `ID`. */
     metadatum: (Metadatum | null)
+    /** Reads a single `Request` using its globally unique `ID`. */
+    request: (Request | null)
     __typename: 'Query'
 }
 
 
 /** An object with a globally unique `ID`. */
-export type Node = (Query | Level | Metadatum) & { __isUnion?: true }
+export type Node = (Query | Level | Metadatum | Request) & { __isUnion?: true }
 
 
 /** A connection to a list of `Level` values. */
@@ -155,6 +160,45 @@ export interface MetadataEdge {
 export type MetadataOrderBy = 'NATURAL' | 'HASH_ASC' | 'HASH_DESC' | 'VALID_ASC' | 'VALID_DESC' | 'CHECKPOINTS_ASC' | 'CHECKPOINTS_DESC' | 'BLOCKS_ASC' | 'BLOCKS_DESC' | 'VALIDATION_ASC' | 'VALIDATION_DESC' | 'GOLD_ASC' | 'GOLD_DESC' | 'SILVER_ASC' | 'SILVER_DESC' | 'BRONZE_ASC' | 'BRONZE_DESC' | 'GROUND_ASC' | 'GROUND_DESC' | 'SKYBOX_ASC' | 'SKYBOX_DESC' | 'ID_ASC' | 'ID_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
+/** A connection to a list of `Request` values. */
+export interface RequestsConnection {
+    /** A list of `Request` objects. */
+    nodes: (Request | null)[]
+    /** A list of edges which contains the `Request` and cursor to aid in pagination. */
+    edges: RequestsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `Request` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'RequestsConnection'
+}
+
+export interface Request {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    id: Scalars['Int']
+    workshopId: Scalars['BigFloat']
+    uid: (Scalars['String'] | null)
+    hash: (Scalars['String'] | null)
+    dateCreated: Scalars['Datetime']
+    __typename: 'Request'
+}
+
+
+/** A `Request` edge in the connection. */
+export interface RequestsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `Request` at the end of the edge. */
+    node: (Request | null)
+    __typename: 'RequestsEdge'
+}
+
+
+/** Methods to use when ordering `Request`. */
+export type RequestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'UID_ASC' | 'UID_DESC' | 'HASH_ASC' | 'HASH_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+
+
 /** The root query type which gives access points into the data universe. */
 export interface QueryGenqlSelection{
     /**
@@ -206,8 +250,28 @@ export interface QueryGenqlSelection{
     orderBy?: (MetadataOrderBy[] | null), 
     /** A condition to be used in determining which values should be returned by the collection. */
     condition?: (MetadatumCondition | null)} })
+    /** Reads and enables pagination through a set of `Request`. */
+    allRequests?: (RequestsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Request`. */
+    orderBy?: (RequestsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (RequestCondition | null)} })
     levelById?: (LevelGenqlSelection & { __args: {id: Scalars['Int']} })
     metadatumById?: (MetadatumGenqlSelection & { __args: {id: Scalars['Int']} })
+    requestById?: (RequestGenqlSelection & { __args: {id: Scalars['Int']} })
     /** Reads a single `Level` using its globally unique `ID`. */
     level?: (LevelGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Level`. */
@@ -215,6 +279,10 @@ export interface QueryGenqlSelection{
     /** Reads a single `Metadatum` using its globally unique `ID`. */
     metadatum?: (MetadatumGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Metadatum`. */
+    nodeId: Scalars['ID']} })
+    /** Reads a single `Request` using its globally unique `ID`. */
+    request?: (RequestGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `Request`. */
     nodeId: Scalars['ID']} })
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -228,6 +296,7 @@ export interface NodeGenqlSelection{
     on_Query?: QueryGenqlSelection
     on_Level?: LevelGenqlSelection
     on_Metadatum?: MetadatumGenqlSelection
+    on_Request?: RequestGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -421,6 +490,58 @@ skybox?: (Scalars['Int'] | null),
 id?: (Scalars['Int'] | null)}
 
 
+/** A connection to a list of `Request` values. */
+export interface RequestsConnectionGenqlSelection{
+    /** A list of `Request` objects. */
+    nodes?: RequestGenqlSelection
+    /** A list of edges which contains the `Request` and cursor to aid in pagination. */
+    edges?: RequestsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `Request` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface RequestGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    id?: boolean | number
+    workshopId?: boolean | number
+    uid?: boolean | number
+    hash?: boolean | number
+    dateCreated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `Request` edge in the connection. */
+export interface RequestsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `Request` at the end of the edge. */
+    node?: RequestGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A condition to be used against `Request` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export interface RequestCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `workshopId` field. */
+workshopId?: (Scalars['BigFloat'] | null),
+/** Checks for equality with the object’s `uid` field. */
+uid?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `hash` field. */
+hash?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null)}
+
+
     const Query_possibleTypes: string[] = ['Query']
     export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
@@ -429,7 +550,7 @@ id?: (Scalars['Int'] | null)}
     
 
 
-    const Node_possibleTypes: string[] = ['Query','Level','Metadatum']
+    const Node_possibleTypes: string[] = ['Query','Level','Metadatum','Request']
     export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isNode"')
       return Node_possibleTypes.includes(obj.__typename)
@@ -492,6 +613,30 @@ id?: (Scalars['Int'] | null)}
     }
     
 
+
+    const RequestsConnection_possibleTypes: string[] = ['RequestsConnection']
+    export const isRequestsConnection = (obj?: { __typename?: any } | null): obj is RequestsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRequestsConnection"')
+      return RequestsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const Request_possibleTypes: string[] = ['Request']
+    export const isRequest = (obj?: { __typename?: any } | null): obj is Request => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRequest"')
+      return Request_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const RequestsEdge_possibleTypes: string[] = ['RequestsEdge']
+    export const isRequestsEdge = (obj?: { __typename?: any } | null): obj is RequestsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isRequestsEdge"')
+      return RequestsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
 export const enumLevelsOrderBy = {
    NATURAL: 'NATURAL' as const,
    ID_ASC: 'ID_ASC' as const,
@@ -550,6 +695,22 @@ export const enumMetadataOrderBy = {
    SKYBOX_DESC: 'SKYBOX_DESC' as const,
    ID_ASC: 'ID_ASC' as const,
    ID_DESC: 'ID_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumRequestsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   WORKSHOP_ID_ASC: 'WORKSHOP_ID_ASC' as const,
+   WORKSHOP_ID_DESC: 'WORKSHOP_ID_DESC' as const,
+   UID_ASC: 'UID_ASC' as const,
+   UID_DESC: 'UID_DESC' as const,
+   HASH_ASC: 'HASH_ASC' as const,
+   HASH_DESC: 'HASH_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }

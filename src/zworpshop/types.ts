@@ -1,5 +1,5 @@
 export default {
-    scalars: [2, 5, 6, 7, 8, 9, 11, 12, 13, 19],
+    scalars: [2, 5, 6, 7, 8, 9, 11, 12, 13, 19, 24],
     types: {
         Query: {
             query: [0],
@@ -34,6 +34,18 @@ export default {
                     condition: [20]
                 }
             ],
+            allRequests: [
+                21,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [12],
+                    after: [12],
+                    orderBy: [24, '[RequestsOrderBy!]'],
+                    condition: [25]
+                }
+            ],
             levelById: [
                 4,
                 {
@@ -42,6 +54,12 @@ export default {
             ],
             metadatumById: [
                 10,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
+            requestById: [
+                22,
                 {
                     id: [5, 'Int!']
                 }
@@ -58,6 +76,12 @@ export default {
                     nodeId: [2, 'ID!']
                 }
             ],
+            request: [
+                22,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
             __typename: [6]
         },
         Node: {
@@ -65,6 +89,7 @@ export default {
             on_Query: [0],
             on_Level: [4],
             on_Metadatum: [10],
+            on_Request: [22],
             __typename: [6]
         },
         ID: {},
@@ -183,6 +208,36 @@ export default {
             ground: [5],
             skybox: [5],
             id: [5],
+            __typename: [6]
+        },
+        RequestsConnection: {
+            nodes: [22],
+            edges: [23],
+            pageInfo: [16],
+            totalCount: [5],
+            __typename: [6]
+        },
+        Request: {
+            nodeId: [2],
+            id: [5],
+            workshopId: [8],
+            uid: [6],
+            hash: [6],
+            dateCreated: [7],
+            __typename: [6]
+        },
+        RequestsEdge: {
+            cursor: [12],
+            node: [22],
+            __typename: [6]
+        },
+        RequestsOrderBy: {},
+        RequestCondition: {
+            id: [5],
+            workshopId: [8],
+            uid: [6],
+            hash: [6],
+            dateCreated: [7],
             __typename: [6]
         }
     }
