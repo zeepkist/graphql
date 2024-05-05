@@ -37,10 +37,14 @@
         "document": "typedoc && prettier --write docs/",
         "generate:gtr": "genql --endpoint https://graphql.zeepkist-gtr.com --language typescript --output src/gtr --clientName gtr",
         "generate:zworpshop": "genql --endpoint https://graphql.zworpshop.com --language typescript --output src/zworpshop --clientName zworpshop",
+        "publish:gtr": "rover subgraph publish zeepkist@current --schema src/gtr/schema.graphql --name GTR --routing-url https://graphql.zeepkist-gtr.com",
+        "publish:zworpshop": "rover subgraph publish zeepkist@current --schema src/zworpshop/schema.graphql --name Zworpshop --routing-url https://graphql.zworpshop.com",
+        "publish-schemas": "pnpm publish:gtr && pnpm publish:zworpshop",
         "move": "tsx scripts/moveRuntime.ts",
         "generate": "pnpm generate:gtr && pnpm generate:zworpshop && pnpm move"
     },
     "devDependencies": {
+        "@apollo/rover": "^0.23.0",
         "@ava/typescript": "~4.1.0",
         "@genql/cli": "~6.3.0",
         "@rushstack/eslint-patch": "~1.10.0",
