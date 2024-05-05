@@ -42,7 +42,7 @@
         "generate": "pnpm generate:gtr && pnpm move"
     },
     "devDependencies": {
-        "@apollo/rover": "^0.22.0",
+        "@apollo/rover": "^0.23.0",
         "@ava/typescript": "^4.1.0",
         "@genql/cli": "^6.3.0",
         "@rushstack/eslint-patch": "^1.10.0",
