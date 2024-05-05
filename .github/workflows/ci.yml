@@ -32,6 +32,7 @@ jobs:
         run: pnpm generate
 
       - name: Publish Schema Changes
+        if: success() && github.ref == 'refs/heads/develop'
         run: pnpm publish-schemas
         env:
           APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
