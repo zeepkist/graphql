@@ -75,6 +75,35 @@ type Query implements Node {
     condition: LevelPointCondition
   ): LevelPointsConnection
 
+  """Reads and enables pagination through a set of `Level`."""
+  allLevels(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Level`."""
+    orderBy: [LevelsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LevelCondition
+  ): LevelsConnection
+
   """Reads and enables pagination through a set of `Media`."""
   allMedia(
     """Only read the first `n` values of the set."""
@@ -103,6 +132,35 @@ type Query implements Node {
     """
     condition: MediaCondition
   ): MediaConnection
+
+  """Reads and enables pagination through a set of `Metadatum`."""
+  allMetadata(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Metadatum`."""
+    orderBy: [MetadataOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MetadatumCondition
+  ): MetadataConnection
 
   """Reads and enables pagination through a set of `PersonalBest`."""
   allPersonalBests(
@@ -190,6 +248,35 @@ type Query implements Node {
     """
     condition: RecordCondition
   ): RecordsConnection
+
+  """Reads and enables pagination through a set of `Request`."""
+  allRequests(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Request`."""
+    orderBy: [RequestsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RequestCondition
+  ): RequestsConnection
 
   """Reads and enables pagination through a set of `Stat`."""
   allStats(
@@ -1981,6 +2068,309 @@ input LevelPointCondition {
 
   """Checks for equality with the object’s `dateUpdated` field."""
   dateUpdated: Datetime
+}
+
+"""A connection to a list of `Level` values."""
+type LevelsConnection {
+  """A list of `Level` objects."""
+  nodes: [Level]!
+
+  """
+  A list of edges which contains the `Level` and cursor to aid in pagination.
+  """
+  edges: [LevelsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Level` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Level {
+  id: Int!
+  name: String!
+  imageUrl: String!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+  workshopId: BigFloat!
+  authorId: BigFloat!
+  fileHash: String!
+  fileUrl: String!
+  fileAuthor: String!
+  fileUid: String!
+  replacedBy: Int
+  deleted: Boolean!
+  metadataId: Int!
+}
+
+"""
+A floating point number that requires more precision than IEEE 754 binary 64
+"""
+scalar BigFloat
+
+"""A `Level` edge in the connection."""
+type LevelsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Level` at the end of the edge."""
+  node: Level
+}
+
+"""Methods to use when ordering `Level`."""
+enum LevelsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  IMAGE_URL_ASC
+  IMAGE_URL_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  WORKSHOP_ID_ASC
+  WORKSHOP_ID_DESC
+  AUTHOR_ID_ASC
+  AUTHOR_ID_DESC
+  FILE_HASH_ASC
+  FILE_HASH_DESC
+  FILE_URL_ASC
+  FILE_URL_DESC
+  FILE_AUTHOR_ASC
+  FILE_AUTHOR_DESC
+  FILE_UID_ASC
+  FILE_UID_DESC
+  REPLACED_BY_ASC
+  REPLACED_BY_DESC
+  DELETED_ASC
+  DELETED_DESC
+  METADATA_ID_ASC
+  METADATA_ID_DESC
+}
+
+"""
+A condition to be used against `Level` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input LevelCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `imageUrl` field."""
+  imageUrl: String
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `workshopId` field."""
+  workshopId: BigFloat
+
+  """Checks for equality with the object’s `authorId` field."""
+  authorId: BigFloat
+
+  """Checks for equality with the object’s `fileHash` field."""
+  fileHash: String
+
+  """Checks for equality with the object’s `fileUrl` field."""
+  fileUrl: String
+
+  """Checks for equality with the object’s `fileAuthor` field."""
+  fileAuthor: String
+
+  """Checks for equality with the object’s `fileUid` field."""
+  fileUid: String
+
+  """Checks for equality with the object’s `replacedBy` field."""
+  replacedBy: Int
+
+  """Checks for equality with the object’s `deleted` field."""
+  deleted: Boolean
+
+  """Checks for equality with the object’s `metadataId` field."""
+  metadataId: Int
+}
+
+"""A connection to a list of `Metadatum` values."""
+type MetadataConnection {
+  """A list of `Metadatum` objects."""
+  nodes: [Metadatum]!
+
+  """
+  A list of edges which contains the `Metadatum` and cursor to aid in pagination.
+  """
+  edges: [MetadataEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Metadatum` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Metadatum {
+  hash: String!
+  valid: Boolean!
+  checkpoints: Int!
+  blocks: String!
+  validation: Float!
+  gold: Float!
+  silver: Float!
+  bronze: Float!
+  ground: Int!
+  skybox: Int!
+  id: Int!
+}
+
+"""A `Metadatum` edge in the connection."""
+type MetadataEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Metadatum` at the end of the edge."""
+  node: Metadatum
+}
+
+"""Methods to use when ordering `Metadatum`."""
+enum MetadataOrderBy {
+  NATURAL
+  HASH_ASC
+  HASH_DESC
+  VALID_ASC
+  VALID_DESC
+  CHECKPOINTS_ASC
+  CHECKPOINTS_DESC
+  BLOCKS_ASC
+  BLOCKS_DESC
+  VALIDATION_ASC
+  VALIDATION_DESC
+  GOLD_ASC
+  GOLD_DESC
+  SILVER_ASC
+  SILVER_DESC
+  BRONZE_ASC
+  BRONZE_DESC
+  GROUND_ASC
+  GROUND_DESC
+  SKYBOX_ASC
+  SKYBOX_DESC
+  ID_ASC
+  ID_DESC
+}
+
+"""
+A condition to be used against `Metadatum` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input MetadatumCondition {
+  """Checks for equality with the object’s `hash` field."""
+  hash: String
+
+  """Checks for equality with the object’s `valid` field."""
+  valid: Boolean
+
+  """Checks for equality with the object’s `checkpoints` field."""
+  checkpoints: Int
+
+  """Checks for equality with the object’s `blocks` field."""
+  blocks: String
+
+  """Checks for equality with the object’s `validation` field."""
+  validation: Float
+
+  """Checks for equality with the object’s `gold` field."""
+  gold: Float
+
+  """Checks for equality with the object’s `silver` field."""
+  silver: Float
+
+  """Checks for equality with the object’s `bronze` field."""
+  bronze: Float
+
+  """Checks for equality with the object’s `ground` field."""
+  ground: Int
+
+  """Checks for equality with the object’s `skybox` field."""
+  skybox: Int
+
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+}
+
+"""A connection to a list of `Request` values."""
+type RequestsConnection {
+  """A list of `Request` objects."""
+  nodes: [Request]!
+
+  """
+  A list of edges which contains the `Request` and cursor to aid in pagination.
+  """
+  edges: [RequestsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Request` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Request {
+  id: Int!
+  workshopId: BigFloat!
+  uid: String
+  hash: String
+  dateCreated: Datetime!
+}
+
+"""A `Request` edge in the connection."""
+type RequestsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Request` at the end of the edge."""
+  node: Request
+}
+
+"""Methods to use when ordering `Request`."""
+enum RequestsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  WORKSHOP_ID_ASC
+  WORKSHOP_ID_DESC
+  UID_ASC
+  UID_DESC
+  HASH_ASC
+  HASH_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+}
+
+"""
+A condition to be used against `Request` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input RequestCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `workshopId` field."""
+  workshopId: BigFloat
+
+  """Checks for equality with the object’s `uid` field."""
+  uid: String
+
+  """Checks for equality with the object’s `hash` field."""
+  hash: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
 }
 
 """A connection to a list of `User` values."""

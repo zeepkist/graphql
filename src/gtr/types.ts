@@ -1,6 +1,7 @@
 export default {
     scalars: [
-        2, 5, 6, 7, 9, 10, 11, 15, 20, 25, 30, 33, 38, 43, 48, 53, 59, 63, 68
+        2, 5, 6, 7, 9, 10, 11, 15, 20, 25, 30, 33, 38, 43, 48, 53, 59, 63, 65,
+        70, 75, 79, 84
     ],
     types: {
         Query: {
@@ -36,6 +37,18 @@ export default {
                     condition: [60]
                 }
             ],
+            allLevels: [
+                61,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [65, '[LevelsOrderBy!]'],
+                    condition: [66]
+                }
+            ],
             allMedia: [
                 16,
                 {
@@ -46,6 +59,18 @@ export default {
                     after: [10],
                     orderBy: [20, '[MediaOrderBy!]'],
                     condition: [21]
+                }
+            ],
+            allMetadata: [
+                67,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [70, '[MetadataOrderBy!]'],
+                    condition: [71]
                 }
             ],
             allPersonalBests: [
@@ -84,6 +109,18 @@ export default {
                     condition: [34]
                 }
             ],
+            allRequests: [
+                72,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [75, '[RequestsOrderBy!]'],
+                    condition: [76]
+                }
+            ],
             allStats: [
                 35,
                 {
@@ -109,27 +146,27 @@ export default {
                 }
             ],
             allUsers: [
-                61,
+                77,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [10],
                     after: [10],
-                    orderBy: [63, '[UsersOrderBy!]'],
-                    condition: [64]
+                    orderBy: [79, '[UsersOrderBy!]'],
+                    condition: [80]
                 }
             ],
             allVersions: [
-                65,
+                81,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [10],
                     after: [10],
-                    orderBy: [68, '[VersionsOrderBy!]'],
-                    condition: [69]
+                    orderBy: [84, '[VersionsOrderBy!]'],
+                    condition: [85]
                 }
             ],
             allVotes: [
@@ -211,7 +248,7 @@ export default {
                 }
             ],
             versionById: [
-                66,
+                82,
                 {
                     id: [5, 'Int!']
                 }
@@ -283,7 +320,7 @@ export default {
                 }
             ],
             version: [
-                66,
+                82,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -316,7 +353,7 @@ export default {
             on_Vote: [46],
             on_PlayerPoint: [51],
             on_LevelPoint: [57],
-            on_Version: [66],
+            on_Version: [82],
             __typename: [6]
         },
         ID: {},
@@ -911,9 +948,127 @@ export default {
             dateUpdated: [7],
             __typename: [6]
         },
+        LevelsConnection: {
+            nodes: [62],
+            edges: [64],
+            pageInfo: [19],
+            totalCount: [5],
+            __typename: [6]
+        },
+        Level: {
+            id: [5],
+            name: [6],
+            imageUrl: [6],
+            createdAt: [7],
+            updatedAt: [7],
+            workshopId: [63],
+            authorId: [63],
+            fileHash: [6],
+            fileUrl: [6],
+            fileAuthor: [6],
+            fileUid: [6],
+            replacedBy: [5],
+            deleted: [9],
+            metadataId: [5],
+            __typename: [6]
+        },
+        BigFloat: {},
+        LevelsEdge: {
+            cursor: [10],
+            node: [62],
+            __typename: [6]
+        },
+        LevelsOrderBy: {},
+        LevelCondition: {
+            id: [5],
+            name: [6],
+            imageUrl: [6],
+            createdAt: [7],
+            updatedAt: [7],
+            workshopId: [63],
+            authorId: [63],
+            fileHash: [6],
+            fileUrl: [6],
+            fileAuthor: [6],
+            fileUid: [6],
+            replacedBy: [5],
+            deleted: [9],
+            metadataId: [5],
+            __typename: [6]
+        },
+        MetadataConnection: {
+            nodes: [68],
+            edges: [69],
+            pageInfo: [19],
+            totalCount: [5],
+            __typename: [6]
+        },
+        Metadatum: {
+            hash: [6],
+            valid: [9],
+            checkpoints: [5],
+            blocks: [6],
+            validation: [15],
+            gold: [15],
+            silver: [15],
+            bronze: [15],
+            ground: [5],
+            skybox: [5],
+            id: [5],
+            __typename: [6]
+        },
+        MetadataEdge: {
+            cursor: [10],
+            node: [68],
+            __typename: [6]
+        },
+        MetadataOrderBy: {},
+        MetadatumCondition: {
+            hash: [6],
+            valid: [9],
+            checkpoints: [5],
+            blocks: [6],
+            validation: [15],
+            gold: [15],
+            silver: [15],
+            bronze: [15],
+            ground: [5],
+            skybox: [5],
+            id: [5],
+            __typename: [6]
+        },
+        RequestsConnection: {
+            nodes: [73],
+            edges: [74],
+            pageInfo: [19],
+            totalCount: [5],
+            __typename: [6]
+        },
+        Request: {
+            id: [5],
+            workshopId: [63],
+            uid: [6],
+            hash: [6],
+            dateCreated: [7],
+            __typename: [6]
+        },
+        RequestsEdge: {
+            cursor: [10],
+            node: [73],
+            __typename: [6]
+        },
+        RequestsOrderBy: {},
+        RequestCondition: {
+            id: [5],
+            workshopId: [63],
+            uid: [6],
+            hash: [6],
+            dateCreated: [7],
+            __typename: [6]
+        },
         UsersConnection: {
             nodes: [8],
-            edges: [62],
+            edges: [78],
             pageInfo: [19],
             totalCount: [5],
             __typename: [6]
@@ -935,8 +1090,8 @@ export default {
             __typename: [6]
         },
         VersionsConnection: {
-            nodes: [66],
-            edges: [67],
+            nodes: [82],
+            edges: [83],
             pageInfo: [19],
             totalCount: [5],
             __typename: [6]
@@ -952,7 +1107,7 @@ export default {
         },
         VersionsEdge: {
             cursor: [10],
-            node: [66],
+            node: [82],
             __typename: [6]
         },
         VersionsOrderBy: {},
