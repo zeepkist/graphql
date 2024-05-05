@@ -31,12 +31,6 @@ jobs:
       - name: Generate GraphQL Types
         run: pnpm generate
 
-      - name: Publish Schema Changes
-        if: success() && github.ref == 'refs/heads/develop'
-        run: pnpm publish-schemas
-        env:
-          APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
-
       - name: Run Linter
         run: pnpm lint
 
@@ -61,3 +55,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish Schema Changes
+        if: success() && github.ref == 'refs/heads/develop'
+        run: pnpm publish-schemas
+        env:
+          APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
