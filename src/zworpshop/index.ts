@@ -59,7 +59,12 @@ export const createClient = function (options?: ClientOptions): Client {
                                   globalThis?.window?.location?.hostname ===
                                       '127.0.0.1'
                                 ? '/graphql/zworpshop'
-                                : 'https://graphql.zworpshop.com',
+                                : globalThis?.window?.location?.hostname ===
+                                        'localhost' ||
+                                    globalThis?.window?.location?.hostname ===
+                                        '127.0.0.1'
+                                  ? '/graphql/zworpshop'
+                                  : 'https://graphql.zworpshop.com',
 
         ...options,
         queryRoot: typeMap.Query!,
