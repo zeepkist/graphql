@@ -96,7 +96,7 @@ type Query implements Node {
     after: Cursor
 
     """The method to use when ordering `Level`."""
-    orderBy: [LevelsOrderBy!] = [NATURAL]
+    orderBy: [LevelsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
@@ -154,7 +154,7 @@ type Query implements Node {
     after: Cursor
 
     """The method to use when ordering `Metadatum`."""
-    orderBy: [MetadataOrderBy!] = [NATURAL]
+    orderBy: [MetadataOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
@@ -270,7 +270,7 @@ type Query implements Node {
     after: Cursor
 
     """The method to use when ordering `Request`."""
-    orderBy: [RequestsOrderBy!] = [NATURAL]
+    orderBy: [RequestsOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
@@ -453,10 +453,13 @@ type Query implements Node {
   ): WorldRecordsConnection
   favoriteById(id: Int!): Favorite
   levelPointById(id: Int!): LevelPoint
+  levelById(id: Int!): Level
   mediaById(id: Int!): Media
+  metadatumById(id: Int!): Metadatum
   personalBestById(id: Int!): PersonalBest
   playerPointById(id: Int!): PlayerPoint
   recordById(id: Int!): Record
+  requestById(id: Int!): Request
   statById(id: Int!): Stat
   upvoteById(id: Int!): Upvote
   userById(id: Int!): User
@@ -478,11 +481,23 @@ type Query implements Node {
     nodeId: ID!
   ): LevelPoint
 
+  """Reads a single `Level` using its globally unique `ID`."""
+  level(
+    """The globally unique `ID` to be used in selecting a single `Level`."""
+    nodeId: ID!
+  ): Level
+
   """Reads a single `Media` using its globally unique `ID`."""
   media(
     """The globally unique `ID` to be used in selecting a single `Media`."""
     nodeId: ID!
   ): Media
+
+  """Reads a single `Metadatum` using its globally unique `ID`."""
+  metadatum(
+    """The globally unique `ID` to be used in selecting a single `Metadatum`."""
+    nodeId: ID!
+  ): Metadatum
 
   """Reads a single `PersonalBest` using its globally unique `ID`."""
   personalBest(
@@ -505,6 +520,12 @@ type Query implements Node {
     """The globally unique `ID` to be used in selecting a single `Record`."""
     nodeId: ID!
   ): Record
+
+  """Reads a single `Request` using its globally unique `ID`."""
+  request(
+    """The globally unique `ID` to be used in selecting a single `Request`."""
+    nodeId: ID!
+  ): Request
 
   """Reads a single `Stat` using its globally unique `ID`."""
   stat(
@@ -2087,7 +2108,11 @@ type LevelsConnection {
   totalCount: Int!
 }
 
-type Level {
+type Level implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
   id: Int!
   name: String!
   imageUrl: String!
@@ -2102,6 +2127,9 @@ type Level {
   replacedBy: Int
   deleted: Boolean!
   metadataId: Int!
+
+  """Reads a single `Metadatum` that is related to this `Level`."""
+  metadatumByMetadataId: Metadatum
 }
 
 """
@@ -2109,13 +2137,51 @@ A floating point number that requires more precision than IEEE 754 binary 64
 """
 scalar BigFloat
 
-"""A `Level` edge in the connection."""
-type LevelsEdge {
-  """A cursor for use in pagination."""
-  cursor: Cursor
+type Metadatum implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  hash: String!
+  valid: Boolean!
+  checkpoints: Int!
+  blocks: String!
+  validation: Float!
+  gold: Float!
+  silver: Float!
+  bronze: Float!
+  ground: Int!
+  skybox: Int!
+  id: Int!
 
-  """The `Level` at the end of the edge."""
-  node: Level
+  """Reads and enables pagination through a set of `Level`."""
+  levelsByMetadataId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Level`."""
+    orderBy: [LevelsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: LevelCondition
+  ): LevelsConnection!
 }
 
 """Methods to use when ordering `Level`."""
@@ -2149,6 +2215,8 @@ enum LevelsOrderBy {
   DELETED_DESC
   METADATA_ID_ASC
   METADATA_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
 }
 
 """
@@ -2198,6 +2266,15 @@ input LevelCondition {
   metadataId: Int
 }
 
+"""A `Level` edge in the connection."""
+type LevelsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Level` at the end of the edge."""
+  node: Level
+}
+
 """A connection to a list of `Metadatum` values."""
 type MetadataConnection {
   """A list of `Metadatum` objects."""
@@ -2213,20 +2290,6 @@ type MetadataConnection {
 
   """The count of *all* `Metadatum` you could get from the connection."""
   totalCount: Int!
-}
-
-type Metadatum {
-  hash: String!
-  valid: Boolean!
-  checkpoints: Int!
-  blocks: String!
-  validation: Float!
-  gold: Float!
-  silver: Float!
-  bronze: Float!
-  ground: Int!
-  skybox: Int!
-  id: Int!
 }
 
 """A `Metadatum` edge in the connection."""
@@ -2263,6 +2326,8 @@ enum MetadataOrderBy {
   SKYBOX_DESC
   ID_ASC
   ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
 }
 
 """
@@ -2321,7 +2386,11 @@ type RequestsConnection {
   totalCount: Int!
 }
 
-type Request {
+type Request implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
   id: Int!
   workshopId: BigFloat!
   uid: String
@@ -2351,6 +2420,8 @@ enum RequestsOrderBy {
   HASH_DESC
   DATE_CREATED_ASC
   DATE_CREATED_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
 }
 
 """

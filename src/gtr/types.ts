@@ -62,7 +62,7 @@ export default {
                 }
             ],
             allMetadata: [
-                67,
+                68,
                 {
                     first: [5],
                     last: [5],
@@ -205,8 +205,20 @@ export default {
                     id: [5, 'Int!']
                 }
             ],
+            levelById: [
+                62,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
             mediaById: [
                 17,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
+            metadatumById: [
+                64,
                 {
                     id: [5, 'Int!']
                 }
@@ -225,6 +237,12 @@ export default {
             ],
             recordById: [
                 14,
+                {
+                    id: [5, 'Int!']
+                }
+            ],
+            requestById: [
+                73,
                 {
                     id: [5, 'Int!']
                 }
@@ -277,8 +295,20 @@ export default {
                     nodeId: [2, 'ID!']
                 }
             ],
+            level: [
+                62,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
             media: [
                 17,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
+            metadatum: [
+                64,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -297,6 +327,12 @@ export default {
             ],
             record: [
                 14,
+                {
+                    nodeId: [2, 'ID!']
+                }
+            ],
+            request: [
+                73,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -353,6 +389,9 @@ export default {
             on_Vote: [46],
             on_PlayerPoint: [51],
             on_LevelPoint: [57],
+            on_Level: [62],
+            on_Metadatum: [64],
+            on_Request: [73],
             on_Version: [82],
             __typename: [6]
         },
@@ -950,12 +989,13 @@ export default {
         },
         LevelsConnection: {
             nodes: [62],
-            edges: [64],
+            edges: [67],
             pageInfo: [19],
             totalCount: [5],
             __typename: [6]
         },
         Level: {
+            nodeId: [2],
             id: [5],
             name: [6],
             imageUrl: [6],
@@ -970,12 +1010,35 @@ export default {
             replacedBy: [5],
             deleted: [9],
             metadataId: [5],
+            metadatumByMetadataId: [64],
             __typename: [6]
         },
         BigFloat: {},
-        LevelsEdge: {
-            cursor: [10],
-            node: [62],
+        Metadatum: {
+            nodeId: [2],
+            hash: [6],
+            valid: [9],
+            checkpoints: [5],
+            blocks: [6],
+            validation: [15],
+            gold: [15],
+            silver: [15],
+            bronze: [15],
+            ground: [5],
+            skybox: [5],
+            id: [5],
+            levelsByMetadataId: [
+                61,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [10],
+                    after: [10],
+                    orderBy: [65, '[LevelsOrderBy!]'],
+                    condition: [66]
+                }
+            ],
             __typename: [6]
         },
         LevelsOrderBy: {},
@@ -996,30 +1059,21 @@ export default {
             metadataId: [5],
             __typename: [6]
         },
+        LevelsEdge: {
+            cursor: [10],
+            node: [62],
+            __typename: [6]
+        },
         MetadataConnection: {
-            nodes: [68],
+            nodes: [64],
             edges: [69],
             pageInfo: [19],
             totalCount: [5],
             __typename: [6]
         },
-        Metadatum: {
-            hash: [6],
-            valid: [9],
-            checkpoints: [5],
-            blocks: [6],
-            validation: [15],
-            gold: [15],
-            silver: [15],
-            bronze: [15],
-            ground: [5],
-            skybox: [5],
-            id: [5],
-            __typename: [6]
-        },
         MetadataEdge: {
             cursor: [10],
-            node: [68],
+            node: [64],
             __typename: [6]
         },
         MetadataOrderBy: {},
@@ -1045,6 +1099,7 @@ export default {
             __typename: [6]
         },
         Request: {
+            nodeId: [2],
             id: [5],
             workshopId: [63],
             uid: [6],

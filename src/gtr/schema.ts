@@ -58,10 +58,13 @@ export interface Query {
     allWorldRecords: (WorldRecordsConnection | null)
     favoriteById: (Favorite | null)
     levelPointById: (LevelPoint | null)
+    levelById: (Level | null)
     mediaById: (Media | null)
+    metadatumById: (Metadatum | null)
     personalBestById: (PersonalBest | null)
     playerPointById: (PlayerPoint | null)
     recordById: (Record | null)
+    requestById: (Request | null)
     statById: (Stat | null)
     upvoteById: (Upvote | null)
     userById: (User | null)
@@ -72,14 +75,20 @@ export interface Query {
     favorite: (Favorite | null)
     /** Reads a single `LevelPoint` using its globally unique `ID`. */
     levelPoint: (LevelPoint | null)
+    /** Reads a single `Level` using its globally unique `ID`. */
+    level: (Level | null)
     /** Reads a single `Media` using its globally unique `ID`. */
     media: (Media | null)
+    /** Reads a single `Metadatum` using its globally unique `ID`. */
+    metadatum: (Metadatum | null)
     /** Reads a single `PersonalBest` using its globally unique `ID`. */
     personalBest: (PersonalBest | null)
     /** Reads a single `PlayerPoint` using its globally unique `ID`. */
     playerPoint: (PlayerPoint | null)
     /** Reads a single `Record` using its globally unique `ID`. */
     record: (Record | null)
+    /** Reads a single `Request` using its globally unique `ID`. */
+    request: (Request | null)
     /** Reads a single `Stat` using its globally unique `ID`. */
     stat: (Stat | null)
     /** Reads a single `Upvote` using its globally unique `ID`. */
@@ -97,7 +106,7 @@ export interface Query {
 
 
 /** An object with a globally unique `ID`. */
-export type Node = (Query | Favorite | User | Record | Media | PersonalBest | WorldRecord | Stat | Upvote | Vote | PlayerPoint | LevelPoint | Version) & { __isUnion?: true }
+export type Node = (Query | Favorite | User | Record | Media | PersonalBest | WorldRecord | Stat | Upvote | Vote | PlayerPoint | LevelPoint | Level | Metadatum | Request | Version) & { __isUnion?: true }
 
 
 /** A connection to a list of `Favorite` values. */
@@ -637,6 +646,8 @@ export interface LevelsConnection {
 }
 
 export interface Level {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
     id: Scalars['Int']
     name: Scalars['String']
     imageUrl: Scalars['String']
@@ -651,8 +662,33 @@ export interface Level {
     replacedBy: (Scalars['Int'] | null)
     deleted: Scalars['Boolean']
     metadataId: Scalars['Int']
+    /** Reads a single `Metadatum` that is related to this `Level`. */
+    metadatumByMetadataId: (Metadatum | null)
     __typename: 'Level'
 }
+
+export interface Metadatum {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
+    hash: Scalars['String']
+    valid: Scalars['Boolean']
+    checkpoints: Scalars['Int']
+    blocks: Scalars['String']
+    validation: Scalars['Float']
+    gold: Scalars['Float']
+    silver: Scalars['Float']
+    bronze: Scalars['Float']
+    ground: Scalars['Int']
+    skybox: Scalars['Int']
+    id: Scalars['Int']
+    /** Reads and enables pagination through a set of `Level`. */
+    levelsByMetadataId: LevelsConnection
+    __typename: 'Metadatum'
+}
+
+
+/** Methods to use when ordering `Level`. */
+export type LevelsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'NAME_ASC' | 'NAME_DESC' | 'IMAGE_URL_ASC' | 'IMAGE_URL_DESC' | 'CREATED_AT_ASC' | 'CREATED_AT_DESC' | 'UPDATED_AT_ASC' | 'UPDATED_AT_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'AUTHOR_ID_ASC' | 'AUTHOR_ID_DESC' | 'FILE_HASH_ASC' | 'FILE_HASH_DESC' | 'FILE_URL_ASC' | 'FILE_URL_DESC' | 'FILE_AUTHOR_ASC' | 'FILE_AUTHOR_DESC' | 'FILE_UID_ASC' | 'FILE_UID_DESC' | 'REPLACED_BY_ASC' | 'REPLACED_BY_DESC' | 'DELETED_ASC' | 'DELETED_DESC' | 'METADATA_ID_ASC' | 'METADATA_ID_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A `Level` edge in the connection. */
@@ -663,10 +699,6 @@ export interface LevelsEdge {
     node: (Level | null)
     __typename: 'LevelsEdge'
 }
-
-
-/** Methods to use when ordering `Level`. */
-export type LevelsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'NAME_ASC' | 'NAME_DESC' | 'IMAGE_URL_ASC' | 'IMAGE_URL_DESC' | 'CREATED_AT_ASC' | 'CREATED_AT_DESC' | 'UPDATED_AT_ASC' | 'UPDATED_AT_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'AUTHOR_ID_ASC' | 'AUTHOR_ID_DESC' | 'FILE_HASH_ASC' | 'FILE_HASH_DESC' | 'FILE_URL_ASC' | 'FILE_URL_DESC' | 'FILE_AUTHOR_ASC' | 'FILE_AUTHOR_DESC' | 'FILE_UID_ASC' | 'FILE_UID_DESC' | 'REPLACED_BY_ASC' | 'REPLACED_BY_DESC' | 'DELETED_ASC' | 'DELETED_DESC' | 'METADATA_ID_ASC' | 'METADATA_ID_DESC'
 
 
 /** A connection to a list of `Metadatum` values. */
@@ -682,21 +714,6 @@ export interface MetadataConnection {
     __typename: 'MetadataConnection'
 }
 
-export interface Metadatum {
-    hash: Scalars['String']
-    valid: Scalars['Boolean']
-    checkpoints: Scalars['Int']
-    blocks: Scalars['String']
-    validation: Scalars['Float']
-    gold: Scalars['Float']
-    silver: Scalars['Float']
-    bronze: Scalars['Float']
-    ground: Scalars['Int']
-    skybox: Scalars['Int']
-    id: Scalars['Int']
-    __typename: 'Metadatum'
-}
-
 
 /** A `Metadatum` edge in the connection. */
 export interface MetadataEdge {
@@ -709,7 +726,7 @@ export interface MetadataEdge {
 
 
 /** Methods to use when ordering `Metadatum`. */
-export type MetadataOrderBy = 'NATURAL' | 'HASH_ASC' | 'HASH_DESC' | 'VALID_ASC' | 'VALID_DESC' | 'CHECKPOINTS_ASC' | 'CHECKPOINTS_DESC' | 'BLOCKS_ASC' | 'BLOCKS_DESC' | 'VALIDATION_ASC' | 'VALIDATION_DESC' | 'GOLD_ASC' | 'GOLD_DESC' | 'SILVER_ASC' | 'SILVER_DESC' | 'BRONZE_ASC' | 'BRONZE_DESC' | 'GROUND_ASC' | 'GROUND_DESC' | 'SKYBOX_ASC' | 'SKYBOX_DESC' | 'ID_ASC' | 'ID_DESC'
+export type MetadataOrderBy = 'NATURAL' | 'HASH_ASC' | 'HASH_DESC' | 'VALID_ASC' | 'VALID_DESC' | 'CHECKPOINTS_ASC' | 'CHECKPOINTS_DESC' | 'BLOCKS_ASC' | 'BLOCKS_DESC' | 'VALIDATION_ASC' | 'VALIDATION_DESC' | 'GOLD_ASC' | 'GOLD_DESC' | 'SILVER_ASC' | 'SILVER_DESC' | 'BRONZE_ASC' | 'BRONZE_DESC' | 'GROUND_ASC' | 'GROUND_DESC' | 'SKYBOX_ASC' | 'SKYBOX_DESC' | 'ID_ASC' | 'ID_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `Request` values. */
@@ -726,6 +743,8 @@ export interface RequestsConnection {
 }
 
 export interface Request {
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId: Scalars['ID']
     id: Scalars['Int']
     workshopId: Scalars['BigFloat']
     uid: (Scalars['String'] | null)
@@ -746,7 +765,7 @@ export interface RequestsEdge {
 
 
 /** Methods to use when ordering `Request`. */
-export type RequestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'UID_ASC' | 'UID_DESC' | 'HASH_ASC' | 'HASH_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC'
+export type RequestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'UID_ASC' | 'UID_DESC' | 'HASH_ASC' | 'HASH_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
 /** A connection to a list of `User` values. */
@@ -1116,10 +1135,13 @@ export interface QueryGenqlSelection{
     condition?: (WorldRecordCondition | null)} })
     favoriteById?: (FavoriteGenqlSelection & { __args: {id: Scalars['Int']} })
     levelPointById?: (LevelPointGenqlSelection & { __args: {id: Scalars['Int']} })
+    levelById?: (LevelGenqlSelection & { __args: {id: Scalars['Int']} })
     mediaById?: (MediaGenqlSelection & { __args: {id: Scalars['Int']} })
+    metadatumById?: (MetadatumGenqlSelection & { __args: {id: Scalars['Int']} })
     personalBestById?: (PersonalBestGenqlSelection & { __args: {id: Scalars['Int']} })
     playerPointById?: (PlayerPointGenqlSelection & { __args: {id: Scalars['Int']} })
     recordById?: (RecordGenqlSelection & { __args: {id: Scalars['Int']} })
+    requestById?: (RequestGenqlSelection & { __args: {id: Scalars['Int']} })
     statById?: (StatGenqlSelection & { __args: {id: Scalars['Int']} })
     upvoteById?: (UpvoteGenqlSelection & { __args: {id: Scalars['Int']} })
     userById?: (UserGenqlSelection & { __args: {id: Scalars['Int']} })
@@ -1134,9 +1156,17 @@ export interface QueryGenqlSelection{
     levelPoint?: (LevelPointGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `LevelPoint`. */
     nodeId: Scalars['ID']} })
+    /** Reads a single `Level` using its globally unique `ID`. */
+    level?: (LevelGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `Level`. */
+    nodeId: Scalars['ID']} })
     /** Reads a single `Media` using its globally unique `ID`. */
     media?: (MediaGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Media`. */
+    nodeId: Scalars['ID']} })
+    /** Reads a single `Metadatum` using its globally unique `ID`. */
+    metadatum?: (MetadatumGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `Metadatum`. */
     nodeId: Scalars['ID']} })
     /** Reads a single `PersonalBest` using its globally unique `ID`. */
     personalBest?: (PersonalBestGenqlSelection & { __args: {
@@ -1149,6 +1179,10 @@ export interface QueryGenqlSelection{
     /** Reads a single `Record` using its globally unique `ID`. */
     record?: (RecordGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Record`. */
+    nodeId: Scalars['ID']} })
+    /** Reads a single `Request` using its globally unique `ID`. */
+    request?: (RequestGenqlSelection & { __args: {
+    /** The globally unique `ID` to be used in selecting a single `Request`. */
     nodeId: Scalars['ID']} })
     /** Reads a single `Stat` using its globally unique `ID`. */
     stat?: (StatGenqlSelection & { __args: {
@@ -1195,6 +1229,9 @@ export interface NodeGenqlSelection{
     on_Vote?: VoteGenqlSelection
     on_PlayerPoint?: PlayerPointGenqlSelection
     on_LevelPoint?: LevelPointGenqlSelection
+    on_Level?: LevelGenqlSelection
+    on_Metadatum?: MetadatumGenqlSelection
+    on_Request?: RequestGenqlSelection
     on_Version?: VersionGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -2197,6 +2234,8 @@ export interface LevelsConnectionGenqlSelection{
 }
 
 export interface LevelGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
     id?: boolean | number
     name?: boolean | number
     imageUrl?: boolean | number
@@ -2211,17 +2250,45 @@ export interface LevelGenqlSelection{
     replacedBy?: boolean | number
     deleted?: boolean | number
     metadataId?: boolean | number
+    /** Reads a single `Metadatum` that is related to this `Level`. */
+    metadatumByMetadataId?: MetadatumGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
-
-/** A `Level` edge in the connection. */
-export interface LevelsEdgeGenqlSelection{
-    /** A cursor for use in pagination. */
-    cursor?: boolean | number
-    /** The `Level` at the end of the edge. */
-    node?: LevelGenqlSelection
+export interface MetadatumGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
+    hash?: boolean | number
+    valid?: boolean | number
+    checkpoints?: boolean | number
+    blocks?: boolean | number
+    validation?: boolean | number
+    gold?: boolean | number
+    silver?: boolean | number
+    bronze?: boolean | number
+    ground?: boolean | number
+    skybox?: boolean | number
+    id?: boolean | number
+    /** Reads and enables pagination through a set of `Level`. */
+    levelsByMetadataId?: (LevelsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `Level`. */
+    orderBy?: (LevelsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (LevelCondition | null)} })
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2259,6 +2326,17 @@ deleted?: (Scalars['Boolean'] | null),
 metadataId?: (Scalars['Int'] | null)}
 
 
+/** A `Level` edge in the connection. */
+export interface LevelsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `Level` at the end of the edge. */
+    node?: LevelGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
 /** A connection to a list of `Metadatum` values. */
 export interface MetadataConnectionGenqlSelection{
     /** A list of `Metadatum` objects. */
@@ -2269,22 +2347,6 @@ export interface MetadataConnectionGenqlSelection{
     pageInfo?: PageInfoGenqlSelection
     /** The count of *all* `Metadatum` you could get from the connection. */
     totalCount?: boolean | number
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-export interface MetadatumGenqlSelection{
-    hash?: boolean | number
-    valid?: boolean | number
-    checkpoints?: boolean | number
-    blocks?: boolean | number
-    validation?: boolean | number
-    gold?: boolean | number
-    silver?: boolean | number
-    bronze?: boolean | number
-    ground?: boolean | number
-    skybox?: boolean | number
-    id?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -2345,6 +2407,8 @@ export interface RequestsConnectionGenqlSelection{
 }
 
 export interface RequestGenqlSelection{
+    /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+    nodeId?: boolean | number
     id?: boolean | number
     workshopId?: boolean | number
     uid?: boolean | number
@@ -2484,7 +2548,7 @@ dateUpdated?: (Scalars['Datetime'] | null)}
     
 
 
-    const Node_possibleTypes: string[] = ['Query','Favorite','User','Record','Media','PersonalBest','WorldRecord','Stat','Upvote','Vote','PlayerPoint','LevelPoint','Version']
+    const Node_possibleTypes: string[] = ['Query','Favorite','User','Record','Media','PersonalBest','WorldRecord','Stat','Upvote','Vote','PlayerPoint','LevelPoint','Level','Metadatum','Request','Version']
     export const isNode = (obj?: { __typename?: any } | null): obj is Node => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isNode"')
       return Node_possibleTypes.includes(obj.__typename)
@@ -2764,6 +2828,14 @@ dateUpdated?: (Scalars['Datetime'] | null)}
     
 
 
+    const Metadatum_possibleTypes: string[] = ['Metadatum']
+    export const isMetadatum = (obj?: { __typename?: any } | null): obj is Metadatum => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isMetadatum"')
+      return Metadatum_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const LevelsEdge_possibleTypes: string[] = ['LevelsEdge']
     export const isLevelsEdge = (obj?: { __typename?: any } | null): obj is LevelsEdge => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isLevelsEdge"')
@@ -2776,14 +2848,6 @@ dateUpdated?: (Scalars['Datetime'] | null)}
     export const isMetadataConnection = (obj?: { __typename?: any } | null): obj is MetadataConnection => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isMetadataConnection"')
       return MetadataConnection_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const Metadatum_possibleTypes: string[] = ['Metadatum']
-    export const isMetadatum = (obj?: { __typename?: any } | null): obj is Metadatum => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isMetadatum"')
-      return Metadatum_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -3172,7 +3236,9 @@ export const enumLevelsOrderBy = {
    DELETED_ASC: 'DELETED_ASC' as const,
    DELETED_DESC: 'DELETED_DESC' as const,
    METADATA_ID_ASC: 'METADATA_ID_ASC' as const,
-   METADATA_ID_DESC: 'METADATA_ID_DESC' as const
+   METADATA_ID_DESC: 'METADATA_ID_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
 
 export const enumMetadataOrderBy = {
@@ -3198,7 +3264,9 @@ export const enumMetadataOrderBy = {
    SKYBOX_ASC: 'SKYBOX_ASC' as const,
    SKYBOX_DESC: 'SKYBOX_DESC' as const,
    ID_ASC: 'ID_ASC' as const,
-   ID_DESC: 'ID_DESC' as const
+   ID_DESC: 'ID_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
 
 export const enumRequestsOrderBy = {
@@ -3212,7 +3280,9 @@ export const enumRequestsOrderBy = {
    HASH_ASC: 'HASH_ASC' as const,
    HASH_DESC: 'HASH_DESC' as const,
    DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
-   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
+   PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
 }
 
 export const enumUsersOrderBy = {
