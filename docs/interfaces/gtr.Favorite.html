@@ -105,16 +105,12 @@
                     ><span class="tsd-signature-type">number</span
                     ><span class="tsd-signature-symbol">; </span><br /><span
                         >    </span
-                    ><a class="tsd-kind-property" href="gtr.Favorite.html#user"
-                        >user</a
+                    ><a
+                        class="tsd-kind-property"
+                        href="gtr.Favorite.html#idUser"
+                        >idUser</a
                     ><span class="tsd-signature-symbol">: </span
                     ><span class="tsd-signature-type">number</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><a class="tsd-kind-property" href="gtr.Favorite.html#level"
-                        >level</a
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type">string</span
                     ><span class="tsd-signature-symbol">; </span><br /><span
                         >    </span
                     ><a
@@ -135,8 +131,16 @@
                         >    </span
                     ><a
                         class="tsd-kind-property"
-                        href="gtr.Favorite.html#userByUser"
-                        >userByUser</a
+                        href="gtr.Favorite.html#idLevel"
+                        >idLevel</a
+                    ><span class="tsd-signature-symbol">: </span
+                    ><span class="tsd-signature-type">number</span
+                    ><span class="tsd-signature-symbol">; </span><br /><span
+                        >    </span
+                    ><a
+                        class="tsd-kind-property"
+                        href="gtr.Favorite.html#userByIdUser"
+                        >userByIdUser</a
                     ><span class="tsd-signature-symbol">: </span
                     ><span class="tsd-signature-type">null</span
                     ><span class="tsd-signature-symbol"> | </span
@@ -144,6 +148,19 @@
                         href="gtr.User.html"
                         class="tsd-signature-type tsd-kind-interface"
                         >User</a
+                    ><span class="tsd-signature-symbol">; </span><br /><span
+                        >    </span
+                    ><a
+                        class="tsd-kind-property"
+                        href="gtr.Favorite.html#levelByIdLevel"
+                        >levelByIdLevel</a
+                    ><span class="tsd-signature-symbol">: </span
+                    ><span class="tsd-signature-type">null</span
+                    ><span class="tsd-signature-symbol"> | </span
+                    ><a
+                        href="gtr.Level.html"
+                        class="tsd-signature-type tsd-kind-interface"
+                        >Level</a
                     ><span class="tsd-signature-symbol">; </span><br /><span
                         >    </span
                     ><a
@@ -162,8 +179,8 @@
                         <li>
                             Defined in
                             <a
-                                href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L125"
-                                >src/gtr/schema.ts:125</a
+                                href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L202"
+                                >src/gtr/schema.ts:202</a
                             >
                         </li>
                     </ul>
@@ -218,24 +235,14 @@
                                             ><span>id</span></a
                                         >
                                         <a
-                                            href="gtr.Favorite.html#user"
+                                            href="gtr.Favorite.html#idUser"
                                             class="tsd-index-link"
                                             ><svg
                                                 class="tsd-kind-icon"
                                                 viewBox="0 0 24 24">
                                                 <use
                                                     href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>user</span></a
-                                        >
-                                        <a
-                                            href="gtr.Favorite.html#level"
-                                            class="tsd-index-link"
-                                            ><svg
-                                                class="tsd-kind-icon"
-                                                viewBox="0 0 24 24">
-                                                <use
-                                                    href="../assets/icons.svg#icon-1024"></use></svg
-                                            ><span>level</span></a
+                                            ><span>id<wbr />User</span></a
                                         >
                                         <a
                                             href="gtr.Favorite.html#dateCreated"
@@ -258,7 +265,17 @@
                                             ><span>date<wbr />Updated</span></a
                                         >
                                         <a
-                                            href="gtr.Favorite.html#userByUser"
+                                            href="gtr.Favorite.html#idLevel"
+                                            class="tsd-index-link"
+                                            ><svg
+                                                class="tsd-kind-icon"
+                                                viewBox="0 0 24 24">
+                                                <use
+                                                    href="../assets/icons.svg#icon-1024"></use></svg
+                                            ><span>id<wbr />Level</span></a
+                                        >
+                                        <a
+                                            href="gtr.Favorite.html#userByIdUser"
                                             class="tsd-index-link"
                                             ><svg
                                                 class="tsd-kind-icon"
@@ -266,7 +283,19 @@
                                                 <use
                                                     href="../assets/icons.svg#icon-1024"></use></svg
                                             ><span
-                                                >user<wbr />By<wbr />User</span
+                                                >user<wbr />By<wbr />Id<wbr />User</span
+                                            ></a
+                                        >
+                                        <a
+                                            href="gtr.Favorite.html#levelByIdLevel"
+                                            class="tsd-index-link"
+                                            ><svg
+                                                class="tsd-kind-icon"
+                                                viewBox="0 0 24 24">
+                                                <use
+                                                    href="../assets/icons.svg#icon-1024"></use></svg
+                                            ><span
+                                                >level<wbr />By<wbr />Id<wbr />Level</span
                                             ></a
                                         >
                                         <a
@@ -318,8 +347,8 @@
                                 <li>
                                     Defined in
                                     <a
-                                        href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L127"
-                                        >src/gtr/schema.ts:127</a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L204"
+                                        >src/gtr/schema.ts:204</a
                                     >
                                 </li>
                             </ul>
@@ -348,19 +377,19 @@
                                 <li>
                                     Defined in
                                     <a
-                                        href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L128"
-                                        >src/gtr/schema.ts:128</a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L205"
+                                        >src/gtr/schema.ts:205</a
                                     >
                                 </li>
                             </ul>
                         </aside>
                     </section>
                     <section class="tsd-panel tsd-member">
-                        <a id="user" class="tsd-anchor"></a>
+                        <a id="idUser" class="tsd-anchor"></a>
                         <h3 class="tsd-anchor-link">
-                            <span>user</span
+                            <span>id<wbr />User</span
                             ><a
-                                href="#user"
+                                href="#idUser"
                                 aria-label="Permalink"
                                 class="tsd-anchor-icon"
                                 ><svg viewBox="0 0 24 24">
@@ -369,7 +398,7 @@
                             ></a>
                         </h3>
                         <div class="tsd-signature">
-                            <span class="tsd-kind-property">user</span
+                            <span class="tsd-kind-property">id<wbr />User</span
                             ><span class="tsd-signature-symbol">:</span>
                             <span class="tsd-signature-type">number</span>
                         </div>
@@ -378,38 +407,8 @@
                                 <li>
                                     Defined in
                                     <a
-                                        href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L129"
-                                        >src/gtr/schema.ts:129</a
-                                    >
-                                </li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section class="tsd-panel tsd-member">
-                        <a id="level" class="tsd-anchor"></a>
-                        <h3 class="tsd-anchor-link">
-                            <span>level</span
-                            ><a
-                                href="#level"
-                                aria-label="Permalink"
-                                class="tsd-anchor-icon"
-                                ><svg viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-anchor"></use></svg
-                            ></a>
-                        </h3>
-                        <div class="tsd-signature">
-                            <span class="tsd-kind-property">level</span
-                            ><span class="tsd-signature-symbol">:</span>
-                            <span class="tsd-signature-type">string</span>
-                        </div>
-                        <aside class="tsd-sources">
-                            <ul>
-                                <li>
-                                    Defined in
-                                    <a
-                                        href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L130"
-                                        >src/gtr/schema.ts:130</a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L206"
+                                        >src/gtr/schema.ts:206</a
                                     >
                                 </li>
                             </ul>
@@ -439,8 +438,8 @@
                                 <li>
                                     Defined in
                                     <a
-                                        href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L131"
-                                        >src/gtr/schema.ts:131</a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L207"
+                                        >src/gtr/schema.ts:207</a
                                     >
                                 </li>
                             </ul>
@@ -470,19 +469,49 @@
                                 <li>
                                     Defined in
                                     <a
-                                        href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L132"
-                                        >src/gtr/schema.ts:132</a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L208"
+                                        >src/gtr/schema.ts:208</a
                                     >
                                 </li>
                             </ul>
                         </aside>
                     </section>
                     <section class="tsd-panel tsd-member">
-                        <a id="userByUser" class="tsd-anchor"></a>
+                        <a id="idLevel" class="tsd-anchor"></a>
                         <h3 class="tsd-anchor-link">
-                            <span>user<wbr />By<wbr />User</span
+                            <span>id<wbr />Level</span
                             ><a
-                                href="#userByUser"
+                                href="#idLevel"
+                                aria-label="Permalink"
+                                class="tsd-anchor-icon"
+                                ><svg viewBox="0 0 24 24">
+                                    <use
+                                        href="../assets/icons.svg#icon-anchor"></use></svg
+                            ></a>
+                        </h3>
+                        <div class="tsd-signature">
+                            <span class="tsd-kind-property">id<wbr />Level</span
+                            ><span class="tsd-signature-symbol">:</span>
+                            <span class="tsd-signature-type">number</span>
+                        </div>
+                        <aside class="tsd-sources">
+                            <ul>
+                                <li>
+                                    Defined in
+                                    <a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L209"
+                                        >src/gtr/schema.ts:209</a
+                                    >
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section class="tsd-panel tsd-member">
+                        <a id="userByIdUser" class="tsd-anchor"></a>
+                        <h3 class="tsd-anchor-link">
+                            <span>user<wbr />By<wbr />Id<wbr />User</span
+                            ><a
+                                href="#userByIdUser"
                                 aria-label="Permalink"
                                 class="tsd-anchor-icon"
                                 ><svg viewBox="0 0 24 24">
@@ -492,7 +521,7 @@
                         </h3>
                         <div class="tsd-signature">
                             <span class="tsd-kind-property"
-                                >user<wbr />By<wbr />User</span
+                                >user<wbr />By<wbr />Id<wbr />User</span
                             ><span class="tsd-signature-symbol">:</span>
                             <span class="tsd-signature-type">null</span
                             ><span class="tsd-signature-symbol"> | </span
@@ -514,8 +543,52 @@
                                 <li>
                                     Defined in
                                     <a
-                                        href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L134"
-                                        >src/gtr/schema.ts:134</a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L211"
+                                        >src/gtr/schema.ts:211</a
+                                    >
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section class="tsd-panel tsd-member">
+                        <a id="levelByIdLevel" class="tsd-anchor"></a>
+                        <h3 class="tsd-anchor-link">
+                            <span>level<wbr />By<wbr />Id<wbr />Level</span
+                            ><a
+                                href="#levelByIdLevel"
+                                aria-label="Permalink"
+                                class="tsd-anchor-icon"
+                                ><svg viewBox="0 0 24 24">
+                                    <use
+                                        href="../assets/icons.svg#icon-anchor"></use></svg
+                            ></a>
+                        </h3>
+                        <div class="tsd-signature">
+                            <span class="tsd-kind-property"
+                                >level<wbr />By<wbr />Id<wbr />Level</span
+                            ><span class="tsd-signature-symbol">:</span>
+                            <span class="tsd-signature-type">null</span
+                            ><span class="tsd-signature-symbol"> | </span
+                            ><a
+                                href="gtr.Level.html"
+                                class="tsd-signature-type tsd-kind-interface"
+                                >Level</a
+                            >
+                        </div>
+                        <div class="tsd-comment tsd-typography">
+                            <p>
+                                Reads a single <code>Level</code> that is
+                                related to this <code>Favorite</code>.
+                            </p>
+                        </div>
+                        <div class="tsd-comment tsd-typography"></div>
+                        <aside class="tsd-sources">
+                            <ul>
+                                <li>
+                                    Defined in
+                                    <a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L213"
+                                        >src/gtr/schema.ts:213</a
                                     >
                                 </li>
                             </ul>
@@ -546,8 +619,8 @@
                                 <li>
                                     Defined in
                                     <a
-                                        href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L135"
-                                        >src/gtr/schema.ts:135</a
+                                        href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L214"
+                                        >src/gtr/schema.ts:214</a
                                     >
                                 </li>
                             </ul>
@@ -735,16 +808,11 @@
                                     <use
                                         href="../assets/icons.svg#icon-1024"></use></svg
                                 ><span>id</span></a
-                            ><a href="#user" class=""
+                            ><a href="#idUser" class=""
                                 ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                                     <use
                                         href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>user</span></a
-                            ><a href="#level" class=""
-                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                                    <use
-                                        href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>level</span></a
+                                ><span>id<wbr />User</span></a
                             ><a href="#dateCreated" class=""
                                 ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                                     <use
@@ -755,11 +823,25 @@
                                     <use
                                         href="../assets/icons.svg#icon-1024"></use></svg
                                 ><span>date<wbr />Updated</span></a
-                            ><a href="#userByUser" class=""
+                            ><a href="#idLevel" class=""
                                 ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                                     <use
                                         href="../assets/icons.svg#icon-1024"></use></svg
-                                ><span>user<wbr />By<wbr />User</span></a
+                                ><span>id<wbr />Level</span></a
+                            ><a href="#userByIdUser" class=""
+                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                                    <use
+                                        href="../assets/icons.svg#icon-1024"></use></svg
+                                ><span
+                                    >user<wbr />By<wbr />Id<wbr />User</span
+                                ></a
+                            ><a href="#levelByIdLevel" class=""
+                                ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                                    <use
+                                        href="../assets/icons.svg#icon-1024"></use></svg
+                                ><span
+                                    >level<wbr />By<wbr />Id<wbr />Level</span
+                                ></a
                             ><a href="#__typename" class=""
                                 ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
                                     <use

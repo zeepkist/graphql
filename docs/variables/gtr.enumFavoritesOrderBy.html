@@ -116,27 +116,16 @@
                     ><span class="tsd-signature-type">&quot;ID_DESC&quot;</span
                     ><span class="tsd-signature-symbol">; </span><br /><span
                         >    </span
-                    ><span class="tsd-kind-property">USER_ASC</span
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type">&quot;USER_ASC&quot;</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><span class="tsd-kind-property">USER_DESC</span
+                    ><span class="tsd-kind-property">ID_USER_ASC</span
                     ><span class="tsd-signature-symbol">: </span
                     ><span class="tsd-signature-type"
-                        >&quot;USER_DESC&quot;</span
+                        >&quot;ID_USER_ASC&quot;</span
                     ><span class="tsd-signature-symbol">; </span><br /><span
                         >    </span
-                    ><span class="tsd-kind-property">LEVEL_ASC</span
+                    ><span class="tsd-kind-property">ID_USER_DESC</span
                     ><span class="tsd-signature-symbol">: </span
                     ><span class="tsd-signature-type"
-                        >&quot;LEVEL_ASC&quot;</span
-                    ><span class="tsd-signature-symbol">; </span><br /><span
-                        >    </span
-                    ><span class="tsd-kind-property">LEVEL_DESC</span
-                    ><span class="tsd-signature-symbol">: </span
-                    ><span class="tsd-signature-type"
-                        >&quot;LEVEL_DESC&quot;</span
+                        >&quot;ID_USER_DESC&quot;</span
                     ><span class="tsd-signature-symbol">; </span><br /><span
                         >    </span
                     ><span class="tsd-kind-property">DATE_CREATED_ASC</span
@@ -161,6 +150,18 @@
                     ><span class="tsd-signature-symbol">: </span
                     ><span class="tsd-signature-type"
                         >&quot;DATE_UPDATED_DESC&quot;</span
+                    ><span class="tsd-signature-symbol">; </span><br /><span
+                        >    </span
+                    ><span class="tsd-kind-property">ID_LEVEL_ASC</span
+                    ><span class="tsd-signature-symbol">: </span
+                    ><span class="tsd-signature-type"
+                        >&quot;ID_LEVEL_ASC&quot;</span
+                    ><span class="tsd-signature-symbol">; </span><br /><span
+                        >    </span
+                    ><span class="tsd-kind-property">ID_LEVEL_DESC</span
+                    ><span class="tsd-signature-symbol">: </span
+                    ><span class="tsd-signature-type"
+                        >&quot;ID_LEVEL_DESC&quot;</span
                     ><span class="tsd-signature-symbol">; </span><br /><span
                         >    </span
                     ><span class="tsd-kind-property">PRIMARY_KEY_ASC</span
@@ -213,40 +214,20 @@
                         <li class="tsd-parameter">
                             <h5>
                                 <span class="tsd-kind-property"
-                                    >USER_<wbr />ASC</span
+                                    >ID_<wbr />USER_<wbr />ASC</span
                                 ><span class="tsd-signature-symbol">: </span
                                 ><span class="tsd-signature-type"
-                                    >&quot;USER_ASC&quot;</span
+                                    >&quot;ID_USER_ASC&quot;</span
                                 >
                             </h5>
                         </li>
                         <li class="tsd-parameter">
                             <h5>
                                 <span class="tsd-kind-property"
-                                    >USER_<wbr />DESC</span
+                                    >ID_<wbr />USER_<wbr />DESC</span
                                 ><span class="tsd-signature-symbol">: </span
                                 ><span class="tsd-signature-type"
-                                    >&quot;USER_DESC&quot;</span
-                                >
-                            </h5>
-                        </li>
-                        <li class="tsd-parameter">
-                            <h5>
-                                <span class="tsd-kind-property"
-                                    >LEVEL_<wbr />ASC</span
-                                ><span class="tsd-signature-symbol">: </span
-                                ><span class="tsd-signature-type"
-                                    >&quot;LEVEL_ASC&quot;</span
-                                >
-                            </h5>
-                        </li>
-                        <li class="tsd-parameter">
-                            <h5>
-                                <span class="tsd-kind-property"
-                                    >LEVEL_<wbr />DESC</span
-                                ><span class="tsd-signature-symbol">: </span
-                                ><span class="tsd-signature-type"
-                                    >&quot;LEVEL_DESC&quot;</span
+                                    >&quot;ID_USER_DESC&quot;</span
                                 >
                             </h5>
                         </li>
@@ -293,6 +274,26 @@
                         <li class="tsd-parameter">
                             <h5>
                                 <span class="tsd-kind-property"
+                                    >ID_<wbr />LEVEL_<wbr />ASC</span
+                                ><span class="tsd-signature-symbol">: </span
+                                ><span class="tsd-signature-type"
+                                    >&quot;ID_LEVEL_ASC&quot;</span
+                                >
+                            </h5>
+                        </li>
+                        <li class="tsd-parameter">
+                            <h5>
+                                <span class="tsd-kind-property"
+                                    >ID_<wbr />LEVEL_<wbr />DESC</span
+                                ><span class="tsd-signature-symbol">: </span
+                                ><span class="tsd-signature-type"
+                                    >&quot;ID_LEVEL_DESC&quot;</span
+                                >
+                            </h5>
+                        </li>
+                        <li class="tsd-parameter">
+                            <h5>
+                                <span class="tsd-kind-property"
                                     >PRIMARY_<wbr />KEY_<wbr />ASC</span
                                 ><span class="tsd-signature-symbol">: </span
                                 ><span class="tsd-signature-type"
@@ -317,8 +318,8 @@
                         <li>
                             Defined in
                             <a
-                                href="https://github.com/zeepkist/graphql/blob/b0f848f972b7807d727a7e846cfbd7acd449f2e9/src/gtr/schema.ts#L2926"
-                                >src/gtr/schema.ts:2926</a
+                                href="https://github.com/zeepkist/graphql/blob/4ae69e3d35556bfe7ce181347befe0aa9f1ec426/src/gtr/schema.ts#L8220"
+                                >src/gtr/schema.ts:8220</a
                             >
                         </li>
                     </ul>
