@@ -28,7 +28,7 @@ importers:
         version: 12.0.0(semantic-release@23.1.1(typescript@5.5.4))
       '@semantic-release/github':
         specifier: ^10.0.0
-        version: 10.1.6(semantic-release@23.1.1(typescript@5.5.4))
+        version: 10.1.7(semantic-release@23.1.1(typescript@5.5.4))
       '@semantic-release/npm':
         specifier: ^12.0.0
         version: 12.0.1(semantic-release@23.1.1(typescript@5.5.4))
@@ -37,7 +37,7 @@ importers:
         version: 13.0.0(semantic-release@23.1.1(typescript@5.5.4))
       '@types/node':
         specifier: ^22.0.0
-        version: 22.4.1
+        version: 22.5.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.21.0
         version: 6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)
@@ -79,7 +79,7 @@ importers:
         version: 23.1.1(typescript@5.5.4)
       tsx:
         specifier: ^4.9.0
-        version: 4.17.0
+        version: 4.18.0
       typedoc:
         specifier: ^0.25.0
         version: 0.25.13(typescript@5.5.4)
@@ -459,8 +459,8 @@ packages:
     resolution: {integrity: sha512-mgdxrHTLOjOddRVYIYDo0fR3/v61GNN1YGkfbrjuIKg/uMgCd+Qzo3UAXJ+woLQQpos4pl5Esuw5A7AoNlzjUQ==}
     engines: {node: '>=18'}
 
-  '@semantic-release/github@10.1.6':
-    resolution: {integrity: sha512-UTW7hNp6nDeJJWrHcNx8dki95d12WVh++PH98rIr7PQxrZrnjtL0ys/rsAt9tOBTWBaCZdj6797RMLkY9tU+ug==}
+  '@semantic-release/github@10.1.7':
+    resolution: {integrity: sha512-QnhP4k1eqzYLz6a4kpWrUQeKJYXqHggveMykvUFbSquq07GF85BXvr/QLhpOD7bpDcmEfL8VnphRA7KT5i9lzQ==}
     engines: {node: '>=20.8.1'}
     peerDependencies:
       semantic-release: '>=20.1.0'
@@ -498,8 +498,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@22.4.1':
-    resolution: {integrity: sha512-1tbpb9325+gPnKK0dMm+/LMriX0vKxf6RnB0SZUqfyVkQ4fMgUSySqhxE/y8Jvs4NyF1yHzTfG9KlnkIODxPKg==}
+  '@types/node@22.5.0':
+    resolution: {integrity: sha512-DkFrJOe+rfdHTqqMg0bSNlGlQ85hSoh2TPzZyhHsXnMtligRWpxUySiyw8FY14ITt24HVCiQPWxS3KO/QlGmWg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1157,8 +1157,8 @@ packages:
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
 
-  eslint-module-utils@2.8.1:
-    resolution: {integrity: sha512-rXDXR3h7cs7dy9RNpUlQf80nX31XWJEyGq1tRMo+6GsO5VmTe4UTwtmonAD4ZkAsrfMVDA2wlGJ3790Ys+D49Q==}
+  eslint-module-utils@2.8.2:
+    resolution: {integrity: sha512-3XnC5fDyc8M4J2E8pt8pmSVRX2M+5yWMCfI/kDZwauQeFgzQOuhcRBFKjTeJagqgk4sFKxe1mvNVnaWwImx/Tg==}
     engines: {node: '>=4'}
     peerDependencies:
       '@typescript-eslint/parser': '*'
@@ -1630,8 +1630,8 @@ packages:
     resolution: {integrity: sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==}
     engines: {node: '>= 0.4'}
 
-  is-core-module@2.15.0:
-    resolution: {integrity: sha512-Dd+Lb2/zvk9SKy1TGCt1wFJFo/MWBPMX5x7KcvLajWTGuomczdQX61PvY5yK6SVACwpoexWo81IfFyoKY2QnTA==}
+  is-core-module@2.15.1:
+    resolution: {integrity: sha512-z0vtXSwucUJtANQWldhbtbt7BnL0vxiFjIdDLAatwhDYty2bad6s+rijD6Ri4YuYJubLzIJLUidCh09e1djEVQ==}
     engines: {node: '>= 0.4'}
 
   is-data-view@1.0.1:
@@ -1941,8 +1941,8 @@ packages:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
 
-  micromatch@4.0.7:
-    resolution: {integrity: sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==}
+  micromatch@4.0.8:
+    resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
 
   mime@4.0.4:
@@ -2602,8 +2602,8 @@ packages:
   spdx-expression-parse@3.0.1:
     resolution: {integrity: sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==}
 
-  spdx-license-ids@3.0.18:
-    resolution: {integrity: sha512-xxRs31BqRYHwiMzudOrpSiHtZ8i/GeionCBDSilhYRj+9gIcI8wCZTlXZKu9vZIVqViP3dcp9qE5G6AlIaD+TQ==}
+  spdx-license-ids@3.0.20:
+    resolution: {integrity: sha512-jg25NiDV/1fLtSgEgyvVyDunvaNHbuwF9lfNV17gSmPFAlYzdfNBlLtLzXTevwkPj7DhGbmN9VnmJIgLnhvaBw==}
 
   split2@1.0.0:
     resolution: {integrity: sha512-NKywug4u4pX/AZBB1FCPzZ6/7O+Xhz1qMVbzTvvKvikjO99oPN87SkK08mEY9P63/5lWjK+wgOOgApnTg5r6qg==}
@@ -2699,8 +2699,8 @@ packages:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
 
-  supports-hyperlinks@3.0.0:
-    resolution: {integrity: sha512-QBDPHyPQDRTy9ku4URNGY5Lah8PAaXs6tAAwp55sL5WCsSW7GIfdf6W5ixfziW+t7wh3GVvHyHHyQ1ESsoRvaA==}
+  supports-hyperlinks@3.1.0:
+    resolution: {integrity: sha512-2rn0BZ+/f7puLOHZm1HOJfwBggfaHXUpPUSSG/SWM4TWp5KCfmNYwnC3hruy2rZlMnmWZ+QAGpZfchu3f3695A==}
     engines: {node: '>=14.18'}
 
   supports-preserve-symlinks-flag@1.0.0:
@@ -2775,11 +2775,11 @@ packages:
   tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
 
-  tslib@2.6.3:
-    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+  tslib@2.7.0:
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
-  tsx@4.17.0:
-    resolution: {integrity: sha512-eN4mnDA5UMKDt4YZixo9tBioibaMBpoxBkD+rIPAjVmYERSG0/dWEY1CEFuV89CgASlKL499q8AhmkMnnjtOJg==}
+  tsx@4.18.0:
+    resolution: {integrity: sha512-a1jaKBSVQkd6yEc1/NI7G6yHFfefIcuf3QJST7ZEyn4oQnxLYrZR5uZAM8UrwUa3Ge8suiZHcNS1gNrEvmobqg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -2855,8 +2855,8 @@ packages:
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
-  undici-types@6.19.6:
-    resolution: {integrity: sha512-e/vggGopEfTKSvj4ihnOLTsqhrKRN3LeO6qSN/GxohhuRv8qH9bNQ4B8W7e/vFL+0XTnmHPB4/kegunZGA4Org==}
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
   undici@5.28.4:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
@@ -3172,7 +3172,7 @@ snapshots:
       '@graphql-tools/utils': 9.2.1(graphql@16.9.0)
       globby: 11.1.0
       graphql: 16.9.0
-      tslib: 2.6.3
+      tslib: 2.7.0
       unixify: 1.0.0
 
   '@graphql-tools/import@6.7.18(graphql@16.9.0)':
@@ -3180,7 +3180,7 @@ snapshots:
       '@graphql-tools/utils': 9.2.1(graphql@16.9.0)
       graphql: 16.9.0
       resolve-from: 5.0.0
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@graphql-tools/load@7.8.14(graphql@16.9.0)':
     dependencies:
@@ -3188,27 +3188,27 @@ snapshots:
       '@graphql-tools/utils': 9.2.1(graphql@16.9.0)
       graphql: 16.9.0
       p-limit: 3.1.0
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@graphql-tools/merge@8.4.2(graphql@16.9.0)':
     dependencies:
       '@graphql-tools/utils': 9.2.1(graphql@16.9.0)
       graphql: 16.9.0
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@graphql-tools/schema@9.0.19(graphql@16.9.0)':
     dependencies:
       '@graphql-tools/merge': 8.4.2(graphql@16.9.0)
       '@graphql-tools/utils': 9.2.1(graphql@16.9.0)
       graphql: 16.9.0
-      tslib: 2.6.3
+      tslib: 2.7.0
       value-or-promise: 1.0.12
 
   '@graphql-tools/utils@9.2.1(graphql@16.9.0)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
       graphql: 16.9.0
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   '@graphql-typed-document-node/core@3.2.0(graphql@16.9.0)':
     dependencies:
@@ -3361,7 +3361,7 @@ snapshots:
       debug: 4.3.6
       import-from-esm: 1.3.4
       lodash-es: 4.17.21
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       semantic-release: 23.1.1(typescript@5.5.4)
     transitivePeerDependencies:
       - supports-color
@@ -3370,7 +3370,7 @@ snapshots:
 
   '@semantic-release/error@4.0.0': {}
 
-  '@semantic-release/github@10.1.6(semantic-release@23.1.1(typescript@5.5.4))':
+  '@semantic-release/github@10.1.7(semantic-release@23.1.1(typescript@5.5.4))':
     dependencies:
       '@octokit/core': 6.1.2
       '@octokit/plugin-paginate-rest': 11.3.3(@octokit/core@6.1.2)
@@ -3437,9 +3437,9 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@22.4.1':
+  '@types/node@22.5.0':
     dependencies:
-      undici-types: 6.19.6
+      undici-types: 6.19.8
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -3544,7 +3544,7 @@ snapshots:
       estree-walker: 2.0.2
       glob: 7.2.3
       graceful-fs: 4.2.11
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       node-gyp-build: 4.8.1
       resolve-from: 5.0.0
     transitivePeerDependencies:
@@ -4247,12 +4247,12 @@ snapshots:
   eslint-import-resolver-node@0.3.9:
     dependencies:
       debug: 3.2.7
-      is-core-module: 2.15.0
+      is-core-module: 2.15.1
       resolve: 1.22.8
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint@8.57.0):
+  eslint-module-utils@2.8.2(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint@8.57.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -4272,9 +4272,9 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.1(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint@8.57.0)
+      eslint-module-utils: 2.8.2(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.5.4))(eslint-import-resolver-node@0.3.9)(eslint@8.57.0)
       hasown: 2.0.2
-      is-core-module: 2.15.0
+      is-core-module: 2.15.1
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.fromentries: 2.0.8
@@ -4442,7 +4442,7 @@ snapshots:
       '@nodelib/fs.walk': 1.2.8
       glob-parent: 5.1.2
       merge2: 1.4.1
-      micromatch: 4.0.7
+      micromatch: 4.0.8
 
   fast-json-stable-stringify@2.1.0: {}
 
@@ -4799,7 +4799,7 @@ snapshots:
 
   is-callable@1.2.7: {}
 
-  is-core-module@2.15.0:
+  is-core-module@2.15.1:
     dependencies:
       hasown: 2.0.2
 
@@ -5036,7 +5036,7 @@ snapshots:
       cli-table3: 0.6.5
       marked: 12.0.2
       node-emoji: 2.1.3
-      supports-hyperlinks: 3.0.0
+      supports-hyperlinks: 3.1.0
 
   marked@12.0.2: {}
 
@@ -5060,7 +5060,7 @@ snapshots:
 
   merge2@1.4.1: {}
 
-  micromatch@4.0.7:
+  micromatch@4.0.8:
     dependencies:
       braces: 3.0.3
       picomatch: 2.3.1
@@ -5470,7 +5470,7 @@ snapshots:
 
   resolve@1.22.8:
     dependencies:
-      is-core-module: 2.15.0
+      is-core-module: 2.15.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
@@ -5522,7 +5522,7 @@ snapshots:
     dependencies:
       '@semantic-release/commit-analyzer': 12.0.0(semantic-release@23.1.1(typescript@5.5.4))
       '@semantic-release/error': 4.0.0
-      '@semantic-release/github': 10.1.6(semantic-release@23.1.1(typescript@5.5.4))
+      '@semantic-release/github': 10.1.7(semantic-release@23.1.1(typescript@5.5.4))
       '@semantic-release/npm': 12.0.1(semantic-release@23.1.1(typescript@5.5.4))
       '@semantic-release/release-notes-generator': 13.0.0(semantic-release@23.1.1(typescript@5.5.4))
       aggregate-error: 5.0.0
@@ -5540,7 +5540,7 @@ snapshots:
       lodash-es: 4.17.21
       marked: 12.0.2
       marked-terminal: 7.1.0(marked@12.0.2)
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       p-each-series: 3.0.0
       p-reduce: 3.0.0
       read-package-up: 11.0.0
@@ -5637,16 +5637,16 @@ snapshots:
   spdx-correct@3.2.0:
     dependencies:
       spdx-expression-parse: 3.0.1
-      spdx-license-ids: 3.0.18
+      spdx-license-ids: 3.0.20
 
   spdx-exceptions@2.5.0: {}
 
   spdx-expression-parse@3.0.1:
     dependencies:
       spdx-exceptions: 2.5.0
-      spdx-license-ids: 3.0.18
+      spdx-license-ids: 3.0.20
 
-  spdx-license-ids@3.0.18: {}
+  spdx-license-ids@3.0.20: {}
 
   split2@1.0.0:
     dependencies:
@@ -5752,7 +5752,7 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
 
-  supports-hyperlinks@3.0.0:
+  supports-hyperlinks@3.1.0:
     dependencies:
       has-flag: 4.0.0
       supports-color: 7.2.0
@@ -5762,7 +5762,7 @@ snapshots:
   synckit@0.9.1:
     dependencies:
       '@pkgr/core': 0.1.1
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   tar@6.2.1:
     dependencies:
@@ -5832,9 +5832,9 @@ snapshots:
       minimist: 1.2.8
       strip-bom: 3.0.0
 
-  tslib@2.6.3: {}
+  tslib@2.7.0: {}
 
-  tsx@4.17.0:
+  tsx@4.18.0:
     dependencies:
       esbuild: 0.23.1
       get-tsconfig: 4.7.6
@@ -5913,7 +5913,7 @@ snapshots:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
 
-  undici-types@6.19.6: {}
+  undici-types@6.19.8: {}
 
   undici@5.28.4:
     dependencies:
