@@ -3647,6 +3647,24 @@ export default {
             or: [252],
             not: [252],
             __typename: [8]
+        },
+        Mutation: {
+            updateWorldRecordGlobal: [
+                254,
+                {
+                    input: [255, 'UpdateWorldRecordGlobalInput!']
+                }
+            ],
+            __typename: [8]
+        },
+        UpdateWorldRecordGlobalPayload: {
+            clientMutationId: [8],
+            query: [0],
+            __typename: [8]
+        },
+        UpdateWorldRecordGlobalInput: {
+            clientMutationId: [8],
+            __typename: [8]
         }
     }
 }

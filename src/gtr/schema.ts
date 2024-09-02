@@ -1655,6 +1655,26 @@ export interface VersionsEdge {
 export type VersionsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'MINIMUM_ASC' | 'MINIMUM_DESC' | 'LATEST_ASC' | 'LATEST_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
+/** The root mutation type which contains root level fields which mutate data. */
+export interface Mutation {
+    updateWorldRecordGlobal: (UpdateWorldRecordGlobalPayload | null)
+    __typename: 'Mutation'
+}
+
+
+/** The output of our `updateWorldRecordGlobal` mutation. */
+export interface UpdateWorldRecordGlobalPayload {
+    /**
+     * The exact same `clientMutationId` that was provided in the mutation input,
+     * unchanged and unused. May be used by a client to track mutations.
+     */
+    clientMutationId: (Scalars['String'] | null)
+    /** Our root query field type. Allows us to run any query from our mutation payload. */
+    query: (Query | null)
+    __typename: 'UpdateWorldRecordGlobalPayload'
+}
+
+
 /** The root query type which gives access points into the data universe. */
 export interface QueryGenqlSelection{
     /**
@@ -7474,6 +7494,39 @@ or?: (VersionFilter[] | null),
 not?: (VersionFilter | null)}
 
 
+/** The root mutation type which contains root level fields which mutate data. */
+export interface MutationGenqlSelection{
+    updateWorldRecordGlobal?: (UpdateWorldRecordGlobalPayloadGenqlSelection & { __args: {
+    /** The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields. */
+    input: UpdateWorldRecordGlobalInput} })
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** The output of our `updateWorldRecordGlobal` mutation. */
+export interface UpdateWorldRecordGlobalPayloadGenqlSelection{
+    /**
+     * The exact same `clientMutationId` that was provided in the mutation input,
+     * unchanged and unused. May be used by a client to track mutations.
+     */
+    clientMutationId?: boolean | number
+    /** Our root query field type. Allows us to run any query from our mutation payload. */
+    query?: QueryGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** All input for the `updateWorldRecordGlobal` mutation. */
+export interface UpdateWorldRecordGlobalInput {
+/**
+ * An arbitrary string value with no semantic meaning. Will be included in the
+ * payload verbatim. May be used to track mutations by the client.
+ */
+clientMutationId?: (Scalars['String'] | null)}
+
+
     const Query_possibleTypes: string[] = ['Query']
     export const isQuery = (obj?: { __typename?: any } | null): obj is Query => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isQuery"')
@@ -8214,6 +8267,22 @@ not?: (VersionFilter | null)}
     export const isVersionsEdge = (obj?: { __typename?: any } | null): obj is VersionsEdge => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isVersionsEdge"')
       return VersionsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const Mutation_possibleTypes: string[] = ['Mutation']
+    export const isMutation = (obj?: { __typename?: any } | null): obj is Mutation => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isMutation"')
+      return Mutation_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const UpdateWorldRecordGlobalPayload_possibleTypes: string[] = ['UpdateWorldRecordGlobalPayload']
+    export const isUpdateWorldRecordGlobalPayload = (obj?: { __typename?: any } | null): obj is UpdateWorldRecordGlobalPayload => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isUpdateWorldRecordGlobalPayload"')
+      return UpdateWorldRecordGlobalPayload_possibleTypes.includes(obj.__typename)
     }
     
 
