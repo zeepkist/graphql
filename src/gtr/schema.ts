@@ -13,6 +13,7 @@ export type Scalars = {
     Cursor: any,
     Float: number,
     JSON: any,
+    BigInt: any,
 }
 
 
@@ -55,6 +56,66 @@ export interface Query {
     allRecords: (RecordsConnection | null)
     /** Reads and enables pagination through a set of `RecordMedia`. */
     allRecordMedias: (RecordMediasConnection | null)
+    /** Reads and enables pagination through a set of `SampledFavorite`. */
+    allSampledFavorites: (SampledFavoritesConnection | null)
+    /** Reads and enables pagination through a set of `SampledLevel`. */
+    allSampledLevels: (SampledLevelsConnection | null)
+    /** Reads and enables pagination through a set of `SampledLevelItem`. */
+    allSampledLevelItems: (SampledLevelItemsConnection | null)
+    /** Reads and enables pagination through a set of `SampledLevelMetadatum`. */
+    allSampledLevelMetadata: (SampledLevelMetadataConnection | null)
+    /** Reads and enables pagination through a set of `SampledLevelPoint`. */
+    allSampledLevelPoints: (SampledLevelPointsConnection | null)
+    /** Reads and enables pagination through a set of `SampledLevelRequest`. */
+    allSampledLevelRequests: (SampledLevelRequestsConnection | null)
+    /** Reads and enables pagination through a set of `SampledPersonalBestDaily`. */
+    allSampledPersonalBestDailies: (SampledPersonalBestDailiesConnection | null)
+    /** Reads and enables pagination through a set of `SampledPersonalBestGlobal`. */
+    allSampledPersonalBestGlobals: (SampledPersonalBestGlobalsConnection | null)
+    /** Reads and enables pagination through a set of `SampledPersonalBestMonthly`. */
+    allSampledPersonalBestMonthlies: (SampledPersonalBestMonthliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledPersonalBestQuarterly`. */
+    allSampledPersonalBestQuarterlies: (SampledPersonalBestQuarterliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledPersonalBestWeekly`. */
+    allSampledPersonalBestWeeklies: (SampledPersonalBestWeekliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledPersonalBestYearly`. */
+    allSampledPersonalBestYearlies: (SampledPersonalBestYearliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledRecord`. */
+    allSampledRecords: (SampledRecordsConnection | null)
+    /** Reads and enables pagination through a set of `SampledRecordMedia`. */
+    allSampledRecordMedias: (SampledRecordMediasConnection | null)
+    /** Reads and enables pagination through a set of `SampledStatsDaily`. */
+    allSampledStatsDailies: (SampledStatsDailiesConnection | null)
+    /** Reads and enables pagination through a set of `SampledStatsGlobal`. */
+    allSampledStatsGlobals: (SampledStatsGlobalsConnection | null)
+    /** Reads and enables pagination through a set of `SampledStatsMonthly`. */
+    allSampledStatsMonthlies: (SampledStatsMonthliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledStatsQuarterly`. */
+    allSampledStatsQuarterlies: (SampledStatsQuarterliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledStatsWeekly`. */
+    allSampledStatsWeeklies: (SampledStatsWeekliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledStatsYearly`. */
+    allSampledStatsYearlies: (SampledStatsYearliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledUpvote`. */
+    allSampledUpvotes: (SampledUpvotesConnection | null)
+    /** Reads and enables pagination through a set of `SampledUser`. */
+    allSampledUsers: (SampledUsersConnection | null)
+    /** Reads and enables pagination through a set of `SampledUserPoint`. */
+    allSampledUserPoints: (SampledUserPointsConnection | null)
+    /** Reads and enables pagination through a set of `SampledVersion`. */
+    allSampledVersions: (SampledVersionsConnection | null)
+    /** Reads and enables pagination through a set of `SampledWorldRecordDaily`. */
+    allSampledWorldRecordDailies: (SampledWorldRecordDailiesConnection | null)
+    /** Reads and enables pagination through a set of `SampledWorldRecordGlobal`. */
+    allSampledWorldRecordGlobals: (SampledWorldRecordGlobalsConnection | null)
+    /** Reads and enables pagination through a set of `SampledWorldRecordMonthly`. */
+    allSampledWorldRecordMonthlies: (SampledWorldRecordMonthliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledWorldRecordQuarterly`. */
+    allSampledWorldRecordQuarterlies: (SampledWorldRecordQuarterliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledWorldRecordWeekly`. */
+    allSampledWorldRecordWeeklies: (SampledWorldRecordWeekliesConnection | null)
+    /** Reads and enables pagination through a set of `SampledWorldRecordYearly`. */
+    allSampledWorldRecordYearlies: (SampledWorldRecordYearliesConnection | null)
     /** Reads and enables pagination through a set of `StatsDaily`. */
     allStatsDailies: (StatsDailiesConnection | null)
     /** Reads and enables pagination through a set of `StatsGlobal`. */
@@ -118,6 +179,8 @@ export interface Query {
     worldRecordQuarterlyById: (WorldRecordQuarterly | null)
     worldRecordWeeklyById: (WorldRecordWeekly | null)
     worldRecordYearlyById: (WorldRecordYearly | null)
+    /** Retrieves filtered level items based on specified criteria */
+    zRtm: (ZRtmConnection | null)
     /** Reads a single `Favorite` using its globally unique `ID`. */
     favorite: (Favorite | null)
     /** Reads a single `Level` using its globally unique `ID`. */
@@ -1588,6 +1651,1189 @@ export interface LevelRequestsEdge {
 export type LevelRequestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'UID_ASC' | 'UID_DESC' | 'HASH_ASC' | 'HASH_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
 
 
+/** A connection to a list of `SampledFavorite` values. */
+export interface SampledFavoritesConnection {
+    /** A list of `SampledFavorite` objects. */
+    nodes: (SampledFavorite | null)[]
+    /** A list of edges which contains the `SampledFavorite` and cursor to aid in pagination. */
+    edges: SampledFavoritesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledFavorite` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledFavoritesConnection'
+}
+
+export interface SampledFavorite {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    idLevel: (Scalars['Int'] | null)
+    __typename: 'SampledFavorite'
+}
+
+
+/** A `SampledFavorite` edge in the connection. */
+export interface SampledFavoritesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledFavorite` at the end of the edge. */
+    node: (SampledFavorite | null)
+    __typename: 'SampledFavoritesEdge'
+}
+
+
+/** Methods to use when ordering `SampledFavorite`. */
+export type SampledFavoritesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC'
+
+
+/** A connection to a list of `SampledLevel` values. */
+export interface SampledLevelsConnection {
+    /** A list of `SampledLevel` objects. */
+    nodes: (SampledLevel | null)[]
+    /** A list of edges which contains the `SampledLevel` and cursor to aid in pagination. */
+    edges: SampledLevelsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledLevel` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledLevelsConnection'
+}
+
+export interface SampledLevel {
+    id: (Scalars['Int'] | null)
+    hash: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledLevel'
+}
+
+
+/** A `SampledLevel` edge in the connection. */
+export interface SampledLevelsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledLevel` at the end of the edge. */
+    node: (SampledLevel | null)
+    __typename: 'SampledLevelsEdge'
+}
+
+
+/** Methods to use when ordering `SampledLevel`. */
+export type SampledLevelsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'HASH_ASC' | 'HASH_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledLevelItem` values. */
+export interface SampledLevelItemsConnection {
+    /** A list of `SampledLevelItem` objects. */
+    nodes: (SampledLevelItem | null)[]
+    /** A list of edges which contains the `SampledLevelItem` and cursor to aid in pagination. */
+    edges: SampledLevelItemsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledLevelItem` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledLevelItemsConnection'
+}
+
+export interface SampledLevelItem {
+    id: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    workshopId: (Scalars['BigFloat'] | null)
+    authorId: (Scalars['BigFloat'] | null)
+    name: (Scalars['String'] | null)
+    imageUrl: (Scalars['String'] | null)
+    fileAuthor: (Scalars['String'] | null)
+    fileUid: (Scalars['String'] | null)
+    validationTimeAuthor: (Scalars['Float'] | null)
+    validationTimeGold: (Scalars['Float'] | null)
+    validationTimeSilver: (Scalars['Float'] | null)
+    validationTimeBronze: (Scalars['Float'] | null)
+    deleted: (Scalars['Boolean'] | null)
+    createdAt: (Scalars['Datetime'] | null)
+    updatedAt: (Scalars['Datetime'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledLevelItem'
+}
+
+
+/** A `SampledLevelItem` edge in the connection. */
+export interface SampledLevelItemsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledLevelItem` at the end of the edge. */
+    node: (SampledLevelItem | null)
+    __typename: 'SampledLevelItemsEdge'
+}
+
+
+/** Methods to use when ordering `SampledLevelItem`. */
+export type SampledLevelItemsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'AUTHOR_ID_ASC' | 'AUTHOR_ID_DESC' | 'NAME_ASC' | 'NAME_DESC' | 'IMAGE_URL_ASC' | 'IMAGE_URL_DESC' | 'FILE_AUTHOR_ASC' | 'FILE_AUTHOR_DESC' | 'FILE_UID_ASC' | 'FILE_UID_DESC' | 'VALIDATION_TIME_AUTHOR_ASC' | 'VALIDATION_TIME_AUTHOR_DESC' | 'VALIDATION_TIME_GOLD_ASC' | 'VALIDATION_TIME_GOLD_DESC' | 'VALIDATION_TIME_SILVER_ASC' | 'VALIDATION_TIME_SILVER_DESC' | 'VALIDATION_TIME_BRONZE_ASC' | 'VALIDATION_TIME_BRONZE_DESC' | 'DELETED_ASC' | 'DELETED_DESC' | 'CREATED_AT_ASC' | 'CREATED_AT_DESC' | 'UPDATED_AT_ASC' | 'UPDATED_AT_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledLevelMetadatum` values. */
+export interface SampledLevelMetadataConnection {
+    /** A list of `SampledLevelMetadatum` objects. */
+    nodes: (SampledLevelMetadatum | null)[]
+    /** A list of edges which contains the `SampledLevelMetadatum` and cursor to aid in pagination. */
+    edges: SampledLevelMetadataEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledLevelMetadatum` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledLevelMetadataConnection'
+}
+
+export interface SampledLevelMetadatum {
+    id: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    amountCheckpoints: (Scalars['Int'] | null)
+    amountFinishes: (Scalars['Int'] | null)
+    amountBlocks: (Scalars['Int'] | null)
+    typeGround: (Scalars['Int'] | null)
+    typeSkybox: (Scalars['Int'] | null)
+    blocks: (Scalars['JSON'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledLevelMetadatum'
+}
+
+
+/** A `SampledLevelMetadatum` edge in the connection. */
+export interface SampledLevelMetadataEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledLevelMetadatum` at the end of the edge. */
+    node: (SampledLevelMetadatum | null)
+    __typename: 'SampledLevelMetadataEdge'
+}
+
+
+/** Methods to use when ordering `SampledLevelMetadatum`. */
+export type SampledLevelMetadataOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'AMOUNT_CHECKPOINTS_ASC' | 'AMOUNT_CHECKPOINTS_DESC' | 'AMOUNT_FINISHES_ASC' | 'AMOUNT_FINISHES_DESC' | 'AMOUNT_BLOCKS_ASC' | 'AMOUNT_BLOCKS_DESC' | 'TYPE_GROUND_ASC' | 'TYPE_GROUND_DESC' | 'TYPE_SKYBOX_ASC' | 'TYPE_SKYBOX_DESC' | 'BLOCKS_ASC' | 'BLOCKS_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledLevelPoint` values. */
+export interface SampledLevelPointsConnection {
+    /** A list of `SampledLevelPoint` objects. */
+    nodes: (SampledLevelPoint | null)[]
+    /** A list of edges which contains the `SampledLevelPoint` and cursor to aid in pagination. */
+    edges: SampledLevelPointsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledLevelPoint` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledLevelPointsConnection'
+}
+
+export interface SampledLevelPoint {
+    id: (Scalars['Int'] | null)
+    points: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledLevelPoint'
+}
+
+
+/** A `SampledLevelPoint` edge in the connection. */
+export interface SampledLevelPointsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledLevelPoint` at the end of the edge. */
+    node: (SampledLevelPoint | null)
+    __typename: 'SampledLevelPointsEdge'
+}
+
+
+/** Methods to use when ordering `SampledLevelPoint`. */
+export type SampledLevelPointsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'POINTS_ASC' | 'POINTS_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledLevelRequest` values. */
+export interface SampledLevelRequestsConnection {
+    /** A list of `SampledLevelRequest` objects. */
+    nodes: (SampledLevelRequest | null)[]
+    /** A list of edges which contains the `SampledLevelRequest` and cursor to aid in pagination. */
+    edges: SampledLevelRequestsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledLevelRequest` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledLevelRequestsConnection'
+}
+
+export interface SampledLevelRequest {
+    id: (Scalars['Int'] | null)
+    workshopId: (Scalars['BigFloat'] | null)
+    uid: (Scalars['String'] | null)
+    hash: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledLevelRequest'
+}
+
+
+/** A `SampledLevelRequest` edge in the connection. */
+export interface SampledLevelRequestsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledLevelRequest` at the end of the edge. */
+    node: (SampledLevelRequest | null)
+    __typename: 'SampledLevelRequestsEdge'
+}
+
+
+/** Methods to use when ordering `SampledLevelRequest`. */
+export type SampledLevelRequestsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'WORKSHOP_ID_ASC' | 'WORKSHOP_ID_DESC' | 'UID_ASC' | 'UID_DESC' | 'HASH_ASC' | 'HASH_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledPersonalBestDaily` values. */
+export interface SampledPersonalBestDailiesConnection {
+    /** A list of `SampledPersonalBestDaily` objects. */
+    nodes: (SampledPersonalBestDaily | null)[]
+    /** A list of edges which contains the `SampledPersonalBestDaily` and cursor to aid in pagination. */
+    edges: SampledPersonalBestDailiesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledPersonalBestDaily` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledPersonalBestDailiesConnection'
+}
+
+export interface SampledPersonalBestDaily {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    day: (Scalars['Int'] | null)
+    __typename: 'SampledPersonalBestDaily'
+}
+
+
+/** A `SampledPersonalBestDaily` edge in the connection. */
+export interface SampledPersonalBestDailiesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledPersonalBestDaily` at the end of the edge. */
+    node: (SampledPersonalBestDaily | null)
+    __typename: 'SampledPersonalBestDailiesEdge'
+}
+
+
+/** Methods to use when ordering `SampledPersonalBestDaily`. */
+export type SampledPersonalBestDailiesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'DAY_ASC' | 'DAY_DESC'
+
+
+/** A connection to a list of `SampledPersonalBestGlobal` values. */
+export interface SampledPersonalBestGlobalsConnection {
+    /** A list of `SampledPersonalBestGlobal` objects. */
+    nodes: (SampledPersonalBestGlobal | null)[]
+    /** A list of edges which contains the `SampledPersonalBestGlobal` and cursor to aid in pagination. */
+    edges: SampledPersonalBestGlobalsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledPersonalBestGlobal` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledPersonalBestGlobalsConnection'
+}
+
+export interface SampledPersonalBestGlobal {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledPersonalBestGlobal'
+}
+
+
+/** A `SampledPersonalBestGlobal` edge in the connection. */
+export interface SampledPersonalBestGlobalsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledPersonalBestGlobal` at the end of the edge. */
+    node: (SampledPersonalBestGlobal | null)
+    __typename: 'SampledPersonalBestGlobalsEdge'
+}
+
+
+/** Methods to use when ordering `SampledPersonalBestGlobal`. */
+export type SampledPersonalBestGlobalsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledPersonalBestMonthly` values. */
+export interface SampledPersonalBestMonthliesConnection {
+    /** A list of `SampledPersonalBestMonthly` objects. */
+    nodes: (SampledPersonalBestMonthly | null)[]
+    /** A list of edges which contains the `SampledPersonalBestMonthly` and cursor to aid in pagination. */
+    edges: SampledPersonalBestMonthliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledPersonalBestMonthly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledPersonalBestMonthliesConnection'
+}
+
+export interface SampledPersonalBestMonthly {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    month: (Scalars['Int'] | null)
+    __typename: 'SampledPersonalBestMonthly'
+}
+
+
+/** A `SampledPersonalBestMonthly` edge in the connection. */
+export interface SampledPersonalBestMonthliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledPersonalBestMonthly` at the end of the edge. */
+    node: (SampledPersonalBestMonthly | null)
+    __typename: 'SampledPersonalBestMonthliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledPersonalBestMonthly`. */
+export type SampledPersonalBestMonthliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'MONTH_ASC' | 'MONTH_DESC'
+
+
+/** A connection to a list of `SampledPersonalBestQuarterly` values. */
+export interface SampledPersonalBestQuarterliesConnection {
+    /** A list of `SampledPersonalBestQuarterly` objects. */
+    nodes: (SampledPersonalBestQuarterly | null)[]
+    /** A list of edges which contains the `SampledPersonalBestQuarterly` and cursor to aid in pagination. */
+    edges: SampledPersonalBestQuarterliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledPersonalBestQuarterly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledPersonalBestQuarterliesConnection'
+}
+
+export interface SampledPersonalBestQuarterly {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    quarter: (Scalars['Int'] | null)
+    __typename: 'SampledPersonalBestQuarterly'
+}
+
+
+/** A `SampledPersonalBestQuarterly` edge in the connection. */
+export interface SampledPersonalBestQuarterliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledPersonalBestQuarterly` at the end of the edge. */
+    node: (SampledPersonalBestQuarterly | null)
+    __typename: 'SampledPersonalBestQuarterliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledPersonalBestQuarterly`. */
+export type SampledPersonalBestQuarterliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'QUARTER_ASC' | 'QUARTER_DESC'
+
+
+/** A connection to a list of `SampledPersonalBestWeekly` values. */
+export interface SampledPersonalBestWeekliesConnection {
+    /** A list of `SampledPersonalBestWeekly` objects. */
+    nodes: (SampledPersonalBestWeekly | null)[]
+    /** A list of edges which contains the `SampledPersonalBestWeekly` and cursor to aid in pagination. */
+    edges: SampledPersonalBestWeekliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledPersonalBestWeekly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledPersonalBestWeekliesConnection'
+}
+
+export interface SampledPersonalBestWeekly {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    week: (Scalars['Int'] | null)
+    __typename: 'SampledPersonalBestWeekly'
+}
+
+
+/** A `SampledPersonalBestWeekly` edge in the connection. */
+export interface SampledPersonalBestWeekliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledPersonalBestWeekly` at the end of the edge. */
+    node: (SampledPersonalBestWeekly | null)
+    __typename: 'SampledPersonalBestWeekliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledPersonalBestWeekly`. */
+export type SampledPersonalBestWeekliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'WEEK_ASC' | 'WEEK_DESC'
+
+
+/** A connection to a list of `SampledPersonalBestYearly` values. */
+export interface SampledPersonalBestYearliesConnection {
+    /** A list of `SampledPersonalBestYearly` objects. */
+    nodes: (SampledPersonalBestYearly | null)[]
+    /** A list of edges which contains the `SampledPersonalBestYearly` and cursor to aid in pagination. */
+    edges: SampledPersonalBestYearliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledPersonalBestYearly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledPersonalBestYearliesConnection'
+}
+
+export interface SampledPersonalBestYearly {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    __typename: 'SampledPersonalBestYearly'
+}
+
+
+/** A `SampledPersonalBestYearly` edge in the connection. */
+export interface SampledPersonalBestYearliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledPersonalBestYearly` at the end of the edge. */
+    node: (SampledPersonalBestYearly | null)
+    __typename: 'SampledPersonalBestYearliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledPersonalBestYearly`. */
+export type SampledPersonalBestYearliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC'
+
+
+/** A connection to a list of `SampledRecord` values. */
+export interface SampledRecordsConnection {
+    /** A list of `SampledRecord` objects. */
+    nodes: (SampledRecord | null)[]
+    /** A list of edges which contains the `SampledRecord` and cursor to aid in pagination. */
+    edges: SampledRecordsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledRecord` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledRecordsConnection'
+}
+
+export interface SampledRecord {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    time: (Scalars['Float'] | null)
+    gameVersion: (Scalars['String'] | null)
+    isValid: (Scalars['Boolean'] | null)
+    idLevel: (Scalars['Int'] | null)
+    modVersion: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    splits: ((Scalars['Float'] | null)[] | null)
+    speeds: ((Scalars['Float'] | null)[] | null)
+    __typename: 'SampledRecord'
+}
+
+
+/** A `SampledRecord` edge in the connection. */
+export interface SampledRecordsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledRecord` at the end of the edge. */
+    node: (SampledRecord | null)
+    __typename: 'SampledRecordsEdge'
+}
+
+
+/** Methods to use when ordering `SampledRecord`. */
+export type SampledRecordsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'TIME_ASC' | 'TIME_DESC' | 'GAME_VERSION_ASC' | 'GAME_VERSION_DESC' | 'IS_VALID_ASC' | 'IS_VALID_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'MOD_VERSION_ASC' | 'MOD_VERSION_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'SPLITS_ASC' | 'SPLITS_DESC' | 'SPEEDS_ASC' | 'SPEEDS_DESC'
+
+
+/** A connection to a list of `SampledRecordMedia` values. */
+export interface SampledRecordMediasConnection {
+    /** A list of `SampledRecordMedia` objects. */
+    nodes: (SampledRecordMedia | null)[]
+    /** A list of edges which contains the `SampledRecordMedia` and cursor to aid in pagination. */
+    edges: SampledRecordMediasEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledRecordMedia` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledRecordMediasConnection'
+}
+
+export interface SampledRecordMedia {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    ghostUrl: (Scalars['String'] | null)
+    screenshotUrl: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledRecordMedia'
+}
+
+
+/** A `SampledRecordMedia` edge in the connection. */
+export interface SampledRecordMediasEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledRecordMedia` at the end of the edge. */
+    node: (SampledRecordMedia | null)
+    __typename: 'SampledRecordMediasEdge'
+}
+
+
+/** Methods to use when ordering `SampledRecordMedia`. */
+export type SampledRecordMediasOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'GHOST_URL_ASC' | 'GHOST_URL_DESC' | 'SCREENSHOT_URL_ASC' | 'SCREENSHOT_URL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledStatsDaily` values. */
+export interface SampledStatsDailiesConnection {
+    /** A list of `SampledStatsDaily` objects. */
+    nodes: (SampledStatsDaily | null)[]
+    /** A list of edges which contains the `SampledStatsDaily` and cursor to aid in pagination. */
+    edges: SampledStatsDailiesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledStatsDaily` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledStatsDailiesConnection'
+}
+
+export interface SampledStatsDaily {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    key: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    day: (Scalars['Int'] | null)
+    value: (Scalars['BigFloat'] | null)
+    __typename: 'SampledStatsDaily'
+}
+
+
+/** A `SampledStatsDaily` edge in the connection. */
+export interface SampledStatsDailiesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledStatsDaily` at the end of the edge. */
+    node: (SampledStatsDaily | null)
+    __typename: 'SampledStatsDailiesEdge'
+}
+
+
+/** Methods to use when ordering `SampledStatsDaily`. */
+export type SampledStatsDailiesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'KEY_ASC' | 'KEY_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'DAY_ASC' | 'DAY_DESC' | 'VALUE_ASC' | 'VALUE_DESC'
+
+
+/** A connection to a list of `SampledStatsGlobal` values. */
+export interface SampledStatsGlobalsConnection {
+    /** A list of `SampledStatsGlobal` objects. */
+    nodes: (SampledStatsGlobal | null)[]
+    /** A list of edges which contains the `SampledStatsGlobal` and cursor to aid in pagination. */
+    edges: SampledStatsGlobalsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledStatsGlobal` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledStatsGlobalsConnection'
+}
+
+export interface SampledStatsGlobal {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    key: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    value: (Scalars['BigFloat'] | null)
+    __typename: 'SampledStatsGlobal'
+}
+
+
+/** A `SampledStatsGlobal` edge in the connection. */
+export interface SampledStatsGlobalsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledStatsGlobal` at the end of the edge. */
+    node: (SampledStatsGlobal | null)
+    __typename: 'SampledStatsGlobalsEdge'
+}
+
+
+/** Methods to use when ordering `SampledStatsGlobal`. */
+export type SampledStatsGlobalsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'KEY_ASC' | 'KEY_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'VALUE_ASC' | 'VALUE_DESC'
+
+
+/** A connection to a list of `SampledStatsMonthly` values. */
+export interface SampledStatsMonthliesConnection {
+    /** A list of `SampledStatsMonthly` objects. */
+    nodes: (SampledStatsMonthly | null)[]
+    /** A list of edges which contains the `SampledStatsMonthly` and cursor to aid in pagination. */
+    edges: SampledStatsMonthliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledStatsMonthly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledStatsMonthliesConnection'
+}
+
+export interface SampledStatsMonthly {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    key: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    month: (Scalars['Int'] | null)
+    value: (Scalars['BigFloat'] | null)
+    __typename: 'SampledStatsMonthly'
+}
+
+
+/** A `SampledStatsMonthly` edge in the connection. */
+export interface SampledStatsMonthliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledStatsMonthly` at the end of the edge. */
+    node: (SampledStatsMonthly | null)
+    __typename: 'SampledStatsMonthliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledStatsMonthly`. */
+export type SampledStatsMonthliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'KEY_ASC' | 'KEY_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'MONTH_ASC' | 'MONTH_DESC' | 'VALUE_ASC' | 'VALUE_DESC'
+
+
+/** A connection to a list of `SampledStatsQuarterly` values. */
+export interface SampledStatsQuarterliesConnection {
+    /** A list of `SampledStatsQuarterly` objects. */
+    nodes: (SampledStatsQuarterly | null)[]
+    /** A list of edges which contains the `SampledStatsQuarterly` and cursor to aid in pagination. */
+    edges: SampledStatsQuarterliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledStatsQuarterly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledStatsQuarterliesConnection'
+}
+
+export interface SampledStatsQuarterly {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    key: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    quarter: (Scalars['Int'] | null)
+    value: (Scalars['BigFloat'] | null)
+    __typename: 'SampledStatsQuarterly'
+}
+
+
+/** A `SampledStatsQuarterly` edge in the connection. */
+export interface SampledStatsQuarterliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledStatsQuarterly` at the end of the edge. */
+    node: (SampledStatsQuarterly | null)
+    __typename: 'SampledStatsQuarterliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledStatsQuarterly`. */
+export type SampledStatsQuarterliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'KEY_ASC' | 'KEY_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'QUARTER_ASC' | 'QUARTER_DESC' | 'VALUE_ASC' | 'VALUE_DESC'
+
+
+/** A connection to a list of `SampledStatsWeekly` values. */
+export interface SampledStatsWeekliesConnection {
+    /** A list of `SampledStatsWeekly` objects. */
+    nodes: (SampledStatsWeekly | null)[]
+    /** A list of edges which contains the `SampledStatsWeekly` and cursor to aid in pagination. */
+    edges: SampledStatsWeekliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledStatsWeekly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledStatsWeekliesConnection'
+}
+
+export interface SampledStatsWeekly {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    key: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    week: (Scalars['Int'] | null)
+    value: (Scalars['BigFloat'] | null)
+    __typename: 'SampledStatsWeekly'
+}
+
+
+/** A `SampledStatsWeekly` edge in the connection. */
+export interface SampledStatsWeekliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledStatsWeekly` at the end of the edge. */
+    node: (SampledStatsWeekly | null)
+    __typename: 'SampledStatsWeekliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledStatsWeekly`. */
+export type SampledStatsWeekliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'KEY_ASC' | 'KEY_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'WEEK_ASC' | 'WEEK_DESC' | 'VALUE_ASC' | 'VALUE_DESC'
+
+
+/** A connection to a list of `SampledStatsYearly` values. */
+export interface SampledStatsYearliesConnection {
+    /** A list of `SampledStatsYearly` objects. */
+    nodes: (SampledStatsYearly | null)[]
+    /** A list of edges which contains the `SampledStatsYearly` and cursor to aid in pagination. */
+    edges: SampledStatsYearliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledStatsYearly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledStatsYearliesConnection'
+}
+
+export interface SampledStatsYearly {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    key: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    value: (Scalars['BigFloat'] | null)
+    __typename: 'SampledStatsYearly'
+}
+
+
+/** A `SampledStatsYearly` edge in the connection. */
+export interface SampledStatsYearliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledStatsYearly` at the end of the edge. */
+    node: (SampledStatsYearly | null)
+    __typename: 'SampledStatsYearliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledStatsYearly`. */
+export type SampledStatsYearliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'KEY_ASC' | 'KEY_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'VALUE_ASC' | 'VALUE_DESC'
+
+
+/** A connection to a list of `SampledUpvote` values. */
+export interface SampledUpvotesConnection {
+    /** A list of `SampledUpvote` objects. */
+    nodes: (SampledUpvote | null)[]
+    /** A list of edges which contains the `SampledUpvote` and cursor to aid in pagination. */
+    edges: SampledUpvotesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledUpvote` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledUpvotesConnection'
+}
+
+export interface SampledUpvote {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledUpvote'
+}
+
+
+/** A `SampledUpvote` edge in the connection. */
+export interface SampledUpvotesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledUpvote` at the end of the edge. */
+    node: (SampledUpvote | null)
+    __typename: 'SampledUpvotesEdge'
+}
+
+
+/** Methods to use when ordering `SampledUpvote`. */
+export type SampledUpvotesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledUser` values. */
+export interface SampledUsersConnection {
+    /** A list of `SampledUser` objects. */
+    nodes: (SampledUser | null)[]
+    /** A list of edges which contains the `SampledUser` and cursor to aid in pagination. */
+    edges: SampledUsersEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledUser` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledUsersConnection'
+}
+
+export interface SampledUser {
+    id: (Scalars['Int'] | null)
+    steamName: (Scalars['String'] | null)
+    banned: (Scalars['Boolean'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    steamId: (Scalars['BigFloat'] | null)
+    discordId: (Scalars['BigFloat'] | null)
+    __typename: 'SampledUser'
+}
+
+
+/** A `SampledUser` edge in the connection. */
+export interface SampledUsersEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledUser` at the end of the edge. */
+    node: (SampledUser | null)
+    __typename: 'SampledUsersEdge'
+}
+
+
+/** Methods to use when ordering `SampledUser`. */
+export type SampledUsersOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'STEAM_NAME_ASC' | 'STEAM_NAME_DESC' | 'BANNED_ASC' | 'BANNED_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'STEAM_ID_ASC' | 'STEAM_ID_DESC' | 'DISCORD_ID_ASC' | 'DISCORD_ID_DESC'
+
+
+/** A connection to a list of `SampledUserPoint` values. */
+export interface SampledUserPointsConnection {
+    /** A list of `SampledUserPoint` objects. */
+    nodes: (SampledUserPoint | null)[]
+    /** A list of edges which contains the `SampledUserPoint` and cursor to aid in pagination. */
+    edges: SampledUserPointsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledUserPoint` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledUserPointsConnection'
+}
+
+export interface SampledUserPoint {
+    id: (Scalars['Int'] | null)
+    idUser: (Scalars['Int'] | null)
+    points: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    rank: (Scalars['Int'] | null)
+    worldRecords: (Scalars['Int'] | null)
+    __typename: 'SampledUserPoint'
+}
+
+
+/** A `SampledUserPoint` edge in the connection. */
+export interface SampledUserPointsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledUserPoint` at the end of the edge. */
+    node: (SampledUserPoint | null)
+    __typename: 'SampledUserPointsEdge'
+}
+
+
+/** Methods to use when ordering `SampledUserPoint`. */
+export type SampledUserPointsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_USER_ASC' | 'ID_USER_DESC' | 'POINTS_ASC' | 'POINTS_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'RANK_ASC' | 'RANK_DESC' | 'WORLD_RECORDS_ASC' | 'WORLD_RECORDS_DESC'
+
+
+/** A connection to a list of `SampledVersion` values. */
+export interface SampledVersionsConnection {
+    /** A list of `SampledVersion` objects. */
+    nodes: (SampledVersion | null)[]
+    /** A list of edges which contains the `SampledVersion` and cursor to aid in pagination. */
+    edges: SampledVersionsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledVersion` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledVersionsConnection'
+}
+
+export interface SampledVersion {
+    id: (Scalars['Int'] | null)
+    minimum: (Scalars['String'] | null)
+    latest: (Scalars['String'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledVersion'
+}
+
+
+/** A `SampledVersion` edge in the connection. */
+export interface SampledVersionsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledVersion` at the end of the edge. */
+    node: (SampledVersion | null)
+    __typename: 'SampledVersionsEdge'
+}
+
+
+/** Methods to use when ordering `SampledVersion`. */
+export type SampledVersionsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'MINIMUM_ASC' | 'MINIMUM_DESC' | 'LATEST_ASC' | 'LATEST_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledWorldRecordDaily` values. */
+export interface SampledWorldRecordDailiesConnection {
+    /** A list of `SampledWorldRecordDaily` objects. */
+    nodes: (SampledWorldRecordDaily | null)[]
+    /** A list of edges which contains the `SampledWorldRecordDaily` and cursor to aid in pagination. */
+    edges: SampledWorldRecordDailiesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledWorldRecordDaily` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledWorldRecordDailiesConnection'
+}
+
+export interface SampledWorldRecordDaily {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    day: (Scalars['Int'] | null)
+    __typename: 'SampledWorldRecordDaily'
+}
+
+
+/** A `SampledWorldRecordDaily` edge in the connection. */
+export interface SampledWorldRecordDailiesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledWorldRecordDaily` at the end of the edge. */
+    node: (SampledWorldRecordDaily | null)
+    __typename: 'SampledWorldRecordDailiesEdge'
+}
+
+
+/** Methods to use when ordering `SampledWorldRecordDaily`. */
+export type SampledWorldRecordDailiesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'DAY_ASC' | 'DAY_DESC'
+
+
+/** A connection to a list of `SampledWorldRecordGlobal` values. */
+export interface SampledWorldRecordGlobalsConnection {
+    /** A list of `SampledWorldRecordGlobal` objects. */
+    nodes: (SampledWorldRecordGlobal | null)[]
+    /** A list of edges which contains the `SampledWorldRecordGlobal` and cursor to aid in pagination. */
+    edges: SampledWorldRecordGlobalsEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledWorldRecordGlobal` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledWorldRecordGlobalsConnection'
+}
+
+export interface SampledWorldRecordGlobal {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    __typename: 'SampledWorldRecordGlobal'
+}
+
+
+/** A `SampledWorldRecordGlobal` edge in the connection. */
+export interface SampledWorldRecordGlobalsEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledWorldRecordGlobal` at the end of the edge. */
+    node: (SampledWorldRecordGlobal | null)
+    __typename: 'SampledWorldRecordGlobalsEdge'
+}
+
+
+/** Methods to use when ordering `SampledWorldRecordGlobal`. */
+export type SampledWorldRecordGlobalsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC'
+
+
+/** A connection to a list of `SampledWorldRecordMonthly` values. */
+export interface SampledWorldRecordMonthliesConnection {
+    /** A list of `SampledWorldRecordMonthly` objects. */
+    nodes: (SampledWorldRecordMonthly | null)[]
+    /** A list of edges which contains the `SampledWorldRecordMonthly` and cursor to aid in pagination. */
+    edges: SampledWorldRecordMonthliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledWorldRecordMonthly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledWorldRecordMonthliesConnection'
+}
+
+export interface SampledWorldRecordMonthly {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    month: (Scalars['Int'] | null)
+    __typename: 'SampledWorldRecordMonthly'
+}
+
+
+/** A `SampledWorldRecordMonthly` edge in the connection. */
+export interface SampledWorldRecordMonthliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledWorldRecordMonthly` at the end of the edge. */
+    node: (SampledWorldRecordMonthly | null)
+    __typename: 'SampledWorldRecordMonthliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledWorldRecordMonthly`. */
+export type SampledWorldRecordMonthliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'MONTH_ASC' | 'MONTH_DESC'
+
+
+/** A connection to a list of `SampledWorldRecordQuarterly` values. */
+export interface SampledWorldRecordQuarterliesConnection {
+    /** A list of `SampledWorldRecordQuarterly` objects. */
+    nodes: (SampledWorldRecordQuarterly | null)[]
+    /** A list of edges which contains the `SampledWorldRecordQuarterly` and cursor to aid in pagination. */
+    edges: SampledWorldRecordQuarterliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledWorldRecordQuarterly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledWorldRecordQuarterliesConnection'
+}
+
+export interface SampledWorldRecordQuarterly {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    quarter: (Scalars['Int'] | null)
+    __typename: 'SampledWorldRecordQuarterly'
+}
+
+
+/** A `SampledWorldRecordQuarterly` edge in the connection. */
+export interface SampledWorldRecordQuarterliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledWorldRecordQuarterly` at the end of the edge. */
+    node: (SampledWorldRecordQuarterly | null)
+    __typename: 'SampledWorldRecordQuarterliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledWorldRecordQuarterly`. */
+export type SampledWorldRecordQuarterliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'QUARTER_ASC' | 'QUARTER_DESC'
+
+
+/** A connection to a list of `SampledWorldRecordWeekly` values. */
+export interface SampledWorldRecordWeekliesConnection {
+    /** A list of `SampledWorldRecordWeekly` objects. */
+    nodes: (SampledWorldRecordWeekly | null)[]
+    /** A list of edges which contains the `SampledWorldRecordWeekly` and cursor to aid in pagination. */
+    edges: SampledWorldRecordWeekliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledWorldRecordWeekly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledWorldRecordWeekliesConnection'
+}
+
+export interface SampledWorldRecordWeekly {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    week: (Scalars['Int'] | null)
+    __typename: 'SampledWorldRecordWeekly'
+}
+
+
+/** A `SampledWorldRecordWeekly` edge in the connection. */
+export interface SampledWorldRecordWeekliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledWorldRecordWeekly` at the end of the edge. */
+    node: (SampledWorldRecordWeekly | null)
+    __typename: 'SampledWorldRecordWeekliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledWorldRecordWeekly`. */
+export type SampledWorldRecordWeekliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC' | 'WEEK_ASC' | 'WEEK_DESC'
+
+
+/** A connection to a list of `SampledWorldRecordYearly` values. */
+export interface SampledWorldRecordYearliesConnection {
+    /** A list of `SampledWorldRecordYearly` objects. */
+    nodes: (SampledWorldRecordYearly | null)[]
+    /** A list of edges which contains the `SampledWorldRecordYearly` and cursor to aid in pagination. */
+    edges: SampledWorldRecordYearliesEdge[]
+    /** Information to aid in pagination. */
+    pageInfo: PageInfo
+    /** The count of *all* `SampledWorldRecordYearly` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'SampledWorldRecordYearliesConnection'
+}
+
+export interface SampledWorldRecordYearly {
+    id: (Scalars['Int'] | null)
+    idRecord: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    year: (Scalars['Int'] | null)
+    __typename: 'SampledWorldRecordYearly'
+}
+
+
+/** A `SampledWorldRecordYearly` edge in the connection. */
+export interface SampledWorldRecordYearliesEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `SampledWorldRecordYearly` at the end of the edge. */
+    node: (SampledWorldRecordYearly | null)
+    __typename: 'SampledWorldRecordYearliesEdge'
+}
+
+
+/** Methods to use when ordering `SampledWorldRecordYearly`. */
+export type SampledWorldRecordYearliesOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'ID_RECORD_ASC' | 'ID_RECORD_DESC' | 'ID_LEVEL_ASC' | 'ID_LEVEL_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'YEAR_ASC' | 'YEAR_DESC'
+
+
 /** A connection to a list of `User` values. */
 export interface UsersConnection {
     /** A list of `User` objects. */
@@ -1653,6 +2899,53 @@ export interface VersionsEdge {
 
 /** Methods to use when ordering `Version`. */
 export type VersionsOrderBy = 'NATURAL' | 'ID_ASC' | 'ID_DESC' | 'MINIMUM_ASC' | 'MINIMUM_DESC' | 'LATEST_ASC' | 'LATEST_DESC' | 'DATE_CREATED_ASC' | 'DATE_CREATED_DESC' | 'DATE_UPDATED_ASC' | 'DATE_UPDATED_DESC' | 'PRIMARY_KEY_ASC' | 'PRIMARY_KEY_DESC'
+
+
+/** A connection to a list of `ZRtmRecord` values. */
+export interface ZRtmConnection {
+    /** A list of `ZRtmRecord` objects. */
+    nodes: (ZRtmRecord | null)[]
+    /** A list of edges which contains the `ZRtmRecord` and cursor to aid in pagination. */
+    edges: ZRtmEdge[]
+    /** The count of *all* `ZRtmRecord` you could get from the connection. */
+    totalCount: Scalars['Int']
+    __typename: 'ZRtmConnection'
+}
+
+
+/** The return type of our `zRtm` query. */
+export interface ZRtmRecord {
+    id: (Scalars['Int'] | null)
+    idLevel: (Scalars['Int'] | null)
+    workshopId: (Scalars['BigFloat'] | null)
+    authorId: (Scalars['BigFloat'] | null)
+    name: (Scalars['String'] | null)
+    imageUrl: (Scalars['String'] | null)
+    fileAuthor: (Scalars['String'] | null)
+    fileUid: (Scalars['String'] | null)
+    validationTimeAuthor: (Scalars['Float'] | null)
+    validationTimeGold: (Scalars['Float'] | null)
+    validationTimeSilver: (Scalars['Float'] | null)
+    validationTimeBronze: (Scalars['Float'] | null)
+    deleted: (Scalars['Boolean'] | null)
+    createdAt: (Scalars['Datetime'] | null)
+    updatedAt: (Scalars['Datetime'] | null)
+    dateCreated: (Scalars['Datetime'] | null)
+    dateUpdated: (Scalars['Datetime'] | null)
+    amountCheckpoints: (Scalars['Int'] | null)
+    numRecords: (Scalars['BigInt'] | null)
+    __typename: 'ZRtmRecord'
+}
+
+
+/** A `ZRtmRecord` edge in the connection. */
+export interface ZRtmEdge {
+    /** A cursor for use in pagination. */
+    cursor: (Scalars['Cursor'] | null)
+    /** The `ZRtmRecord` at the end of the edge. */
+    node: (ZRtmRecord | null)
+    __typename: 'ZRtmEdge'
+}
 
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -1982,6 +3275,636 @@ export interface QueryGenqlSelection{
     condition?: (RecordMediaCondition | null), 
     /** A filter to be used in determining which values should be returned by the collection. */
     filter?: (RecordMediaFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledFavorite`. */
+    allSampledFavorites?: (SampledFavoritesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledFavorite`. */
+    orderBy?: (SampledFavoritesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledFavoriteCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledFavoriteFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledLevel`. */
+    allSampledLevels?: (SampledLevelsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledLevel`. */
+    orderBy?: (SampledLevelsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledLevelCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledLevelFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledLevelItem`. */
+    allSampledLevelItems?: (SampledLevelItemsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledLevelItem`. */
+    orderBy?: (SampledLevelItemsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledLevelItemCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledLevelItemFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledLevelMetadatum`. */
+    allSampledLevelMetadata?: (SampledLevelMetadataConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledLevelMetadatum`. */
+    orderBy?: (SampledLevelMetadataOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledLevelMetadatumCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledLevelMetadatumFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledLevelPoint`. */
+    allSampledLevelPoints?: (SampledLevelPointsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledLevelPoint`. */
+    orderBy?: (SampledLevelPointsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledLevelPointCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledLevelPointFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledLevelRequest`. */
+    allSampledLevelRequests?: (SampledLevelRequestsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledLevelRequest`. */
+    orderBy?: (SampledLevelRequestsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledLevelRequestCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledLevelRequestFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledPersonalBestDaily`. */
+    allSampledPersonalBestDailies?: (SampledPersonalBestDailiesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledPersonalBestDaily`. */
+    orderBy?: (SampledPersonalBestDailiesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledPersonalBestDailyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledPersonalBestDailyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledPersonalBestGlobal`. */
+    allSampledPersonalBestGlobals?: (SampledPersonalBestGlobalsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledPersonalBestGlobal`. */
+    orderBy?: (SampledPersonalBestGlobalsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledPersonalBestGlobalCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledPersonalBestGlobalFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledPersonalBestMonthly`. */
+    allSampledPersonalBestMonthlies?: (SampledPersonalBestMonthliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledPersonalBestMonthly`. */
+    orderBy?: (SampledPersonalBestMonthliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledPersonalBestMonthlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledPersonalBestMonthlyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledPersonalBestQuarterly`. */
+    allSampledPersonalBestQuarterlies?: (SampledPersonalBestQuarterliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledPersonalBestQuarterly`. */
+    orderBy?: (SampledPersonalBestQuarterliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledPersonalBestQuarterlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledPersonalBestQuarterlyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledPersonalBestWeekly`. */
+    allSampledPersonalBestWeeklies?: (SampledPersonalBestWeekliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledPersonalBestWeekly`. */
+    orderBy?: (SampledPersonalBestWeekliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledPersonalBestWeeklyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledPersonalBestWeeklyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledPersonalBestYearly`. */
+    allSampledPersonalBestYearlies?: (SampledPersonalBestYearliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledPersonalBestYearly`. */
+    orderBy?: (SampledPersonalBestYearliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledPersonalBestYearlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledPersonalBestYearlyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledRecord`. */
+    allSampledRecords?: (SampledRecordsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledRecord`. */
+    orderBy?: (SampledRecordsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledRecordCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledRecordFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledRecordMedia`. */
+    allSampledRecordMedias?: (SampledRecordMediasConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledRecordMedia`. */
+    orderBy?: (SampledRecordMediasOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledRecordMediaCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledRecordMediaFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledStatsDaily`. */
+    allSampledStatsDailies?: (SampledStatsDailiesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledStatsDaily`. */
+    orderBy?: (SampledStatsDailiesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledStatsDailyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledStatsDailyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledStatsGlobal`. */
+    allSampledStatsGlobals?: (SampledStatsGlobalsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledStatsGlobal`. */
+    orderBy?: (SampledStatsGlobalsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledStatsGlobalCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledStatsGlobalFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledStatsMonthly`. */
+    allSampledStatsMonthlies?: (SampledStatsMonthliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledStatsMonthly`. */
+    orderBy?: (SampledStatsMonthliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledStatsMonthlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledStatsMonthlyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledStatsQuarterly`. */
+    allSampledStatsQuarterlies?: (SampledStatsQuarterliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledStatsQuarterly`. */
+    orderBy?: (SampledStatsQuarterliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledStatsQuarterlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledStatsQuarterlyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledStatsWeekly`. */
+    allSampledStatsWeeklies?: (SampledStatsWeekliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledStatsWeekly`. */
+    orderBy?: (SampledStatsWeekliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledStatsWeeklyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledStatsWeeklyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledStatsYearly`. */
+    allSampledStatsYearlies?: (SampledStatsYearliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledStatsYearly`. */
+    orderBy?: (SampledStatsYearliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledStatsYearlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledStatsYearlyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledUpvote`. */
+    allSampledUpvotes?: (SampledUpvotesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledUpvote`. */
+    orderBy?: (SampledUpvotesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledUpvoteCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledUpvoteFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledUser`. */
+    allSampledUsers?: (SampledUsersConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledUser`. */
+    orderBy?: (SampledUsersOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledUserCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledUserFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledUserPoint`. */
+    allSampledUserPoints?: (SampledUserPointsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledUserPoint`. */
+    orderBy?: (SampledUserPointsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledUserPointCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledUserPointFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledVersion`. */
+    allSampledVersions?: (SampledVersionsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledVersion`. */
+    orderBy?: (SampledVersionsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledVersionCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledVersionFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledWorldRecordDaily`. */
+    allSampledWorldRecordDailies?: (SampledWorldRecordDailiesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledWorldRecordDaily`. */
+    orderBy?: (SampledWorldRecordDailiesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledWorldRecordDailyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledWorldRecordDailyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledWorldRecordGlobal`. */
+    allSampledWorldRecordGlobals?: (SampledWorldRecordGlobalsConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledWorldRecordGlobal`. */
+    orderBy?: (SampledWorldRecordGlobalsOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledWorldRecordGlobalCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledWorldRecordGlobalFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledWorldRecordMonthly`. */
+    allSampledWorldRecordMonthlies?: (SampledWorldRecordMonthliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledWorldRecordMonthly`. */
+    orderBy?: (SampledWorldRecordMonthliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledWorldRecordMonthlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledWorldRecordMonthlyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledWorldRecordQuarterly`. */
+    allSampledWorldRecordQuarterlies?: (SampledWorldRecordQuarterliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledWorldRecordQuarterly`. */
+    orderBy?: (SampledWorldRecordQuarterliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledWorldRecordQuarterlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledWorldRecordQuarterlyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledWorldRecordWeekly`. */
+    allSampledWorldRecordWeeklies?: (SampledWorldRecordWeekliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledWorldRecordWeekly`. */
+    orderBy?: (SampledWorldRecordWeekliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledWorldRecordWeeklyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledWorldRecordWeeklyFilter | null)} })
+    /** Reads and enables pagination through a set of `SampledWorldRecordYearly`. */
+    allSampledWorldRecordYearlies?: (SampledWorldRecordYearliesConnectionGenqlSelection & { __args?: {
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** The method to use when ordering `SampledWorldRecordYearly`. */
+    orderBy?: (SampledWorldRecordYearliesOrderBy[] | null), 
+    /** A condition to be used in determining which values should be returned by the collection. */
+    condition?: (SampledWorldRecordYearlyCondition | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (SampledWorldRecordYearlyFilter | null)} })
     /** Reads and enables pagination through a set of `StatsDaily`. */
     allStatsDailies?: (StatsDailiesConnectionGenqlSelection & { __args?: {
     /** Only read the first `n` values of the set. */
@@ -2349,6 +4272,23 @@ export interface QueryGenqlSelection{
     worldRecordQuarterlyById?: (WorldRecordQuarterlyGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordWeeklyById?: (WorldRecordWeeklyGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordYearlyById?: (WorldRecordYearlyGenqlSelection & { __args: {id: Scalars['Int']} })
+    /** Retrieves filtered level items based on specified criteria */
+    zRtm?: (ZRtmConnectionGenqlSelection & { __args?: {pMinAuthorTime?: (Scalars['Float'] | null), pMaxAuthorTime?: (Scalars['Float'] | null), pMinRecords?: (Scalars['Int'] | null), pMaxRecords?: (Scalars['Int'] | null), pExcludedAuthorIds?: ((Scalars['Int'] | null)[] | null), pExcludedHashes?: ((Scalars['String'] | null)[] | null), pMinCheckpoints?: (Scalars['Int'] | null), pMaxCheckpoints?: (Scalars['Int'] | null), pSampleSize?: (Scalars['Int'] | null), 
+    /** Only read the first `n` values of the set. */
+    first?: (Scalars['Int'] | null), 
+    /** Only read the last `n` values of the set. */
+    last?: (Scalars['Int'] | null), 
+    /**
+     * Skip the first `n` values from our `after` cursor, an alternative to cursor
+     * based pagination. May not be used with `last`.
+     */
+    offset?: (Scalars['Int'] | null), 
+    /** Read all values in the set before (above) this cursor. */
+    before?: (Scalars['Cursor'] | null), 
+    /** Read all values in the set after (below) this cursor. */
+    after?: (Scalars['Cursor'] | null), 
+    /** A filter to be used in determining which values should be returned by the collection. */
+    filter?: (ZRtmRecordFilter | null)} })
     /** Reads a single `Favorite` using its globally unique `ID`. */
     favorite?: (FavoriteGenqlSelection & { __args: {
     /** The globally unique `ID` to be used in selecting a single `Favorite`. */
@@ -7378,6 +9318,2561 @@ or?: (LevelRequestFilter[] | null),
 not?: (LevelRequestFilter | null)}
 
 
+/** A connection to a list of `SampledFavorite` values. */
+export interface SampledFavoritesConnectionGenqlSelection{
+    /** A list of `SampledFavorite` objects. */
+    nodes?: SampledFavoriteGenqlSelection
+    /** A list of edges which contains the `SampledFavorite` and cursor to aid in pagination. */
+    edges?: SampledFavoritesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledFavorite` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledFavoriteGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    idLevel?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledFavorite` edge in the connection. */
+export interface SampledFavoritesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledFavorite` at the end of the edge. */
+    node?: SampledFavoriteGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledFavorite` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledFavoriteCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledFavorite` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledFavoriteFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledFavoriteFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledFavoriteFilter[] | null),
+/** Negates the expression. */
+not?: (SampledFavoriteFilter | null)}
+
+
+/** A connection to a list of `SampledLevel` values. */
+export interface SampledLevelsConnectionGenqlSelection{
+    /** A list of `SampledLevel` objects. */
+    nodes?: SampledLevelGenqlSelection
+    /** A list of edges which contains the `SampledLevel` and cursor to aid in pagination. */
+    edges?: SampledLevelsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledLevel` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledLevelGenqlSelection{
+    id?: boolean | number
+    hash?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledLevel` edge in the connection. */
+export interface SampledLevelsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledLevel` at the end of the edge. */
+    node?: SampledLevelGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledLevel` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledLevelCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `hash` field. */
+hash?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledLevel` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledLevelFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `hash` field. */
+hash?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledLevelFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledLevelFilter[] | null),
+/** Negates the expression. */
+not?: (SampledLevelFilter | null)}
+
+
+/** A connection to a list of `SampledLevelItem` values. */
+export interface SampledLevelItemsConnectionGenqlSelection{
+    /** A list of `SampledLevelItem` objects. */
+    nodes?: SampledLevelItemGenqlSelection
+    /** A list of edges which contains the `SampledLevelItem` and cursor to aid in pagination. */
+    edges?: SampledLevelItemsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledLevelItem` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledLevelItemGenqlSelection{
+    id?: boolean | number
+    idLevel?: boolean | number
+    workshopId?: boolean | number
+    authorId?: boolean | number
+    name?: boolean | number
+    imageUrl?: boolean | number
+    fileAuthor?: boolean | number
+    fileUid?: boolean | number
+    validationTimeAuthor?: boolean | number
+    validationTimeGold?: boolean | number
+    validationTimeSilver?: boolean | number
+    validationTimeBronze?: boolean | number
+    deleted?: boolean | number
+    createdAt?: boolean | number
+    updatedAt?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledLevelItem` edge in the connection. */
+export interface SampledLevelItemsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledLevelItem` at the end of the edge. */
+    node?: SampledLevelItemGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledLevelItem` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledLevelItemCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `workshopId` field. */
+workshopId?: (Scalars['BigFloat'] | null),
+/** Checks for equality with the object’s `authorId` field. */
+authorId?: (Scalars['BigFloat'] | null),
+/** Checks for equality with the object’s `name` field. */
+name?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `imageUrl` field. */
+imageUrl?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `fileAuthor` field. */
+fileAuthor?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `fileUid` field. */
+fileUid?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `validationTimeAuthor` field. */
+validationTimeAuthor?: (Scalars['Float'] | null),
+/** Checks for equality with the object’s `validationTimeGold` field. */
+validationTimeGold?: (Scalars['Float'] | null),
+/** Checks for equality with the object’s `validationTimeSilver` field. */
+validationTimeSilver?: (Scalars['Float'] | null),
+/** Checks for equality with the object’s `validationTimeBronze` field. */
+validationTimeBronze?: (Scalars['Float'] | null),
+/** Checks for equality with the object’s `deleted` field. */
+deleted?: (Scalars['Boolean'] | null),
+/** Checks for equality with the object’s `createdAt` field. */
+createdAt?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `updatedAt` field. */
+updatedAt?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledLevelItem` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledLevelItemFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `workshopId` field. */
+workshopId?: (BigFloatFilter | null),
+/** Filter by the object’s `authorId` field. */
+authorId?: (BigFloatFilter | null),
+/** Filter by the object’s `name` field. */
+name?: (StringFilter | null),
+/** Filter by the object’s `imageUrl` field. */
+imageUrl?: (StringFilter | null),
+/** Filter by the object’s `fileAuthor` field. */
+fileAuthor?: (StringFilter | null),
+/** Filter by the object’s `fileUid` field. */
+fileUid?: (StringFilter | null),
+/** Filter by the object’s `validationTimeAuthor` field. */
+validationTimeAuthor?: (FloatFilter | null),
+/** Filter by the object’s `validationTimeGold` field. */
+validationTimeGold?: (FloatFilter | null),
+/** Filter by the object’s `validationTimeSilver` field. */
+validationTimeSilver?: (FloatFilter | null),
+/** Filter by the object’s `validationTimeBronze` field. */
+validationTimeBronze?: (FloatFilter | null),
+/** Filter by the object’s `deleted` field. */
+deleted?: (BooleanFilter | null),
+/** Filter by the object’s `createdAt` field. */
+createdAt?: (DatetimeFilter | null),
+/** Filter by the object’s `updatedAt` field. */
+updatedAt?: (DatetimeFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledLevelItemFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledLevelItemFilter[] | null),
+/** Negates the expression. */
+not?: (SampledLevelItemFilter | null)}
+
+
+/** A connection to a list of `SampledLevelMetadatum` values. */
+export interface SampledLevelMetadataConnectionGenqlSelection{
+    /** A list of `SampledLevelMetadatum` objects. */
+    nodes?: SampledLevelMetadatumGenqlSelection
+    /** A list of edges which contains the `SampledLevelMetadatum` and cursor to aid in pagination. */
+    edges?: SampledLevelMetadataEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledLevelMetadatum` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledLevelMetadatumGenqlSelection{
+    id?: boolean | number
+    idLevel?: boolean | number
+    amountCheckpoints?: boolean | number
+    amountFinishes?: boolean | number
+    amountBlocks?: boolean | number
+    typeGround?: boolean | number
+    typeSkybox?: boolean | number
+    blocks?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledLevelMetadatum` edge in the connection. */
+export interface SampledLevelMetadataEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledLevelMetadatum` at the end of the edge. */
+    node?: SampledLevelMetadatumGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledLevelMetadatum` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledLevelMetadatumCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `amountCheckpoints` field. */
+amountCheckpoints?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `amountFinishes` field. */
+amountFinishes?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `amountBlocks` field. */
+amountBlocks?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `typeGround` field. */
+typeGround?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `typeSkybox` field. */
+typeSkybox?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `blocks` field. */
+blocks?: (Scalars['JSON'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledLevelMetadatum` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledLevelMetadatumFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `amountCheckpoints` field. */
+amountCheckpoints?: (IntFilter | null),
+/** Filter by the object’s `amountFinishes` field. */
+amountFinishes?: (IntFilter | null),
+/** Filter by the object’s `amountBlocks` field. */
+amountBlocks?: (IntFilter | null),
+/** Filter by the object’s `typeGround` field. */
+typeGround?: (IntFilter | null),
+/** Filter by the object’s `typeSkybox` field. */
+typeSkybox?: (IntFilter | null),
+/** Filter by the object’s `blocks` field. */
+blocks?: (JSONFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledLevelMetadatumFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledLevelMetadatumFilter[] | null),
+/** Negates the expression. */
+not?: (SampledLevelMetadatumFilter | null)}
+
+
+/** A connection to a list of `SampledLevelPoint` values. */
+export interface SampledLevelPointsConnectionGenqlSelection{
+    /** A list of `SampledLevelPoint` objects. */
+    nodes?: SampledLevelPointGenqlSelection
+    /** A list of edges which contains the `SampledLevelPoint` and cursor to aid in pagination. */
+    edges?: SampledLevelPointsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledLevelPoint` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledLevelPointGenqlSelection{
+    id?: boolean | number
+    points?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledLevelPoint` edge in the connection. */
+export interface SampledLevelPointsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledLevelPoint` at the end of the edge. */
+    node?: SampledLevelPointGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledLevelPoint` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledLevelPointCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `points` field. */
+points?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledLevelPoint` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledLevelPointFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `points` field. */
+points?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledLevelPointFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledLevelPointFilter[] | null),
+/** Negates the expression. */
+not?: (SampledLevelPointFilter | null)}
+
+
+/** A connection to a list of `SampledLevelRequest` values. */
+export interface SampledLevelRequestsConnectionGenqlSelection{
+    /** A list of `SampledLevelRequest` objects. */
+    nodes?: SampledLevelRequestGenqlSelection
+    /** A list of edges which contains the `SampledLevelRequest` and cursor to aid in pagination. */
+    edges?: SampledLevelRequestsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledLevelRequest` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledLevelRequestGenqlSelection{
+    id?: boolean | number
+    workshopId?: boolean | number
+    uid?: boolean | number
+    hash?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledLevelRequest` edge in the connection. */
+export interface SampledLevelRequestsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledLevelRequest` at the end of the edge. */
+    node?: SampledLevelRequestGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledLevelRequest` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledLevelRequestCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `workshopId` field. */
+workshopId?: (Scalars['BigFloat'] | null),
+/** Checks for equality with the object’s `uid` field. */
+uid?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `hash` field. */
+hash?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledLevelRequest` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledLevelRequestFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `workshopId` field. */
+workshopId?: (BigFloatFilter | null),
+/** Filter by the object’s `uid` field. */
+uid?: (StringFilter | null),
+/** Filter by the object’s `hash` field. */
+hash?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledLevelRequestFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledLevelRequestFilter[] | null),
+/** Negates the expression. */
+not?: (SampledLevelRequestFilter | null)}
+
+
+/** A connection to a list of `SampledPersonalBestDaily` values. */
+export interface SampledPersonalBestDailiesConnectionGenqlSelection{
+    /** A list of `SampledPersonalBestDaily` objects. */
+    nodes?: SampledPersonalBestDailyGenqlSelection
+    /** A list of edges which contains the `SampledPersonalBestDaily` and cursor to aid in pagination. */
+    edges?: SampledPersonalBestDailiesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledPersonalBestDaily` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledPersonalBestDailyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    day?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledPersonalBestDaily` edge in the connection. */
+export interface SampledPersonalBestDailiesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledPersonalBestDaily` at the end of the edge. */
+    node?: SampledPersonalBestDailyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledPersonalBestDaily` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledPersonalBestDailyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `day` field. */
+day?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledPersonalBestDaily` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledPersonalBestDailyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `day` field. */
+day?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledPersonalBestDailyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledPersonalBestDailyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledPersonalBestDailyFilter | null)}
+
+
+/** A connection to a list of `SampledPersonalBestGlobal` values. */
+export interface SampledPersonalBestGlobalsConnectionGenqlSelection{
+    /** A list of `SampledPersonalBestGlobal` objects. */
+    nodes?: SampledPersonalBestGlobalGenqlSelection
+    /** A list of edges which contains the `SampledPersonalBestGlobal` and cursor to aid in pagination. */
+    edges?: SampledPersonalBestGlobalsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledPersonalBestGlobal` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledPersonalBestGlobalGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledPersonalBestGlobal` edge in the connection. */
+export interface SampledPersonalBestGlobalsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledPersonalBestGlobal` at the end of the edge. */
+    node?: SampledPersonalBestGlobalGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledPersonalBestGlobal` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledPersonalBestGlobalCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledPersonalBestGlobal` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledPersonalBestGlobalFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledPersonalBestGlobalFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledPersonalBestGlobalFilter[] | null),
+/** Negates the expression. */
+not?: (SampledPersonalBestGlobalFilter | null)}
+
+
+/** A connection to a list of `SampledPersonalBestMonthly` values. */
+export interface SampledPersonalBestMonthliesConnectionGenqlSelection{
+    /** A list of `SampledPersonalBestMonthly` objects. */
+    nodes?: SampledPersonalBestMonthlyGenqlSelection
+    /** A list of edges which contains the `SampledPersonalBestMonthly` and cursor to aid in pagination. */
+    edges?: SampledPersonalBestMonthliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledPersonalBestMonthly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledPersonalBestMonthlyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    month?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledPersonalBestMonthly` edge in the connection. */
+export interface SampledPersonalBestMonthliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledPersonalBestMonthly` at the end of the edge. */
+    node?: SampledPersonalBestMonthlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledPersonalBestMonthly` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledPersonalBestMonthlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `month` field. */
+month?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledPersonalBestMonthly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledPersonalBestMonthlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `month` field. */
+month?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledPersonalBestMonthlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledPersonalBestMonthlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledPersonalBestMonthlyFilter | null)}
+
+
+/** A connection to a list of `SampledPersonalBestQuarterly` values. */
+export interface SampledPersonalBestQuarterliesConnectionGenqlSelection{
+    /** A list of `SampledPersonalBestQuarterly` objects. */
+    nodes?: SampledPersonalBestQuarterlyGenqlSelection
+    /** A list of edges which contains the `SampledPersonalBestQuarterly` and cursor to aid in pagination. */
+    edges?: SampledPersonalBestQuarterliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledPersonalBestQuarterly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledPersonalBestQuarterlyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    quarter?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledPersonalBestQuarterly` edge in the connection. */
+export interface SampledPersonalBestQuarterliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledPersonalBestQuarterly` at the end of the edge. */
+    node?: SampledPersonalBestQuarterlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledPersonalBestQuarterly` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledPersonalBestQuarterlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `quarter` field. */
+quarter?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledPersonalBestQuarterly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledPersonalBestQuarterlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `quarter` field. */
+quarter?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledPersonalBestQuarterlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledPersonalBestQuarterlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledPersonalBestQuarterlyFilter | null)}
+
+
+/** A connection to a list of `SampledPersonalBestWeekly` values. */
+export interface SampledPersonalBestWeekliesConnectionGenqlSelection{
+    /** A list of `SampledPersonalBestWeekly` objects. */
+    nodes?: SampledPersonalBestWeeklyGenqlSelection
+    /** A list of edges which contains the `SampledPersonalBestWeekly` and cursor to aid in pagination. */
+    edges?: SampledPersonalBestWeekliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledPersonalBestWeekly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledPersonalBestWeeklyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    week?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledPersonalBestWeekly` edge in the connection. */
+export interface SampledPersonalBestWeekliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledPersonalBestWeekly` at the end of the edge. */
+    node?: SampledPersonalBestWeeklyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledPersonalBestWeekly` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledPersonalBestWeeklyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `week` field. */
+week?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledPersonalBestWeekly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledPersonalBestWeeklyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `week` field. */
+week?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledPersonalBestWeeklyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledPersonalBestWeeklyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledPersonalBestWeeklyFilter | null)}
+
+
+/** A connection to a list of `SampledPersonalBestYearly` values. */
+export interface SampledPersonalBestYearliesConnectionGenqlSelection{
+    /** A list of `SampledPersonalBestYearly` objects. */
+    nodes?: SampledPersonalBestYearlyGenqlSelection
+    /** A list of edges which contains the `SampledPersonalBestYearly` and cursor to aid in pagination. */
+    edges?: SampledPersonalBestYearliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledPersonalBestYearly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledPersonalBestYearlyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledPersonalBestYearly` edge in the connection. */
+export interface SampledPersonalBestYearliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledPersonalBestYearly` at the end of the edge. */
+    node?: SampledPersonalBestYearlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledPersonalBestYearly` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledPersonalBestYearlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledPersonalBestYearly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledPersonalBestYearlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledPersonalBestYearlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledPersonalBestYearlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledPersonalBestYearlyFilter | null)}
+
+
+/** A connection to a list of `SampledRecord` values. */
+export interface SampledRecordsConnectionGenqlSelection{
+    /** A list of `SampledRecord` objects. */
+    nodes?: SampledRecordGenqlSelection
+    /** A list of edges which contains the `SampledRecord` and cursor to aid in pagination. */
+    edges?: SampledRecordsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledRecord` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledRecordGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    time?: boolean | number
+    gameVersion?: boolean | number
+    isValid?: boolean | number
+    idLevel?: boolean | number
+    modVersion?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    splits?: boolean | number
+    speeds?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledRecord` edge in the connection. */
+export interface SampledRecordsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledRecord` at the end of the edge. */
+    node?: SampledRecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledRecord` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledRecordCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `time` field. */
+time?: (Scalars['Float'] | null),
+/** Checks for equality with the object’s `gameVersion` field. */
+gameVersion?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `isValid` field. */
+isValid?: (Scalars['Boolean'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `modVersion` field. */
+modVersion?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `splits` field. */
+splits?: ((Scalars['Float'] | null)[] | null),
+/** Checks for equality with the object’s `speeds` field. */
+speeds?: ((Scalars['Float'] | null)[] | null)}
+
+
+/** A filter to be used against `SampledRecord` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledRecordFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `time` field. */
+time?: (FloatFilter | null),
+/** Filter by the object’s `gameVersion` field. */
+gameVersion?: (StringFilter | null),
+/** Filter by the object’s `isValid` field. */
+isValid?: (BooleanFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `modVersion` field. */
+modVersion?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `splits` field. */
+splits?: (FloatListFilter | null),
+/** Filter by the object’s `speeds` field. */
+speeds?: (FloatListFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledRecordFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledRecordFilter[] | null),
+/** Negates the expression. */
+not?: (SampledRecordFilter | null)}
+
+
+/** A connection to a list of `SampledRecordMedia` values. */
+export interface SampledRecordMediasConnectionGenqlSelection{
+    /** A list of `SampledRecordMedia` objects. */
+    nodes?: SampledRecordMediaGenqlSelection
+    /** A list of edges which contains the `SampledRecordMedia` and cursor to aid in pagination. */
+    edges?: SampledRecordMediasEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledRecordMedia` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledRecordMediaGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    ghostUrl?: boolean | number
+    screenshotUrl?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledRecordMedia` edge in the connection. */
+export interface SampledRecordMediasEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledRecordMedia` at the end of the edge. */
+    node?: SampledRecordMediaGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledRecordMedia` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledRecordMediaCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `ghostUrl` field. */
+ghostUrl?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `screenshotUrl` field. */
+screenshotUrl?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledRecordMedia` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledRecordMediaFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `ghostUrl` field. */
+ghostUrl?: (StringFilter | null),
+/** Filter by the object’s `screenshotUrl` field. */
+screenshotUrl?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledRecordMediaFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledRecordMediaFilter[] | null),
+/** Negates the expression. */
+not?: (SampledRecordMediaFilter | null)}
+
+
+/** A connection to a list of `SampledStatsDaily` values. */
+export interface SampledStatsDailiesConnectionGenqlSelection{
+    /** A list of `SampledStatsDaily` objects. */
+    nodes?: SampledStatsDailyGenqlSelection
+    /** A list of edges which contains the `SampledStatsDaily` and cursor to aid in pagination. */
+    edges?: SampledStatsDailiesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledStatsDaily` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledStatsDailyGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    key?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    day?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledStatsDaily` edge in the connection. */
+export interface SampledStatsDailiesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledStatsDaily` at the end of the edge. */
+    node?: SampledStatsDailyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledStatsDaily` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledStatsDailyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `key` field. */
+key?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `day` field. */
+day?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `value` field. */
+value?: (Scalars['BigFloat'] | null)}
+
+
+/** A filter to be used against `SampledStatsDaily` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledStatsDailyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `key` field. */
+key?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `day` field. */
+day?: (IntFilter | null),
+/** Filter by the object’s `value` field. */
+value?: (BigFloatFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledStatsDailyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledStatsDailyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledStatsDailyFilter | null)}
+
+
+/** A connection to a list of `SampledStatsGlobal` values. */
+export interface SampledStatsGlobalsConnectionGenqlSelection{
+    /** A list of `SampledStatsGlobal` objects. */
+    nodes?: SampledStatsGlobalGenqlSelection
+    /** A list of edges which contains the `SampledStatsGlobal` and cursor to aid in pagination. */
+    edges?: SampledStatsGlobalsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledStatsGlobal` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledStatsGlobalGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    key?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledStatsGlobal` edge in the connection. */
+export interface SampledStatsGlobalsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledStatsGlobal` at the end of the edge. */
+    node?: SampledStatsGlobalGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledStatsGlobal` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledStatsGlobalCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `key` field. */
+key?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `value` field. */
+value?: (Scalars['BigFloat'] | null)}
+
+
+/** A filter to be used against `SampledStatsGlobal` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledStatsGlobalFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `key` field. */
+key?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `value` field. */
+value?: (BigFloatFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledStatsGlobalFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledStatsGlobalFilter[] | null),
+/** Negates the expression. */
+not?: (SampledStatsGlobalFilter | null)}
+
+
+/** A connection to a list of `SampledStatsMonthly` values. */
+export interface SampledStatsMonthliesConnectionGenqlSelection{
+    /** A list of `SampledStatsMonthly` objects. */
+    nodes?: SampledStatsMonthlyGenqlSelection
+    /** A list of edges which contains the `SampledStatsMonthly` and cursor to aid in pagination. */
+    edges?: SampledStatsMonthliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledStatsMonthly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledStatsMonthlyGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    key?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    month?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledStatsMonthly` edge in the connection. */
+export interface SampledStatsMonthliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledStatsMonthly` at the end of the edge. */
+    node?: SampledStatsMonthlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledStatsMonthly` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledStatsMonthlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `key` field. */
+key?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `month` field. */
+month?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `value` field. */
+value?: (Scalars['BigFloat'] | null)}
+
+
+/** A filter to be used against `SampledStatsMonthly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledStatsMonthlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `key` field. */
+key?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `month` field. */
+month?: (IntFilter | null),
+/** Filter by the object’s `value` field. */
+value?: (BigFloatFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledStatsMonthlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledStatsMonthlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledStatsMonthlyFilter | null)}
+
+
+/** A connection to a list of `SampledStatsQuarterly` values. */
+export interface SampledStatsQuarterliesConnectionGenqlSelection{
+    /** A list of `SampledStatsQuarterly` objects. */
+    nodes?: SampledStatsQuarterlyGenqlSelection
+    /** A list of edges which contains the `SampledStatsQuarterly` and cursor to aid in pagination. */
+    edges?: SampledStatsQuarterliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledStatsQuarterly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledStatsQuarterlyGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    key?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    quarter?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledStatsQuarterly` edge in the connection. */
+export interface SampledStatsQuarterliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledStatsQuarterly` at the end of the edge. */
+    node?: SampledStatsQuarterlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledStatsQuarterly` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledStatsQuarterlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `key` field. */
+key?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `quarter` field. */
+quarter?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `value` field. */
+value?: (Scalars['BigFloat'] | null)}
+
+
+/** A filter to be used against `SampledStatsQuarterly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledStatsQuarterlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `key` field. */
+key?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `quarter` field. */
+quarter?: (IntFilter | null),
+/** Filter by the object’s `value` field. */
+value?: (BigFloatFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledStatsQuarterlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledStatsQuarterlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledStatsQuarterlyFilter | null)}
+
+
+/** A connection to a list of `SampledStatsWeekly` values. */
+export interface SampledStatsWeekliesConnectionGenqlSelection{
+    /** A list of `SampledStatsWeekly` objects. */
+    nodes?: SampledStatsWeeklyGenqlSelection
+    /** A list of edges which contains the `SampledStatsWeekly` and cursor to aid in pagination. */
+    edges?: SampledStatsWeekliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledStatsWeekly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledStatsWeeklyGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    key?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    week?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledStatsWeekly` edge in the connection. */
+export interface SampledStatsWeekliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledStatsWeekly` at the end of the edge. */
+    node?: SampledStatsWeeklyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledStatsWeekly` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledStatsWeeklyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `key` field. */
+key?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `week` field. */
+week?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `value` field. */
+value?: (Scalars['BigFloat'] | null)}
+
+
+/** A filter to be used against `SampledStatsWeekly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledStatsWeeklyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `key` field. */
+key?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `week` field. */
+week?: (IntFilter | null),
+/** Filter by the object’s `value` field. */
+value?: (BigFloatFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledStatsWeeklyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledStatsWeeklyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledStatsWeeklyFilter | null)}
+
+
+/** A connection to a list of `SampledStatsYearly` values. */
+export interface SampledStatsYearliesConnectionGenqlSelection{
+    /** A list of `SampledStatsYearly` objects. */
+    nodes?: SampledStatsYearlyGenqlSelection
+    /** A list of edges which contains the `SampledStatsYearly` and cursor to aid in pagination. */
+    edges?: SampledStatsYearliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledStatsYearly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledStatsYearlyGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    key?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    value?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledStatsYearly` edge in the connection. */
+export interface SampledStatsYearliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledStatsYearly` at the end of the edge. */
+    node?: SampledStatsYearlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledStatsYearly` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledStatsYearlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `key` field. */
+key?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `value` field. */
+value?: (Scalars['BigFloat'] | null)}
+
+
+/** A filter to be used against `SampledStatsYearly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledStatsYearlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `key` field. */
+key?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `value` field. */
+value?: (BigFloatFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledStatsYearlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledStatsYearlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledStatsYearlyFilter | null)}
+
+
+/** A connection to a list of `SampledUpvote` values. */
+export interface SampledUpvotesConnectionGenqlSelection{
+    /** A list of `SampledUpvote` objects. */
+    nodes?: SampledUpvoteGenqlSelection
+    /** A list of edges which contains the `SampledUpvote` and cursor to aid in pagination. */
+    edges?: SampledUpvotesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledUpvote` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledUpvoteGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledUpvote` edge in the connection. */
+export interface SampledUpvotesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledUpvote` at the end of the edge. */
+    node?: SampledUpvoteGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledUpvote` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledUpvoteCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledUpvote` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledUpvoteFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledUpvoteFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledUpvoteFilter[] | null),
+/** Negates the expression. */
+not?: (SampledUpvoteFilter | null)}
+
+
+/** A connection to a list of `SampledUser` values. */
+export interface SampledUsersConnectionGenqlSelection{
+    /** A list of `SampledUser` objects. */
+    nodes?: SampledUserGenqlSelection
+    /** A list of edges which contains the `SampledUser` and cursor to aid in pagination. */
+    edges?: SampledUsersEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledUser` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledUserGenqlSelection{
+    id?: boolean | number
+    steamName?: boolean | number
+    banned?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    steamId?: boolean | number
+    discordId?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledUser` edge in the connection. */
+export interface SampledUsersEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledUser` at the end of the edge. */
+    node?: SampledUserGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledUser` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export interface SampledUserCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `steamName` field. */
+steamName?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `banned` field. */
+banned?: (Scalars['Boolean'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `steamId` field. */
+steamId?: (Scalars['BigFloat'] | null),
+/** Checks for equality with the object’s `discordId` field. */
+discordId?: (Scalars['BigFloat'] | null)}
+
+
+/** A filter to be used against `SampledUser` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledUserFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `steamName` field. */
+steamName?: (StringFilter | null),
+/** Filter by the object’s `banned` field. */
+banned?: (BooleanFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `steamId` field. */
+steamId?: (BigFloatFilter | null),
+/** Filter by the object’s `discordId` field. */
+discordId?: (BigFloatFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledUserFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledUserFilter[] | null),
+/** Negates the expression. */
+not?: (SampledUserFilter | null)}
+
+
+/** A connection to a list of `SampledUserPoint` values. */
+export interface SampledUserPointsConnectionGenqlSelection{
+    /** A list of `SampledUserPoint` objects. */
+    nodes?: SampledUserPointGenqlSelection
+    /** A list of edges which contains the `SampledUserPoint` and cursor to aid in pagination. */
+    edges?: SampledUserPointsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledUserPoint` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledUserPointGenqlSelection{
+    id?: boolean | number
+    idUser?: boolean | number
+    points?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    rank?: boolean | number
+    worldRecords?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledUserPoint` edge in the connection. */
+export interface SampledUserPointsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledUserPoint` at the end of the edge. */
+    node?: SampledUserPointGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledUserPoint` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledUserPointCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idUser` field. */
+idUser?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `points` field. */
+points?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `rank` field. */
+rank?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `worldRecords` field. */
+worldRecords?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledUserPoint` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledUserPointFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idUser` field. */
+idUser?: (IntFilter | null),
+/** Filter by the object’s `points` field. */
+points?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `rank` field. */
+rank?: (IntFilter | null),
+/** Filter by the object’s `worldRecords` field. */
+worldRecords?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledUserPointFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledUserPointFilter[] | null),
+/** Negates the expression. */
+not?: (SampledUserPointFilter | null)}
+
+
+/** A connection to a list of `SampledVersion` values. */
+export interface SampledVersionsConnectionGenqlSelection{
+    /** A list of `SampledVersion` objects. */
+    nodes?: SampledVersionGenqlSelection
+    /** A list of edges which contains the `SampledVersion` and cursor to aid in pagination. */
+    edges?: SampledVersionsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledVersion` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledVersionGenqlSelection{
+    id?: boolean | number
+    minimum?: boolean | number
+    latest?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledVersion` edge in the connection. */
+export interface SampledVersionsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledVersion` at the end of the edge. */
+    node?: SampledVersionGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledVersion` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledVersionCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `minimum` field. */
+minimum?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `latest` field. */
+latest?: (Scalars['String'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledVersion` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledVersionFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `minimum` field. */
+minimum?: (StringFilter | null),
+/** Filter by the object’s `latest` field. */
+latest?: (StringFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledVersionFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledVersionFilter[] | null),
+/** Negates the expression. */
+not?: (SampledVersionFilter | null)}
+
+
+/** A connection to a list of `SampledWorldRecordDaily` values. */
+export interface SampledWorldRecordDailiesConnectionGenqlSelection{
+    /** A list of `SampledWorldRecordDaily` objects. */
+    nodes?: SampledWorldRecordDailyGenqlSelection
+    /** A list of edges which contains the `SampledWorldRecordDaily` and cursor to aid in pagination. */
+    edges?: SampledWorldRecordDailiesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledWorldRecordDaily` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledWorldRecordDailyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    day?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledWorldRecordDaily` edge in the connection. */
+export interface SampledWorldRecordDailiesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledWorldRecordDaily` at the end of the edge. */
+    node?: SampledWorldRecordDailyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledWorldRecordDaily` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledWorldRecordDailyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `day` field. */
+day?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledWorldRecordDaily` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledWorldRecordDailyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `day` field. */
+day?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledWorldRecordDailyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledWorldRecordDailyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledWorldRecordDailyFilter | null)}
+
+
+/** A connection to a list of `SampledWorldRecordGlobal` values. */
+export interface SampledWorldRecordGlobalsConnectionGenqlSelection{
+    /** A list of `SampledWorldRecordGlobal` objects. */
+    nodes?: SampledWorldRecordGlobalGenqlSelection
+    /** A list of edges which contains the `SampledWorldRecordGlobal` and cursor to aid in pagination. */
+    edges?: SampledWorldRecordGlobalsEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledWorldRecordGlobal` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledWorldRecordGlobalGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledWorldRecordGlobal` edge in the connection. */
+export interface SampledWorldRecordGlobalsEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledWorldRecordGlobal` at the end of the edge. */
+    node?: SampledWorldRecordGlobalGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledWorldRecordGlobal` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledWorldRecordGlobalCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null)}
+
+
+/** A filter to be used against `SampledWorldRecordGlobal` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledWorldRecordGlobalFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledWorldRecordGlobalFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledWorldRecordGlobalFilter[] | null),
+/** Negates the expression. */
+not?: (SampledWorldRecordGlobalFilter | null)}
+
+
+/** A connection to a list of `SampledWorldRecordMonthly` values. */
+export interface SampledWorldRecordMonthliesConnectionGenqlSelection{
+    /** A list of `SampledWorldRecordMonthly` objects. */
+    nodes?: SampledWorldRecordMonthlyGenqlSelection
+    /** A list of edges which contains the `SampledWorldRecordMonthly` and cursor to aid in pagination. */
+    edges?: SampledWorldRecordMonthliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledWorldRecordMonthly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledWorldRecordMonthlyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    month?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledWorldRecordMonthly` edge in the connection. */
+export interface SampledWorldRecordMonthliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledWorldRecordMonthly` at the end of the edge. */
+    node?: SampledWorldRecordMonthlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledWorldRecordMonthly` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledWorldRecordMonthlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `month` field. */
+month?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledWorldRecordMonthly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledWorldRecordMonthlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `month` field. */
+month?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledWorldRecordMonthlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledWorldRecordMonthlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledWorldRecordMonthlyFilter | null)}
+
+
+/** A connection to a list of `SampledWorldRecordQuarterly` values. */
+export interface SampledWorldRecordQuarterliesConnectionGenqlSelection{
+    /** A list of `SampledWorldRecordQuarterly` objects. */
+    nodes?: SampledWorldRecordQuarterlyGenqlSelection
+    /** A list of edges which contains the `SampledWorldRecordQuarterly` and cursor to aid in pagination. */
+    edges?: SampledWorldRecordQuarterliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledWorldRecordQuarterly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledWorldRecordQuarterlyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    quarter?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledWorldRecordQuarterly` edge in the connection. */
+export interface SampledWorldRecordQuarterliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledWorldRecordQuarterly` at the end of the edge. */
+    node?: SampledWorldRecordQuarterlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledWorldRecordQuarterly` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledWorldRecordQuarterlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `quarter` field. */
+quarter?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledWorldRecordQuarterly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledWorldRecordQuarterlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `quarter` field. */
+quarter?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledWorldRecordQuarterlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledWorldRecordQuarterlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledWorldRecordQuarterlyFilter | null)}
+
+
+/** A connection to a list of `SampledWorldRecordWeekly` values. */
+export interface SampledWorldRecordWeekliesConnectionGenqlSelection{
+    /** A list of `SampledWorldRecordWeekly` objects. */
+    nodes?: SampledWorldRecordWeeklyGenqlSelection
+    /** A list of edges which contains the `SampledWorldRecordWeekly` and cursor to aid in pagination. */
+    edges?: SampledWorldRecordWeekliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledWorldRecordWeekly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledWorldRecordWeeklyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    week?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledWorldRecordWeekly` edge in the connection. */
+export interface SampledWorldRecordWeekliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledWorldRecordWeekly` at the end of the edge. */
+    node?: SampledWorldRecordWeeklyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledWorldRecordWeekly` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledWorldRecordWeeklyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `week` field. */
+week?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledWorldRecordWeekly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledWorldRecordWeeklyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Filter by the object’s `week` field. */
+week?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledWorldRecordWeeklyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledWorldRecordWeeklyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledWorldRecordWeeklyFilter | null)}
+
+
+/** A connection to a list of `SampledWorldRecordYearly` values. */
+export interface SampledWorldRecordYearliesConnectionGenqlSelection{
+    /** A list of `SampledWorldRecordYearly` objects. */
+    nodes?: SampledWorldRecordYearlyGenqlSelection
+    /** A list of edges which contains the `SampledWorldRecordYearly` and cursor to aid in pagination. */
+    edges?: SampledWorldRecordYearliesEdgeGenqlSelection
+    /** Information to aid in pagination. */
+    pageInfo?: PageInfoGenqlSelection
+    /** The count of *all* `SampledWorldRecordYearly` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface SampledWorldRecordYearlyGenqlSelection{
+    id?: boolean | number
+    idRecord?: boolean | number
+    idLevel?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    year?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `SampledWorldRecordYearly` edge in the connection. */
+export interface SampledWorldRecordYearliesEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `SampledWorldRecordYearly` at the end of the edge. */
+    node?: SampledWorldRecordYearlyGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/**
+ * A condition to be used against `SampledWorldRecordYearly` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export interface SampledWorldRecordYearlyCondition {
+/** Checks for equality with the object’s `id` field. */
+id?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idRecord` field. */
+idRecord?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `idLevel` field. */
+idLevel?: (Scalars['Int'] | null),
+/** Checks for equality with the object’s `dateCreated` field. */
+dateCreated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `dateUpdated` field. */
+dateUpdated?: (Scalars['Datetime'] | null),
+/** Checks for equality with the object’s `year` field. */
+year?: (Scalars['Int'] | null)}
+
+
+/** A filter to be used against `SampledWorldRecordYearly` object types. All fields are combined with a logical ‘and.’ */
+export interface SampledWorldRecordYearlyFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idRecord` field. */
+idRecord?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `year` field. */
+year?: (IntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (SampledWorldRecordYearlyFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (SampledWorldRecordYearlyFilter[] | null),
+/** Negates the expression. */
+not?: (SampledWorldRecordYearlyFilter | null)}
+
+
 /** A connection to a list of `User` values. */
 export interface UsersConnectionGenqlSelection{
     /** A list of `User` objects. */
@@ -7492,6 +11987,130 @@ and?: (VersionFilter[] | null),
 or?: (VersionFilter[] | null),
 /** Negates the expression. */
 not?: (VersionFilter | null)}
+
+
+/** A connection to a list of `ZRtmRecord` values. */
+export interface ZRtmConnectionGenqlSelection{
+    /** A list of `ZRtmRecord` objects. */
+    nodes?: ZRtmRecordGenqlSelection
+    /** A list of edges which contains the `ZRtmRecord` and cursor to aid in pagination. */
+    edges?: ZRtmEdgeGenqlSelection
+    /** The count of *all* `ZRtmRecord` you could get from the connection. */
+    totalCount?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** The return type of our `zRtm` query. */
+export interface ZRtmRecordGenqlSelection{
+    id?: boolean | number
+    idLevel?: boolean | number
+    workshopId?: boolean | number
+    authorId?: boolean | number
+    name?: boolean | number
+    imageUrl?: boolean | number
+    fileAuthor?: boolean | number
+    fileUid?: boolean | number
+    validationTimeAuthor?: boolean | number
+    validationTimeGold?: boolean | number
+    validationTimeSilver?: boolean | number
+    validationTimeBronze?: boolean | number
+    deleted?: boolean | number
+    createdAt?: boolean | number
+    updatedAt?: boolean | number
+    dateCreated?: boolean | number
+    dateUpdated?: boolean | number
+    amountCheckpoints?: boolean | number
+    numRecords?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A `ZRtmRecord` edge in the connection. */
+export interface ZRtmEdgeGenqlSelection{
+    /** A cursor for use in pagination. */
+    cursor?: boolean | number
+    /** The `ZRtmRecord` at the end of the edge. */
+    node?: ZRtmRecordGenqlSelection
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+
+/** A filter to be used against `ZRtmRecord` object types. All fields are combined with a logical ‘and.’ */
+export interface ZRtmRecordFilter {
+/** Filter by the object’s `id` field. */
+id?: (IntFilter | null),
+/** Filter by the object’s `idLevel` field. */
+idLevel?: (IntFilter | null),
+/** Filter by the object’s `workshopId` field. */
+workshopId?: (BigFloatFilter | null),
+/** Filter by the object’s `authorId` field. */
+authorId?: (BigFloatFilter | null),
+/** Filter by the object’s `name` field. */
+name?: (StringFilter | null),
+/** Filter by the object’s `imageUrl` field. */
+imageUrl?: (StringFilter | null),
+/** Filter by the object’s `fileAuthor` field. */
+fileAuthor?: (StringFilter | null),
+/** Filter by the object’s `fileUid` field. */
+fileUid?: (StringFilter | null),
+/** Filter by the object’s `validationTimeAuthor` field. */
+validationTimeAuthor?: (FloatFilter | null),
+/** Filter by the object’s `validationTimeGold` field. */
+validationTimeGold?: (FloatFilter | null),
+/** Filter by the object’s `validationTimeSilver` field. */
+validationTimeSilver?: (FloatFilter | null),
+/** Filter by the object’s `validationTimeBronze` field. */
+validationTimeBronze?: (FloatFilter | null),
+/** Filter by the object’s `deleted` field. */
+deleted?: (BooleanFilter | null),
+/** Filter by the object’s `createdAt` field. */
+createdAt?: (DatetimeFilter | null),
+/** Filter by the object’s `updatedAt` field. */
+updatedAt?: (DatetimeFilter | null),
+/** Filter by the object’s `dateCreated` field. */
+dateCreated?: (DatetimeFilter | null),
+/** Filter by the object’s `dateUpdated` field. */
+dateUpdated?: (DatetimeFilter | null),
+/** Filter by the object’s `amountCheckpoints` field. */
+amountCheckpoints?: (IntFilter | null),
+/** Filter by the object’s `numRecords` field. */
+numRecords?: (BigIntFilter | null),
+/** Checks for all expressions in this list. */
+and?: (ZRtmRecordFilter[] | null),
+/** Checks for any expressions in this list. */
+or?: (ZRtmRecordFilter[] | null),
+/** Negates the expression. */
+not?: (ZRtmRecordFilter | null)}
+
+
+/** A filter to be used against BigInt fields. All fields are combined with a logical ‘and.’ */
+export interface BigIntFilter {
+/** Is null (if `true` is specified) or is not null (if `false` is specified). */
+isNull?: (Scalars['Boolean'] | null),
+/** Equal to the specified value. */
+equalTo?: (Scalars['BigInt'] | null),
+/** Not equal to the specified value. */
+notEqualTo?: (Scalars['BigInt'] | null),
+/** Not equal to the specified value, treating null like an ordinary value. */
+distinctFrom?: (Scalars['BigInt'] | null),
+/** Equal to the specified value, treating null like an ordinary value. */
+notDistinctFrom?: (Scalars['BigInt'] | null),
+/** Included in the specified list. */
+in?: (Scalars['BigInt'][] | null),
+/** Not included in the specified list. */
+notIn?: (Scalars['BigInt'][] | null),
+/** Less than the specified value. */
+lessThan?: (Scalars['BigInt'] | null),
+/** Less than or equal to the specified value. */
+lessThanOrEqualTo?: (Scalars['BigInt'] | null),
+/** Greater than the specified value. */
+greaterThan?: (Scalars['BigInt'] | null),
+/** Greater than or equal to the specified value. */
+greaterThanOrEqualTo?: (Scalars['BigInt'] | null)}
 
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -8231,6 +12850,726 @@ clientMutationId?: (Scalars['String'] | null)}
     
 
 
+    const SampledFavoritesConnection_possibleTypes: string[] = ['SampledFavoritesConnection']
+    export const isSampledFavoritesConnection = (obj?: { __typename?: any } | null): obj is SampledFavoritesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledFavoritesConnection"')
+      return SampledFavoritesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledFavorite_possibleTypes: string[] = ['SampledFavorite']
+    export const isSampledFavorite = (obj?: { __typename?: any } | null): obj is SampledFavorite => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledFavorite"')
+      return SampledFavorite_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledFavoritesEdge_possibleTypes: string[] = ['SampledFavoritesEdge']
+    export const isSampledFavoritesEdge = (obj?: { __typename?: any } | null): obj is SampledFavoritesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledFavoritesEdge"')
+      return SampledFavoritesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelsConnection_possibleTypes: string[] = ['SampledLevelsConnection']
+    export const isSampledLevelsConnection = (obj?: { __typename?: any } | null): obj is SampledLevelsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelsConnection"')
+      return SampledLevelsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevel_possibleTypes: string[] = ['SampledLevel']
+    export const isSampledLevel = (obj?: { __typename?: any } | null): obj is SampledLevel => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevel"')
+      return SampledLevel_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelsEdge_possibleTypes: string[] = ['SampledLevelsEdge']
+    export const isSampledLevelsEdge = (obj?: { __typename?: any } | null): obj is SampledLevelsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelsEdge"')
+      return SampledLevelsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelItemsConnection_possibleTypes: string[] = ['SampledLevelItemsConnection']
+    export const isSampledLevelItemsConnection = (obj?: { __typename?: any } | null): obj is SampledLevelItemsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelItemsConnection"')
+      return SampledLevelItemsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelItem_possibleTypes: string[] = ['SampledLevelItem']
+    export const isSampledLevelItem = (obj?: { __typename?: any } | null): obj is SampledLevelItem => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelItem"')
+      return SampledLevelItem_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelItemsEdge_possibleTypes: string[] = ['SampledLevelItemsEdge']
+    export const isSampledLevelItemsEdge = (obj?: { __typename?: any } | null): obj is SampledLevelItemsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelItemsEdge"')
+      return SampledLevelItemsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelMetadataConnection_possibleTypes: string[] = ['SampledLevelMetadataConnection']
+    export const isSampledLevelMetadataConnection = (obj?: { __typename?: any } | null): obj is SampledLevelMetadataConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelMetadataConnection"')
+      return SampledLevelMetadataConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelMetadatum_possibleTypes: string[] = ['SampledLevelMetadatum']
+    export const isSampledLevelMetadatum = (obj?: { __typename?: any } | null): obj is SampledLevelMetadatum => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelMetadatum"')
+      return SampledLevelMetadatum_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelMetadataEdge_possibleTypes: string[] = ['SampledLevelMetadataEdge']
+    export const isSampledLevelMetadataEdge = (obj?: { __typename?: any } | null): obj is SampledLevelMetadataEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelMetadataEdge"')
+      return SampledLevelMetadataEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelPointsConnection_possibleTypes: string[] = ['SampledLevelPointsConnection']
+    export const isSampledLevelPointsConnection = (obj?: { __typename?: any } | null): obj is SampledLevelPointsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelPointsConnection"')
+      return SampledLevelPointsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelPoint_possibleTypes: string[] = ['SampledLevelPoint']
+    export const isSampledLevelPoint = (obj?: { __typename?: any } | null): obj is SampledLevelPoint => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelPoint"')
+      return SampledLevelPoint_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelPointsEdge_possibleTypes: string[] = ['SampledLevelPointsEdge']
+    export const isSampledLevelPointsEdge = (obj?: { __typename?: any } | null): obj is SampledLevelPointsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelPointsEdge"')
+      return SampledLevelPointsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelRequestsConnection_possibleTypes: string[] = ['SampledLevelRequestsConnection']
+    export const isSampledLevelRequestsConnection = (obj?: { __typename?: any } | null): obj is SampledLevelRequestsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelRequestsConnection"')
+      return SampledLevelRequestsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelRequest_possibleTypes: string[] = ['SampledLevelRequest']
+    export const isSampledLevelRequest = (obj?: { __typename?: any } | null): obj is SampledLevelRequest => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelRequest"')
+      return SampledLevelRequest_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledLevelRequestsEdge_possibleTypes: string[] = ['SampledLevelRequestsEdge']
+    export const isSampledLevelRequestsEdge = (obj?: { __typename?: any } | null): obj is SampledLevelRequestsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledLevelRequestsEdge"')
+      return SampledLevelRequestsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestDailiesConnection_possibleTypes: string[] = ['SampledPersonalBestDailiesConnection']
+    export const isSampledPersonalBestDailiesConnection = (obj?: { __typename?: any } | null): obj is SampledPersonalBestDailiesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestDailiesConnection"')
+      return SampledPersonalBestDailiesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestDaily_possibleTypes: string[] = ['SampledPersonalBestDaily']
+    export const isSampledPersonalBestDaily = (obj?: { __typename?: any } | null): obj is SampledPersonalBestDaily => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestDaily"')
+      return SampledPersonalBestDaily_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestDailiesEdge_possibleTypes: string[] = ['SampledPersonalBestDailiesEdge']
+    export const isSampledPersonalBestDailiesEdge = (obj?: { __typename?: any } | null): obj is SampledPersonalBestDailiesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestDailiesEdge"')
+      return SampledPersonalBestDailiesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestGlobalsConnection_possibleTypes: string[] = ['SampledPersonalBestGlobalsConnection']
+    export const isSampledPersonalBestGlobalsConnection = (obj?: { __typename?: any } | null): obj is SampledPersonalBestGlobalsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestGlobalsConnection"')
+      return SampledPersonalBestGlobalsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestGlobal_possibleTypes: string[] = ['SampledPersonalBestGlobal']
+    export const isSampledPersonalBestGlobal = (obj?: { __typename?: any } | null): obj is SampledPersonalBestGlobal => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestGlobal"')
+      return SampledPersonalBestGlobal_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestGlobalsEdge_possibleTypes: string[] = ['SampledPersonalBestGlobalsEdge']
+    export const isSampledPersonalBestGlobalsEdge = (obj?: { __typename?: any } | null): obj is SampledPersonalBestGlobalsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestGlobalsEdge"')
+      return SampledPersonalBestGlobalsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestMonthliesConnection_possibleTypes: string[] = ['SampledPersonalBestMonthliesConnection']
+    export const isSampledPersonalBestMonthliesConnection = (obj?: { __typename?: any } | null): obj is SampledPersonalBestMonthliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestMonthliesConnection"')
+      return SampledPersonalBestMonthliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestMonthly_possibleTypes: string[] = ['SampledPersonalBestMonthly']
+    export const isSampledPersonalBestMonthly = (obj?: { __typename?: any } | null): obj is SampledPersonalBestMonthly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestMonthly"')
+      return SampledPersonalBestMonthly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestMonthliesEdge_possibleTypes: string[] = ['SampledPersonalBestMonthliesEdge']
+    export const isSampledPersonalBestMonthliesEdge = (obj?: { __typename?: any } | null): obj is SampledPersonalBestMonthliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestMonthliesEdge"')
+      return SampledPersonalBestMonthliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestQuarterliesConnection_possibleTypes: string[] = ['SampledPersonalBestQuarterliesConnection']
+    export const isSampledPersonalBestQuarterliesConnection = (obj?: { __typename?: any } | null): obj is SampledPersonalBestQuarterliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestQuarterliesConnection"')
+      return SampledPersonalBestQuarterliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestQuarterly_possibleTypes: string[] = ['SampledPersonalBestQuarterly']
+    export const isSampledPersonalBestQuarterly = (obj?: { __typename?: any } | null): obj is SampledPersonalBestQuarterly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestQuarterly"')
+      return SampledPersonalBestQuarterly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestQuarterliesEdge_possibleTypes: string[] = ['SampledPersonalBestQuarterliesEdge']
+    export const isSampledPersonalBestQuarterliesEdge = (obj?: { __typename?: any } | null): obj is SampledPersonalBestQuarterliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestQuarterliesEdge"')
+      return SampledPersonalBestQuarterliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestWeekliesConnection_possibleTypes: string[] = ['SampledPersonalBestWeekliesConnection']
+    export const isSampledPersonalBestWeekliesConnection = (obj?: { __typename?: any } | null): obj is SampledPersonalBestWeekliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestWeekliesConnection"')
+      return SampledPersonalBestWeekliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestWeekly_possibleTypes: string[] = ['SampledPersonalBestWeekly']
+    export const isSampledPersonalBestWeekly = (obj?: { __typename?: any } | null): obj is SampledPersonalBestWeekly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestWeekly"')
+      return SampledPersonalBestWeekly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestWeekliesEdge_possibleTypes: string[] = ['SampledPersonalBestWeekliesEdge']
+    export const isSampledPersonalBestWeekliesEdge = (obj?: { __typename?: any } | null): obj is SampledPersonalBestWeekliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestWeekliesEdge"')
+      return SampledPersonalBestWeekliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestYearliesConnection_possibleTypes: string[] = ['SampledPersonalBestYearliesConnection']
+    export const isSampledPersonalBestYearliesConnection = (obj?: { __typename?: any } | null): obj is SampledPersonalBestYearliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestYearliesConnection"')
+      return SampledPersonalBestYearliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestYearly_possibleTypes: string[] = ['SampledPersonalBestYearly']
+    export const isSampledPersonalBestYearly = (obj?: { __typename?: any } | null): obj is SampledPersonalBestYearly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestYearly"')
+      return SampledPersonalBestYearly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledPersonalBestYearliesEdge_possibleTypes: string[] = ['SampledPersonalBestYearliesEdge']
+    export const isSampledPersonalBestYearliesEdge = (obj?: { __typename?: any } | null): obj is SampledPersonalBestYearliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledPersonalBestYearliesEdge"')
+      return SampledPersonalBestYearliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledRecordsConnection_possibleTypes: string[] = ['SampledRecordsConnection']
+    export const isSampledRecordsConnection = (obj?: { __typename?: any } | null): obj is SampledRecordsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledRecordsConnection"')
+      return SampledRecordsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledRecord_possibleTypes: string[] = ['SampledRecord']
+    export const isSampledRecord = (obj?: { __typename?: any } | null): obj is SampledRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledRecord"')
+      return SampledRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledRecordsEdge_possibleTypes: string[] = ['SampledRecordsEdge']
+    export const isSampledRecordsEdge = (obj?: { __typename?: any } | null): obj is SampledRecordsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledRecordsEdge"')
+      return SampledRecordsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledRecordMediasConnection_possibleTypes: string[] = ['SampledRecordMediasConnection']
+    export const isSampledRecordMediasConnection = (obj?: { __typename?: any } | null): obj is SampledRecordMediasConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledRecordMediasConnection"')
+      return SampledRecordMediasConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledRecordMedia_possibleTypes: string[] = ['SampledRecordMedia']
+    export const isSampledRecordMedia = (obj?: { __typename?: any } | null): obj is SampledRecordMedia => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledRecordMedia"')
+      return SampledRecordMedia_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledRecordMediasEdge_possibleTypes: string[] = ['SampledRecordMediasEdge']
+    export const isSampledRecordMediasEdge = (obj?: { __typename?: any } | null): obj is SampledRecordMediasEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledRecordMediasEdge"')
+      return SampledRecordMediasEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsDailiesConnection_possibleTypes: string[] = ['SampledStatsDailiesConnection']
+    export const isSampledStatsDailiesConnection = (obj?: { __typename?: any } | null): obj is SampledStatsDailiesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsDailiesConnection"')
+      return SampledStatsDailiesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsDaily_possibleTypes: string[] = ['SampledStatsDaily']
+    export const isSampledStatsDaily = (obj?: { __typename?: any } | null): obj is SampledStatsDaily => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsDaily"')
+      return SampledStatsDaily_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsDailiesEdge_possibleTypes: string[] = ['SampledStatsDailiesEdge']
+    export const isSampledStatsDailiesEdge = (obj?: { __typename?: any } | null): obj is SampledStatsDailiesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsDailiesEdge"')
+      return SampledStatsDailiesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsGlobalsConnection_possibleTypes: string[] = ['SampledStatsGlobalsConnection']
+    export const isSampledStatsGlobalsConnection = (obj?: { __typename?: any } | null): obj is SampledStatsGlobalsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsGlobalsConnection"')
+      return SampledStatsGlobalsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsGlobal_possibleTypes: string[] = ['SampledStatsGlobal']
+    export const isSampledStatsGlobal = (obj?: { __typename?: any } | null): obj is SampledStatsGlobal => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsGlobal"')
+      return SampledStatsGlobal_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsGlobalsEdge_possibleTypes: string[] = ['SampledStatsGlobalsEdge']
+    export const isSampledStatsGlobalsEdge = (obj?: { __typename?: any } | null): obj is SampledStatsGlobalsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsGlobalsEdge"')
+      return SampledStatsGlobalsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsMonthliesConnection_possibleTypes: string[] = ['SampledStatsMonthliesConnection']
+    export const isSampledStatsMonthliesConnection = (obj?: { __typename?: any } | null): obj is SampledStatsMonthliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsMonthliesConnection"')
+      return SampledStatsMonthliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsMonthly_possibleTypes: string[] = ['SampledStatsMonthly']
+    export const isSampledStatsMonthly = (obj?: { __typename?: any } | null): obj is SampledStatsMonthly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsMonthly"')
+      return SampledStatsMonthly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsMonthliesEdge_possibleTypes: string[] = ['SampledStatsMonthliesEdge']
+    export const isSampledStatsMonthliesEdge = (obj?: { __typename?: any } | null): obj is SampledStatsMonthliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsMonthliesEdge"')
+      return SampledStatsMonthliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsQuarterliesConnection_possibleTypes: string[] = ['SampledStatsQuarterliesConnection']
+    export const isSampledStatsQuarterliesConnection = (obj?: { __typename?: any } | null): obj is SampledStatsQuarterliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsQuarterliesConnection"')
+      return SampledStatsQuarterliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsQuarterly_possibleTypes: string[] = ['SampledStatsQuarterly']
+    export const isSampledStatsQuarterly = (obj?: { __typename?: any } | null): obj is SampledStatsQuarterly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsQuarterly"')
+      return SampledStatsQuarterly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsQuarterliesEdge_possibleTypes: string[] = ['SampledStatsQuarterliesEdge']
+    export const isSampledStatsQuarterliesEdge = (obj?: { __typename?: any } | null): obj is SampledStatsQuarterliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsQuarterliesEdge"')
+      return SampledStatsQuarterliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsWeekliesConnection_possibleTypes: string[] = ['SampledStatsWeekliesConnection']
+    export const isSampledStatsWeekliesConnection = (obj?: { __typename?: any } | null): obj is SampledStatsWeekliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsWeekliesConnection"')
+      return SampledStatsWeekliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsWeekly_possibleTypes: string[] = ['SampledStatsWeekly']
+    export const isSampledStatsWeekly = (obj?: { __typename?: any } | null): obj is SampledStatsWeekly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsWeekly"')
+      return SampledStatsWeekly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsWeekliesEdge_possibleTypes: string[] = ['SampledStatsWeekliesEdge']
+    export const isSampledStatsWeekliesEdge = (obj?: { __typename?: any } | null): obj is SampledStatsWeekliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsWeekliesEdge"')
+      return SampledStatsWeekliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsYearliesConnection_possibleTypes: string[] = ['SampledStatsYearliesConnection']
+    export const isSampledStatsYearliesConnection = (obj?: { __typename?: any } | null): obj is SampledStatsYearliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsYearliesConnection"')
+      return SampledStatsYearliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsYearly_possibleTypes: string[] = ['SampledStatsYearly']
+    export const isSampledStatsYearly = (obj?: { __typename?: any } | null): obj is SampledStatsYearly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsYearly"')
+      return SampledStatsYearly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledStatsYearliesEdge_possibleTypes: string[] = ['SampledStatsYearliesEdge']
+    export const isSampledStatsYearliesEdge = (obj?: { __typename?: any } | null): obj is SampledStatsYearliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledStatsYearliesEdge"')
+      return SampledStatsYearliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUpvotesConnection_possibleTypes: string[] = ['SampledUpvotesConnection']
+    export const isSampledUpvotesConnection = (obj?: { __typename?: any } | null): obj is SampledUpvotesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUpvotesConnection"')
+      return SampledUpvotesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUpvote_possibleTypes: string[] = ['SampledUpvote']
+    export const isSampledUpvote = (obj?: { __typename?: any } | null): obj is SampledUpvote => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUpvote"')
+      return SampledUpvote_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUpvotesEdge_possibleTypes: string[] = ['SampledUpvotesEdge']
+    export const isSampledUpvotesEdge = (obj?: { __typename?: any } | null): obj is SampledUpvotesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUpvotesEdge"')
+      return SampledUpvotesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUsersConnection_possibleTypes: string[] = ['SampledUsersConnection']
+    export const isSampledUsersConnection = (obj?: { __typename?: any } | null): obj is SampledUsersConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUsersConnection"')
+      return SampledUsersConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUser_possibleTypes: string[] = ['SampledUser']
+    export const isSampledUser = (obj?: { __typename?: any } | null): obj is SampledUser => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUser"')
+      return SampledUser_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUsersEdge_possibleTypes: string[] = ['SampledUsersEdge']
+    export const isSampledUsersEdge = (obj?: { __typename?: any } | null): obj is SampledUsersEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUsersEdge"')
+      return SampledUsersEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUserPointsConnection_possibleTypes: string[] = ['SampledUserPointsConnection']
+    export const isSampledUserPointsConnection = (obj?: { __typename?: any } | null): obj is SampledUserPointsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUserPointsConnection"')
+      return SampledUserPointsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUserPoint_possibleTypes: string[] = ['SampledUserPoint']
+    export const isSampledUserPoint = (obj?: { __typename?: any } | null): obj is SampledUserPoint => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUserPoint"')
+      return SampledUserPoint_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledUserPointsEdge_possibleTypes: string[] = ['SampledUserPointsEdge']
+    export const isSampledUserPointsEdge = (obj?: { __typename?: any } | null): obj is SampledUserPointsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledUserPointsEdge"')
+      return SampledUserPointsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledVersionsConnection_possibleTypes: string[] = ['SampledVersionsConnection']
+    export const isSampledVersionsConnection = (obj?: { __typename?: any } | null): obj is SampledVersionsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledVersionsConnection"')
+      return SampledVersionsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledVersion_possibleTypes: string[] = ['SampledVersion']
+    export const isSampledVersion = (obj?: { __typename?: any } | null): obj is SampledVersion => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledVersion"')
+      return SampledVersion_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledVersionsEdge_possibleTypes: string[] = ['SampledVersionsEdge']
+    export const isSampledVersionsEdge = (obj?: { __typename?: any } | null): obj is SampledVersionsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledVersionsEdge"')
+      return SampledVersionsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordDailiesConnection_possibleTypes: string[] = ['SampledWorldRecordDailiesConnection']
+    export const isSampledWorldRecordDailiesConnection = (obj?: { __typename?: any } | null): obj is SampledWorldRecordDailiesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordDailiesConnection"')
+      return SampledWorldRecordDailiesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordDaily_possibleTypes: string[] = ['SampledWorldRecordDaily']
+    export const isSampledWorldRecordDaily = (obj?: { __typename?: any } | null): obj is SampledWorldRecordDaily => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordDaily"')
+      return SampledWorldRecordDaily_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordDailiesEdge_possibleTypes: string[] = ['SampledWorldRecordDailiesEdge']
+    export const isSampledWorldRecordDailiesEdge = (obj?: { __typename?: any } | null): obj is SampledWorldRecordDailiesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordDailiesEdge"')
+      return SampledWorldRecordDailiesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordGlobalsConnection_possibleTypes: string[] = ['SampledWorldRecordGlobalsConnection']
+    export const isSampledWorldRecordGlobalsConnection = (obj?: { __typename?: any } | null): obj is SampledWorldRecordGlobalsConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordGlobalsConnection"')
+      return SampledWorldRecordGlobalsConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordGlobal_possibleTypes: string[] = ['SampledWorldRecordGlobal']
+    export const isSampledWorldRecordGlobal = (obj?: { __typename?: any } | null): obj is SampledWorldRecordGlobal => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordGlobal"')
+      return SampledWorldRecordGlobal_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordGlobalsEdge_possibleTypes: string[] = ['SampledWorldRecordGlobalsEdge']
+    export const isSampledWorldRecordGlobalsEdge = (obj?: { __typename?: any } | null): obj is SampledWorldRecordGlobalsEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordGlobalsEdge"')
+      return SampledWorldRecordGlobalsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordMonthliesConnection_possibleTypes: string[] = ['SampledWorldRecordMonthliesConnection']
+    export const isSampledWorldRecordMonthliesConnection = (obj?: { __typename?: any } | null): obj is SampledWorldRecordMonthliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordMonthliesConnection"')
+      return SampledWorldRecordMonthliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordMonthly_possibleTypes: string[] = ['SampledWorldRecordMonthly']
+    export const isSampledWorldRecordMonthly = (obj?: { __typename?: any } | null): obj is SampledWorldRecordMonthly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordMonthly"')
+      return SampledWorldRecordMonthly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordMonthliesEdge_possibleTypes: string[] = ['SampledWorldRecordMonthliesEdge']
+    export const isSampledWorldRecordMonthliesEdge = (obj?: { __typename?: any } | null): obj is SampledWorldRecordMonthliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordMonthliesEdge"')
+      return SampledWorldRecordMonthliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordQuarterliesConnection_possibleTypes: string[] = ['SampledWorldRecordQuarterliesConnection']
+    export const isSampledWorldRecordQuarterliesConnection = (obj?: { __typename?: any } | null): obj is SampledWorldRecordQuarterliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordQuarterliesConnection"')
+      return SampledWorldRecordQuarterliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordQuarterly_possibleTypes: string[] = ['SampledWorldRecordQuarterly']
+    export const isSampledWorldRecordQuarterly = (obj?: { __typename?: any } | null): obj is SampledWorldRecordQuarterly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordQuarterly"')
+      return SampledWorldRecordQuarterly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordQuarterliesEdge_possibleTypes: string[] = ['SampledWorldRecordQuarterliesEdge']
+    export const isSampledWorldRecordQuarterliesEdge = (obj?: { __typename?: any } | null): obj is SampledWorldRecordQuarterliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordQuarterliesEdge"')
+      return SampledWorldRecordQuarterliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordWeekliesConnection_possibleTypes: string[] = ['SampledWorldRecordWeekliesConnection']
+    export const isSampledWorldRecordWeekliesConnection = (obj?: { __typename?: any } | null): obj is SampledWorldRecordWeekliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordWeekliesConnection"')
+      return SampledWorldRecordWeekliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordWeekly_possibleTypes: string[] = ['SampledWorldRecordWeekly']
+    export const isSampledWorldRecordWeekly = (obj?: { __typename?: any } | null): obj is SampledWorldRecordWeekly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordWeekly"')
+      return SampledWorldRecordWeekly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordWeekliesEdge_possibleTypes: string[] = ['SampledWorldRecordWeekliesEdge']
+    export const isSampledWorldRecordWeekliesEdge = (obj?: { __typename?: any } | null): obj is SampledWorldRecordWeekliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordWeekliesEdge"')
+      return SampledWorldRecordWeekliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordYearliesConnection_possibleTypes: string[] = ['SampledWorldRecordYearliesConnection']
+    export const isSampledWorldRecordYearliesConnection = (obj?: { __typename?: any } | null): obj is SampledWorldRecordYearliesConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordYearliesConnection"')
+      return SampledWorldRecordYearliesConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordYearly_possibleTypes: string[] = ['SampledWorldRecordYearly']
+    export const isSampledWorldRecordYearly = (obj?: { __typename?: any } | null): obj is SampledWorldRecordYearly => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordYearly"')
+      return SampledWorldRecordYearly_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const SampledWorldRecordYearliesEdge_possibleTypes: string[] = ['SampledWorldRecordYearliesEdge']
+    export const isSampledWorldRecordYearliesEdge = (obj?: { __typename?: any } | null): obj is SampledWorldRecordYearliesEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isSampledWorldRecordYearliesEdge"')
+      return SampledWorldRecordYearliesEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
     const UsersConnection_possibleTypes: string[] = ['UsersConnection']
     export const isUsersConnection = (obj?: { __typename?: any } | null): obj is UsersConnection => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isUsersConnection"')
@@ -8267,6 +13606,30 @@ clientMutationId?: (Scalars['String'] | null)}
     export const isVersionsEdge = (obj?: { __typename?: any } | null): obj is VersionsEdge => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isVersionsEdge"')
       return VersionsEdge_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ZRtmConnection_possibleTypes: string[] = ['ZRtmConnection']
+    export const isZRtmConnection = (obj?: { __typename?: any } | null): obj is ZRtmConnection => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isZRtmConnection"')
+      return ZRtmConnection_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ZRtmRecord_possibleTypes: string[] = ['ZRtmRecord']
+    export const isZRtmRecord = (obj?: { __typename?: any } | null): obj is ZRtmRecord => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isZRtmRecord"')
+      return ZRtmRecord_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const ZRtmEdge_possibleTypes: string[] = ['ZRtmEdge']
+    export const isZRtmEdge = (obj?: { __typename?: any } | null): obj is ZRtmEdge => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isZRtmEdge"')
+      return ZRtmEdge_possibleTypes.includes(obj.__typename)
     }
     
 
@@ -8874,6 +14237,572 @@ export const enumLevelRequestsOrderBy = {
    DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
    PRIMARY_KEY_ASC: 'PRIMARY_KEY_ASC' as const,
    PRIMARY_KEY_DESC: 'PRIMARY_KEY_DESC' as const
+}
+
+export const enumSampledFavoritesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const
+}
+
+export const enumSampledLevelsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   HASH_ASC: 'HASH_ASC' as const,
+   HASH_DESC: 'HASH_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledLevelItemsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   WORKSHOP_ID_ASC: 'WORKSHOP_ID_ASC' as const,
+   WORKSHOP_ID_DESC: 'WORKSHOP_ID_DESC' as const,
+   AUTHOR_ID_ASC: 'AUTHOR_ID_ASC' as const,
+   AUTHOR_ID_DESC: 'AUTHOR_ID_DESC' as const,
+   NAME_ASC: 'NAME_ASC' as const,
+   NAME_DESC: 'NAME_DESC' as const,
+   IMAGE_URL_ASC: 'IMAGE_URL_ASC' as const,
+   IMAGE_URL_DESC: 'IMAGE_URL_DESC' as const,
+   FILE_AUTHOR_ASC: 'FILE_AUTHOR_ASC' as const,
+   FILE_AUTHOR_DESC: 'FILE_AUTHOR_DESC' as const,
+   FILE_UID_ASC: 'FILE_UID_ASC' as const,
+   FILE_UID_DESC: 'FILE_UID_DESC' as const,
+   VALIDATION_TIME_AUTHOR_ASC: 'VALIDATION_TIME_AUTHOR_ASC' as const,
+   VALIDATION_TIME_AUTHOR_DESC: 'VALIDATION_TIME_AUTHOR_DESC' as const,
+   VALIDATION_TIME_GOLD_ASC: 'VALIDATION_TIME_GOLD_ASC' as const,
+   VALIDATION_TIME_GOLD_DESC: 'VALIDATION_TIME_GOLD_DESC' as const,
+   VALIDATION_TIME_SILVER_ASC: 'VALIDATION_TIME_SILVER_ASC' as const,
+   VALIDATION_TIME_SILVER_DESC: 'VALIDATION_TIME_SILVER_DESC' as const,
+   VALIDATION_TIME_BRONZE_ASC: 'VALIDATION_TIME_BRONZE_ASC' as const,
+   VALIDATION_TIME_BRONZE_DESC: 'VALIDATION_TIME_BRONZE_DESC' as const,
+   DELETED_ASC: 'DELETED_ASC' as const,
+   DELETED_DESC: 'DELETED_DESC' as const,
+   CREATED_AT_ASC: 'CREATED_AT_ASC' as const,
+   CREATED_AT_DESC: 'CREATED_AT_DESC' as const,
+   UPDATED_AT_ASC: 'UPDATED_AT_ASC' as const,
+   UPDATED_AT_DESC: 'UPDATED_AT_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledLevelMetadataOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   AMOUNT_CHECKPOINTS_ASC: 'AMOUNT_CHECKPOINTS_ASC' as const,
+   AMOUNT_CHECKPOINTS_DESC: 'AMOUNT_CHECKPOINTS_DESC' as const,
+   AMOUNT_FINISHES_ASC: 'AMOUNT_FINISHES_ASC' as const,
+   AMOUNT_FINISHES_DESC: 'AMOUNT_FINISHES_DESC' as const,
+   AMOUNT_BLOCKS_ASC: 'AMOUNT_BLOCKS_ASC' as const,
+   AMOUNT_BLOCKS_DESC: 'AMOUNT_BLOCKS_DESC' as const,
+   TYPE_GROUND_ASC: 'TYPE_GROUND_ASC' as const,
+   TYPE_GROUND_DESC: 'TYPE_GROUND_DESC' as const,
+   TYPE_SKYBOX_ASC: 'TYPE_SKYBOX_ASC' as const,
+   TYPE_SKYBOX_DESC: 'TYPE_SKYBOX_DESC' as const,
+   BLOCKS_ASC: 'BLOCKS_ASC' as const,
+   BLOCKS_DESC: 'BLOCKS_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledLevelPointsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   POINTS_ASC: 'POINTS_ASC' as const,
+   POINTS_DESC: 'POINTS_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledLevelRequestsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   WORKSHOP_ID_ASC: 'WORKSHOP_ID_ASC' as const,
+   WORKSHOP_ID_DESC: 'WORKSHOP_ID_DESC' as const,
+   UID_ASC: 'UID_ASC' as const,
+   UID_DESC: 'UID_DESC' as const,
+   HASH_ASC: 'HASH_ASC' as const,
+   HASH_DESC: 'HASH_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledPersonalBestDailiesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   DAY_ASC: 'DAY_ASC' as const,
+   DAY_DESC: 'DAY_DESC' as const
+}
+
+export const enumSampledPersonalBestGlobalsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledPersonalBestMonthliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   MONTH_ASC: 'MONTH_ASC' as const,
+   MONTH_DESC: 'MONTH_DESC' as const
+}
+
+export const enumSampledPersonalBestQuarterliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   QUARTER_ASC: 'QUARTER_ASC' as const,
+   QUARTER_DESC: 'QUARTER_DESC' as const
+}
+
+export const enumSampledPersonalBestWeekliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   WEEK_ASC: 'WEEK_ASC' as const,
+   WEEK_DESC: 'WEEK_DESC' as const
+}
+
+export const enumSampledPersonalBestYearliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const
+}
+
+export const enumSampledRecordsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   TIME_ASC: 'TIME_ASC' as const,
+   TIME_DESC: 'TIME_DESC' as const,
+   GAME_VERSION_ASC: 'GAME_VERSION_ASC' as const,
+   GAME_VERSION_DESC: 'GAME_VERSION_DESC' as const,
+   IS_VALID_ASC: 'IS_VALID_ASC' as const,
+   IS_VALID_DESC: 'IS_VALID_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   MOD_VERSION_ASC: 'MOD_VERSION_ASC' as const,
+   MOD_VERSION_DESC: 'MOD_VERSION_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   SPLITS_ASC: 'SPLITS_ASC' as const,
+   SPLITS_DESC: 'SPLITS_DESC' as const,
+   SPEEDS_ASC: 'SPEEDS_ASC' as const,
+   SPEEDS_DESC: 'SPEEDS_DESC' as const
+}
+
+export const enumSampledRecordMediasOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   GHOST_URL_ASC: 'GHOST_URL_ASC' as const,
+   GHOST_URL_DESC: 'GHOST_URL_DESC' as const,
+   SCREENSHOT_URL_ASC: 'SCREENSHOT_URL_ASC' as const,
+   SCREENSHOT_URL_DESC: 'SCREENSHOT_URL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledStatsDailiesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   KEY_ASC: 'KEY_ASC' as const,
+   KEY_DESC: 'KEY_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   DAY_ASC: 'DAY_ASC' as const,
+   DAY_DESC: 'DAY_DESC' as const,
+   VALUE_ASC: 'VALUE_ASC' as const,
+   VALUE_DESC: 'VALUE_DESC' as const
+}
+
+export const enumSampledStatsGlobalsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   KEY_ASC: 'KEY_ASC' as const,
+   KEY_DESC: 'KEY_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   VALUE_ASC: 'VALUE_ASC' as const,
+   VALUE_DESC: 'VALUE_DESC' as const
+}
+
+export const enumSampledStatsMonthliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   KEY_ASC: 'KEY_ASC' as const,
+   KEY_DESC: 'KEY_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   MONTH_ASC: 'MONTH_ASC' as const,
+   MONTH_DESC: 'MONTH_DESC' as const,
+   VALUE_ASC: 'VALUE_ASC' as const,
+   VALUE_DESC: 'VALUE_DESC' as const
+}
+
+export const enumSampledStatsQuarterliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   KEY_ASC: 'KEY_ASC' as const,
+   KEY_DESC: 'KEY_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   QUARTER_ASC: 'QUARTER_ASC' as const,
+   QUARTER_DESC: 'QUARTER_DESC' as const,
+   VALUE_ASC: 'VALUE_ASC' as const,
+   VALUE_DESC: 'VALUE_DESC' as const
+}
+
+export const enumSampledStatsWeekliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   KEY_ASC: 'KEY_ASC' as const,
+   KEY_DESC: 'KEY_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   WEEK_ASC: 'WEEK_ASC' as const,
+   WEEK_DESC: 'WEEK_DESC' as const,
+   VALUE_ASC: 'VALUE_ASC' as const,
+   VALUE_DESC: 'VALUE_DESC' as const
+}
+
+export const enumSampledStatsYearliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   KEY_ASC: 'KEY_ASC' as const,
+   KEY_DESC: 'KEY_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   VALUE_ASC: 'VALUE_ASC' as const,
+   VALUE_DESC: 'VALUE_DESC' as const
+}
+
+export const enumSampledUpvotesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledUsersOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   STEAM_NAME_ASC: 'STEAM_NAME_ASC' as const,
+   STEAM_NAME_DESC: 'STEAM_NAME_DESC' as const,
+   BANNED_ASC: 'BANNED_ASC' as const,
+   BANNED_DESC: 'BANNED_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   STEAM_ID_ASC: 'STEAM_ID_ASC' as const,
+   STEAM_ID_DESC: 'STEAM_ID_DESC' as const,
+   DISCORD_ID_ASC: 'DISCORD_ID_ASC' as const,
+   DISCORD_ID_DESC: 'DISCORD_ID_DESC' as const
+}
+
+export const enumSampledUserPointsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_USER_ASC: 'ID_USER_ASC' as const,
+   ID_USER_DESC: 'ID_USER_DESC' as const,
+   POINTS_ASC: 'POINTS_ASC' as const,
+   POINTS_DESC: 'POINTS_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   RANK_ASC: 'RANK_ASC' as const,
+   RANK_DESC: 'RANK_DESC' as const,
+   WORLD_RECORDS_ASC: 'WORLD_RECORDS_ASC' as const,
+   WORLD_RECORDS_DESC: 'WORLD_RECORDS_DESC' as const
+}
+
+export const enumSampledVersionsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   MINIMUM_ASC: 'MINIMUM_ASC' as const,
+   MINIMUM_DESC: 'MINIMUM_DESC' as const,
+   LATEST_ASC: 'LATEST_ASC' as const,
+   LATEST_DESC: 'LATEST_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledWorldRecordDailiesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   DAY_ASC: 'DAY_ASC' as const,
+   DAY_DESC: 'DAY_DESC' as const
+}
+
+export const enumSampledWorldRecordGlobalsOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const
+}
+
+export const enumSampledWorldRecordMonthliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   MONTH_ASC: 'MONTH_ASC' as const,
+   MONTH_DESC: 'MONTH_DESC' as const
+}
+
+export const enumSampledWorldRecordQuarterliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   QUARTER_ASC: 'QUARTER_ASC' as const,
+   QUARTER_DESC: 'QUARTER_DESC' as const
+}
+
+export const enumSampledWorldRecordWeekliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const,
+   WEEK_ASC: 'WEEK_ASC' as const,
+   WEEK_DESC: 'WEEK_DESC' as const
+}
+
+export const enumSampledWorldRecordYearliesOrderBy = {
+   NATURAL: 'NATURAL' as const,
+   ID_ASC: 'ID_ASC' as const,
+   ID_DESC: 'ID_DESC' as const,
+   ID_RECORD_ASC: 'ID_RECORD_ASC' as const,
+   ID_RECORD_DESC: 'ID_RECORD_DESC' as const,
+   ID_LEVEL_ASC: 'ID_LEVEL_ASC' as const,
+   ID_LEVEL_DESC: 'ID_LEVEL_DESC' as const,
+   DATE_CREATED_ASC: 'DATE_CREATED_ASC' as const,
+   DATE_CREATED_DESC: 'DATE_CREATED_DESC' as const,
+   DATE_UPDATED_ASC: 'DATE_UPDATED_ASC' as const,
+   DATE_UPDATED_DESC: 'DATE_UPDATED_DESC' as const,
+   YEAR_ASC: 'YEAR_ASC' as const,
+   YEAR_DESC: 'YEAR_DESC' as const
 }
 
 export const enumUsersOrderBy = {

@@ -2,7 +2,9 @@ export default {
     scalars: [
         2, 5, 6, 8, 9, 10, 11, 12, 26, 42, 113, 118, 123, 125, 129, 134, 139,
         144, 149, 154, 159, 164, 169, 174, 179, 184, 189, 194, 199, 204, 209,
-        214, 219, 224, 230, 235, 240, 245, 250
+        214, 219, 224, 230, 235, 240, 246, 252, 258, 264, 270, 276, 282, 288,
+        294, 300, 306, 312, 318, 324, 330, 336, 342, 348, 354, 360, 366, 372,
+        378, 384, 390, 396, 402, 408, 414, 420, 425, 430, 435
     ],
     types: {
         Query: {
@@ -196,6 +198,396 @@ export default {
                     filter: [29]
                 }
             ],
+            allSampledFavorites: [
+                243,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [246, '[SampledFavoritesOrderBy!]'],
+                    condition: [247],
+                    filter: [248]
+                }
+            ],
+            allSampledLevels: [
+                249,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [252, '[SampledLevelsOrderBy!]'],
+                    condition: [253],
+                    filter: [254]
+                }
+            ],
+            allSampledLevelItems: [
+                255,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [258, '[SampledLevelItemsOrderBy!]'],
+                    condition: [259],
+                    filter: [260]
+                }
+            ],
+            allSampledLevelMetadata: [
+                261,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [264, '[SampledLevelMetadataOrderBy!]'],
+                    condition: [265],
+                    filter: [266]
+                }
+            ],
+            allSampledLevelPoints: [
+                267,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [270, '[SampledLevelPointsOrderBy!]'],
+                    condition: [271],
+                    filter: [272]
+                }
+            ],
+            allSampledLevelRequests: [
+                273,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [276, '[SampledLevelRequestsOrderBy!]'],
+                    condition: [277],
+                    filter: [278]
+                }
+            ],
+            allSampledPersonalBestDailies: [
+                279,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [282, '[SampledPersonalBestDailiesOrderBy!]'],
+                    condition: [283],
+                    filter: [284]
+                }
+            ],
+            allSampledPersonalBestGlobals: [
+                285,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [288, '[SampledPersonalBestGlobalsOrderBy!]'],
+                    condition: [289],
+                    filter: [290]
+                }
+            ],
+            allSampledPersonalBestMonthlies: [
+                291,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [294, '[SampledPersonalBestMonthliesOrderBy!]'],
+                    condition: [295],
+                    filter: [296]
+                }
+            ],
+            allSampledPersonalBestQuarterlies: [
+                297,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [300, '[SampledPersonalBestQuarterliesOrderBy!]'],
+                    condition: [301],
+                    filter: [302]
+                }
+            ],
+            allSampledPersonalBestWeeklies: [
+                303,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [306, '[SampledPersonalBestWeekliesOrderBy!]'],
+                    condition: [307],
+                    filter: [308]
+                }
+            ],
+            allSampledPersonalBestYearlies: [
+                309,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [312, '[SampledPersonalBestYearliesOrderBy!]'],
+                    condition: [313],
+                    filter: [314]
+                }
+            ],
+            allSampledRecords: [
+                315,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [318, '[SampledRecordsOrderBy!]'],
+                    condition: [319],
+                    filter: [320]
+                }
+            ],
+            allSampledRecordMedias: [
+                321,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [324, '[SampledRecordMediasOrderBy!]'],
+                    condition: [325],
+                    filter: [326]
+                }
+            ],
+            allSampledStatsDailies: [
+                327,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [330, '[SampledStatsDailiesOrderBy!]'],
+                    condition: [331],
+                    filter: [332]
+                }
+            ],
+            allSampledStatsGlobals: [
+                333,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [336, '[SampledStatsGlobalsOrderBy!]'],
+                    condition: [337],
+                    filter: [338]
+                }
+            ],
+            allSampledStatsMonthlies: [
+                339,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [342, '[SampledStatsMonthliesOrderBy!]'],
+                    condition: [343],
+                    filter: [344]
+                }
+            ],
+            allSampledStatsQuarterlies: [
+                345,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [348, '[SampledStatsQuarterliesOrderBy!]'],
+                    condition: [349],
+                    filter: [350]
+                }
+            ],
+            allSampledStatsWeeklies: [
+                351,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [354, '[SampledStatsWeekliesOrderBy!]'],
+                    condition: [355],
+                    filter: [356]
+                }
+            ],
+            allSampledStatsYearlies: [
+                357,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [360, '[SampledStatsYearliesOrderBy!]'],
+                    condition: [361],
+                    filter: [362]
+                }
+            ],
+            allSampledUpvotes: [
+                363,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [366, '[SampledUpvotesOrderBy!]'],
+                    condition: [367],
+                    filter: [368]
+                }
+            ],
+            allSampledUsers: [
+                369,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [372, '[SampledUsersOrderBy!]'],
+                    condition: [373],
+                    filter: [374]
+                }
+            ],
+            allSampledUserPoints: [
+                375,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [378, '[SampledUserPointsOrderBy!]'],
+                    condition: [379],
+                    filter: [380]
+                }
+            ],
+            allSampledVersions: [
+                381,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [384, '[SampledVersionsOrderBy!]'],
+                    condition: [385],
+                    filter: [386]
+                }
+            ],
+            allSampledWorldRecordDailies: [
+                387,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [390, '[SampledWorldRecordDailiesOrderBy!]'],
+                    condition: [391],
+                    filter: [392]
+                }
+            ],
+            allSampledWorldRecordGlobals: [
+                393,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [396, '[SampledWorldRecordGlobalsOrderBy!]'],
+                    condition: [397],
+                    filter: [398]
+                }
+            ],
+            allSampledWorldRecordMonthlies: [
+                399,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [402, '[SampledWorldRecordMonthliesOrderBy!]'],
+                    condition: [403],
+                    filter: [404]
+                }
+            ],
+            allSampledWorldRecordQuarterlies: [
+                405,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [408, '[SampledWorldRecordQuarterliesOrderBy!]'],
+                    condition: [409],
+                    filter: [410]
+                }
+            ],
+            allSampledWorldRecordWeeklies: [
+                411,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [414, '[SampledWorldRecordWeekliesOrderBy!]'],
+                    condition: [415],
+                    filter: [416]
+                }
+            ],
+            allSampledWorldRecordYearlies: [
+                417,
+                {
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    orderBy: [420, '[SampledWorldRecordYearliesOrderBy!]'],
+                    condition: [421],
+                    filter: [422]
+                }
+            ],
             allStatsDailies: [
                 201,
                 {
@@ -288,15 +680,15 @@ export default {
                 }
             ],
             allUsers: [
-                243,
+                423,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [245, '[UsersOrderBy!]'],
-                    condition: [246],
+                    orderBy: [425, '[UsersOrderBy!]'],
+                    condition: [426],
                     filter: [17]
                 }
             ],
@@ -314,16 +706,16 @@ export default {
                 }
             ],
             allVersions: [
-                247,
+                427,
                 {
                     first: [5],
                     last: [5],
                     offset: [5],
                     before: [11],
                     after: [11],
-                    orderBy: [250, '[VersionsOrderBy!]'],
-                    condition: [251],
-                    filter: [252]
+                    orderBy: [430, '[VersionsOrderBy!]'],
+                    condition: [431],
+                    filter: [432]
                 }
             ],
             allWorldRecordDailies: [
@@ -549,7 +941,7 @@ export default {
                 }
             ],
             versionById: [
-                248,
+                428,
                 {
                     id: [5, 'Int!']
                 }
@@ -588,6 +980,26 @@ export default {
                 172,
                 {
                     id: [5, 'Int!']
+                }
+            ],
+            zRtm: [
+                433,
+                {
+                    pMinAuthorTime: [26],
+                    pMaxAuthorTime: [26],
+                    pMinRecords: [5],
+                    pMaxRecords: [5],
+                    pExcludedAuthorIds: [5, '[Int]'],
+                    pExcludedHashes: [8, '[String]'],
+                    pMinCheckpoints: [5],
+                    pMaxCheckpoints: [5],
+                    pSampleSize: [5],
+                    first: [5],
+                    last: [5],
+                    offset: [5],
+                    before: [11],
+                    after: [11],
+                    filter: [437]
                 }
             ],
             favorite: [
@@ -729,7 +1141,7 @@ export default {
                 }
             ],
             version: [
-                248,
+                428,
                 {
                     nodeId: [2, 'ID!']
                 }
@@ -804,7 +1216,7 @@ export default {
             on_RecordMedia: [222],
             on_UserPoint: [228],
             on_LevelRequest: [238],
-            on_Version: [248],
+            on_Version: [428],
             __typename: [8]
         },
         ID: {},
@@ -3584,9 +3996,1428 @@ export default {
             not: [242],
             __typename: [8]
         },
+        SampledFavoritesConnection: {
+            nodes: [244],
+            edges: [245],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledFavorite: {
+            id: [5],
+            idUser: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            idLevel: [5],
+            __typename: [8]
+        },
+        SampledFavoritesEdge: {
+            cursor: [11],
+            node: [244],
+            __typename: [8]
+        },
+        SampledFavoritesOrderBy: {},
+        SampledFavoriteCondition: {
+            id: [5],
+            idUser: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            idLevel: [5],
+            __typename: [8]
+        },
+        SampledFavoriteFilter: {
+            id: [15],
+            idUser: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            idLevel: [15],
+            and: [248],
+            or: [248],
+            not: [248],
+            __typename: [8]
+        },
+        SampledLevelsConnection: {
+            nodes: [250],
+            edges: [251],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledLevel: {
+            id: [5],
+            hash: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelsEdge: {
+            cursor: [11],
+            node: [250],
+            __typename: [8]
+        },
+        SampledLevelsOrderBy: {},
+        SampledLevelCondition: {
+            id: [5],
+            hash: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelFilter: {
+            id: [15],
+            hash: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [254],
+            or: [254],
+            not: [254],
+            __typename: [8]
+        },
+        SampledLevelItemsConnection: {
+            nodes: [256],
+            edges: [257],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledLevelItem: {
+            id: [5],
+            idLevel: [5],
+            workshopId: [10],
+            authorId: [10],
+            name: [8],
+            imageUrl: [8],
+            fileAuthor: [8],
+            fileUid: [8],
+            validationTimeAuthor: [26],
+            validationTimeGold: [26],
+            validationTimeSilver: [26],
+            validationTimeBronze: [26],
+            deleted: [9],
+            createdAt: [6],
+            updatedAt: [6],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelItemsEdge: {
+            cursor: [11],
+            node: [256],
+            __typename: [8]
+        },
+        SampledLevelItemsOrderBy: {},
+        SampledLevelItemCondition: {
+            id: [5],
+            idLevel: [5],
+            workshopId: [10],
+            authorId: [10],
+            name: [8],
+            imageUrl: [8],
+            fileAuthor: [8],
+            fileUid: [8],
+            validationTimeAuthor: [26],
+            validationTimeGold: [26],
+            validationTimeSilver: [26],
+            validationTimeBronze: [26],
+            deleted: [9],
+            createdAt: [6],
+            updatedAt: [6],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelItemFilter: {
+            id: [15],
+            idLevel: [15],
+            workshopId: [20],
+            authorId: [20],
+            name: [18],
+            imageUrl: [18],
+            fileAuthor: [18],
+            fileUid: [18],
+            validationTimeAuthor: [25],
+            validationTimeGold: [25],
+            validationTimeSilver: [25],
+            validationTimeBronze: [25],
+            deleted: [19],
+            createdAt: [16],
+            updatedAt: [16],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [260],
+            or: [260],
+            not: [260],
+            __typename: [8]
+        },
+        SampledLevelMetadataConnection: {
+            nodes: [262],
+            edges: [263],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledLevelMetadatum: {
+            id: [5],
+            idLevel: [5],
+            amountCheckpoints: [5],
+            amountFinishes: [5],
+            amountBlocks: [5],
+            typeGround: [5],
+            typeSkybox: [5],
+            blocks: [42],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelMetadataEdge: {
+            cursor: [11],
+            node: [262],
+            __typename: [8]
+        },
+        SampledLevelMetadataOrderBy: {},
+        SampledLevelMetadatumCondition: {
+            id: [5],
+            idLevel: [5],
+            amountCheckpoints: [5],
+            amountFinishes: [5],
+            amountBlocks: [5],
+            typeGround: [5],
+            typeSkybox: [5],
+            blocks: [42],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelMetadatumFilter: {
+            id: [15],
+            idLevel: [15],
+            amountCheckpoints: [15],
+            amountFinishes: [15],
+            amountBlocks: [15],
+            typeGround: [15],
+            typeSkybox: [15],
+            blocks: [41],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [266],
+            or: [266],
+            not: [266],
+            __typename: [8]
+        },
+        SampledLevelPointsConnection: {
+            nodes: [268],
+            edges: [269],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledLevelPoint: {
+            id: [5],
+            points: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelPointsEdge: {
+            cursor: [11],
+            node: [268],
+            __typename: [8]
+        },
+        SampledLevelPointsOrderBy: {},
+        SampledLevelPointCondition: {
+            id: [5],
+            points: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelPointFilter: {
+            id: [15],
+            points: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [272],
+            or: [272],
+            not: [272],
+            __typename: [8]
+        },
+        SampledLevelRequestsConnection: {
+            nodes: [274],
+            edges: [275],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledLevelRequest: {
+            id: [5],
+            workshopId: [10],
+            uid: [8],
+            hash: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelRequestsEdge: {
+            cursor: [11],
+            node: [274],
+            __typename: [8]
+        },
+        SampledLevelRequestsOrderBy: {},
+        SampledLevelRequestCondition: {
+            id: [5],
+            workshopId: [10],
+            uid: [8],
+            hash: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledLevelRequestFilter: {
+            id: [15],
+            workshopId: [20],
+            uid: [18],
+            hash: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [278],
+            or: [278],
+            not: [278],
+            __typename: [8]
+        },
+        SampledPersonalBestDailiesConnection: {
+            nodes: [280],
+            edges: [281],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestDaily: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            day: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestDailiesEdge: {
+            cursor: [11],
+            node: [280],
+            __typename: [8]
+        },
+        SampledPersonalBestDailiesOrderBy: {},
+        SampledPersonalBestDailyCondition: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            day: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestDailyFilter: {
+            id: [15],
+            idRecord: [15],
+            idUser: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            day: [15],
+            and: [284],
+            or: [284],
+            not: [284],
+            __typename: [8]
+        },
+        SampledPersonalBestGlobalsConnection: {
+            nodes: [286],
+            edges: [287],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestGlobal: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledPersonalBestGlobalsEdge: {
+            cursor: [11],
+            node: [286],
+            __typename: [8]
+        },
+        SampledPersonalBestGlobalsOrderBy: {},
+        SampledPersonalBestGlobalCondition: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledPersonalBestGlobalFilter: {
+            id: [15],
+            idRecord: [15],
+            idUser: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [290],
+            or: [290],
+            not: [290],
+            __typename: [8]
+        },
+        SampledPersonalBestMonthliesConnection: {
+            nodes: [292],
+            edges: [293],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestMonthly: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            month: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestMonthliesEdge: {
+            cursor: [11],
+            node: [292],
+            __typename: [8]
+        },
+        SampledPersonalBestMonthliesOrderBy: {},
+        SampledPersonalBestMonthlyCondition: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            month: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestMonthlyFilter: {
+            id: [15],
+            idRecord: [15],
+            idUser: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            month: [15],
+            and: [296],
+            or: [296],
+            not: [296],
+            __typename: [8]
+        },
+        SampledPersonalBestQuarterliesConnection: {
+            nodes: [298],
+            edges: [299],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestQuarterly: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            quarter: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestQuarterliesEdge: {
+            cursor: [11],
+            node: [298],
+            __typename: [8]
+        },
+        SampledPersonalBestQuarterliesOrderBy: {},
+        SampledPersonalBestQuarterlyCondition: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            quarter: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestQuarterlyFilter: {
+            id: [15],
+            idRecord: [15],
+            idUser: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            quarter: [15],
+            and: [302],
+            or: [302],
+            not: [302],
+            __typename: [8]
+        },
+        SampledPersonalBestWeekliesConnection: {
+            nodes: [304],
+            edges: [305],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestWeekly: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            week: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestWeekliesEdge: {
+            cursor: [11],
+            node: [304],
+            __typename: [8]
+        },
+        SampledPersonalBestWeekliesOrderBy: {},
+        SampledPersonalBestWeeklyCondition: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            week: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestWeeklyFilter: {
+            id: [15],
+            idRecord: [15],
+            idUser: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            week: [15],
+            and: [308],
+            or: [308],
+            not: [308],
+            __typename: [8]
+        },
+        SampledPersonalBestYearliesConnection: {
+            nodes: [310],
+            edges: [311],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestYearly: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestYearliesEdge: {
+            cursor: [11],
+            node: [310],
+            __typename: [8]
+        },
+        SampledPersonalBestYearliesOrderBy: {},
+        SampledPersonalBestYearlyCondition: {
+            id: [5],
+            idRecord: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            __typename: [8]
+        },
+        SampledPersonalBestYearlyFilter: {
+            id: [15],
+            idRecord: [15],
+            idUser: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            and: [314],
+            or: [314],
+            not: [314],
+            __typename: [8]
+        },
+        SampledRecordsConnection: {
+            nodes: [316],
+            edges: [317],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledRecord: {
+            id: [5],
+            idUser: [5],
+            time: [26],
+            gameVersion: [8],
+            isValid: [9],
+            idLevel: [5],
+            modVersion: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            splits: [26],
+            speeds: [26],
+            __typename: [8]
+        },
+        SampledRecordsEdge: {
+            cursor: [11],
+            node: [316],
+            __typename: [8]
+        },
+        SampledRecordsOrderBy: {},
+        SampledRecordCondition: {
+            id: [5],
+            idUser: [5],
+            time: [26],
+            gameVersion: [8],
+            isValid: [9],
+            idLevel: [5],
+            modVersion: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            splits: [26],
+            speeds: [26],
+            __typename: [8]
+        },
+        SampledRecordFilter: {
+            id: [15],
+            idUser: [15],
+            time: [25],
+            gameVersion: [18],
+            isValid: [19],
+            idLevel: [15],
+            modVersion: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            splits: [27],
+            speeds: [27],
+            and: [320],
+            or: [320],
+            not: [320],
+            __typename: [8]
+        },
+        SampledRecordMediasConnection: {
+            nodes: [322],
+            edges: [323],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledRecordMedia: {
+            id: [5],
+            idRecord: [5],
+            ghostUrl: [8],
+            screenshotUrl: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledRecordMediasEdge: {
+            cursor: [11],
+            node: [322],
+            __typename: [8]
+        },
+        SampledRecordMediasOrderBy: {},
+        SampledRecordMediaCondition: {
+            id: [5],
+            idRecord: [5],
+            ghostUrl: [8],
+            screenshotUrl: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledRecordMediaFilter: {
+            id: [15],
+            idRecord: [15],
+            ghostUrl: [18],
+            screenshotUrl: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [326],
+            or: [326],
+            not: [326],
+            __typename: [8]
+        },
+        SampledStatsDailiesConnection: {
+            nodes: [328],
+            edges: [329],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledStatsDaily: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            day: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsDailiesEdge: {
+            cursor: [11],
+            node: [328],
+            __typename: [8]
+        },
+        SampledStatsDailiesOrderBy: {},
+        SampledStatsDailyCondition: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            day: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsDailyFilter: {
+            id: [15],
+            idUser: [15],
+            idLevel: [15],
+            key: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            day: [15],
+            value: [20],
+            and: [332],
+            or: [332],
+            not: [332],
+            __typename: [8]
+        },
+        SampledStatsGlobalsConnection: {
+            nodes: [334],
+            edges: [335],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledStatsGlobal: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsGlobalsEdge: {
+            cursor: [11],
+            node: [334],
+            __typename: [8]
+        },
+        SampledStatsGlobalsOrderBy: {},
+        SampledStatsGlobalCondition: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsGlobalFilter: {
+            id: [15],
+            idUser: [15],
+            idLevel: [15],
+            key: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            value: [20],
+            and: [338],
+            or: [338],
+            not: [338],
+            __typename: [8]
+        },
+        SampledStatsMonthliesConnection: {
+            nodes: [340],
+            edges: [341],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledStatsMonthly: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            month: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsMonthliesEdge: {
+            cursor: [11],
+            node: [340],
+            __typename: [8]
+        },
+        SampledStatsMonthliesOrderBy: {},
+        SampledStatsMonthlyCondition: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            month: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsMonthlyFilter: {
+            id: [15],
+            idUser: [15],
+            idLevel: [15],
+            key: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            month: [15],
+            value: [20],
+            and: [344],
+            or: [344],
+            not: [344],
+            __typename: [8]
+        },
+        SampledStatsQuarterliesConnection: {
+            nodes: [346],
+            edges: [347],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledStatsQuarterly: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            quarter: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsQuarterliesEdge: {
+            cursor: [11],
+            node: [346],
+            __typename: [8]
+        },
+        SampledStatsQuarterliesOrderBy: {},
+        SampledStatsQuarterlyCondition: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            quarter: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsQuarterlyFilter: {
+            id: [15],
+            idUser: [15],
+            idLevel: [15],
+            key: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            quarter: [15],
+            value: [20],
+            and: [350],
+            or: [350],
+            not: [350],
+            __typename: [8]
+        },
+        SampledStatsWeekliesConnection: {
+            nodes: [352],
+            edges: [353],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledStatsWeekly: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            week: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsWeekliesEdge: {
+            cursor: [11],
+            node: [352],
+            __typename: [8]
+        },
+        SampledStatsWeekliesOrderBy: {},
+        SampledStatsWeeklyCondition: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            week: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsWeeklyFilter: {
+            id: [15],
+            idUser: [15],
+            idLevel: [15],
+            key: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            week: [15],
+            value: [20],
+            and: [356],
+            or: [356],
+            not: [356],
+            __typename: [8]
+        },
+        SampledStatsYearliesConnection: {
+            nodes: [358],
+            edges: [359],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledStatsYearly: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsYearliesEdge: {
+            cursor: [11],
+            node: [358],
+            __typename: [8]
+        },
+        SampledStatsYearliesOrderBy: {},
+        SampledStatsYearlyCondition: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            key: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            value: [10],
+            __typename: [8]
+        },
+        SampledStatsYearlyFilter: {
+            id: [15],
+            idUser: [15],
+            idLevel: [15],
+            key: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            value: [20],
+            and: [362],
+            or: [362],
+            not: [362],
+            __typename: [8]
+        },
+        SampledUpvotesConnection: {
+            nodes: [364],
+            edges: [365],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledUpvote: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledUpvotesEdge: {
+            cursor: [11],
+            node: [364],
+            __typename: [8]
+        },
+        SampledUpvotesOrderBy: {},
+        SampledUpvoteCondition: {
+            id: [5],
+            idUser: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledUpvoteFilter: {
+            id: [15],
+            idUser: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [368],
+            or: [368],
+            not: [368],
+            __typename: [8]
+        },
+        SampledUsersConnection: {
+            nodes: [370],
+            edges: [371],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledUser: {
+            id: [5],
+            steamName: [8],
+            banned: [9],
+            dateCreated: [6],
+            dateUpdated: [6],
+            steamId: [10],
+            discordId: [10],
+            __typename: [8]
+        },
+        SampledUsersEdge: {
+            cursor: [11],
+            node: [370],
+            __typename: [8]
+        },
+        SampledUsersOrderBy: {},
+        SampledUserCondition: {
+            id: [5],
+            steamName: [8],
+            banned: [9],
+            dateCreated: [6],
+            dateUpdated: [6],
+            steamId: [10],
+            discordId: [10],
+            __typename: [8]
+        },
+        SampledUserFilter: {
+            id: [15],
+            steamName: [18],
+            banned: [19],
+            dateCreated: [16],
+            dateUpdated: [16],
+            steamId: [20],
+            discordId: [20],
+            and: [374],
+            or: [374],
+            not: [374],
+            __typename: [8]
+        },
+        SampledUserPointsConnection: {
+            nodes: [376],
+            edges: [377],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledUserPoint: {
+            id: [5],
+            idUser: [5],
+            points: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            rank: [5],
+            worldRecords: [5],
+            __typename: [8]
+        },
+        SampledUserPointsEdge: {
+            cursor: [11],
+            node: [376],
+            __typename: [8]
+        },
+        SampledUserPointsOrderBy: {},
+        SampledUserPointCondition: {
+            id: [5],
+            idUser: [5],
+            points: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            rank: [5],
+            worldRecords: [5],
+            __typename: [8]
+        },
+        SampledUserPointFilter: {
+            id: [15],
+            idUser: [15],
+            points: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            rank: [15],
+            worldRecords: [15],
+            and: [380],
+            or: [380],
+            not: [380],
+            __typename: [8]
+        },
+        SampledVersionsConnection: {
+            nodes: [382],
+            edges: [383],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledVersion: {
+            id: [5],
+            minimum: [8],
+            latest: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledVersionsEdge: {
+            cursor: [11],
+            node: [382],
+            __typename: [8]
+        },
+        SampledVersionsOrderBy: {},
+        SampledVersionCondition: {
+            id: [5],
+            minimum: [8],
+            latest: [8],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledVersionFilter: {
+            id: [15],
+            minimum: [18],
+            latest: [18],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [386],
+            or: [386],
+            not: [386],
+            __typename: [8]
+        },
+        SampledWorldRecordDailiesConnection: {
+            nodes: [388],
+            edges: [389],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordDaily: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            day: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordDailiesEdge: {
+            cursor: [11],
+            node: [388],
+            __typename: [8]
+        },
+        SampledWorldRecordDailiesOrderBy: {},
+        SampledWorldRecordDailyCondition: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            day: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordDailyFilter: {
+            id: [15],
+            idRecord: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            day: [15],
+            and: [392],
+            or: [392],
+            not: [392],
+            __typename: [8]
+        },
+        SampledWorldRecordGlobalsConnection: {
+            nodes: [394],
+            edges: [395],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordGlobal: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledWorldRecordGlobalsEdge: {
+            cursor: [11],
+            node: [394],
+            __typename: [8]
+        },
+        SampledWorldRecordGlobalsOrderBy: {},
+        SampledWorldRecordGlobalCondition: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            __typename: [8]
+        },
+        SampledWorldRecordGlobalFilter: {
+            id: [15],
+            idRecord: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            and: [398],
+            or: [398],
+            not: [398],
+            __typename: [8]
+        },
+        SampledWorldRecordMonthliesConnection: {
+            nodes: [400],
+            edges: [401],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordMonthly: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            month: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordMonthliesEdge: {
+            cursor: [11],
+            node: [400],
+            __typename: [8]
+        },
+        SampledWorldRecordMonthliesOrderBy: {},
+        SampledWorldRecordMonthlyCondition: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            month: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordMonthlyFilter: {
+            id: [15],
+            idRecord: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            month: [15],
+            and: [404],
+            or: [404],
+            not: [404],
+            __typename: [8]
+        },
+        SampledWorldRecordQuarterliesConnection: {
+            nodes: [406],
+            edges: [407],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordQuarterly: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            quarter: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordQuarterliesEdge: {
+            cursor: [11],
+            node: [406],
+            __typename: [8]
+        },
+        SampledWorldRecordQuarterliesOrderBy: {},
+        SampledWorldRecordQuarterlyCondition: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            quarter: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordQuarterlyFilter: {
+            id: [15],
+            idRecord: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            quarter: [15],
+            and: [410],
+            or: [410],
+            not: [410],
+            __typename: [8]
+        },
+        SampledWorldRecordWeekliesConnection: {
+            nodes: [412],
+            edges: [413],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordWeekly: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            week: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordWeekliesEdge: {
+            cursor: [11],
+            node: [412],
+            __typename: [8]
+        },
+        SampledWorldRecordWeekliesOrderBy: {},
+        SampledWorldRecordWeeklyCondition: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            week: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordWeeklyFilter: {
+            id: [15],
+            idRecord: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            week: [15],
+            and: [416],
+            or: [416],
+            not: [416],
+            __typename: [8]
+        },
+        SampledWorldRecordYearliesConnection: {
+            nodes: [418],
+            edges: [419],
+            pageInfo: [112],
+            totalCount: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordYearly: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordYearliesEdge: {
+            cursor: [11],
+            node: [418],
+            __typename: [8]
+        },
+        SampledWorldRecordYearliesOrderBy: {},
+        SampledWorldRecordYearlyCondition: {
+            id: [5],
+            idRecord: [5],
+            idLevel: [5],
+            dateCreated: [6],
+            dateUpdated: [6],
+            year: [5],
+            __typename: [8]
+        },
+        SampledWorldRecordYearlyFilter: {
+            id: [15],
+            idRecord: [15],
+            idLevel: [15],
+            dateCreated: [16],
+            dateUpdated: [16],
+            year: [15],
+            and: [422],
+            or: [422],
+            not: [422],
+            __typename: [8]
+        },
         UsersConnection: {
             nodes: [7],
-            edges: [244],
+            edges: [424],
             pageInfo: [112],
             totalCount: [5],
             __typename: [8]
@@ -3608,8 +5439,8 @@ export default {
             __typename: [8]
         },
         VersionsConnection: {
-            nodes: [248],
-            edges: [249],
+            nodes: [428],
+            edges: [429],
             pageInfo: [112],
             totalCount: [5],
             __typename: [8]
@@ -3625,7 +5456,7 @@ export default {
         },
         VersionsEdge: {
             cursor: [11],
-            node: [248],
+            node: [428],
             __typename: [8]
         },
         VersionsOrderBy: {},
@@ -3643,16 +5474,89 @@ export default {
             latest: [18],
             dateCreated: [16],
             dateUpdated: [16],
-            and: [252],
-            or: [252],
-            not: [252],
+            and: [432],
+            or: [432],
+            not: [432],
+            __typename: [8]
+        },
+        ZRtmConnection: {
+            nodes: [434],
+            edges: [436],
+            totalCount: [5],
+            __typename: [8]
+        },
+        ZRtmRecord: {
+            id: [5],
+            idLevel: [5],
+            workshopId: [10],
+            authorId: [10],
+            name: [8],
+            imageUrl: [8],
+            fileAuthor: [8],
+            fileUid: [8],
+            validationTimeAuthor: [26],
+            validationTimeGold: [26],
+            validationTimeSilver: [26],
+            validationTimeBronze: [26],
+            deleted: [9],
+            createdAt: [6],
+            updatedAt: [6],
+            dateCreated: [6],
+            dateUpdated: [6],
+            amountCheckpoints: [5],
+            numRecords: [435],
+            __typename: [8]
+        },
+        BigInt: {},
+        ZRtmEdge: {
+            cursor: [11],
+            node: [434],
+            __typename: [8]
+        },
+        ZRtmRecordFilter: {
+            id: [15],
+            idLevel: [15],
+            workshopId: [20],
+            authorId: [20],
+            name: [18],
+            imageUrl: [18],
+            fileAuthor: [18],
+            fileUid: [18],
+            validationTimeAuthor: [25],
+            validationTimeGold: [25],
+            validationTimeSilver: [25],
+            validationTimeBronze: [25],
+            deleted: [19],
+            createdAt: [16],
+            updatedAt: [16],
+            dateCreated: [16],
+            dateUpdated: [16],
+            amountCheckpoints: [15],
+            numRecords: [438],
+            and: [437],
+            or: [437],
+            not: [437],
+            __typename: [8]
+        },
+        BigIntFilter: {
+            isNull: [9],
+            equalTo: [435],
+            notEqualTo: [435],
+            distinctFrom: [435],
+            notDistinctFrom: [435],
+            in: [435],
+            notIn: [435],
+            lessThan: [435],
+            lessThanOrEqualTo: [435],
+            greaterThan: [435],
+            greaterThanOrEqualTo: [435],
             __typename: [8]
         },
         Mutation: {
             updateWorldRecordGlobal: [
-                254,
+                440,
                 {
-                    input: [255, 'UpdateWorldRecordGlobalInput!']
+                    input: [441, 'UpdateWorldRecordGlobalInput!']
                 }
             ],
             __typename: [8]

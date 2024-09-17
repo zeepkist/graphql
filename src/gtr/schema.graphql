@@ -493,6 +493,1050 @@ type Query implements Node {
     filter: RecordMediaFilter
   ): RecordMediasConnection
 
+  """Reads and enables pagination through a set of `SampledFavorite`."""
+  allSampledFavorites(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledFavorite`."""
+    orderBy: [SampledFavoritesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledFavoriteCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledFavoriteFilter
+  ): SampledFavoritesConnection
+
+  """Reads and enables pagination through a set of `SampledLevel`."""
+  allSampledLevels(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledLevel`."""
+    orderBy: [SampledLevelsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledLevelCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledLevelFilter
+  ): SampledLevelsConnection
+
+  """Reads and enables pagination through a set of `SampledLevelItem`."""
+  allSampledLevelItems(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledLevelItem`."""
+    orderBy: [SampledLevelItemsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledLevelItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledLevelItemFilter
+  ): SampledLevelItemsConnection
+
+  """Reads and enables pagination through a set of `SampledLevelMetadatum`."""
+  allSampledLevelMetadata(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledLevelMetadatum`."""
+    orderBy: [SampledLevelMetadataOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledLevelMetadatumCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledLevelMetadatumFilter
+  ): SampledLevelMetadataConnection
+
+  """Reads and enables pagination through a set of `SampledLevelPoint`."""
+  allSampledLevelPoints(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledLevelPoint`."""
+    orderBy: [SampledLevelPointsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledLevelPointCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledLevelPointFilter
+  ): SampledLevelPointsConnection
+
+  """Reads and enables pagination through a set of `SampledLevelRequest`."""
+  allSampledLevelRequests(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledLevelRequest`."""
+    orderBy: [SampledLevelRequestsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledLevelRequestCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledLevelRequestFilter
+  ): SampledLevelRequestsConnection
+
+  """
+  Reads and enables pagination through a set of `SampledPersonalBestDaily`.
+  """
+  allSampledPersonalBestDailies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledPersonalBestDaily`."""
+    orderBy: [SampledPersonalBestDailiesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledPersonalBestDailyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledPersonalBestDailyFilter
+  ): SampledPersonalBestDailiesConnection
+
+  """
+  Reads and enables pagination through a set of `SampledPersonalBestGlobal`.
+  """
+  allSampledPersonalBestGlobals(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledPersonalBestGlobal`."""
+    orderBy: [SampledPersonalBestGlobalsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledPersonalBestGlobalCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledPersonalBestGlobalFilter
+  ): SampledPersonalBestGlobalsConnection
+
+  """
+  Reads and enables pagination through a set of `SampledPersonalBestMonthly`.
+  """
+  allSampledPersonalBestMonthlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledPersonalBestMonthly`."""
+    orderBy: [SampledPersonalBestMonthliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledPersonalBestMonthlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledPersonalBestMonthlyFilter
+  ): SampledPersonalBestMonthliesConnection
+
+  """
+  Reads and enables pagination through a set of `SampledPersonalBestQuarterly`.
+  """
+  allSampledPersonalBestQuarterlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledPersonalBestQuarterly`."""
+    orderBy: [SampledPersonalBestQuarterliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledPersonalBestQuarterlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledPersonalBestQuarterlyFilter
+  ): SampledPersonalBestQuarterliesConnection
+
+  """
+  Reads and enables pagination through a set of `SampledPersonalBestWeekly`.
+  """
+  allSampledPersonalBestWeeklies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledPersonalBestWeekly`."""
+    orderBy: [SampledPersonalBestWeekliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledPersonalBestWeeklyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledPersonalBestWeeklyFilter
+  ): SampledPersonalBestWeekliesConnection
+
+  """
+  Reads and enables pagination through a set of `SampledPersonalBestYearly`.
+  """
+  allSampledPersonalBestYearlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledPersonalBestYearly`."""
+    orderBy: [SampledPersonalBestYearliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledPersonalBestYearlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledPersonalBestYearlyFilter
+  ): SampledPersonalBestYearliesConnection
+
+  """Reads and enables pagination through a set of `SampledRecord`."""
+  allSampledRecords(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledRecord`."""
+    orderBy: [SampledRecordsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledRecordCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledRecordFilter
+  ): SampledRecordsConnection
+
+  """Reads and enables pagination through a set of `SampledRecordMedia`."""
+  allSampledRecordMedias(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledRecordMedia`."""
+    orderBy: [SampledRecordMediasOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledRecordMediaCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledRecordMediaFilter
+  ): SampledRecordMediasConnection
+
+  """Reads and enables pagination through a set of `SampledStatsDaily`."""
+  allSampledStatsDailies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledStatsDaily`."""
+    orderBy: [SampledStatsDailiesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledStatsDailyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledStatsDailyFilter
+  ): SampledStatsDailiesConnection
+
+  """Reads and enables pagination through a set of `SampledStatsGlobal`."""
+  allSampledStatsGlobals(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledStatsGlobal`."""
+    orderBy: [SampledStatsGlobalsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledStatsGlobalCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledStatsGlobalFilter
+  ): SampledStatsGlobalsConnection
+
+  """Reads and enables pagination through a set of `SampledStatsMonthly`."""
+  allSampledStatsMonthlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledStatsMonthly`."""
+    orderBy: [SampledStatsMonthliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledStatsMonthlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledStatsMonthlyFilter
+  ): SampledStatsMonthliesConnection
+
+  """Reads and enables pagination through a set of `SampledStatsQuarterly`."""
+  allSampledStatsQuarterlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledStatsQuarterly`."""
+    orderBy: [SampledStatsQuarterliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledStatsQuarterlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledStatsQuarterlyFilter
+  ): SampledStatsQuarterliesConnection
+
+  """Reads and enables pagination through a set of `SampledStatsWeekly`."""
+  allSampledStatsWeeklies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledStatsWeekly`."""
+    orderBy: [SampledStatsWeekliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledStatsWeeklyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledStatsWeeklyFilter
+  ): SampledStatsWeekliesConnection
+
+  """Reads and enables pagination through a set of `SampledStatsYearly`."""
+  allSampledStatsYearlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledStatsYearly`."""
+    orderBy: [SampledStatsYearliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledStatsYearlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledStatsYearlyFilter
+  ): SampledStatsYearliesConnection
+
+  """Reads and enables pagination through a set of `SampledUpvote`."""
+  allSampledUpvotes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledUpvote`."""
+    orderBy: [SampledUpvotesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledUpvoteCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledUpvoteFilter
+  ): SampledUpvotesConnection
+
+  """Reads and enables pagination through a set of `SampledUser`."""
+  allSampledUsers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledUser`."""
+    orderBy: [SampledUsersOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledUserCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledUserFilter
+  ): SampledUsersConnection
+
+  """Reads and enables pagination through a set of `SampledUserPoint`."""
+  allSampledUserPoints(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledUserPoint`."""
+    orderBy: [SampledUserPointsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledUserPointCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledUserPointFilter
+  ): SampledUserPointsConnection
+
+  """Reads and enables pagination through a set of `SampledVersion`."""
+  allSampledVersions(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledVersion`."""
+    orderBy: [SampledVersionsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledVersionCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledVersionFilter
+  ): SampledVersionsConnection
+
+  """
+  Reads and enables pagination through a set of `SampledWorldRecordDaily`.
+  """
+  allSampledWorldRecordDailies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledWorldRecordDaily`."""
+    orderBy: [SampledWorldRecordDailiesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledWorldRecordDailyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledWorldRecordDailyFilter
+  ): SampledWorldRecordDailiesConnection
+
+  """
+  Reads and enables pagination through a set of `SampledWorldRecordGlobal`.
+  """
+  allSampledWorldRecordGlobals(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledWorldRecordGlobal`."""
+    orderBy: [SampledWorldRecordGlobalsOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledWorldRecordGlobalCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledWorldRecordGlobalFilter
+  ): SampledWorldRecordGlobalsConnection
+
+  """
+  Reads and enables pagination through a set of `SampledWorldRecordMonthly`.
+  """
+  allSampledWorldRecordMonthlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledWorldRecordMonthly`."""
+    orderBy: [SampledWorldRecordMonthliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledWorldRecordMonthlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledWorldRecordMonthlyFilter
+  ): SampledWorldRecordMonthliesConnection
+
+  """
+  Reads and enables pagination through a set of `SampledWorldRecordQuarterly`.
+  """
+  allSampledWorldRecordQuarterlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledWorldRecordQuarterly`."""
+    orderBy: [SampledWorldRecordQuarterliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledWorldRecordQuarterlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledWorldRecordQuarterlyFilter
+  ): SampledWorldRecordQuarterliesConnection
+
+  """
+  Reads and enables pagination through a set of `SampledWorldRecordWeekly`.
+  """
+  allSampledWorldRecordWeeklies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledWorldRecordWeekly`."""
+    orderBy: [SampledWorldRecordWeekliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledWorldRecordWeeklyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledWorldRecordWeeklyFilter
+  ): SampledWorldRecordWeekliesConnection
+
+  """
+  Reads and enables pagination through a set of `SampledWorldRecordYearly`.
+  """
+  allSampledWorldRecordYearlies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `SampledWorldRecordYearly`."""
+    orderBy: [SampledWorldRecordYearliesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SampledWorldRecordYearlyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SampledWorldRecordYearlyFilter
+  ): SampledWorldRecordYearliesConnection
+
   """Reads and enables pagination through a set of `StatsDaily`."""
   allStatsDailies(
     """Only read the first `n` values of the set."""
@@ -1067,6 +2111,42 @@ type Query implements Node {
   worldRecordQuarterlyById(id: Int!): WorldRecordQuarterly
   worldRecordWeeklyById(id: Int!): WorldRecordWeekly
   worldRecordYearlyById(id: Int!): WorldRecordYearly
+
+  """Retrieves filtered level items based on specified criteria"""
+  zRtm(
+    pMinAuthorTime: Float
+    pMaxAuthorTime: Float
+    pMinRecords: Int
+    pMaxRecords: Int
+    pExcludedAuthorIds: [Int]
+    pExcludedHashes: [String]
+    pMinCheckpoints: Int
+    pMaxCheckpoints: Int
+    pSampleSize: Int
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ZRtmRecordFilter
+  ): ZRtmConnection
 
   """Reads a single `Favorite` using its globally unique `ID`."""
   favorite(
@@ -8971,6 +10051,3683 @@ input LevelRequestFilter {
   not: LevelRequestFilter
 }
 
+"""A connection to a list of `SampledFavorite` values."""
+type SampledFavoritesConnection {
+  """A list of `SampledFavorite` objects."""
+  nodes: [SampledFavorite]!
+
+  """
+  A list of edges which contains the `SampledFavorite` and cursor to aid in pagination.
+  """
+  edges: [SampledFavoritesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledFavorite` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledFavorite {
+  id: Int
+  idUser: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  idLevel: Int
+}
+
+"""A `SampledFavorite` edge in the connection."""
+type SampledFavoritesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledFavorite` at the end of the edge."""
+  node: SampledFavorite
+}
+
+"""Methods to use when ordering `SampledFavorite`."""
+enum SampledFavoritesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+}
+
+"""
+A condition to be used against `SampledFavorite` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledFavoriteCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+}
+
+"""
+A filter to be used against `SampledFavorite` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledFavoriteFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledFavoriteFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledFavoriteFilter!]
+
+  """Negates the expression."""
+  not: SampledFavoriteFilter
+}
+
+"""A connection to a list of `SampledLevel` values."""
+type SampledLevelsConnection {
+  """A list of `SampledLevel` objects."""
+  nodes: [SampledLevel]!
+
+  """
+  A list of edges which contains the `SampledLevel` and cursor to aid in pagination.
+  """
+  edges: [SampledLevelsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `SampledLevel` you could get from the connection."""
+  totalCount: Int!
+}
+
+type SampledLevel {
+  id: Int
+  hash: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledLevel` edge in the connection."""
+type SampledLevelsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledLevel` at the end of the edge."""
+  node: SampledLevel
+}
+
+"""Methods to use when ordering `SampledLevel`."""
+enum SampledLevelsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  HASH_ASC
+  HASH_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledLevel` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledLevelCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `hash` field."""
+  hash: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledLevel` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledLevelFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `hash` field."""
+  hash: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledLevelFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledLevelFilter!]
+
+  """Negates the expression."""
+  not: SampledLevelFilter
+}
+
+"""A connection to a list of `SampledLevelItem` values."""
+type SampledLevelItemsConnection {
+  """A list of `SampledLevelItem` objects."""
+  nodes: [SampledLevelItem]!
+
+  """
+  A list of edges which contains the `SampledLevelItem` and cursor to aid in pagination.
+  """
+  edges: [SampledLevelItemsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledLevelItem` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledLevelItem {
+  id: Int
+  idLevel: Int
+  workshopId: BigFloat
+  authorId: BigFloat
+  name: String
+  imageUrl: String
+  fileAuthor: String
+  fileUid: String
+  validationTimeAuthor: Float
+  validationTimeGold: Float
+  validationTimeSilver: Float
+  validationTimeBronze: Float
+  deleted: Boolean
+  createdAt: Datetime
+  updatedAt: Datetime
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledLevelItem` edge in the connection."""
+type SampledLevelItemsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledLevelItem` at the end of the edge."""
+  node: SampledLevelItem
+}
+
+"""Methods to use when ordering `SampledLevelItem`."""
+enum SampledLevelItemsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  WORKSHOP_ID_ASC
+  WORKSHOP_ID_DESC
+  AUTHOR_ID_ASC
+  AUTHOR_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  IMAGE_URL_ASC
+  IMAGE_URL_DESC
+  FILE_AUTHOR_ASC
+  FILE_AUTHOR_DESC
+  FILE_UID_ASC
+  FILE_UID_DESC
+  VALIDATION_TIME_AUTHOR_ASC
+  VALIDATION_TIME_AUTHOR_DESC
+  VALIDATION_TIME_GOLD_ASC
+  VALIDATION_TIME_GOLD_DESC
+  VALIDATION_TIME_SILVER_ASC
+  VALIDATION_TIME_SILVER_DESC
+  VALIDATION_TIME_BRONZE_ASC
+  VALIDATION_TIME_BRONZE_DESC
+  DELETED_ASC
+  DELETED_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledLevelItem` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledLevelItemCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `workshopId` field."""
+  workshopId: BigFloat
+
+  """Checks for equality with the object’s `authorId` field."""
+  authorId: BigFloat
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `imageUrl` field."""
+  imageUrl: String
+
+  """Checks for equality with the object’s `fileAuthor` field."""
+  fileAuthor: String
+
+  """Checks for equality with the object’s `fileUid` field."""
+  fileUid: String
+
+  """Checks for equality with the object’s `validationTimeAuthor` field."""
+  validationTimeAuthor: Float
+
+  """Checks for equality with the object’s `validationTimeGold` field."""
+  validationTimeGold: Float
+
+  """Checks for equality with the object’s `validationTimeSilver` field."""
+  validationTimeSilver: Float
+
+  """Checks for equality with the object’s `validationTimeBronze` field."""
+  validationTimeBronze: Float
+
+  """Checks for equality with the object’s `deleted` field."""
+  deleted: Boolean
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledLevelItem` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledLevelItemFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `workshopId` field."""
+  workshopId: BigFloatFilter
+
+  """Filter by the object’s `authorId` field."""
+  authorId: BigFloatFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `imageUrl` field."""
+  imageUrl: StringFilter
+
+  """Filter by the object’s `fileAuthor` field."""
+  fileAuthor: StringFilter
+
+  """Filter by the object’s `fileUid` field."""
+  fileUid: StringFilter
+
+  """Filter by the object’s `validationTimeAuthor` field."""
+  validationTimeAuthor: FloatFilter
+
+  """Filter by the object’s `validationTimeGold` field."""
+  validationTimeGold: FloatFilter
+
+  """Filter by the object’s `validationTimeSilver` field."""
+  validationTimeSilver: FloatFilter
+
+  """Filter by the object’s `validationTimeBronze` field."""
+  validationTimeBronze: FloatFilter
+
+  """Filter by the object’s `deleted` field."""
+  deleted: BooleanFilter
+
+  """Filter by the object’s `createdAt` field."""
+  createdAt: DatetimeFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledLevelItemFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledLevelItemFilter!]
+
+  """Negates the expression."""
+  not: SampledLevelItemFilter
+}
+
+"""A connection to a list of `SampledLevelMetadatum` values."""
+type SampledLevelMetadataConnection {
+  """A list of `SampledLevelMetadatum` objects."""
+  nodes: [SampledLevelMetadatum]!
+
+  """
+  A list of edges which contains the `SampledLevelMetadatum` and cursor to aid in pagination.
+  """
+  edges: [SampledLevelMetadataEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledLevelMetadatum` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledLevelMetadatum {
+  id: Int
+  idLevel: Int
+  amountCheckpoints: Int
+  amountFinishes: Int
+  amountBlocks: Int
+  typeGround: Int
+  typeSkybox: Int
+  blocks: JSON
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledLevelMetadatum` edge in the connection."""
+type SampledLevelMetadataEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledLevelMetadatum` at the end of the edge."""
+  node: SampledLevelMetadatum
+}
+
+"""Methods to use when ordering `SampledLevelMetadatum`."""
+enum SampledLevelMetadataOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  AMOUNT_CHECKPOINTS_ASC
+  AMOUNT_CHECKPOINTS_DESC
+  AMOUNT_FINISHES_ASC
+  AMOUNT_FINISHES_DESC
+  AMOUNT_BLOCKS_ASC
+  AMOUNT_BLOCKS_DESC
+  TYPE_GROUND_ASC
+  TYPE_GROUND_DESC
+  TYPE_SKYBOX_ASC
+  TYPE_SKYBOX_DESC
+  BLOCKS_ASC
+  BLOCKS_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledLevelMetadatum` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input SampledLevelMetadatumCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `amountCheckpoints` field."""
+  amountCheckpoints: Int
+
+  """Checks for equality with the object’s `amountFinishes` field."""
+  amountFinishes: Int
+
+  """Checks for equality with the object’s `amountBlocks` field."""
+  amountBlocks: Int
+
+  """Checks for equality with the object’s `typeGround` field."""
+  typeGround: Int
+
+  """Checks for equality with the object’s `typeSkybox` field."""
+  typeSkybox: Int
+
+  """Checks for equality with the object’s `blocks` field."""
+  blocks: JSON
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledLevelMetadatum` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledLevelMetadatumFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `amountCheckpoints` field."""
+  amountCheckpoints: IntFilter
+
+  """Filter by the object’s `amountFinishes` field."""
+  amountFinishes: IntFilter
+
+  """Filter by the object’s `amountBlocks` field."""
+  amountBlocks: IntFilter
+
+  """Filter by the object’s `typeGround` field."""
+  typeGround: IntFilter
+
+  """Filter by the object’s `typeSkybox` field."""
+  typeSkybox: IntFilter
+
+  """Filter by the object’s `blocks` field."""
+  blocks: JSONFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledLevelMetadatumFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledLevelMetadatumFilter!]
+
+  """Negates the expression."""
+  not: SampledLevelMetadatumFilter
+}
+
+"""A connection to a list of `SampledLevelPoint` values."""
+type SampledLevelPointsConnection {
+  """A list of `SampledLevelPoint` objects."""
+  nodes: [SampledLevelPoint]!
+
+  """
+  A list of edges which contains the `SampledLevelPoint` and cursor to aid in pagination.
+  """
+  edges: [SampledLevelPointsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledLevelPoint` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledLevelPoint {
+  id: Int
+  points: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledLevelPoint` edge in the connection."""
+type SampledLevelPointsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledLevelPoint` at the end of the edge."""
+  node: SampledLevelPoint
+}
+
+"""Methods to use when ordering `SampledLevelPoint`."""
+enum SampledLevelPointsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  POINTS_ASC
+  POINTS_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledLevelPoint` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledLevelPointCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `points` field."""
+  points: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledLevelPoint` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledLevelPointFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `points` field."""
+  points: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledLevelPointFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledLevelPointFilter!]
+
+  """Negates the expression."""
+  not: SampledLevelPointFilter
+}
+
+"""A connection to a list of `SampledLevelRequest` values."""
+type SampledLevelRequestsConnection {
+  """A list of `SampledLevelRequest` objects."""
+  nodes: [SampledLevelRequest]!
+
+  """
+  A list of edges which contains the `SampledLevelRequest` and cursor to aid in pagination.
+  """
+  edges: [SampledLevelRequestsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledLevelRequest` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledLevelRequest {
+  id: Int
+  workshopId: BigFloat
+  uid: String
+  hash: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledLevelRequest` edge in the connection."""
+type SampledLevelRequestsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledLevelRequest` at the end of the edge."""
+  node: SampledLevelRequest
+}
+
+"""Methods to use when ordering `SampledLevelRequest`."""
+enum SampledLevelRequestsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  WORKSHOP_ID_ASC
+  WORKSHOP_ID_DESC
+  UID_ASC
+  UID_DESC
+  HASH_ASC
+  HASH_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledLevelRequest` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input SampledLevelRequestCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `workshopId` field."""
+  workshopId: BigFloat
+
+  """Checks for equality with the object’s `uid` field."""
+  uid: String
+
+  """Checks for equality with the object’s `hash` field."""
+  hash: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledLevelRequest` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledLevelRequestFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `workshopId` field."""
+  workshopId: BigFloatFilter
+
+  """Filter by the object’s `uid` field."""
+  uid: StringFilter
+
+  """Filter by the object’s `hash` field."""
+  hash: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledLevelRequestFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledLevelRequestFilter!]
+
+  """Negates the expression."""
+  not: SampledLevelRequestFilter
+}
+
+"""A connection to a list of `SampledPersonalBestDaily` values."""
+type SampledPersonalBestDailiesConnection {
+  """A list of `SampledPersonalBestDaily` objects."""
+  nodes: [SampledPersonalBestDaily]!
+
+  """
+  A list of edges which contains the `SampledPersonalBestDaily` and cursor to aid in pagination.
+  """
+  edges: [SampledPersonalBestDailiesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledPersonalBestDaily` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledPersonalBestDaily {
+  id: Int
+  idRecord: Int
+  idUser: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  day: Int
+}
+
+"""A `SampledPersonalBestDaily` edge in the connection."""
+type SampledPersonalBestDailiesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledPersonalBestDaily` at the end of the edge."""
+  node: SampledPersonalBestDaily
+}
+
+"""Methods to use when ordering `SampledPersonalBestDaily`."""
+enum SampledPersonalBestDailiesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  DAY_ASC
+  DAY_DESC
+}
+
+"""
+A condition to be used against `SampledPersonalBestDaily` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledPersonalBestDailyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `day` field."""
+  day: Int
+}
+
+"""
+A filter to be used against `SampledPersonalBestDaily` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledPersonalBestDailyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `day` field."""
+  day: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledPersonalBestDailyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledPersonalBestDailyFilter!]
+
+  """Negates the expression."""
+  not: SampledPersonalBestDailyFilter
+}
+
+"""A connection to a list of `SampledPersonalBestGlobal` values."""
+type SampledPersonalBestGlobalsConnection {
+  """A list of `SampledPersonalBestGlobal` objects."""
+  nodes: [SampledPersonalBestGlobal]!
+
+  """
+  A list of edges which contains the `SampledPersonalBestGlobal` and cursor to aid in pagination.
+  """
+  edges: [SampledPersonalBestGlobalsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledPersonalBestGlobal` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledPersonalBestGlobal {
+  id: Int
+  idRecord: Int
+  idUser: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledPersonalBestGlobal` edge in the connection."""
+type SampledPersonalBestGlobalsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledPersonalBestGlobal` at the end of the edge."""
+  node: SampledPersonalBestGlobal
+}
+
+"""Methods to use when ordering `SampledPersonalBestGlobal`."""
+enum SampledPersonalBestGlobalsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledPersonalBestGlobal` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledPersonalBestGlobalCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledPersonalBestGlobal` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledPersonalBestGlobalFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledPersonalBestGlobalFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledPersonalBestGlobalFilter!]
+
+  """Negates the expression."""
+  not: SampledPersonalBestGlobalFilter
+}
+
+"""A connection to a list of `SampledPersonalBestMonthly` values."""
+type SampledPersonalBestMonthliesConnection {
+  """A list of `SampledPersonalBestMonthly` objects."""
+  nodes: [SampledPersonalBestMonthly]!
+
+  """
+  A list of edges which contains the `SampledPersonalBestMonthly` and cursor to aid in pagination.
+  """
+  edges: [SampledPersonalBestMonthliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledPersonalBestMonthly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledPersonalBestMonthly {
+  id: Int
+  idRecord: Int
+  idUser: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  month: Int
+}
+
+"""A `SampledPersonalBestMonthly` edge in the connection."""
+type SampledPersonalBestMonthliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledPersonalBestMonthly` at the end of the edge."""
+  node: SampledPersonalBestMonthly
+}
+
+"""Methods to use when ordering `SampledPersonalBestMonthly`."""
+enum SampledPersonalBestMonthliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  MONTH_ASC
+  MONTH_DESC
+}
+
+"""
+A condition to be used against `SampledPersonalBestMonthly` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledPersonalBestMonthlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `month` field."""
+  month: Int
+}
+
+"""
+A filter to be used against `SampledPersonalBestMonthly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledPersonalBestMonthlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `month` field."""
+  month: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledPersonalBestMonthlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledPersonalBestMonthlyFilter!]
+
+  """Negates the expression."""
+  not: SampledPersonalBestMonthlyFilter
+}
+
+"""A connection to a list of `SampledPersonalBestQuarterly` values."""
+type SampledPersonalBestQuarterliesConnection {
+  """A list of `SampledPersonalBestQuarterly` objects."""
+  nodes: [SampledPersonalBestQuarterly]!
+
+  """
+  A list of edges which contains the `SampledPersonalBestQuarterly` and cursor to aid in pagination.
+  """
+  edges: [SampledPersonalBestQuarterliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledPersonalBestQuarterly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledPersonalBestQuarterly {
+  id: Int
+  idRecord: Int
+  idUser: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  quarter: Int
+}
+
+"""A `SampledPersonalBestQuarterly` edge in the connection."""
+type SampledPersonalBestQuarterliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledPersonalBestQuarterly` at the end of the edge."""
+  node: SampledPersonalBestQuarterly
+}
+
+"""Methods to use when ordering `SampledPersonalBestQuarterly`."""
+enum SampledPersonalBestQuarterliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  QUARTER_ASC
+  QUARTER_DESC
+}
+
+"""
+A condition to be used against `SampledPersonalBestQuarterly` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledPersonalBestQuarterlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `quarter` field."""
+  quarter: Int
+}
+
+"""
+A filter to be used against `SampledPersonalBestQuarterly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledPersonalBestQuarterlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `quarter` field."""
+  quarter: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledPersonalBestQuarterlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledPersonalBestQuarterlyFilter!]
+
+  """Negates the expression."""
+  not: SampledPersonalBestQuarterlyFilter
+}
+
+"""A connection to a list of `SampledPersonalBestWeekly` values."""
+type SampledPersonalBestWeekliesConnection {
+  """A list of `SampledPersonalBestWeekly` objects."""
+  nodes: [SampledPersonalBestWeekly]!
+
+  """
+  A list of edges which contains the `SampledPersonalBestWeekly` and cursor to aid in pagination.
+  """
+  edges: [SampledPersonalBestWeekliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledPersonalBestWeekly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledPersonalBestWeekly {
+  id: Int
+  idRecord: Int
+  idUser: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  week: Int
+}
+
+"""A `SampledPersonalBestWeekly` edge in the connection."""
+type SampledPersonalBestWeekliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledPersonalBestWeekly` at the end of the edge."""
+  node: SampledPersonalBestWeekly
+}
+
+"""Methods to use when ordering `SampledPersonalBestWeekly`."""
+enum SampledPersonalBestWeekliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  WEEK_ASC
+  WEEK_DESC
+}
+
+"""
+A condition to be used against `SampledPersonalBestWeekly` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledPersonalBestWeeklyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `week` field."""
+  week: Int
+}
+
+"""
+A filter to be used against `SampledPersonalBestWeekly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledPersonalBestWeeklyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `week` field."""
+  week: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledPersonalBestWeeklyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledPersonalBestWeeklyFilter!]
+
+  """Negates the expression."""
+  not: SampledPersonalBestWeeklyFilter
+}
+
+"""A connection to a list of `SampledPersonalBestYearly` values."""
+type SampledPersonalBestYearliesConnection {
+  """A list of `SampledPersonalBestYearly` objects."""
+  nodes: [SampledPersonalBestYearly]!
+
+  """
+  A list of edges which contains the `SampledPersonalBestYearly` and cursor to aid in pagination.
+  """
+  edges: [SampledPersonalBestYearliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledPersonalBestYearly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledPersonalBestYearly {
+  id: Int
+  idRecord: Int
+  idUser: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+}
+
+"""A `SampledPersonalBestYearly` edge in the connection."""
+type SampledPersonalBestYearliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledPersonalBestYearly` at the end of the edge."""
+  node: SampledPersonalBestYearly
+}
+
+"""Methods to use when ordering `SampledPersonalBestYearly`."""
+enum SampledPersonalBestYearliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+}
+
+"""
+A condition to be used against `SampledPersonalBestYearly` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledPersonalBestYearlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+}
+
+"""
+A filter to be used against `SampledPersonalBestYearly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledPersonalBestYearlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledPersonalBestYearlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledPersonalBestYearlyFilter!]
+
+  """Negates the expression."""
+  not: SampledPersonalBestYearlyFilter
+}
+
+"""A connection to a list of `SampledRecord` values."""
+type SampledRecordsConnection {
+  """A list of `SampledRecord` objects."""
+  nodes: [SampledRecord]!
+
+  """
+  A list of edges which contains the `SampledRecord` and cursor to aid in pagination.
+  """
+  edges: [SampledRecordsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `SampledRecord` you could get from the connection."""
+  totalCount: Int!
+}
+
+type SampledRecord {
+  id: Int
+  idUser: Int
+  time: Float
+  gameVersion: String
+  isValid: Boolean
+  idLevel: Int
+  modVersion: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  splits: [Float]
+  speeds: [Float]
+}
+
+"""A `SampledRecord` edge in the connection."""
+type SampledRecordsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledRecord` at the end of the edge."""
+  node: SampledRecord
+}
+
+"""Methods to use when ordering `SampledRecord`."""
+enum SampledRecordsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  TIME_ASC
+  TIME_DESC
+  GAME_VERSION_ASC
+  GAME_VERSION_DESC
+  IS_VALID_ASC
+  IS_VALID_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  MOD_VERSION_ASC
+  MOD_VERSION_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  SPLITS_ASC
+  SPLITS_DESC
+  SPEEDS_ASC
+  SPEEDS_DESC
+}
+
+"""
+A condition to be used against `SampledRecord` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledRecordCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `time` field."""
+  time: Float
+
+  """Checks for equality with the object’s `gameVersion` field."""
+  gameVersion: String
+
+  """Checks for equality with the object’s `isValid` field."""
+  isValid: Boolean
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `modVersion` field."""
+  modVersion: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `splits` field."""
+  splits: [Float]
+
+  """Checks for equality with the object’s `speeds` field."""
+  speeds: [Float]
+}
+
+"""
+A filter to be used against `SampledRecord` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledRecordFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `time` field."""
+  time: FloatFilter
+
+  """Filter by the object’s `gameVersion` field."""
+  gameVersion: StringFilter
+
+  """Filter by the object’s `isValid` field."""
+  isValid: BooleanFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `modVersion` field."""
+  modVersion: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `splits` field."""
+  splits: FloatListFilter
+
+  """Filter by the object’s `speeds` field."""
+  speeds: FloatListFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledRecordFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledRecordFilter!]
+
+  """Negates the expression."""
+  not: SampledRecordFilter
+}
+
+"""A connection to a list of `SampledRecordMedia` values."""
+type SampledRecordMediasConnection {
+  """A list of `SampledRecordMedia` objects."""
+  nodes: [SampledRecordMedia]!
+
+  """
+  A list of edges which contains the `SampledRecordMedia` and cursor to aid in pagination.
+  """
+  edges: [SampledRecordMediasEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledRecordMedia` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledRecordMedia {
+  id: Int
+  idRecord: Int
+  ghostUrl: String
+  screenshotUrl: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledRecordMedia` edge in the connection."""
+type SampledRecordMediasEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledRecordMedia` at the end of the edge."""
+  node: SampledRecordMedia
+}
+
+"""Methods to use when ordering `SampledRecordMedia`."""
+enum SampledRecordMediasOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  GHOST_URL_ASC
+  GHOST_URL_DESC
+  SCREENSHOT_URL_ASC
+  SCREENSHOT_URL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledRecordMedia` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledRecordMediaCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `ghostUrl` field."""
+  ghostUrl: String
+
+  """Checks for equality with the object’s `screenshotUrl` field."""
+  screenshotUrl: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledRecordMedia` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledRecordMediaFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `ghostUrl` field."""
+  ghostUrl: StringFilter
+
+  """Filter by the object’s `screenshotUrl` field."""
+  screenshotUrl: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledRecordMediaFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledRecordMediaFilter!]
+
+  """Negates the expression."""
+  not: SampledRecordMediaFilter
+}
+
+"""A connection to a list of `SampledStatsDaily` values."""
+type SampledStatsDailiesConnection {
+  """A list of `SampledStatsDaily` objects."""
+  nodes: [SampledStatsDaily]!
+
+  """
+  A list of edges which contains the `SampledStatsDaily` and cursor to aid in pagination.
+  """
+  edges: [SampledStatsDailiesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledStatsDaily` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledStatsDaily {
+  id: Int
+  idUser: Int
+  idLevel: Int
+  key: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  day: Int
+  value: BigFloat
+}
+
+"""A `SampledStatsDaily` edge in the connection."""
+type SampledStatsDailiesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledStatsDaily` at the end of the edge."""
+  node: SampledStatsDaily
+}
+
+"""Methods to use when ordering `SampledStatsDaily`."""
+enum SampledStatsDailiesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  KEY_ASC
+  KEY_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  DAY_ASC
+  DAY_DESC
+  VALUE_ASC
+  VALUE_DESC
+}
+
+"""
+A condition to be used against `SampledStatsDaily` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledStatsDailyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `key` field."""
+  key: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `day` field."""
+  day: Int
+
+  """Checks for equality with the object’s `value` field."""
+  value: BigFloat
+}
+
+"""
+A filter to be used against `SampledStatsDaily` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledStatsDailyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `key` field."""
+  key: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `day` field."""
+  day: IntFilter
+
+  """Filter by the object’s `value` field."""
+  value: BigFloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledStatsDailyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledStatsDailyFilter!]
+
+  """Negates the expression."""
+  not: SampledStatsDailyFilter
+}
+
+"""A connection to a list of `SampledStatsGlobal` values."""
+type SampledStatsGlobalsConnection {
+  """A list of `SampledStatsGlobal` objects."""
+  nodes: [SampledStatsGlobal]!
+
+  """
+  A list of edges which contains the `SampledStatsGlobal` and cursor to aid in pagination.
+  """
+  edges: [SampledStatsGlobalsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledStatsGlobal` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledStatsGlobal {
+  id: Int
+  idUser: Int
+  idLevel: Int
+  key: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  value: BigFloat
+}
+
+"""A `SampledStatsGlobal` edge in the connection."""
+type SampledStatsGlobalsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledStatsGlobal` at the end of the edge."""
+  node: SampledStatsGlobal
+}
+
+"""Methods to use when ordering `SampledStatsGlobal`."""
+enum SampledStatsGlobalsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  KEY_ASC
+  KEY_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  VALUE_ASC
+  VALUE_DESC
+}
+
+"""
+A condition to be used against `SampledStatsGlobal` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledStatsGlobalCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `key` field."""
+  key: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `value` field."""
+  value: BigFloat
+}
+
+"""
+A filter to be used against `SampledStatsGlobal` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledStatsGlobalFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `key` field."""
+  key: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `value` field."""
+  value: BigFloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledStatsGlobalFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledStatsGlobalFilter!]
+
+  """Negates the expression."""
+  not: SampledStatsGlobalFilter
+}
+
+"""A connection to a list of `SampledStatsMonthly` values."""
+type SampledStatsMonthliesConnection {
+  """A list of `SampledStatsMonthly` objects."""
+  nodes: [SampledStatsMonthly]!
+
+  """
+  A list of edges which contains the `SampledStatsMonthly` and cursor to aid in pagination.
+  """
+  edges: [SampledStatsMonthliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledStatsMonthly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledStatsMonthly {
+  id: Int
+  idUser: Int
+  idLevel: Int
+  key: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  month: Int
+  value: BigFloat
+}
+
+"""A `SampledStatsMonthly` edge in the connection."""
+type SampledStatsMonthliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledStatsMonthly` at the end of the edge."""
+  node: SampledStatsMonthly
+}
+
+"""Methods to use when ordering `SampledStatsMonthly`."""
+enum SampledStatsMonthliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  KEY_ASC
+  KEY_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  MONTH_ASC
+  MONTH_DESC
+  VALUE_ASC
+  VALUE_DESC
+}
+
+"""
+A condition to be used against `SampledStatsMonthly` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input SampledStatsMonthlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `key` field."""
+  key: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `month` field."""
+  month: Int
+
+  """Checks for equality with the object’s `value` field."""
+  value: BigFloat
+}
+
+"""
+A filter to be used against `SampledStatsMonthly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledStatsMonthlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `key` field."""
+  key: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `month` field."""
+  month: IntFilter
+
+  """Filter by the object’s `value` field."""
+  value: BigFloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledStatsMonthlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledStatsMonthlyFilter!]
+
+  """Negates the expression."""
+  not: SampledStatsMonthlyFilter
+}
+
+"""A connection to a list of `SampledStatsQuarterly` values."""
+type SampledStatsQuarterliesConnection {
+  """A list of `SampledStatsQuarterly` objects."""
+  nodes: [SampledStatsQuarterly]!
+
+  """
+  A list of edges which contains the `SampledStatsQuarterly` and cursor to aid in pagination.
+  """
+  edges: [SampledStatsQuarterliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledStatsQuarterly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledStatsQuarterly {
+  id: Int
+  idUser: Int
+  idLevel: Int
+  key: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  quarter: Int
+  value: BigFloat
+}
+
+"""A `SampledStatsQuarterly` edge in the connection."""
+type SampledStatsQuarterliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledStatsQuarterly` at the end of the edge."""
+  node: SampledStatsQuarterly
+}
+
+"""Methods to use when ordering `SampledStatsQuarterly`."""
+enum SampledStatsQuarterliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  KEY_ASC
+  KEY_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  QUARTER_ASC
+  QUARTER_DESC
+  VALUE_ASC
+  VALUE_DESC
+}
+
+"""
+A condition to be used against `SampledStatsQuarterly` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input SampledStatsQuarterlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `key` field."""
+  key: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `quarter` field."""
+  quarter: Int
+
+  """Checks for equality with the object’s `value` field."""
+  value: BigFloat
+}
+
+"""
+A filter to be used against `SampledStatsQuarterly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledStatsQuarterlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `key` field."""
+  key: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `quarter` field."""
+  quarter: IntFilter
+
+  """Filter by the object’s `value` field."""
+  value: BigFloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledStatsQuarterlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledStatsQuarterlyFilter!]
+
+  """Negates the expression."""
+  not: SampledStatsQuarterlyFilter
+}
+
+"""A connection to a list of `SampledStatsWeekly` values."""
+type SampledStatsWeekliesConnection {
+  """A list of `SampledStatsWeekly` objects."""
+  nodes: [SampledStatsWeekly]!
+
+  """
+  A list of edges which contains the `SampledStatsWeekly` and cursor to aid in pagination.
+  """
+  edges: [SampledStatsWeekliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledStatsWeekly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledStatsWeekly {
+  id: Int
+  idUser: Int
+  idLevel: Int
+  key: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  week: Int
+  value: BigFloat
+}
+
+"""A `SampledStatsWeekly` edge in the connection."""
+type SampledStatsWeekliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledStatsWeekly` at the end of the edge."""
+  node: SampledStatsWeekly
+}
+
+"""Methods to use when ordering `SampledStatsWeekly`."""
+enum SampledStatsWeekliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  KEY_ASC
+  KEY_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  WEEK_ASC
+  WEEK_DESC
+  VALUE_ASC
+  VALUE_DESC
+}
+
+"""
+A condition to be used against `SampledStatsWeekly` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledStatsWeeklyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `key` field."""
+  key: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `week` field."""
+  week: Int
+
+  """Checks for equality with the object’s `value` field."""
+  value: BigFloat
+}
+
+"""
+A filter to be used against `SampledStatsWeekly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledStatsWeeklyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `key` field."""
+  key: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `week` field."""
+  week: IntFilter
+
+  """Filter by the object’s `value` field."""
+  value: BigFloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledStatsWeeklyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledStatsWeeklyFilter!]
+
+  """Negates the expression."""
+  not: SampledStatsWeeklyFilter
+}
+
+"""A connection to a list of `SampledStatsYearly` values."""
+type SampledStatsYearliesConnection {
+  """A list of `SampledStatsYearly` objects."""
+  nodes: [SampledStatsYearly]!
+
+  """
+  A list of edges which contains the `SampledStatsYearly` and cursor to aid in pagination.
+  """
+  edges: [SampledStatsYearliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledStatsYearly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledStatsYearly {
+  id: Int
+  idUser: Int
+  idLevel: Int
+  key: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  value: BigFloat
+}
+
+"""A `SampledStatsYearly` edge in the connection."""
+type SampledStatsYearliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledStatsYearly` at the end of the edge."""
+  node: SampledStatsYearly
+}
+
+"""Methods to use when ordering `SampledStatsYearly`."""
+enum SampledStatsYearliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  KEY_ASC
+  KEY_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  VALUE_ASC
+  VALUE_DESC
+}
+
+"""
+A condition to be used against `SampledStatsYearly` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledStatsYearlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `key` field."""
+  key: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `value` field."""
+  value: BigFloat
+}
+
+"""
+A filter to be used against `SampledStatsYearly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledStatsYearlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `key` field."""
+  key: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `value` field."""
+  value: BigFloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledStatsYearlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledStatsYearlyFilter!]
+
+  """Negates the expression."""
+  not: SampledStatsYearlyFilter
+}
+
+"""A connection to a list of `SampledUpvote` values."""
+type SampledUpvotesConnection {
+  """A list of `SampledUpvote` objects."""
+  nodes: [SampledUpvote]!
+
+  """
+  A list of edges which contains the `SampledUpvote` and cursor to aid in pagination.
+  """
+  edges: [SampledUpvotesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `SampledUpvote` you could get from the connection."""
+  totalCount: Int!
+}
+
+type SampledUpvote {
+  id: Int
+  idUser: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledUpvote` edge in the connection."""
+type SampledUpvotesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledUpvote` at the end of the edge."""
+  node: SampledUpvote
+}
+
+"""Methods to use when ordering `SampledUpvote`."""
+enum SampledUpvotesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledUpvote` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledUpvoteCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledUpvote` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledUpvoteFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledUpvoteFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledUpvoteFilter!]
+
+  """Negates the expression."""
+  not: SampledUpvoteFilter
+}
+
+"""A connection to a list of `SampledUser` values."""
+type SampledUsersConnection {
+  """A list of `SampledUser` objects."""
+  nodes: [SampledUser]!
+
+  """
+  A list of edges which contains the `SampledUser` and cursor to aid in pagination.
+  """
+  edges: [SampledUsersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `SampledUser` you could get from the connection."""
+  totalCount: Int!
+}
+
+type SampledUser {
+  id: Int
+  steamName: String
+  banned: Boolean
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  steamId: BigFloat
+  discordId: BigFloat
+}
+
+"""A `SampledUser` edge in the connection."""
+type SampledUsersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledUser` at the end of the edge."""
+  node: SampledUser
+}
+
+"""Methods to use when ordering `SampledUser`."""
+enum SampledUsersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  STEAM_NAME_ASC
+  STEAM_NAME_DESC
+  BANNED_ASC
+  BANNED_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  STEAM_ID_ASC
+  STEAM_ID_DESC
+  DISCORD_ID_ASC
+  DISCORD_ID_DESC
+}
+
+"""
+A condition to be used against `SampledUser` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input SampledUserCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `steamName` field."""
+  steamName: String
+
+  """Checks for equality with the object’s `banned` field."""
+  banned: Boolean
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `steamId` field."""
+  steamId: BigFloat
+
+  """Checks for equality with the object’s `discordId` field."""
+  discordId: BigFloat
+}
+
+"""
+A filter to be used against `SampledUser` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledUserFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `steamName` field."""
+  steamName: StringFilter
+
+  """Filter by the object’s `banned` field."""
+  banned: BooleanFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `steamId` field."""
+  steamId: BigFloatFilter
+
+  """Filter by the object’s `discordId` field."""
+  discordId: BigFloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledUserFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledUserFilter!]
+
+  """Negates the expression."""
+  not: SampledUserFilter
+}
+
+"""A connection to a list of `SampledUserPoint` values."""
+type SampledUserPointsConnection {
+  """A list of `SampledUserPoint` objects."""
+  nodes: [SampledUserPoint]!
+
+  """
+  A list of edges which contains the `SampledUserPoint` and cursor to aid in pagination.
+  """
+  edges: [SampledUserPointsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledUserPoint` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledUserPoint {
+  id: Int
+  idUser: Int
+  points: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  rank: Int
+  worldRecords: Int
+}
+
+"""A `SampledUserPoint` edge in the connection."""
+type SampledUserPointsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledUserPoint` at the end of the edge."""
+  node: SampledUserPoint
+}
+
+"""Methods to use when ordering `SampledUserPoint`."""
+enum SampledUserPointsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_USER_ASC
+  ID_USER_DESC
+  POINTS_ASC
+  POINTS_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  RANK_ASC
+  RANK_DESC
+  WORLD_RECORDS_ASC
+  WORLD_RECORDS_DESC
+}
+
+"""
+A condition to be used against `SampledUserPoint` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledUserPointCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idUser` field."""
+  idUser: Int
+
+  """Checks for equality with the object’s `points` field."""
+  points: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `rank` field."""
+  rank: Int
+
+  """Checks for equality with the object’s `worldRecords` field."""
+  worldRecords: Int
+}
+
+"""
+A filter to be used against `SampledUserPoint` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledUserPointFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idUser` field."""
+  idUser: IntFilter
+
+  """Filter by the object’s `points` field."""
+  points: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `rank` field."""
+  rank: IntFilter
+
+  """Filter by the object’s `worldRecords` field."""
+  worldRecords: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledUserPointFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledUserPointFilter!]
+
+  """Negates the expression."""
+  not: SampledUserPointFilter
+}
+
+"""A connection to a list of `SampledVersion` values."""
+type SampledVersionsConnection {
+  """A list of `SampledVersion` objects."""
+  nodes: [SampledVersion]!
+
+  """
+  A list of edges which contains the `SampledVersion` and cursor to aid in pagination.
+  """
+  edges: [SampledVersionsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `SampledVersion` you could get from the connection."""
+  totalCount: Int!
+}
+
+type SampledVersion {
+  id: Int
+  minimum: String
+  latest: String
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledVersion` edge in the connection."""
+type SampledVersionsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledVersion` at the end of the edge."""
+  node: SampledVersion
+}
+
+"""Methods to use when ordering `SampledVersion`."""
+enum SampledVersionsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  MINIMUM_ASC
+  MINIMUM_DESC
+  LATEST_ASC
+  LATEST_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledVersion` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SampledVersionCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `minimum` field."""
+  minimum: String
+
+  """Checks for equality with the object’s `latest` field."""
+  latest: String
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledVersion` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledVersionFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `minimum` field."""
+  minimum: StringFilter
+
+  """Filter by the object’s `latest` field."""
+  latest: StringFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledVersionFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledVersionFilter!]
+
+  """Negates the expression."""
+  not: SampledVersionFilter
+}
+
+"""A connection to a list of `SampledWorldRecordDaily` values."""
+type SampledWorldRecordDailiesConnection {
+  """A list of `SampledWorldRecordDaily` objects."""
+  nodes: [SampledWorldRecordDaily]!
+
+  """
+  A list of edges which contains the `SampledWorldRecordDaily` and cursor to aid in pagination.
+  """
+  edges: [SampledWorldRecordDailiesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledWorldRecordDaily` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledWorldRecordDaily {
+  id: Int
+  idRecord: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  day: Int
+}
+
+"""A `SampledWorldRecordDaily` edge in the connection."""
+type SampledWorldRecordDailiesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledWorldRecordDaily` at the end of the edge."""
+  node: SampledWorldRecordDaily
+}
+
+"""Methods to use when ordering `SampledWorldRecordDaily`."""
+enum SampledWorldRecordDailiesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  DAY_ASC
+  DAY_DESC
+}
+
+"""
+A condition to be used against `SampledWorldRecordDaily` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledWorldRecordDailyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `day` field."""
+  day: Int
+}
+
+"""
+A filter to be used against `SampledWorldRecordDaily` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledWorldRecordDailyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `day` field."""
+  day: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledWorldRecordDailyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledWorldRecordDailyFilter!]
+
+  """Negates the expression."""
+  not: SampledWorldRecordDailyFilter
+}
+
+"""A connection to a list of `SampledWorldRecordGlobal` values."""
+type SampledWorldRecordGlobalsConnection {
+  """A list of `SampledWorldRecordGlobal` objects."""
+  nodes: [SampledWorldRecordGlobal]!
+
+  """
+  A list of edges which contains the `SampledWorldRecordGlobal` and cursor to aid in pagination.
+  """
+  edges: [SampledWorldRecordGlobalsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledWorldRecordGlobal` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledWorldRecordGlobal {
+  id: Int
+  idRecord: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+}
+
+"""A `SampledWorldRecordGlobal` edge in the connection."""
+type SampledWorldRecordGlobalsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledWorldRecordGlobal` at the end of the edge."""
+  node: SampledWorldRecordGlobal
+}
+
+"""Methods to use when ordering `SampledWorldRecordGlobal`."""
+enum SampledWorldRecordGlobalsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+}
+
+"""
+A condition to be used against `SampledWorldRecordGlobal` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledWorldRecordGlobalCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+}
+
+"""
+A filter to be used against `SampledWorldRecordGlobal` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledWorldRecordGlobalFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledWorldRecordGlobalFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledWorldRecordGlobalFilter!]
+
+  """Negates the expression."""
+  not: SampledWorldRecordGlobalFilter
+}
+
+"""A connection to a list of `SampledWorldRecordMonthly` values."""
+type SampledWorldRecordMonthliesConnection {
+  """A list of `SampledWorldRecordMonthly` objects."""
+  nodes: [SampledWorldRecordMonthly]!
+
+  """
+  A list of edges which contains the `SampledWorldRecordMonthly` and cursor to aid in pagination.
+  """
+  edges: [SampledWorldRecordMonthliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledWorldRecordMonthly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledWorldRecordMonthly {
+  id: Int
+  idRecord: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  month: Int
+}
+
+"""A `SampledWorldRecordMonthly` edge in the connection."""
+type SampledWorldRecordMonthliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledWorldRecordMonthly` at the end of the edge."""
+  node: SampledWorldRecordMonthly
+}
+
+"""Methods to use when ordering `SampledWorldRecordMonthly`."""
+enum SampledWorldRecordMonthliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  MONTH_ASC
+  MONTH_DESC
+}
+
+"""
+A condition to be used against `SampledWorldRecordMonthly` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledWorldRecordMonthlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `month` field."""
+  month: Int
+}
+
+"""
+A filter to be used against `SampledWorldRecordMonthly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledWorldRecordMonthlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `month` field."""
+  month: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledWorldRecordMonthlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledWorldRecordMonthlyFilter!]
+
+  """Negates the expression."""
+  not: SampledWorldRecordMonthlyFilter
+}
+
+"""A connection to a list of `SampledWorldRecordQuarterly` values."""
+type SampledWorldRecordQuarterliesConnection {
+  """A list of `SampledWorldRecordQuarterly` objects."""
+  nodes: [SampledWorldRecordQuarterly]!
+
+  """
+  A list of edges which contains the `SampledWorldRecordQuarterly` and cursor to aid in pagination.
+  """
+  edges: [SampledWorldRecordQuarterliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledWorldRecordQuarterly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledWorldRecordQuarterly {
+  id: Int
+  idRecord: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  quarter: Int
+}
+
+"""A `SampledWorldRecordQuarterly` edge in the connection."""
+type SampledWorldRecordQuarterliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledWorldRecordQuarterly` at the end of the edge."""
+  node: SampledWorldRecordQuarterly
+}
+
+"""Methods to use when ordering `SampledWorldRecordQuarterly`."""
+enum SampledWorldRecordQuarterliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  QUARTER_ASC
+  QUARTER_DESC
+}
+
+"""
+A condition to be used against `SampledWorldRecordQuarterly` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledWorldRecordQuarterlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `quarter` field."""
+  quarter: Int
+}
+
+"""
+A filter to be used against `SampledWorldRecordQuarterly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledWorldRecordQuarterlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `quarter` field."""
+  quarter: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledWorldRecordQuarterlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledWorldRecordQuarterlyFilter!]
+
+  """Negates the expression."""
+  not: SampledWorldRecordQuarterlyFilter
+}
+
+"""A connection to a list of `SampledWorldRecordWeekly` values."""
+type SampledWorldRecordWeekliesConnection {
+  """A list of `SampledWorldRecordWeekly` objects."""
+  nodes: [SampledWorldRecordWeekly]!
+
+  """
+  A list of edges which contains the `SampledWorldRecordWeekly` and cursor to aid in pagination.
+  """
+  edges: [SampledWorldRecordWeekliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledWorldRecordWeekly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledWorldRecordWeekly {
+  id: Int
+  idRecord: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+  week: Int
+}
+
+"""A `SampledWorldRecordWeekly` edge in the connection."""
+type SampledWorldRecordWeekliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledWorldRecordWeekly` at the end of the edge."""
+  node: SampledWorldRecordWeekly
+}
+
+"""Methods to use when ordering `SampledWorldRecordWeekly`."""
+enum SampledWorldRecordWeekliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+  WEEK_ASC
+  WEEK_DESC
+}
+
+"""
+A condition to be used against `SampledWorldRecordWeekly` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledWorldRecordWeeklyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+
+  """Checks for equality with the object’s `week` field."""
+  week: Int
+}
+
+"""
+A filter to be used against `SampledWorldRecordWeekly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledWorldRecordWeeklyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Filter by the object’s `week` field."""
+  week: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledWorldRecordWeeklyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledWorldRecordWeeklyFilter!]
+
+  """Negates the expression."""
+  not: SampledWorldRecordWeeklyFilter
+}
+
+"""A connection to a list of `SampledWorldRecordYearly` values."""
+type SampledWorldRecordYearliesConnection {
+  """A list of `SampledWorldRecordYearly` objects."""
+  nodes: [SampledWorldRecordYearly]!
+
+  """
+  A list of edges which contains the `SampledWorldRecordYearly` and cursor to aid in pagination.
+  """
+  edges: [SampledWorldRecordYearliesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SampledWorldRecordYearly` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type SampledWorldRecordYearly {
+  id: Int
+  idRecord: Int
+  idLevel: Int
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  year: Int
+}
+
+"""A `SampledWorldRecordYearly` edge in the connection."""
+type SampledWorldRecordYearliesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SampledWorldRecordYearly` at the end of the edge."""
+  node: SampledWorldRecordYearly
+}
+
+"""Methods to use when ordering `SampledWorldRecordYearly`."""
+enum SampledWorldRecordYearliesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  ID_RECORD_ASC
+  ID_RECORD_DESC
+  ID_LEVEL_ASC
+  ID_LEVEL_DESC
+  DATE_CREATED_ASC
+  DATE_CREATED_DESC
+  DATE_UPDATED_ASC
+  DATE_UPDATED_DESC
+  YEAR_ASC
+  YEAR_DESC
+}
+
+"""
+A condition to be used against `SampledWorldRecordYearly` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input SampledWorldRecordYearlyCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `idRecord` field."""
+  idRecord: Int
+
+  """Checks for equality with the object’s `idLevel` field."""
+  idLevel: Int
+
+  """Checks for equality with the object’s `dateCreated` field."""
+  dateCreated: Datetime
+
+  """Checks for equality with the object’s `dateUpdated` field."""
+  dateUpdated: Datetime
+
+  """Checks for equality with the object’s `year` field."""
+  year: Int
+}
+
+"""
+A filter to be used against `SampledWorldRecordYearly` object types. All fields are combined with a logical ‘and.’
+"""
+input SampledWorldRecordYearlyFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idRecord` field."""
+  idRecord: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `year` field."""
+  year: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [SampledWorldRecordYearlyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [SampledWorldRecordYearlyFilter!]
+
+  """Negates the expression."""
+  not: SampledWorldRecordYearlyFilter
+}
+
 """A connection to a list of `User` values."""
 type UsersConnection {
   """A list of `User` objects."""
@@ -9146,6 +13903,172 @@ input VersionFilter {
 
   """Negates the expression."""
   not: VersionFilter
+}
+
+"""A connection to a list of `ZRtmRecord` values."""
+type ZRtmConnection {
+  """A list of `ZRtmRecord` objects."""
+  nodes: [ZRtmRecord]!
+
+  """
+  A list of edges which contains the `ZRtmRecord` and cursor to aid in pagination.
+  """
+  edges: [ZRtmEdge!]!
+
+  """The count of *all* `ZRtmRecord` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""The return type of our `zRtm` query."""
+type ZRtmRecord {
+  id: Int
+  idLevel: Int
+  workshopId: BigFloat
+  authorId: BigFloat
+  name: String
+  imageUrl: String
+  fileAuthor: String
+  fileUid: String
+  validationTimeAuthor: Float
+  validationTimeGold: Float
+  validationTimeSilver: Float
+  validationTimeBronze: Float
+  deleted: Boolean
+  createdAt: Datetime
+  updatedAt: Datetime
+  dateCreated: Datetime
+  dateUpdated: Datetime
+  amountCheckpoints: Int
+  numRecords: BigInt
+}
+
+"""
+A signed eight-byte integer. The upper big integer values are greater than the
+max value for a JavaScript number. Therefore all big integers will be output as
+strings and not numbers.
+"""
+scalar BigInt
+
+"""A `ZRtmRecord` edge in the connection."""
+type ZRtmEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ZRtmRecord` at the end of the edge."""
+  node: ZRtmRecord
+}
+
+"""
+A filter to be used against `ZRtmRecord` object types. All fields are combined with a logical ‘and.’
+"""
+input ZRtmRecordFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `idLevel` field."""
+  idLevel: IntFilter
+
+  """Filter by the object’s `workshopId` field."""
+  workshopId: BigFloatFilter
+
+  """Filter by the object’s `authorId` field."""
+  authorId: BigFloatFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `imageUrl` field."""
+  imageUrl: StringFilter
+
+  """Filter by the object’s `fileAuthor` field."""
+  fileAuthor: StringFilter
+
+  """Filter by the object’s `fileUid` field."""
+  fileUid: StringFilter
+
+  """Filter by the object’s `validationTimeAuthor` field."""
+  validationTimeAuthor: FloatFilter
+
+  """Filter by the object’s `validationTimeGold` field."""
+  validationTimeGold: FloatFilter
+
+  """Filter by the object’s `validationTimeSilver` field."""
+  validationTimeSilver: FloatFilter
+
+  """Filter by the object’s `validationTimeBronze` field."""
+  validationTimeBronze: FloatFilter
+
+  """Filter by the object’s `deleted` field."""
+  deleted: BooleanFilter
+
+  """Filter by the object’s `createdAt` field."""
+  createdAt: DatetimeFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `dateCreated` field."""
+  dateCreated: DatetimeFilter
+
+  """Filter by the object’s `dateUpdated` field."""
+  dateUpdated: DatetimeFilter
+
+  """Filter by the object’s `amountCheckpoints` field."""
+  amountCheckpoints: IntFilter
+
+  """Filter by the object’s `numRecords` field."""
+  numRecords: BigIntFilter
+
+  """Checks for all expressions in this list."""
+  and: [ZRtmRecordFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [ZRtmRecordFilter!]
+
+  """Negates the expression."""
+  not: ZRtmRecordFilter
+}
+
+"""
+A filter to be used against BigInt fields. All fields are combined with a logical ‘and.’
+"""
+input BigIntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: BigInt
+
+  """Not equal to the specified value."""
+  notEqualTo: BigInt
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: BigInt
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: BigInt
+
+  """Included in the specified list."""
+  in: [BigInt!]
+
+  """Not included in the specified list."""
+  notIn: [BigInt!]
+
+  """Less than the specified value."""
+  lessThan: BigInt
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: BigInt
+
+  """Greater than the specified value."""
+  greaterThan: BigInt
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: BigInt
 }
 
 """
