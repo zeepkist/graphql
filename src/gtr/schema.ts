@@ -179,7 +179,7 @@ export interface Query {
     worldRecordQuarterlyById: (WorldRecordQuarterly | null)
     worldRecordWeeklyById: (WorldRecordWeekly | null)
     worldRecordYearlyById: (WorldRecordYearly | null)
-    /** Retrieves filtered level items based on specified criteria */
+    /** Retrieves filtered level items based on specified criteria, excluding levels based on hashes. */
     zRtm: (ZRtmConnection | null)
     /** Reads a single `Favorite` using its globally unique `ID`. */
     favorite: (Favorite | null)
@@ -4272,8 +4272,8 @@ export interface QueryGenqlSelection{
     worldRecordQuarterlyById?: (WorldRecordQuarterlyGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordWeeklyById?: (WorldRecordWeeklyGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordYearlyById?: (WorldRecordYearlyGenqlSelection & { __args: {id: Scalars['Int']} })
-    /** Retrieves filtered level items based on specified criteria */
-    zRtm?: (ZRtmConnectionGenqlSelection & { __args?: {pMinAuthorTime?: (Scalars['Float'] | null), pMaxAuthorTime?: (Scalars['Float'] | null), pMinRecords?: (Scalars['Int'] | null), pMaxRecords?: (Scalars['Int'] | null), pExcludedAuthorIds?: ((Scalars['Int'] | null)[] | null), pExcludedHashes?: ((Scalars['String'] | null)[] | null), pMinCheckpoints?: (Scalars['Int'] | null), pMaxCheckpoints?: (Scalars['Int'] | null), pSampleSize?: (Scalars['Int'] | null), 
+    /** Retrieves filtered level items based on specified criteria, excluding levels based on hashes. */
+    zRtm?: (ZRtmConnectionGenqlSelection & { __args?: {pMinAuthorTime?: (Scalars['Float'] | null), pMaxAuthorTime?: (Scalars['Float'] | null), pMinRecords?: (Scalars['Int'] | null), pMaxRecords?: (Scalars['Int'] | null), pExcludedAuthorIds?: ((Scalars['Int'] | null)[] | null), pExcludedHashes?: ((Scalars['String'] | null)[] | null), pMinCheckpoints?: (Scalars['Int'] | null), pMaxCheckpoints?: (Scalars['Int'] | null), 
     /** Only read the first `n` values of the set. */
     first?: (Scalars['Int'] | null), 
     /** Only read the last `n` values of the set. */

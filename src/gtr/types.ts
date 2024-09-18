@@ -993,7 +993,6 @@ export default {
                     pExcludedHashes: [8, '[String]'],
                     pMinCheckpoints: [5],
                     pMaxCheckpoints: [5],
-                    pSampleSize: [5],
                     first: [5],
                     last: [5],
                     offset: [5],
