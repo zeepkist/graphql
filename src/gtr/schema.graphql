@@ -2112,9 +2112,7 @@ type Query implements Node {
   worldRecordWeeklyById(id: Int!): WorldRecordWeekly
   worldRecordYearlyById(id: Int!): WorldRecordYearly
 
-  """
-  Retrieves filtered level items based on specified criteria, excluding levels based on hashes.
-  """
+  """Retrieves filtered level items based on specified criteria."""
   zRtm(
     pMinAuthorTime: Float
     pMaxAuthorTime: Float
@@ -2124,6 +2122,11 @@ type Query implements Node {
     pExcludedHashes: [String]
     pMinCheckpoints: Int
     pMaxCheckpoints: Int
+    pMinFinishes: Int
+    pMaxFinishes: Int
+    pMinBlocks: Int
+    pMaxBlocks: Int
+    pSampleSize: Int
 
     """Only read the first `n` values of the set."""
     first: Int
@@ -13940,6 +13943,8 @@ type ZRtmRecord {
   dateCreated: Datetime
   dateUpdated: Datetime
   amountCheckpoints: Int
+  amountFinishes: Int
+  amountBlocks: Int
   numRecords: BigInt
 }
 
@@ -14016,6 +14021,12 @@ input ZRtmRecordFilter {
 
   """Filter by the object’s `amountCheckpoints` field."""
   amountCheckpoints: IntFilter
+
+  """Filter by the object’s `amountFinishes` field."""
+  amountFinishes: IntFilter
+
+  """Filter by the object’s `amountBlocks` field."""
+  amountBlocks: IntFilter
 
   """Filter by the object’s `numRecords` field."""
   numRecords: BigIntFilter

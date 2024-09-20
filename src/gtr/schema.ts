@@ -179,7 +179,7 @@ export interface Query {
     worldRecordQuarterlyById: (WorldRecordQuarterly | null)
     worldRecordWeeklyById: (WorldRecordWeekly | null)
     worldRecordYearlyById: (WorldRecordYearly | null)
-    /** Retrieves filtered level items based on specified criteria, excluding levels based on hashes. */
+    /** Retrieves filtered level items based on specified criteria. */
     zRtm: (ZRtmConnection | null)
     /** Reads a single `Favorite` using its globally unique `ID`. */
     favorite: (Favorite | null)
@@ -2933,6 +2933,8 @@ export interface ZRtmRecord {
     dateCreated: (Scalars['Datetime'] | null)
     dateUpdated: (Scalars['Datetime'] | null)
     amountCheckpoints: (Scalars['Int'] | null)
+    amountFinishes: (Scalars['Int'] | null)
+    amountBlocks: (Scalars['Int'] | null)
     numRecords: (Scalars['BigInt'] | null)
     __typename: 'ZRtmRecord'
 }
@@ -4272,8 +4274,8 @@ export interface QueryGenqlSelection{
     worldRecordQuarterlyById?: (WorldRecordQuarterlyGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordWeeklyById?: (WorldRecordWeeklyGenqlSelection & { __args: {id: Scalars['Int']} })
     worldRecordYearlyById?: (WorldRecordYearlyGenqlSelection & { __args: {id: Scalars['Int']} })
-    /** Retrieves filtered level items based on specified criteria, excluding levels based on hashes. */
-    zRtm?: (ZRtmConnectionGenqlSelection & { __args?: {pMinAuthorTime?: (Scalars['Float'] | null), pMaxAuthorTime?: (Scalars['Float'] | null), pMinRecords?: (Scalars['Int'] | null), pMaxRecords?: (Scalars['Int'] | null), pExcludedAuthorIds?: ((Scalars['Int'] | null)[] | null), pExcludedHashes?: ((Scalars['String'] | null)[] | null), pMinCheckpoints?: (Scalars['Int'] | null), pMaxCheckpoints?: (Scalars['Int'] | null), 
+    /** Retrieves filtered level items based on specified criteria. */
+    zRtm?: (ZRtmConnectionGenqlSelection & { __args?: {pMinAuthorTime?: (Scalars['Float'] | null), pMaxAuthorTime?: (Scalars['Float'] | null), pMinRecords?: (Scalars['Int'] | null), pMaxRecords?: (Scalars['Int'] | null), pExcludedAuthorIds?: ((Scalars['Int'] | null)[] | null), pExcludedHashes?: ((Scalars['String'] | null)[] | null), pMinCheckpoints?: (Scalars['Int'] | null), pMaxCheckpoints?: (Scalars['Int'] | null), pMinFinishes?: (Scalars['Int'] | null), pMaxFinishes?: (Scalars['Int'] | null), pMinBlocks?: (Scalars['Int'] | null), pMaxBlocks?: (Scalars['Int'] | null), pSampleSize?: (Scalars['Int'] | null), 
     /** Only read the first `n` values of the set. */
     first?: (Scalars['Int'] | null), 
     /** Only read the last `n` values of the set. */
@@ -12022,6 +12024,8 @@ export interface ZRtmRecordGenqlSelection{
     dateCreated?: boolean | number
     dateUpdated?: boolean | number
     amountCheckpoints?: boolean | number
+    amountFinishes?: boolean | number
+    amountBlocks?: boolean | number
     numRecords?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
@@ -12077,6 +12081,10 @@ dateCreated?: (DatetimeFilter | null),
 dateUpdated?: (DatetimeFilter | null),
 /** Filter by the object’s `amountCheckpoints` field. */
 amountCheckpoints?: (IntFilter | null),
+/** Filter by the object’s `amountFinishes` field. */
+amountFinishes?: (IntFilter | null),
+/** Filter by the object’s `amountBlocks` field. */
+amountBlocks?: (IntFilter | null),
 /** Filter by the object’s `numRecords` field. */
 numRecords?: (BigIntFilter | null),
 /** Checks for all expressions in this list. */
